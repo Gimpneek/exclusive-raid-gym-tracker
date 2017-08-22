@@ -1,0 +1,8 @@
+{%  extends 'app/base.html' %}
+{%  block content %}
+<ul>
+   {%  for gym_item in gym_list %}
+    <li>{{ gym_item.gym.name }}</li>
+{% endfor %}
+</ul>
+{%  endblock %}

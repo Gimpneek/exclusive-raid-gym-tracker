@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+{% block content %}
+    <h1>Sign up for an account</h1>
+    <form action="" method="post" id="cv_element_form">
+        {{ form }}
+        {% csrf_token %}
+        <p class="control">
+            <input type="submit" value="Submit" class="button is-primary" id="form_submit" />
+        </p>
+    </form>
+{%  endblock %}

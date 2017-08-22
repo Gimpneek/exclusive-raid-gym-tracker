@@ -1,0 +1,20 @@
+[
+  {
+    "model": "app.gym",
+    "pk": 1,
+    "fields": {
+      "name": "Waterfall Sculpture in Leeds",
+      "location": "53.794799,-1.532943",
+      "gym_hunter_id": "5948264cf2b118092eaf8dc3"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 2,
+    "fields": {
+      "name": "Leeds Minster",
+      "location": "53.795322,-1.536077",
+      "gym_hunter_id": "58657442cfb1ad32b7d819a4"
+    }
+  }
+]
