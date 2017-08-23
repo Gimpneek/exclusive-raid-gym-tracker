@@ -1,10 +1,42 @@
 {%  extends 'app/base.html' %}
+{%  block hero %}
+    <section class="hero is-medium is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Gym Progress
+          </h1>
+          <h2 class="subtitle">
+            Track your progress as you complete raids on each Gym in Leeds city center
+          </h2>
+          <progress class="progress is-large" value="{{ completed_gyms }}" max="{{ total_gyms }}">{{ gym_progress }}%</progress>
+            <h2 class="subtitle has-text-centered">{{ gym_progress }}% complete!</h2>
+        </div>
+      </div>
+    </section>
+{%  endblock %}
 {%  block content %}
-<div class="container">
-    <div class="columns">
-        {%  for gym_item in gym_list %}
+    {%  for gym_item in gym_list %}
+        <article class="message is-primary">
+            <div class="message-header">
+                {{  gym_item.gym.name }}
+                <a href="/hide/{{ gym_item.id }}/" class="delete"></a>
+            </div>
+            <div class="message-body">
+                {% if gym_item.last_visit_date %}
+                    <p>You last visited this gym on {{ gym_item.last_visit_date|date:"d/m/Y" }}</p>
+                {% else %}
+                    <p>You still need to visit this gym</p>
+                {% endif %}
+                <p>
+                    <a class="button is-primary" href="/item/{{ gym_item.id }}/">Add Raid</a>
+                </p>
+            </div>
+        </article>
 
-        <div class="column is-4 is-flex-touch">
+
+
+        <!--<div class="column is-4 is-flex-touch">
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
@@ -23,12 +55,6 @@
                 <a class="card-footer-item" href="/hide/{{ gym_item.id }}/">Hide</a>
               </footer>
             </div>
-        </div>
-            {% if forloop.counter|divisibleby:3 %}
-                </div>
-                <div class="columns">
-            {% endif %}
-            {% endfor %}
-    </div>
-</div>
+        </div>-->
+    {% endfor %}
 {%  endblock %}
