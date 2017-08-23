@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Exclusive Raid Gym Tracker - Leeds</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.17/css/bulma.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" rel="stylesheet"/>
     <style>
         .select[multiple]{
             height: 100%;
@@ -25,7 +25,7 @@
         <div class="container">
             <nav class="navbar">
               <!-- Left side -->
-              <div class="navbar-left">
+              <div class="navbar-start">
                 <div class="navbar-item">
                   <p class="subtitle is-5">
                     Exclusive Raid Gym Tracker - Leeds
@@ -34,7 +34,7 @@
               </div>
 
               <!-- Right side -->
-              <div class="navbar-right">
+              <div class="navbar-end">
                 <p class="navbar-item">
                     {%  if user.is_authenticated %}
                         <a href="/logout/">Logout</a>
@@ -46,35 +46,31 @@
             </nav>
         </div>
     </section>
+    {% block hero %}
+    {% endblock %}
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column content">
                     {% block content %}
-                        <h1>Exclusive Raid Gym Tracker - Leeds</h1>
-                        <p>A tool for tracking which gyms you've visited in order to maximise you chance at getting an exclusive raid in the city center of Leeds.</p>
-                        <h2>How it works</h2>
-                        <ol>
-                            <li><a href="/signup/">Sign up for an account</a></li>
-                            <li>Add the date of the last raid you did for the Gyms in the town centre</li>
-                            <li>Use the list to keep on top of the gyms so you don't miss out on an exclusive raid</li>
-                        </ol>
-                        <h2>Product Roadmap</h2>
-                        <ul>
-                            <li>See when a raid is active on a gym you need to do a raid on</li>
-                            <li>See how many others need to do a raid on a particular gym - so you can organise a raid party</li>
-                        </ul>
                     {% endblock %}
                 </div>
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <div class="content is-text-centered">
-                <p>Exclusive Raid Gym Tracker - Leeds by <a href="http://colinwren.is/awesome">Colin Wren</a></p>
-            </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Exclusive Raid Tracker - Leeds</strong> by <a href="http://colinwren.is/awesome">Colin Wren</a>.
+          </p>
+          <p>
+            <a class="icon" href="https://github.com/gimpneek/exclusive_raid_tracker">
+              <i class="fa fa-github"></i>
+            </a>
+          </p>
         </div>
+      </div>
     </footer>
 </body>
 </html>

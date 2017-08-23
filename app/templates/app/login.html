@@ -1,14 +1,24 @@
 {% extends "app/base.html" %}
 {% block content %}
     <h1>Login</h1>
-    <form action="" method="post" id="cv_element_form">
-        <label for="username">Username</label>
-        <input name="username" type="text">
-        <label for="password">Password</label>
-        <input name="password" type="password">
+    <form action="" method="post">
+    <div class="field">
+        <label for="username" class="label">Username</label>
+        <div class="control">
+            <input class="input" name="username" type="text" placeholder="Username">
+        </div>
+    </div>
+    <div class="field">
+        <label for="password" class="label">Password</label>
+        <div class="control">
+            <input class="input" name="password" type="password">
+        </div>
+    </div>
         {% csrf_token %}
+    <div class="field">
         <p class="control">
-            <input type="submit" value="Submit" class="button is-primary" id="form_submit" />
+            <input type="submit" value="Login" class="button is-primary" id="form_submit" />
         </p>
+    </div>
     </form>
 {%  endblock %}

@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{%  block hero %}
+    <section class="hero is-medium is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            An Exclusive Raid Gym Tracker for Leeds
+          </h1>
+          <h2 class="subtitle">
+            A tool for tracking which gyms you've visited in order to maximise you chance at getting an exclusive raid in the city center of Leeds.
+          </h2>
+        </div>
+      </div>
+    </section>
+{%  endblock %}
+{% block content %}
+    <h2>How it works</h2>
+    <ol>
+        <li><a href="/signup/">Sign up for an account</a></li>
+        <li>Add the date of the last raid you did for the Gyms in the town centre</li>
+        <li>Use the list to keep on top of the gyms so you don't miss out on an exclusive raid</li>
+    </ol>
+    <h2>Product Roadmap</h2>
+    <ul>
+        <li>See when a raid is active on a gym you need to do a raid on</li>
+        <li>See how many others need to do a raid on a particular gym - so you can organise a raid party</li>
+    </ul>
+{% endblock %}

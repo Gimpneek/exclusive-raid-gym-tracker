@@ -2,11 +2,20 @@
 {%  block content %}
 <h1>{{  gym_item.gym.name }}</h1>
 <form action="" method="post">
-    <label for="last_visit_date">Date you last completed a raid on this gym</label>
-    <input name="last_visit_date" type="date" value="{{ gym_item.last_visit_date|date:"Y-m-d"}}">
+    <div class="field">
+        <label class="label" for="last_visit_date">Date you last completed a raid on this gym</label>
+        <div class="control">
+            <input class="input" name="last_visit_date" type="date" value="{{ gym_item.last_visit_date|date:"Y-m-d"}}">
+        </div>
     {% csrf_token %}
-    <p class="control">
-        <input type="submit" value="Update Gym" class="button is-primary" id="form_submit" />
-    </p>
+    </div>
+    <div class="field is-grouped">
+        <p class="control">
+            <input type="submit" value="Update Gym" class="button is-primary" id="form_submit" />
+        </p>
+        <div class="control">
+            <a href="/list/" class="button is-link">Cancel</a>
+        </div>
+    </div>
 </form>
 {%  endblock %}
