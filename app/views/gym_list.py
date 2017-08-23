@@ -11,7 +11,7 @@ def gym_list(request):
     Show the homepage
     """
     profile = Profile.objects.get(user=request.user.id)
-    gym_list = GymItem.objects.filter(profile=profile.id, hidden=False).order_by('last_visit_date')
+    gym_list = GymItem.objects.filter(profile=profile.id, hidden=False).order_by('last_visit_date', 'gym__name')
     return render(request, 'app/gym_list.html', {
         'gym_list': gym_list
     })
