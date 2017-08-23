@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u*-6r$5q!8lw^d2)#h8i1iq-f3xx46jygt2)dmjfuh0xhb)c4c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['exclusive-raid-tracker-leeds.herokuapp.com']
 
 
 # Application definition
