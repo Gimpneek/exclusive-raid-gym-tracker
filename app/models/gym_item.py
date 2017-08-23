@@ -1,6 +1,6 @@
 from django.db import models
-from .gym import Gym
-from .profile import Profile
+from app.models.gym import Gym
+from app.models.profile import Profile
 
 
 class GymItem(models.Model):
