@@ -9,7 +9,7 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user=user)
-            return redirect('index')
+            return redirect('gym_list')
         else:
             return redirect('login')
     else:

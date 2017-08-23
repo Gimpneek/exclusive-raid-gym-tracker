@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "name": "Waterfall Sculpture in Leeds",
-      "location": "53.794799,-1.532943",
-      "gym_hunter_id": "5948264cf2b118092eaf8dc3"
+      "gym_hunter_id": "5948264cf2b118092eaf8dc3",
+      "location": "53.794799,-1.532943"
     }
   },
   {
@@ -13,8 +13,287 @@
     "pk": 2,
     "fields": {
       "name": "Leeds Minster",
-      "location": "53.795322,-1.536077",
-      "gym_hunter_id": "58657442cfb1ad32b7d819a4"
+      "gym_hunter_id": "58657442cfb1ad32b7d819a4",
+      "location": "53.795322,-1.536077"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 3,
+    "fields": {
+      "name": "Heron Memorial Statue",
+      "gym_hunter_id": "58657442cfb1ad32b7d8199f",
+      "location": "53.794308,-1.538525"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 4,
+    "fields": {
+      "name": "The Round House",
+      "gym_hunter_id": "594841af920cb40da0097567",
+      "location": "53.794772,-1.564523"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 5,
+    "fields": {
+      "name": "The Half Round House",
+      "gym_hunter_id": "58613db0cfb1ad32b7c5412f",
+      "location": "53.794873,-1.563906"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 6,
+    "fields": {
+      "name": "Rope Sheep on Metal Legs",
+      "gym_hunter_id": "586576eacfb1ad32b7d83612",
+      "location": "53.791275,-1.553842"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 7,
+    "fields": {
+      "name": "Very Old Temple Mill",
+      "gym_hunter_id": "594836191239a4092d3a8967",
+      "location": "53.790265,-1.552721"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 8,
+    "fields": {
+      "name": "Crown Point Plaque",
+      "gym_hunter_id": "58657442cfb1ad32b7d819a3",
+      "location": "53.788345,-1.540549"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 9,
+    "fields": {
+      "name": "A Reflective Approach, by Kevin Atherton",
+      "gym_hunter_id": "58657442cfb1ad32b7d8199c",
+      "location": "53.790115,-1.532609"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 10,
+    "fields": {
+      "name": "Cannon 332",
+      "gym_hunter_id": "5865744258422732bc423b1c",
+      "location": "53.791661,-1.53142"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 11,
+    "fields": {
+      "name": "Royal Armouries Dual Emblems",
+      "gym_hunter_id": "5948264c1239a4092d3374e3",
+      "location": "53.791544,-1.532455"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 12,
+    "fields": {
+      "name": "Trans Pennine Trail Marker",
+      "gym_hunter_id": "5948264c969367092cb53ba2",
+      "location": "53.792684,-1.533924"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 13,
+    "fields": {
+      "name": "National Cycle Network Milepost 66",
+      "gym_hunter_id": "59483619cabd3f09264c1956",
+      "location": "53.793171,-1.551263"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 14,
+    "fields": {
+      "name": "Candle House",
+      "gym_hunter_id": "5994894ca5f5a5210e168e70",
+      "location": "53.793313,-1.550736"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 15,
+    "fields": {
+      "name": "Bow Street Skatepark",
+      "gym_hunter_id": "5865744258422732bc423b1d",
+      "location": "53.79334,-1.528322"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 16,
+    "fields": {
+      "name": "Living Hope Church",
+      "gym_hunter_id": "59482651cabd3f092644be4c",
+      "location": "53.796336,-1.530838"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 17,
+    "fields": {
+      "name": "Quarry House",
+      "gym_hunter_id": "594864be4305230dac4922f2",
+      "location": "53.798286,-1.531457"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 18,
+    "fields": {
+      "name": "Old Central Station Wagon Hoist",
+      "gym_hunter_id": "5865751858422732bc424467",
+      "location": "53.795759,-1.55655"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 19,
+    "fields": {
+      "name": "Leeds Job Centre",
+      "gym_hunter_id": "58657442cfb1ad32b7d819a1",
+      "location": "53.799151,-1.535621"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 20,
+    "fields": {
+      "name": "Victoria Gate Shopping Centre",
+      "gym_hunter_id": "594833a6969367092cbb5130",
+      "location": "53.798577,-1.536859"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 21,
+    "fields": {
+      "name": "Leeds City Museum",
+      "gym_hunter_id": "5948361fcabd3f09264c1f66",
+      "location": "53.801558,-1.547112"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 22,
+    "fields": {
+      "name": "First Leeds Synagogue",
+      "gym_hunter_id": "594836291239a4092d3a9381",
+      "location": "53.800942,-1.543418"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 23,
+    "fields": {
+      "name": "Sports Direct",
+      "gym_hunter_id": "58657442cfb1ad32b7d8199e",
+      "location": "53.799229,-1.541806"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 24,
+    "fields": {
+      "name": "'Barrel Man' - The Dortmund Drayman",
+      "gym_hunter_id": "594833a9cabd3f09264b4e83",
+      "location": "53.799553,-1.543999"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 25,
+    "fields": {
+      "name": "Briggate Minerva",
+      "gym_hunter_id": "594833a4f2b118092eb68e26",
+      "location": "53.796433,-1.542472"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 26,
+    "fields": {
+      "name": "Equus Altus",
+      "gym_hunter_id": "594833a4f2b118092eb68e24",
+      "location": "53.796532,-1.543966"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 27,
+    "fields": {
+      "name": "Horse Ironwork Statue",
+      "gym_hunter_id": "594833b6cabd3f09264b4fca",
+      "location": "53.797574,-1.546944"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 28,
+    "fields": {
+      "name": "Scarborough Hotel",
+      "gym_hunter_id": "594833a41239a4092d39e32f",
+      "location": "53.795315,-1.546296"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 29,
+    "fields": {
+      "name": "Aireside House Mural",
+      "gym_hunter_id": "594833b61239a4092d39e5d2",
+      "location": "53.7957,-1.550212"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 30,
+    "fields": {
+      "name": "Lady Britannica",
+      "gym_hunter_id": "5865744258422732bc423b1b",
+      "location": "53.798521,-1.549424"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 31,
+    "fields": {
+      "name": "St Paul's House",
+      "gym_hunter_id": "58657518cfb1ad32b7d82412",
+      "location": "53.798347,-1.552559"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 32,
+    "fields": {
+      "name": "Memorial in Park Square",
+      "gym_hunter_id": "5948361a1239a4092d3a89c1",
+      "location": "53.798773,-1.551948"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 33,
+    "fields": {
+      "name": "Sir Berkeley Moynihan",
+      "gym_hunter_id": "5948361acabd3f09264c19b2",
+      "location": "53.799339,-1.552743"
     }
   }
 ]
