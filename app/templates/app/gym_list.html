@@ -2,7 +2,7 @@
 {%  block content %}
 <ul>
    {%  for gym_item in gym_list %}
-    <li>{{ gym_item.gym.name }}</li>
+       <li><a href="/item/{{ gym_item.id }}/">{{ gym_item.gym.name }}</a></li>
 {% endfor %}
 </ul>
 {%  endblock %}
