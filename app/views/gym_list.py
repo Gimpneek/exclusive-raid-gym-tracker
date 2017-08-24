@@ -15,9 +15,12 @@ def gym_list(request):
     gym_list = GymItem.objects.filter(profile=profile.id, hidden=False).order_by(F('last_visit_date').asc(nulls_first=True), 'gym__name')
     total_gyms = len(gym_list)
     completed_gyms = len([g for g in gym_list if g.last_visit_date])
+    gym_progress = 0
+    if completed_gyms > 0:
+        gym_progress = int((float(completed_gyms)/float(total_gyms))*100)
     return render(request, 'app/gym_list.html', {
         'gym_list': gym_list,
         'total_gyms': total_gyms,
         'completed_gyms': completed_gyms,
-        'gym_progress': int((float(completed_gyms)/float(total_gyms))*100)
+        'gym_progress': gym_progress
     })
