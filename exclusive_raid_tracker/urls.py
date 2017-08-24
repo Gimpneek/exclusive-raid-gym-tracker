@@ -25,10 +25,10 @@ from app.views.hide_gym_item import hide_gym_item
 
 urlpatterns = [
     url(r'^$', index, name='index'),
-    url(r'^login/', login_page, name='login'),
-    url(r'^logout/', logout_page, name='logout'),
-    url(r'^signup/', signup_page, name='signup'),
-    url(r'^list/', gym_list, name='gym_list'),
+    url(r'^login/$', login_page, name='login'),
+    url(r'^logout/$', logout_page, name='logout'),
+    url(r'^signup/$', signup_page, name='signup'),
+    url(r'^list/$', gym_list, name='gym_list'),
     url(r'^item/(?P<gym_item_id>\d+)/$', gym_item, name='gym_item'),
     url(r'^hide/(?P<gym_item_id>\d+)/$', hide_gym_item, name='hide_gym_item')
 ]
