@@ -3,50 +3,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Exclusive Raid Gym Tracker - Leeds</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" rel="stylesheet"/>
-    <style>
-        .select[multiple]{
-            height: 100%;
-        }
-        .control.is-horizontal .control{
-            flex-flow: column;
-        }
-        .control.is-horiztonal .input, .control.is-horizontal .help{
-            flex: 1;
-        }
-        form label{
-            display: block;
-        }
-    </style>
 </head>
 <body>
-    <section class="section">
-        <div class="container">
-            <nav class="navbar">
-              <!-- Left side -->
-              <div class="navbar-start">
-                <div class="navbar-item">
-                  <p class="subtitle is-5">
-                    Exclusive Raid Gym Tracker - Leeds
-                  </p>
+    <div class="container">
+        <nav class="navbar is-hidden-touch">
+          <!-- Left side -->
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <h1 class="subtitle">
+                Exclusive Raid Gym Tracker - Leeds
+              </h1>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="navbar-end">
+              {%  if user.is_authenticated %}
+                  <p class="navbar-item">{{ user.username }}</p>
+                  <p class="navbar-item"><a href="/logout/">Logout</a></p>
+                {% else %}
+                  <p class="navbar-item"><a href="/signup/">Sign up</a></p>
+                  <p class="navbar-item"><a href="/login/">Login</a></p>
+                {% endif %}
+            </p>
+          </div>
+        </nav>
+        <nav class="navbar is-hidden-desktop section">
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <h3 class="subtitle">Exclusive Raid Gym Tracker - Leeds</h3>
+                    </div>
+                    <div class="column">
+                        <div class="field is-grouped is-pulled-right">
+                            {%  if user.is_authenticated %}
+                                <p class="control">{{ user.username }}</p>
+                                <p class="control"><a href="/logout/">Logout</a></p>
+                            {% else %}
+                                <p class="control"><a href="/signup/">Sign up</a></p>
+                                <p class="control"><a href="/login/">Login</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <!-- Right side -->
-              <div class="navbar-end">
-                  {%  if user.is_authenticated %}
-                      <p class="navbar-item">{{ user.username }}</p>
-                      <p class="navbar-item"><a href="/logout/">Logout</a></p>
-                    {% else %}
-                      <p class="navbar-item"><a href="/signup/">Sign up</a></p>
-                      <p class="navbar-item"><a href="/login/">Login</a></p>
-                    {% endif %}
-                </p>
-              </div>
-            </nav>
-        </div>
-    </section>
+        </nav>
+    </div>
     {% block hero %}
     {% endblock %}
     <section class="section">
