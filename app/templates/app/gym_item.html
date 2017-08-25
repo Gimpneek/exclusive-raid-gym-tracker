@@ -1,6 +1,26 @@
 {%  extends 'app/base.html' %}
+{%  block hero %}
+<section class="section" style="padding-top: 0px; padding-bottom: 0px;">
+    <div class="container">
+        <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+          <ul class="is-marginless">
+            <li><a href="/list/">Gym List</a></li>
+            <li class="is-active"><a href="#" aria-current="page">{{ gym_item.gym.name }}</a></li>
+          </ul>
+        </nav>
+    </div>
+</section>
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{  gym_item.gym.name }}
+      </h1>
+    </div>
+  </div>
+</section>
+{% endblock %}
 {%  block content %}
-<h1>{{  gym_item.gym.name }}</h1>
 <form action="" method="post">
     <div class="field">
         <label class="label" for="last_visit_date">Date you last completed a raid on this gym</label>
@@ -9,7 +29,7 @@
         </div>
     {% csrf_token %}
     </div>
-    <div class="columns">
+    <div class="columns is-mobile">
         <div class="column">
             <div class="field is-grouped">
                 <p class="control">
@@ -20,13 +40,13 @@
                 </div>
             </div>
         </div>
-        <div class="column">
-            <div class="field is-pulled-right">
-                <p class="control">
-                    <a href="/reset/{{ gym_item.id }}" class="button is-danger">Reset Data</a>
-                </p>
-            </div>
-        </div>
     </div>
+    <article class="message is-danger">
+        <div class="message-header">Remove Gym Visit</div>
+        <div class="message-body">
+            <p>If you've accidentally entered a visit to this gym you can remove it by pressing the button below.</p>
+            <p><a href="/reset/{{ gym_item.id }}" class="button is-danger">Remove Gym Visit</a></p>
+        </div>
+    </article>
 </form>
 {%  endblock %}
