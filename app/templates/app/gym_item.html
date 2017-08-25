@@ -10,7 +10,7 @@
         </nav>
     </div>
 </section>
-<section class="hero is-medium is-primary is-bold">
+<section class="hero is-medium is-primary is-bold has-background-image" {% if gym_item.gym.image_url %}style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ gym_item.gym.image_url }}');" {% endif %}>
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
