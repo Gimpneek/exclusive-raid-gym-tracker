@@ -9,12 +9,23 @@
         </div>
     {% csrf_token %}
     </div>
-    <div class="field is-grouped">
-        <p class="control">
-            <input type="submit" value="Update Gym" class="button is-primary" id="form_submit" />
-        </p>
-        <div class="control">
-            <a href="/list/" class="button is-link">Cancel</a>
+    <div class="columns">
+        <div class="column">
+            <div class="field is-grouped">
+                <p class="control">
+                    <input type="submit" value="Update Gym" class="button is-primary" id="form_submit" />
+                </p>
+                <div class="control">
+                    <a href="/list/" class="button is-link">Cancel</a>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="field is-pulled-right">
+                <p class="control">
+                    <a href="/reset/{{ gym_item.id }}" class="button is-danger">Reset Data</a>
+                </p>
+            </div>
         </div>
     </div>
 </form>
