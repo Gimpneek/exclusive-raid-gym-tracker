@@ -17,7 +17,7 @@ def gym_list(request):
     completed_gyms = [gym for gym in gym_list if gym.last_visit_date]
     gyms_to_visit = [gym for gym in gym_list if not gym.last_visit_date]
     gym_progress = 0
-    if completed_gyms > 0:
+    if len(completed_gyms) > 0:
         gym_progress = int((float(len(completed_gyms))/float(total_gyms))*100)
     return render(request, 'app/gym_list.html', {
         'completed_gym_list': completed_gyms,
