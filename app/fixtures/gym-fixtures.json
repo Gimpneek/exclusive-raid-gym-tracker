@@ -5,7 +5,8 @@
     "fields": {
       "name": "Waterfall Sculpture in Leeds",
       "gym_hunter_id": "5948264cf2b118092eaf8dc3",
-      "location": "53.794799,-1.532943"
+      "location": "53.794799,-1.532943",
+      "image_url": "https://lh3.ggpht.com/c_02poGALpLwo-kvcTY8gnSEv-e-fJ6IzARZQE7bdWe5r9BqNCR8_U5YiV5g_Cp0A7-R31aa_1Fg5O9Oc-7Ni0XvAKWdp-LsGoStdGiIGxMT1wlH"
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "name": "Leeds Minster",
       "gym_hunter_id": "58657442cfb1ad32b7d819a4",
-      "location": "53.795322,-1.536077"
+      "location": "53.795322,-1.536077",
+      "image_url": "http://lh5.ggpht.com/3Pv3wtfeuSY1DjwUlc2HrP6Y0AhN1FfzYjVnA7Q9JKuPEBgaS_YIR6CINcAnoRIcTO-lmgwSkgcKM5Y8JbkN"
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "name": "Heron Memorial Statue",
       "gym_hunter_id": "58657442cfb1ad32b7d8199f",
-      "location": "53.794308,-1.538525"
+      "location": "53.794308,-1.538525",
+      "image_url": "http://lh6.ggpht.com/6JaYrCwyIizQR7N59xnyqsSezuk6EdBQksbQUVLjyOq4abuPvY1MBHn23NfwfQo6jAq4cslfVB4qmAqDjXnU"
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "name": "The Round House",
       "gym_hunter_id": "594841af920cb40da0097567",
-      "location": "53.794772,-1.564523"
+      "location": "53.794772,-1.564523",
+      "image_url": "http://lh3.ggpht.com/0I6OgGvfi4rubLvrmrspBrGinWR2vqXADc-i0U-wK81VPdtEYSflboclZ_SsQzuBP7Hoy5d6O2ZtdUx3O93-"
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "name": "The Half Round House",
       "gym_hunter_id": "58613db0cfb1ad32b7c5412f",
-      "location": "53.794873,-1.563906"
+      "location": "53.794873,-1.563906",
+      "image_url": "http://lh6.ggpht.com/jdest9c8w2qBmt6pcmw7KX7gHGq58B75130iDIMTRzkppRKO4QZMueNLR23cT3sRuXH0BQjZE3DV7qlw6gxRmQ"
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "name": "Rope Sheep on Metal Legs",
       "gym_hunter_id": "586576eacfb1ad32b7d83612",
-      "location": "53.791275,-1.553842"
+      "location": "53.791275,-1.553842",
+      "image_url": "http://lh4.ggpht.com/iAzkNAFyZ19Yz4jgLjE542yc-sEJ00TNt82cB86Hd9ncEFQBcCjiz7qDRFR_qqnq7tfRRF7WEXBA9r0yNbRw"
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "name": "Very Old Temple Mill",
       "gym_hunter_id": "594836191239a4092d3a8967",
-      "location": "53.790265,-1.552721"
+      "location": "53.790265,-1.552721",
+      "image_url": "http://lh5.ggpht.com/aCnrwiztjybiqIJjsrgqKtFeSy-REIQZWYZU3Rnkpi8jeu-UtmU1OTDpEUo1E-tWPhjcsI2756VKjHt8ZMNq"
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "name": "Crown Point Plaque",
       "gym_hunter_id": "58657442cfb1ad32b7d819a3",
-      "location": "53.788345,-1.540549"
+      "location": "53.788345,-1.540549",
+      "image_url": "http://lh4.ggpht.com/85SoVtOng_p_ZTWdP54NSX1gVPDTK4c1RcOxPnuKIhIX1GyBOF-RKqwTiTiWL40gmty_ikZ_--oY4oY1DQw"
     }
   },
   {
@@ -77,7 +85,8 @@
     "fields": {
       "name": "A Reflective Approach, by Kevin Atherton",
       "gym_hunter_id": "58657442cfb1ad32b7d8199c",
-      "location": "53.790115,-1.532609"
+      "location": "53.790115,-1.532609",
+      "image_url": "http://lh6.ggpht.com/mquPvrEiQ_NFlVyuXMpZCHyUJroxeu6U5oTQnRgTH8BAi1mmtGUDy9G6SM4oe_v_d4n4bVaZZhjYhvl9uPb3tw"
     }
   },
   {
@@ -86,7 +95,8 @@
     "fields": {
       "name": "Cannon 332",
       "gym_hunter_id": "5865744258422732bc423b1c",
-      "location": "53.791661,-1.53142"
+      "location": "53.791661,-1.53142",
+      "image_url": "http://lh3.ggpht.com/HG6MwjleoIoauc_DeMQvYpb32Wu57g_tdgWk3XNHW8ZDGvxAyslcvQF0yp60JaFAYSkMmuTE7yHgdJkytjL1"
     }
   },
   {
@@ -95,7 +105,8 @@
     "fields": {
       "name": "Royal Armouries Dual Emblems",
       "gym_hunter_id": "5948264c1239a4092d3374e3",
-      "location": "53.791544,-1.532455"
+      "location": "53.791544,-1.532455",
+      "image_url": "http://lh5.ggpht.com/8Ji_RTXaXSXQ7q_bwNwrWxga5ZoWd7L4VYcf4cOdvGWciKpEKfc8Ri9EHX98t3h_3gtLdywVkYbs8GORPu9T453wXfIsXxdBAWYPzt5AeOgb457R"
     }
   },
   {
@@ -104,7 +115,8 @@
     "fields": {
       "name": "Trans Pennine Trail Marker",
       "gym_hunter_id": "5948264c969367092cb53ba2",
-      "location": "53.792684,-1.533924"
+      "location": "53.792684,-1.533924",
+      "image_url": "http://lh3.ggpht.com/Gx7jmkHyWokVZlQN37p6h7qLYCG2uuaUPKzNUO-i68ZjE5Rt0B-uLn2gwPjfkOR89BMHK8Q4XVBZpe9ngXA"
     }
   },
   {
@@ -113,7 +125,8 @@
     "fields": {
       "name": "National Cycle Network Milepost 66",
       "gym_hunter_id": "59483619cabd3f09264c1956",
-      "location": "53.793171,-1.551263"
+      "location": "53.793171,-1.551263",
+      "image_url": "http://lh5.ggpht.com/0BfXh8ACDEqwJltfv_W3ZxnqzYlcpOb3Yul7PgdYtEiJLTBn6RryTJKIWb9ayaYEFDi4fGws8hrrk12X6uQ"
     }
   },
   {
@@ -122,7 +135,8 @@
     "fields": {
       "name": "Candle House",
       "gym_hunter_id": "5994894ca5f5a5210e168e70",
-      "location": "53.793313,-1.550736"
+      "location": "53.793313,-1.550736",
+      "image_url": "http://lh4.ggpht.com/OAVYsE9mgvHg2_-Lzg3RcRpK21nbquYCyW2WogewSpnSG0ZoEXza0Gb7uAdIDkb6t5jKPD7Wb7bYCm4SbKoutQ"
     }
   },
   {
@@ -131,7 +145,8 @@
     "fields": {
       "name": "Bow Street Skatepark",
       "gym_hunter_id": "5865744258422732bc423b1d",
-      "location": "53.79334,-1.528322"
+      "location": "53.79334,-1.528322",
+      "image_url": "http://lh3.googleusercontent.com/KnBrEx5sU7_j-49VGtC3lgEhhiSf51S-nINltEh6S8slEa41oV30OaEVUSNIHOnIS8W9gmcZaLx-4yz0kc1nfQ"
     }
   },
   {
@@ -140,7 +155,8 @@
     "fields": {
       "name": "Living Hope Church",
       "gym_hunter_id": "59482651cabd3f092644be4c",
-      "location": "53.796336,-1.530838"
+      "location": "53.796336,-1.530838",
+      "image_url": "http://lh3.googleusercontent.com/qOcUXT4eKhzfWbfrBTB1nZ5l66-qIMbtdXpqbNk-bqU0lwLPByWRZcod7Slx8kJ1aWazhblHwvoJCvNuV4Uz"
     }
   },
   {
@@ -149,7 +165,8 @@
     "fields": {
       "name": "Quarry House",
       "gym_hunter_id": "594864be4305230dac4922f2",
-      "location": "53.798286,-1.531457"
+      "location": "53.798286,-1.531457",
+      "image_url": "http://lh4.ggpht.com/2a33grxlUyE2dO8FKYU3RBJixPsqFXYe4YoukXUX87is0I2NjHvi0B2GrTuswziqXka-DwTefZ3OpUG2nisLGA"
     }
   },
   {
@@ -158,7 +175,8 @@
     "fields": {
       "name": "Old Central Station Wagon Hoist",
       "gym_hunter_id": "5865751858422732bc424467",
-      "location": "53.795759,-1.55655"
+      "location": "53.795759,-1.55655",
+      "image_url": "http://lh3.ggpht.com/1vhcds__-g0EVvzc-R6u38ngoQE1TBfsftHh50U2kIFq1sZe9GPGAA0ICyHCh9G2F-NXKDiUG-3NKDPN7ZjJBg"
     }
   },
   {
@@ -167,7 +185,8 @@
     "fields": {
       "name": "Leeds Job Centre",
       "gym_hunter_id": "58657442cfb1ad32b7d819a1",
-      "location": "53.799151,-1.535621"
+      "location": "53.799151,-1.535621",
+      "image_url": "http://lh4.ggpht.com/nwHNipNEa79XeOvX7xy7aiiMzMqqR8JKQKGvA5H-Rkxz9lqmNhK_42vqfp-mwqFccI7RcEA_F0CD5oo49nuu"
     }
   },
   {
@@ -176,7 +195,8 @@
     "fields": {
       "name": "Victoria Gate Shopping Centre",
       "gym_hunter_id": "594833a6969367092cbb5130",
-      "location": "53.798577,-1.536859"
+      "location": "53.798577,-1.536859",
+      "image_url": "http://lh3.googleusercontent.com/7rrlSryH3u06l34QWtHzjJhIc5RbXjGFgd-_8KEZsbFq7NQITCM5On6siipxxhJE8fJhi29Ze3PkhqjZQ5DGbw"
     }
   },
   {
@@ -185,7 +205,8 @@
     "fields": {
       "name": "Leeds City Museum",
       "gym_hunter_id": "5948361fcabd3f09264c1f66",
-      "location": "53.801558,-1.547112"
+      "location": "53.801558,-1.547112",
+      "image_url": "http://lh4.ggpht.com/30OTjdwa-OQSDw8OVlUWjYn438_kHfugYleBWW-658niqn3eIum4ve42LzBlJkFqooysyNRTV-5YIvUVEwQ9p4gxMP5X1f4gjpGnvEM1SfSF8GM"
     }
   },
   {
@@ -194,7 +215,8 @@
     "fields": {
       "name": "First Leeds Synagogue",
       "gym_hunter_id": "594836291239a4092d3a9381",
-      "location": "53.800942,-1.543418"
+      "location": "53.800942,-1.543418",
+      "image_url": "http://lh4.ggpht.com/Sh67lXMwuTEk3Wd8zhAwSUzFTXgm4v55lZraaeP1nCbD2RHYY4Ej5M--x5acHJzGqzn-mymjVuY2RkLbaH8"
     }
   },
   {
@@ -203,7 +225,8 @@
     "fields": {
       "name": "Sports Direct",
       "gym_hunter_id": "58657442cfb1ad32b7d8199e",
-      "location": "53.799229,-1.541806"
+      "location": "53.799229,-1.541806",
+      "image_url": "http://lh3.googleusercontent.com/UuSKiYqhjWJAkiXAnpcZYaILtveklW748fNpd1-GcrBs5oKqu0R0L78h1erwKu-U_vJ1cidi7EaLDcycux7c"
     }
   },
   {
@@ -212,7 +235,8 @@
     "fields": {
       "name": "'Barrel Man' - The Dortmund Drayman",
       "gym_hunter_id": "594833a9cabd3f09264b4e83",
-      "location": "53.799553,-1.543999"
+      "location": "53.799553,-1.543999",
+      "image_url": "http://lh6.ggpht.com/jY4iwzseJwJ6KzmRa_Ee4A4wwTRrqQumP1GBifc3MeSGHBfHjEqy0D3HYo1OThx0RTrlyaVo2lLK_g_jrq7iqB6vdvrt7x89gFj0UEEn1UDkTks"
     }
   },
   {
@@ -221,7 +245,8 @@
     "fields": {
       "name": "Briggate Minerva",
       "gym_hunter_id": "594833a4f2b118092eb68e26",
-      "location": "53.796433,-1.542472"
+      "location": "53.796433,-1.542472",
+      "image_url": "http://lh6.ggpht.com/5OoEvQHOVqsD006OHkmYhZMTVtbhMvC1SaYPrcWOvzUrmXYdcHRKCXHmcSF6mh65d3p8sr8ac-Oc1EubLY5W"
     }
   },
   {
@@ -230,7 +255,8 @@
     "fields": {
       "name": "Equus Altus",
       "gym_hunter_id": "594833a4f2b118092eb68e24",
-      "location": "53.796532,-1.543966"
+      "location": "53.796532,-1.543966",
+      "image_url": "http://lh3.ggpht.com/HMVOzivXoaBkSiTYn9858crMIgTdfTFSSCVRdziq9p3tYVGfZZ6NSggrqbXt3DLmT-p0t3iL5sWOy0KzeuqH"
     }
   },
   {
@@ -239,7 +265,8 @@
     "fields": {
       "name": "Horse Ironwork Statue",
       "gym_hunter_id": "594833b6cabd3f09264b4fca",
-      "location": "53.797574,-1.546944"
+      "location": "53.797574,-1.546944",
+      "image_url": "http://lh6.ggpht.com/mX_ZzMYJKadXeqSuNRxGgzMrdT058Q9WW2bedOTkAAZe5iDU1X3arrCPUGlLHA51UtA04mdogvVOlozyBUHswQ"
     }
   },
   {
@@ -248,7 +275,8 @@
     "fields": {
       "name": "Scarborough Hotel",
       "gym_hunter_id": "594833a41239a4092d39e32f",
-      "location": "53.795315,-1.546296"
+      "location": "53.795315,-1.546296",
+      "image_url": "http://lh4.ggpht.com/-WFNIbqcmVEnlFIIo7s4Uy7xealvktBGLQLKxgYAEuEJ5G_TLDdUAPADu7UZkBusv6CLjOlTb-Acfk3hTjEQig"
     }
   },
   {
@@ -257,7 +285,8 @@
     "fields": {
       "name": "Aireside House Mural",
       "gym_hunter_id": "594833b61239a4092d39e5d2",
-      "location": "53.7957,-1.550212"
+      "location": "53.7957,-1.550212",
+      "image_url": "http://lh4.ggpht.com/1eTMqdYT05kziLYbVgMdzNO5w8kTFfYUkNYqTjS57Cc5Kd7ARNZwZ6Rrp2VzP-VJO1T2zDiEQeR3mm6svh6l"
     }
   },
   {
@@ -266,7 +295,8 @@
     "fields": {
       "name": "Lady Britannica",
       "gym_hunter_id": "5865744258422732bc423b1b",
-      "location": "53.798521,-1.549424"
+      "location": "53.798521,-1.549424",
+      "image_url": "http://lh4.ggpht.com/wbM38vJ49-h5Zrmd65al7trNcoSqoL_fDSjZZwmcmxe9hC4bvGGOD1wLy4r_dUvNgkevgg1QuoRKDh8lksg"
     }
   },
   {
@@ -275,7 +305,8 @@
     "fields": {
       "name": "St Paul's House",
       "gym_hunter_id": "58657518cfb1ad32b7d82412",
-      "location": "53.798347,-1.552559"
+      "location": "53.798347,-1.552559",
+      "image_url": "http://lh4.ggpht.com/DNN-F3jDwVSAQS-UWUDW8_tomt_Q-GG6ATKbePYtu-rea3r8QlbK1p_ujLja-y_GpVOjL_Aar7E-0ad9RCgOhA"
     }
   },
   {
@@ -284,7 +315,8 @@
     "fields": {
       "name": "Memorial in Park Square",
       "gym_hunter_id": "5948361a1239a4092d3a89c1",
-      "location": "53.798773,-1.551948"
+      "location": "53.798773,-1.551948",
+      "image_url": "http://lh3.ggpht.com/dSn2wuwid1bvl1he_zWD_Tclmg6emaBWbD5WxVNe4G2UMQvv8fCq_X9pjl1QHLut7bK5-1o1IACyAObbCC4jccDKJgLXGYEU6C2G2Ob0u17mdTe1"
     }
   },
   {
@@ -293,7 +325,8 @@
     "fields": {
       "name": "Sir Berkeley Moynihan",
       "gym_hunter_id": "5948361acabd3f09264c19b2",
-      "location": "53.799339,-1.552743"
+      "location": "53.799339,-1.552743",
+      "image_url": "http://lh6.ggpht.com/j-WxG4lOy8VYbIcvaZG-y4k5GO01BDU-bsvpvfZuRRLp_udZlKx4HRI6y4B39VeMlurT_Sf8pKRWobyCJv0"
     }
   }
 ]
