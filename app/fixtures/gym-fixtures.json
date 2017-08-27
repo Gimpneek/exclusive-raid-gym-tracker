@@ -328,5 +328,15 @@
       "location": "53.799339,-1.552743",
       "image_url": "http://lh6.ggpht.com/j-WxG4lOy8VYbIcvaZG-y4k5GO01BDU-bsvpvfZuRRLp_udZlKx4HRI6y4B39VeMlurT_Sf8pKRWobyCJv0"
     }
+  },
+  {
+    "model": "app.gym",
+    "pk": 34,
+    "fields": {
+      "name": "Bridgewater Place",
+      "gym_hunter_id": "58657442cfb1ad32b7d8199d",
+      "location": "53.791866,-1.547534",
+      "image_url": "http://lh5.ggpht.com/Wzve0AA_0y0k5DbZXMRat6TtP8bPBOMUAaMKFXM2DOOccRoseATZnSws3P2yOFSiV7GManzMNQLNmh2Qs4fC"
+    }
   }
 ]
