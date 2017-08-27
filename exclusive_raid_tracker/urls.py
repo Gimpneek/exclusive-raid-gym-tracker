@@ -22,9 +22,11 @@ from app.views.signup import signup_page
 from app.views.gym_item import gym_item
 from app.views.hide_gym_item import hide_gym_item
 from app.views.reset_gym_item import reset_gym_item
+from django.contrib import admin
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^admin/', admin.site.urls),
     url(r'^login/$', login_page, name='login'),
     url(r'^logout/$', logout_page, name='logout'),
     url(r'^signup/$', signup_page, name='signup'),
