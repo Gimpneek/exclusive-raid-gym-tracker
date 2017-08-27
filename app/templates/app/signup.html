@@ -2,6 +2,11 @@
 {% block content %}
     <h1>Signup</h1>
     <form action="" method="post">
+    {%  if failed %}
+        <div class="notification is-danger">
+          An account already exists with the username you provided. Please choose another and try again.
+        </div>
+    {% endif %}
         <div class="field">
         <label for="username" class="label">Username</label>
         <div class="control">

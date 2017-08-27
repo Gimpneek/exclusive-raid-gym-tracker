@@ -8,6 +8,7 @@ from app.models.gym_item import GymItem
 
 
 def signup_page(request):
+    failed = False
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
@@ -18,6 +19,15 @@ def signup_page(request):
                 GymItem.objects.create(gym=gym, profile=profile)
             login(request, new_user)
             return redirect('gym_list')
+        else:
+            failed = True
     else:
         form = UserForm()
-    return render(request, 'app/signup.html', {'form': form})
+    return render(
+        request,
+        'app/signup.html',
+        {
+            'form': form,
+            'failed': failed
+        }
+    )

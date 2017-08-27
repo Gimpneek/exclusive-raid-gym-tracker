@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 
 
 def login_page(request):
+    failed = False
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
@@ -11,6 +12,11 @@ def login_page(request):
             login(request, user=user)
             return redirect('gym_list')
         else:
-            return redirect('login')
-    else:
-        return render(request, 'app/login.html')
+            failed = True
+    return render(
+        request,
+        'app/login.html',
+        {
+            'failed': failed
+        }
+    )

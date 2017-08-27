@@ -2,6 +2,11 @@
 {% block content %}
     <h1>Login</h1>
     <form action="" method="post">
+    {%  if failed %}
+        <div class="notification is-danger">
+          Unable to login with provided credentials. Please check your details and try again.
+        </div>
+    {% endif %}
     <div class="field">
         <label for="username" class="label">Username</label>
         <div class="control">
