@@ -1,4 +1,5 @@
 # Created by colinwren at 28/08/2017
+@dev
 Feature: Logout
   As a user of the system
   In order to prevent people from accessing my account
@@ -6,11 +7,16 @@ Feature: Logout
 
   Scenario: Logout
     Given the user is logged in
-    When they user logs out of the system
-    Then they are shown the homepage
-    And they cannot access the following pages:
+    When the user logs out of the system
+    Then the user is taken to the landing page
+    And they cannot access the following pages
     | Page                     |
     | Gym List                 |
     | Gym Item                 |
     | Reset Gym Data URL       |
     | Hide Gym in Gym List URL |
+    But they can access the following pages
+    | Page     |
+    | Sign Up  |
+    | Login    |
+    | Homepage |

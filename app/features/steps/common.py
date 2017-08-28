@@ -7,8 +7,12 @@ PAGE_MAPPING = {
     'sign up': 'signup',
     'login': 'login',
     'gym list': 'gym_list',
-    'gym item': 'gym_item',
-    'logout': 'logout'
+    'gym item': ('gym_item', {'gym_item_id': 1}),
+    'logout': 'logout',
+    'landing': 'index',
+    'homepage': 'index',
+    'reset gym data url': ('reset_gym_item', {'gym_item_id': 1}),
+    'hide gym in gym list url': ('hide_gym_item', {'gym_item_id': 1})
 }
 
 
@@ -21,6 +25,15 @@ ERROR_MESSAGE_MAPPING = {
 }
 
 
+def get_url_from_name(context, name):
+    """ Get the URL to compare from the name supplied """
+    name = name.lower()
+    page = PAGE_MAPPING.get(name)
+    if isinstance(page, tuple):
+        return context.base_url + str(reverse_lazy(page[0], kwargs=page[1]))
+    return context.base_url + str(reverse_lazy(page))
+
+
 @given("the user visits the {page_to_visit} page")
 @when("the user visits the {page_to_visit} page")
 def visit_page(context, page_to_visit):
@@ -29,9 +42,7 @@ def visit_page(context, page_to_visit):
     :param context: Behave context
     :param page_to_visit: Page to look up and get URL for
     """
-    context.browser.get(
-        context.base_url + str(reverse_lazy(PAGE_MAPPING.get(page_to_visit)))
-    )
+    context.browser.get(get_url_from_name(context, page_to_visit))
 
 
 @then('the user is taken to the {page_to_check} page')
@@ -42,7 +53,7 @@ def verify_user_redirected(context, page_to_check):
     :param page_to_check: Page user should be have been taken to
     :return:
     """
-    url = context.base_url + str(reverse_lazy(PAGE_MAPPING.get(page_to_check)))
+    url = get_url_from_name(context, page_to_check)
     assert(context.browser.current_url == url)
 
 
@@ -62,9 +73,7 @@ def verify_error_message(context, message_intent):
 @given('the user is logged in')
 def log_user_in(context):
     """ Log the user in """
-    context.browser.get(
-        context.base_url + str(reverse_lazy(PAGE_MAPPING.get('login')))
-    )
+    context.browser.get(get_url_from_name(context, 'login'))
     form = FormPage(context.browser)
     form.enter_username('test_user')
     form.enter_password('password')

@@ -2,6 +2,7 @@
 import selenium.webdriver.support.expected_conditions as ec
 import selenium.webdriver.support.ui as ui
 from selenium.webdriver.common.by import By
+from selectors.navbar import NAVBAR, LOGOUT_BUTTON
 
 
 class BasePage(object):
@@ -67,3 +68,12 @@ class BasePage(object):
         :rtype: tuple
         """
         return By.NAME, element.get_attribute('name')
+
+    def press_logout(self):
+        """
+        Press the logout link in the navbar'
+        """
+        navbars = self.driver.find_elements(*NAVBAR)
+        navbar = [nav for nav in navbars if nav.size['height']][0]
+        logout_button = navbar.find_element(*LOGOUT_BUTTON)
+        self.click_and_verify_change(logout_button, LOGOUT_BUTTON, hidden=True)
