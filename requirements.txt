@@ -3,3 +3,5 @@ pytz==2017.2
 gunicorn==19.7.1
 dj-database-url==0.4.2
 psycopg2==2.7.3
+flake8==3.4.1
+pylint==1.7.2

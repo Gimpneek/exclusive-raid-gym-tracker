@@ -6,4 +6,3 @@ class GymItemForm(ModelForm):
     class Meta:
         model = GymItem
         fields = ('last_visit_date',)
-

@@ -11,8 +11,16 @@ def gym_list(request):
     """
     Show the homepage
     """
-    profile = Profile.objects.get(user=request.user.id)
-    gym_list = GymItem.objects.filter(profile=profile.id, hidden=False).order_by(F('last_visit_date').asc(nulls_first=True), 'gym__name')
+    profile = Profile.objects.get(
+        user=request.user.id
+    )
+    gym_list = GymItem.objects.filter(
+        profile=profile.id,
+        hidden=False
+    ).order_by(
+        F('last_visit_date').asc(nulls_first=True),
+        'gym__name'
+    )
     total_gyms = len(gym_list)
     completed_gyms = [gym for gym in gym_list if gym.last_visit_date]
     gyms_to_visit = [gym for gym in gym_list if not gym.last_visit_date]

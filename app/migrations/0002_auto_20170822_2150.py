@@ -15,11 +15,15 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='gymitem',
             name='hidden',
-            field=models.BooleanField(default=False, help_text=b'Hide this gym?'),
+            field=models.BooleanField(
+                default=False,
+                help_text=b'Hide this gym?'),
         ),
         migrations.AlterField(
             model_name='gymitem',
             name='last_visit_date',
-            field=models.DateField(blank=True, help_text=b'Date of last visit'),
+            field=models.DateField(
+                blank=True,
+                help_text=b'Date of last visit'),
         ),
     ]

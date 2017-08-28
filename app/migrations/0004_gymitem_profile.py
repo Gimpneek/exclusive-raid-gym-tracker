@@ -16,7 +16,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='gymitem',
             name='profile',
-            field=models.ForeignKey(default=1, help_text=b'Profile gym item is associated with', on_delete=django.db.models.deletion.CASCADE, to='app.Profile'),
+            field=models.ForeignKey(
+                default=1,
+                help_text=b'Profile gym item is associated with',
+                on_delete=django.db.models.deletion.CASCADE,
+                to='app.Profile'
+            ),
             preserve_default=False,
         ),
     ]

@@ -19,27 +19,65 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Gym',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text=b'Name of Gym', max_length=256)),
-                ('gym_hunter_id', models.CharField(help_text=b'ID on Gymhuntr', max_length=32)),
-                ('location', models.CharField(help_text=b'Location in long,lat format', max_length=128)),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')
+                 ),
+                ('name', models.CharField(
+                    help_text=b'Name of Gym',
+                    max_length=256)
+                 ),
+                ('gym_hunter_id', models.CharField(
+                    help_text=b'ID on Gymhuntr',
+                    max_length=32)
+                 ),
+                ('location', models.CharField(
+                    help_text=b'Location in long,lat format',
+                    max_length=128)
+                 ),
             ],
         ),
         migrations.CreateModel(
             name='GymItem',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_visit_date', models.DateField(help_text=b'Date of last visit')),
-                ('hidden', models.BooleanField(help_text=b'Hide this gym?')),
-                ('gym', models.ForeignKey(help_text=b'Gym item is for', on_delete=django.db.models.deletion.CASCADE, to='app.Gym')),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')
+                 ),
+                ('last_visit_date', models.DateField(
+                    help_text=b'Date of last visit')
+                 ),
+                ('hidden', models.BooleanField(
+                    help_text=b'Hide this gym?')
+                 ),
+                ('gym', models.ForeignKey(
+                    help_text=b'Gym item is for',
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='app.Gym')
+                 ),
             ],
         ),
         migrations.CreateModel(
             name='Profile',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pokemon_go_username', models.CharField(help_text=b'Your name in Pokemon Go', max_length=128)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')
+                 ),
+                ('pokemon_go_username', models.CharField(
+                    help_text=b'Your name in Pokemon Go',
+                    max_length=128)
+                 ),
+                ('user', models.OneToOneField(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to=settings.AUTH_USER_MODEL)
+                 ),
             ],
         ),
     ]

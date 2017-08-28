@@ -15,6 +15,10 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='gymitem',
             name='last_visit_date',
-            field=models.DateField(blank=True, help_text=b'Date of last visit', null=True),
+            field=models.DateField(
+                blank=True,
+                help_text=b'Date of last visit',
+                null=True
+            ),
         ),
     ]
