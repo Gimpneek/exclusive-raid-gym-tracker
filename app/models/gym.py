@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """ Model definition for Gym """
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class Gym(models.Model):
     """ Model to hold Gym information """
 
@@ -26,7 +28,4 @@ class Gym(models.Model):
     )
 
     def __str__(self):
-        return self.name
-
-    def __unicode__(self):
         return self.name

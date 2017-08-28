@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """ Model definition for Gym Item """
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from app.models.gym import Gym
 from app.models.profile import Profile
 
 
+@python_2_unicode_compatible
 class GymItem(models.Model):
     """ Item in users list for Gym """
 
@@ -27,12 +29,6 @@ class GymItem(models.Model):
     )
 
     def __str__(self):
-        return "{} - {}".format(
-            self.profile.user.username,
-            self.gym.name
-        )
-
-    def __unicode__(self):
         return "{} - {}".format(
             self.profile.user.username,
             self.gym.name
