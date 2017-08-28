@@ -20,7 +20,6 @@ def enter_existing_username(context):
     Enter username that exists or doesn't exists in the system
     :param context: Behave context
     """
-    context.expect_error = True
     form = FormPage(context.browser)
     form.enter_username('test_user')
 
@@ -43,7 +42,7 @@ def dont_enter_password(context):
     :param context:
     :return:
     """
-    context.expect_error = True
+    pass
 
 
 @when('the user presses the submit button')
@@ -54,7 +53,7 @@ def submit_form(context):
     :return:
     """
     form = FormPage(context.browser)
-    if context.expect_error:
+    if 'form-errors' in context.scenario.tags:
         form.submit_form(expect_error=True)
     else:
         form.submit_form()

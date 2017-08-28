@@ -9,6 +9,8 @@ def login_page(request):
     Show login form for GET & failed login. If POST then attempt to login
     """
     failed = False
+    if request.user.id:
+        return redirect('gym_list')
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']

@@ -15,7 +15,9 @@ PAGE_MAPPING = {
 ERROR_MESSAGE_MAPPING = {
     'asking them to enter a password': 'This field is required.',
     'telling them to use a different username':
-        'A user with that username already exists.'
+        'A user with that username already exists.',
+    'telling them no account exists for those credentials':
+        'Unable to login with provided credentials'
 }
 
 

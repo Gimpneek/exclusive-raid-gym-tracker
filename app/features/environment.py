@@ -16,4 +16,3 @@ def before_scenario(context, scenario):
     else:
         context.browser = webdriver.Chrome()
     context.browser.get(context.base_url)
-    context.expect_error = False
