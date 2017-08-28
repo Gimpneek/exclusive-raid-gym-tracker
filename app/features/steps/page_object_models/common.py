@@ -2,7 +2,7 @@
 import selenium.webdriver.support.expected_conditions as ec
 import selenium.webdriver.support.ui as ui
 from selenium.webdriver.common.by import By
-from selectors.navbar import NAVBAR, LOGOUT_BUTTON
+from .selectors.navbar import NAVBAR, LOGOUT_BUTTON
 
 
 class BasePage(object):
