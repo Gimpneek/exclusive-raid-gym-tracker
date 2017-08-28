@@ -7,3 +7,4 @@ install:
 script:
   - pylint --load-plugins pylint_django app
   - flake8 app
+  - python manage.py behave --tags @dev

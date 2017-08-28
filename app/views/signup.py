@@ -15,6 +15,8 @@ def signup_page(request):
     errors. If successful then redirect to the Gym List
     """
     failed = False
+    if request.user.id:
+        return redirect('gym_list')
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
@@ -26,7 +28,7 @@ def signup_page(request):
             login(request, new_user)
             return redirect('gym_list')
         else:
-            failed = True
+            failed = str(form.errors)
     else:
         form = UserForm()
     return render(
