@@ -31,3 +31,9 @@ class GymItem(models.Model):
             self.profile.user.username,
             self.gym.name
         )
+
+    def __unicode__(self):
+        return "{} - {}".format(
+            self.profile.user.username,
+            self.gym.name
+        )
