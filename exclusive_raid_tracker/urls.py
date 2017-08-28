@@ -20,8 +20,7 @@ from app.views.logout import logout_page
 from app.views.gym_list import gym_list
 from app.views.signup import signup_page
 from app.views.gym_item import gym_item
-from app.views.hide_gym_item import hide_gym_item
-from app.views.reset_gym_item import reset_gym_item
+from app.views.change_gym_item import reset_gym_item, hide_gym_item
 from django.contrib import admin
 
 urlpatterns = [
