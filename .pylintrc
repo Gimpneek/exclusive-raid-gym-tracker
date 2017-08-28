@@ -1,0 +1,5 @@
+[MASTER]
+ignore=migrations
+
+[MESSAGES CONTROL]
+disable=too-few-public-methods, no-member, unused-argument

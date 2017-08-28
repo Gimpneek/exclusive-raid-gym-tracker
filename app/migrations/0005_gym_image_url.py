@@ -15,6 +15,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='gym',
             name='image_url',
-            field=models.CharField(blank=True, help_text=b'URL of image used for Gym', max_length=256, null=True),
+            field=models.CharField(
+                blank=True,
+                help_text=b'URL of image used for Gym',
+                max_length=256,
+                null=True
+            ),
         ),
     ]

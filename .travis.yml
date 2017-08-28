@@ -1,0 +1,9 @@
+language: python
+python:
+  - 2.7
+  - 3.5
+install:
+  - pip install -r requirements.txt
+script:
+  - pylint --load-plugins pylint_django app
+  - flake8 app
