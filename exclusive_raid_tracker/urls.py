@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.contrib import admin
 from app.views.homepage import index
 from app.views.login import login_page
 from app.views.logout import logout_page
@@ -21,7 +22,7 @@ from app.views.gym_list import gym_list
 from app.views.signup import signup_page
 from app.views.gym_item import gym_item
 from app.views.change_gym_item import reset_gym_item, hide_gym_item
-from django.contrib import admin
+
 
 urlpatterns = [
     url(r'^$', index, name='index'),
