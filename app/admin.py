@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+""" Expose models to the admin view """
 from __future__ import unicode_literals
 
 from django.contrib import admin

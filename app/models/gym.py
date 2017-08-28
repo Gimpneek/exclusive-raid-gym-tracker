@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+""" Model definition for Gym """
 from django.db import models
 
 

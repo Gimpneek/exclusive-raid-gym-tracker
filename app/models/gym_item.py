@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+""" Model definition for Gym Item """
 from django.db import models
 from app.models.gym import Gym
 from app.models.profile import Profile
@@ -26,6 +28,6 @@ class GymItem(models.Model):
 
     def __str__(self):
         return "{} - {}".format(
-            self.profile.pokemon_go_username,
+            self.profile.user.username,
             self.gym.name
         )

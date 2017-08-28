@@ -1,8 +1,13 @@
+# -*- coding: utf-8 -*-
+""" Views for login page """
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
 
 
 def login_page(request):
+    """
+    Show login form for GET & failed login. If POST then attempt to login
+    """
     failed = False
     if request.POST:
         username = request.POST['username']

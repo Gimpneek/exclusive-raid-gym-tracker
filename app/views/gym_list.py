@@ -1,31 +1,32 @@
-""" Views for homepage """
+# -*- coding: utf-8 -*-
+""" Views for Gym List """
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.db.models import F
 from app.models.gym_item import GymItem
 from app.models.profile import Profile
-from django.db.models import F
 
 
 @login_required
 def gym_list(request):
     """
-    Show the homepage
+    Show the Gym List
     """
     profile = Profile.objects.get(
         user=request.user.id
     )
-    gym_list = GymItem.objects.filter(
+    gym_item_list = GymItem.objects.filter(
         profile=profile.id,
         hidden=False
     ).order_by(
         F('last_visit_date').asc(nulls_first=True),
         'gym__name'
     )
-    total_gyms = len(gym_list)
-    completed_gyms = [gym for gym in gym_list if gym.last_visit_date]
-    gyms_to_visit = [gym for gym in gym_list if not gym.last_visit_date]
+    total_gyms = len(gym_item_list)
+    completed_gyms = [gym for gym in gym_item_list if gym.last_visit_date]
+    gyms_to_visit = [gym for gym in gym_item_list if not gym.last_visit_date]
     gym_progress = 0
-    if len(completed_gyms) > 0:
+    if completed_gyms:
         gym_progress = int((float(len(completed_gyms))/float(total_gyms))*100)
     return render(request, 'app/gym_list.html', {
         'completed_gym_list': completed_gyms,
