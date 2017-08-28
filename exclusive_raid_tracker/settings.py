@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
-if os.environ.get('PROD', 0) == 1:
+if os.environ.get('PROD', '0') == '1':
     DEBUG = False
     ALLOWED_HOSTS.append('exclusive-raid-tracker-leeds.herokuapp.com')
     # Update database configuration with $DATABASE_URL.
