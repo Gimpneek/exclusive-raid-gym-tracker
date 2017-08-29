@@ -1,5 +1,4 @@
 # Created by colinwren at 28/08/2017
-@dev
 Feature: Gym List
   As a user of the system
   In order to add a raid visit to a gym so I can track my progress

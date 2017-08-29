@@ -21,7 +21,8 @@ ERROR_MESSAGE_MAPPING = {
     'telling them to use a different username':
         'A user with that username already exists.',
     'telling them no account exists for those credentials':
-        'Unable to login with provided credentials'
+        'Unable to login with provided credentials',
+    'saying the date is invalid': 'Invalid date entered'
 }
 
 
@@ -46,6 +47,7 @@ def visit_page(context, page_to_visit):
 
 
 @then('the user is taken to the {page_to_check} page')
+@given('the user is taken to the {page_to_check} page')
 def verify_user_redirected(context, page_to_check):
     """
     Verify that the user is redirected to the defined page
@@ -54,7 +56,7 @@ def verify_user_redirected(context, page_to_check):
     :return:
     """
     url = get_url_from_name(context, page_to_check)
-    if hasattr(context, 'card_url'):
+    if hasattr(context, 'card_url') and context.card_url:
         url = context.card_url
     assert(context.browser.current_url == url)
 

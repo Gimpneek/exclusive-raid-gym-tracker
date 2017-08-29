@@ -13,6 +13,7 @@ def gym_item(request, gym_item_id):
     Show the Gym Item that matches the past ID
     """
     requested_gym_item = GymItem.objects.get(id=gym_item_id)
+    failed = False
     if request.POST:
         form = GymItemForm(request.POST)
         if form.is_valid():
@@ -20,6 +21,8 @@ def gym_item(request, gym_item_id):
             requested_gym_item.last_visit_date = last_visit_date
             requested_gym_item.save()
             return redirect('gym_list')
+        else:
+            failed = True
     else:
         form = GymItemForm()
     date_to_show = datetime.now()
@@ -28,5 +31,6 @@ def gym_item(request, gym_item_id):
     return render(request, 'app/gym_item.html', {
         'gym_item': requested_gym_item,
         'form': form,
-        'date_to_show': date_to_show
+        'date_to_show': date_to_show,
+        'failed': failed
     })

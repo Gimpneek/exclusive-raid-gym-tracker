@@ -53,6 +53,19 @@ class ListingPage(BasePage):
         return titles
 
     @staticmethod
+    def get_card_by_title(cards, title):
+        """
+        Get card in card list by title
+        :param cards: list of card webelements
+        :param title: title to find
+        :return: webelement
+        """
+        for card in cards:
+            title_element = card.find_element(*CARD_CONTENT_TITLE)
+            if title_element.text == title:
+                return card
+
+    @staticmethod
     def get_visit_dates_for_cards(cards):
         """
         Get visit dates for the supplied list of cards
@@ -63,8 +76,11 @@ class ListingPage(BasePage):
         for card in cards:
             date = card.find_element(*CARD_CONTENT_VISIT_DATE)
             date_str = date.text.replace('You last visited this gym on ', '')
-            converted_date = datetime.strptime(date_str, '%d/%m/%Y')
-            dates.append(converted_date)
+            if 'You still need to visit this gym' in date_str:
+                dates.append(date_str)
+            else:
+                converted_date = datetime.strptime(date_str, '%d/%m/%Y')
+                dates.append(converted_date)
         return dates
 
     @staticmethod

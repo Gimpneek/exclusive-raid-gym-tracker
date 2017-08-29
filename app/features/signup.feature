@@ -1,5 +1,4 @@
 # Created by colinwren at 28/08/2017
-@dev
 Feature: Sign Up
   As a potential user of the system
   In order to save my progress and personalise my experience

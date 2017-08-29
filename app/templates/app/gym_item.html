@@ -22,6 +22,11 @@
 {% endblock %}
 {%  block content %}
 <form action="" method="post">
+    {%  if failed %}
+        <div class="notification is-danger">
+          Invalid date entered
+        </div>
+    {% endif %}
     <div class="field">
         <label class="label" for="last_visit_date">Date you last completed a raid on this gym</label>
         <div class="control">

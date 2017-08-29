@@ -2,6 +2,7 @@ from behave import given, when, then
 from page_object_models.forms import FormPage
 from django.contrib.auth.models import User
 from app.models.profile import Profile
+from datetime import date
 
 
 @when('the user enters a username not currently in the system')
@@ -126,3 +127,52 @@ def user_is_logged_in(context):
     :return:
     """
     pass
+
+
+@when('the user presses the Remove Raid Data button')
+def press_remove_raid(context):
+    """
+    Press the remove raid button
+    :param context: Behave context
+    """
+    form = FormPage(context.browser)
+    form.remove_raid()
+    context.card_url = None
+
+
+@when('the user presses the Submit Raid button')
+def press_submit_raid(context):
+    """
+    Press the remove raid button
+    :param context: Behave context
+    """
+    form = FormPage(context.browser)
+    form.submit_form()
+    context.card_url = None
+
+
+@when('the user presses the Cancel button')
+def press_cancel_button(context):
+    """
+    Press the cancel button
+    :param context: Behave context
+    """
+    form = FormPage(context.browser)
+    form.cancel_form()
+    context.card_url = None
+
+
+@when('they enter {validity} date into the last raid visit entry box')
+def enter_valid_date(context, validity):
+    """
+    Enter valid date into the last visit date input
+    :param context: Behave context
+    :param validity: Is date valid?
+    """
+    today = 'this_is_invalid'
+    if validity == 'a valid':
+        today = date.today().strftime('%d-%m-%Y')
+    context.entered_date = today
+    form = FormPage(context.browser)
+    form.enter_last_visit_date(today)
+

@@ -1,6 +1,6 @@
 from behave import given, when, then
 from app.models.gym_item import GymItem
-from datetime import date
+from datetime import date, datetime
 from .page_object_models.listing import ListingPage
 import copy
 
@@ -11,7 +11,7 @@ def user_has_no_raids(context):
     No need to set up raids for user
     :param context: Behave context
     """
-    pass
+    context.raid_count = 'none'
 
 
 @given('the user has completed at least one raid')
@@ -20,6 +20,7 @@ def user_has_completed_raids(context):
     Set up some completed raids for the user
     :param context: Behave context
     """
+    context.raid_count = 'some'
     gyms = GymItem.objects.all().filter(profile=1, hidden=False)
     gym = gyms[0]
     gym.last_visit_date = date.today()
@@ -32,6 +33,7 @@ def user_has_completed_all_raids(context):
     Set up so user has all raids completed
     :param context: Behave context
     """
+    context.raid_count = 'all'
     gyms = GymItem.objects.all().filter(profile=1, hidden=False)
     for gym in gyms:
         gym.last_visit_date = date.today()
@@ -117,6 +119,7 @@ def check_yet_to_visit_raids_list_hidden(context):
 
 
 @when('they click on the {button_name} button on a gym card')
+@given('they click on the {button_name} button on a gym card')
 def click_gym_card_button(context, button_name):
     """
     Click on the defined button on the gym card
@@ -124,10 +127,14 @@ def click_gym_card_button(context, button_name):
     :param button_name: name of the button
     """
     page = ListingPage(context.browser)
-    cards = page.get_yet_to_complete_cards()
+    if not hasattr(context, 'raid_count') or context.raid_count == 'none':
+        cards = page.get_yet_to_complete_cards()
+    else:
+        cards = page.get_completed_cards()
     context.progress_bar = page.get_progress_bar()
     card = cards[0]
     context.card_title = page.get_titles_for_cards([card])[0]
+    context.card_text = page.get_visit_dates_for_cards([card])[0]
     button = page.get_card_button_by_name(card, button_name)
     context.card_url = button.get_attribute('href')
     button.click()
@@ -172,7 +179,7 @@ def check_progress_bar_empty(context, completion_status):
         assert(value == 0)
     elif completion_status == 'not be empty':
         assert(value > 0)
-        assert(value < 100)
+        assert(value < progress_bar['max'])
     elif completion_status == 'be full':
         assert(value == len(cards))
     else:
@@ -197,3 +204,55 @@ def check_completion_percentage(context, completion_status):
         assert (percentage == 100)
     else:
         raise NotImplementedError('Unexpected option')
+
+
+@then('the gym is present in the list of gyms {list_of_gyms}')
+def check_gym_in_list(context, list_of_gyms):
+    """
+    Check that the gym in the correct list
+    :param context: Behave context
+    :param list_of_gyms: List card should be in
+    """
+    page = ListingPage(context.browser)
+    if list_of_gyms == 'they have already visited':
+        cards = page.get_completed_cards()
+    elif list_of_gyms == 'they have yet to visit':
+        cards = page.get_yet_to_complete_cards()
+    else:
+        raise NotImplementedError('Unexpected option')
+    titles = page.get_titles_for_cards(cards)
+    assert (context.card_title in titles)
+
+
+@then('the gym card shows {text}')
+def check_text_on_card(context, text):
+    """
+    Check the text on the card
+    :param context: Behave context
+    :param text: Text card should show
+    """
+    page = ListingPage(context.browser)
+    if text == 'the date they entered as the last visited date':
+        cards = page.get_completed_cards()
+    else:
+        cards = page.get_yet_to_complete_cards()
+    card = page.get_card_by_title(cards, context.card_title)
+    card_text = page.get_visit_dates_for_cards([card])[0]
+    format = '%d-%m-%Y'
+    if text == 'the date they entered as the last visited date':
+        date_on_card = datetime.strptime(context.entered_date, format)
+        assert(card_text.strftime(format) == date_on_card.strftime(format))
+    if text == 'the unchanged visit date':
+        date_on_card = context.card_text
+        assert (card_text.strftime(format) == date_on_card.strftime(format))
+    if text == 'they have yet to visit the gym':
+        assert(card_text == 'You still need to visit this gym')
+
+
+@then('They stay on the form')
+def check_still_on_form(context):
+    """
+    Check that the user is still on the form
+    :param context: Behave context
+    """
+    assert(context.browser.current_url == context.card_url)

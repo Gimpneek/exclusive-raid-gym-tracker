@@ -1,5 +1,4 @@
 # Created by colinwren at 28/08/2017
-@dev
 Feature: Login
   As a user of the system
   In order to access the app
