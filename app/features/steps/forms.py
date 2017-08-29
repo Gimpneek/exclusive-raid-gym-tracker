@@ -169,9 +169,7 @@ def enter_valid_date(context, validity):
     :param context: Behave context
     :param validity: Is date valid?
     """
-    today = 'this_is_invalid'
-    if validity == 'a valid':
-        today = date.today().strftime('%d-%m-%Y')
+    today = date.today().strftime('%d-%m-%Y')
     context.entered_date = today
     form = FormPage(context.browser)
     form.enter_last_visit_date(today)
