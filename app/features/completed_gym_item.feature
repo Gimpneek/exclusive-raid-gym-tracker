@@ -32,9 +32,9 @@ Feature: Add Raid Visit to Gym - Completed raid
     And the gym is present in the list of gyms they have already visited
     And the gym card shows the unchanged visit date
 
-  @form-errors @safari
-  Scenario: Enter invalid date
-    When they enter an invalid date into the last raid visit entry box
-    And the user presses the submit button
-    Then They stay on the form
-    And the user is shown an error message saying the date is invalid
+#  @form-errors @safari
+#  Scenario: Enter invalid date
+#    When they enter an invalid date into the last raid visit entry box
+#    And the user presses the submit button
+#    Then They stay on the form
+#    And the user is shown an error message saying the date is invalid
