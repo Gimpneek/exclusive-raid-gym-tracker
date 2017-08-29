@@ -175,4 +175,3 @@ def enter_valid_date(context, validity):
     context.entered_date = today
     form = FormPage(context.browser)
     form.enter_last_visit_date(today)
-

@@ -1,7 +1,7 @@
 from behave import given, when, then
 from app.models.gym_item import GymItem
 from datetime import date, datetime
-from .page_object_models.listing import ListingPage
+from page_object_models.listing import ListingPage
 import copy
 
 
