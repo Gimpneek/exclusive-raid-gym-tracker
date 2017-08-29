@@ -16,68 +16,76 @@
     </section>
 {%  endblock %}
 {%  block content %}
-    <h1>Gyms to visit</h1>
-    <div class="columns">
-    {%  for gym_item in gyms_to_visit %}
-        {%  if forloop.counter0|divisibleby:3 %}
-            </div>
-            <div class="columns">
-        {% endif %}
-        <div class="column is-4">
-            <div class="card">
-                <a href="/item/{{ gym_item.id }}/" class="card-image has-background-image" style="background-image: url('{{ gym_item.gym.image_url }}')">
-                    <figure class="image is-4by3"></figure>
-                </a>
-              <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4">{{ gym_item.gym.name }}</p>
-                  </div>
-                  <div class="content">
-                    {% if gym_item.last_visit_date %}
-                      <p>You last visited this gym on {{ gym_item.last_visit_date|date:"d/m/Y" }}</p>
-                      {% else %}
-                          <p>You still need to visit this gym</p>
-                      {% endif %}
-                  </div>
-              </div>
-              <footer class="card-footer">
-                <a class="card-footer-item" href="/item/{{ gym_item.id }}/">Add Raid</a>
-                <a class="card-footer-item" href="/hide/{{ gym_item.id }}/">Hide</a>
-              </footer>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
-    <h1>Visited Gyms</h1>
-    <div class="columns">
-    {%  for gym_item in completed_gym_list %}
-        {%  if forloop.counter0|divisibleby:3 %}
-            </div>
-            <div class="columns">
-        {% endif %}
-        <div class="column is-4">
-            <div class="card">
-                <div class="card-image has-background-image" style="background-image: url('{{ gym_item.gym.image_url }}')">
-                    <figure class="image is-4by3"></figure>
+    {% if gyms_to_visit %}
+        <h1>Gyms to visit</h1>
+        <div id="gyms_to_visit">
+            {%  for gym_item in gyms_to_visit %}
+                {%  if forloop.counter0|divisibleby:3 %}
+                    {%  if forloop.counter0 != 0 %}
+                        </div>
+                    {% endif %}
+                    <div class="columns">
+                {% endif %}
+                <div class="column is-4">
+                    <div class="card">
+                        <a href="/item/{{ gym_item.id }}/" class="card-image has-background-image" style="background-image: url('{{ gym_item.gym.image_url }}')">
+                            <figure class="image is-4by3"></figure>
+                        </a>
+                      <div class="card-content">
+                          <div class="media-content">
+                            <p class="title is-4">{{ gym_item.gym.name }}</p>
+                          </div>
+                          <div class="content">
+                            {% if gym_item.last_visit_date %}
+                              <p>You last visited this gym on {{ gym_item.last_visit_date|date:"d/m/Y" }}</p>
+                              {% else %}
+                                  <p>You still need to visit this gym</p>
+                              {% endif %}
+                          </div>
+                      </div>
+                      <footer class="card-footer">
+                        <a class="card-footer-item" href="/item/{{ gym_item.id }}/">Add Raid</a>
+                        <a class="card-footer-item" href="/hide/{{ gym_item.id }}/">Hide</a>
+                      </footer>
+                    </div>
                 </div>
-              <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4">{{ gym_item.gym.name }}</p>
-                  </div>
-                  <div class="content">
-                    {% if gym_item.last_visit_date %}
-                      <p>You last visited this gym on {{ gym_item.last_visit_date|date:"d/m/Y" }}</p>
-                      {% else %}
-                          <p>You still need to visit this gym</p>
-                      {% endif %}
-                  </div>
-              </div>
-              <footer class="card-footer">
-                <a class="card-footer-item" href="/item/{{ gym_item.id }}/">Add Raid</a>
-                <a class="card-footer-item" href="/hide/{{ gym_item.id }}/">Hide</a>
-              </footer>
-            </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-    </div>
+    {% endif %}
+    {% if completed_gym_list %}
+        <h1>Visited Gyms</h1>
+        <div id="completed_gyms">
+        {%  for gym_item in completed_gym_list %}
+            {%  if forloop.counter0|divisibleby:3 %}
+                {%  if forloop.counter0 != 0 %}
+                    </div>
+                {% endif %}
+                <div class="columns">
+            {% endif %}
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image has-background-image" style="background-image: url('{{ gym_item.gym.image_url }}')">
+                        <figure class="image is-4by3"></figure>
+                    </div>
+                  <div class="card-content">
+                      <div class="media-content">
+                        <p class="title is-4">{{ gym_item.gym.name }}</p>
+                      </div>
+                      <div class="content">
+                        {% if gym_item.last_visit_date %}
+                          <p>You last visited this gym on {{ gym_item.last_visit_date|date:"d/m/Y" }}</p>
+                          {% else %}
+                              <p>You still need to visit this gym</p>
+                          {% endif %}
+                      </div>
+                  </div>
+                  <footer class="card-footer">
+                    <a class="card-footer-item" href="/item/{{ gym_item.id }}/">Add Raid</a>
+                    <a class="card-footer-item" href="/hide/{{ gym_item.id }}/">Hide</a>
+                  </footer>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
 {%  endblock %}

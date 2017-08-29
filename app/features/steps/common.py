@@ -54,6 +54,8 @@ def verify_user_redirected(context, page_to_check):
     :return:
     """
     url = get_url_from_name(context, page_to_check)
+    if hasattr(context, 'card_url'):
+        url = context.card_url
     assert(context.browser.current_url == url)
 
 
