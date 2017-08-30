@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.ExclusiveRaidAppConfig',
+    'behave_django'
 ]
 
 MIDDLEWARE = [
