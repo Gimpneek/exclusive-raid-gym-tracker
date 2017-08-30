@@ -171,5 +171,7 @@ def enter_valid_date(context, validity):
     """
     today = date.today().strftime('%d-%m-%Y')
     context.entered_date = today
+    if context.browser.capabilities.get('browserName') == 'phantomjs':
+        today = date.today().strftime('%Y-%m-%d')
     form = FormPage(context.browser)
     form.enter_last_visit_date(today)

@@ -30,6 +30,8 @@ class FormPage(BasePage):
         :param date: Date string to enter
         """
         form_input = self.driver.find_element(*LAST_VISIT_DATE_INPUT)
+        if self.driver.capabilities.get('browserName') == 'phantomjs':
+            form_input.clear()
         form_input.send_keys(date)
 
     def submit_form(self, expect_error=False):
