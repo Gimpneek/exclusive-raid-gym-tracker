@@ -42,7 +42,12 @@ Feature: Login
     And the user presses the submit button
     Then the user is shown an error message telling them no account exists for those credentials
 
-    Scenario: Redirect logged in users
+  Scenario: Redirect logged in users
+  Given the user is logged in
+  When the user visits the login page
+  Then the user is taken to the gym list page
+
+  Scenario: Redirect logged in users from homepage
     Given the user is logged in
-    When the user visits the login page
+    When the user visits the landing page
     Then the user is taken to the gym list page
