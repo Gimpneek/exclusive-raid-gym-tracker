@@ -126,6 +126,7 @@ STATIC_ROOT = 'app/static'
 if os.environ.get('PROD', '0') == '1':
     DEBUG = False
     ALLOWED_HOSTS.append('exclusive-raid-tracker-leeds.herokuapp.com')
+    ALLOWED_HOSTS.append('raids.pokemongoleeds.com/')
     # Update database configuration with $DATABASE_URL.
     DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(DB_FROM_ENV)
