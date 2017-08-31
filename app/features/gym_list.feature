@@ -35,12 +35,12 @@ Feature: Gym List
     When they click on the Add Raid button on a gym card
     Then the user is taken to the gym item page
 
-  Scenario: Hide Gym in list
-    Given the user is logged in
-    And the user visits the gym list page
-    When they click on the Hide button on a gym card
-    Then the gym card is removed from the list
-    And the progress bar is updated to reflect the fact the gym is no longer counted
+  #Scenario: Hide Gym in list
+  #  Given the user is logged in
+  #  And the user visits the gym list page
+  #  When they click on the Hide button on a gym card
+  #  Then the gym card is removed from the list
+  #  And the progress bar is updated to reflect the fact the gym is no longer counted
 
   Scenario: Progress Bar - No raids completed
     Given the user is logged in
