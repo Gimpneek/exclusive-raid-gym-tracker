@@ -13,6 +13,8 @@ def gym_item(request, gym_item_id):
     Show the Gym Item that matches the past ID
     """
     requested_gym_item = GymItem.objects.get(id=gym_item_id)
+    if requested_gym_item.profile.user.id != request.user.id:
+        return redirect('gym_list')
     failed = False
     if request.POST:
         form = GymItemForm(request.POST)
