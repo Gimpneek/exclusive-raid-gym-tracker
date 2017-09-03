@@ -15,6 +15,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='gym',
             name='gym_hunter_id',
-            field=models.CharField(blank=True, help_text=b'ID on Gymhuntr', max_length=32, null=True),
+            field=models.CharField(
+                blank=True,
+                help_text=b'ID on Gymhuntr',
+                max_length=32,
+                null=True
+            ),
         ),
     ]

@@ -15,6 +15,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='profile',
             name='pokemon_go_username',
-            field=models.CharField(blank=True, help_text=b'Your name in Pokemon Go', max_length=128, null=True),
+            field=models.CharField(
+                blank=True,
+                help_text=b'Your name in Pokemon Go',
+                max_length=128,
+                null=True
+            ),
         ),
     ]

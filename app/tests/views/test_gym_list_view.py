@@ -36,8 +36,8 @@ class TestGymListView(TestCase):
         """
         self.client.login(username='test', password='password')
         resp = self.client.get(reverse_lazy('gym_list'))
-        self.assertTrue('Visited Gyms' in resp.content)
-        self.assertFalse('Gyms to visit' in resp.content)
+        self.assertTrue('Visited Gyms' in resp.content.encode())
+        self.assertFalse('Gyms to visit' in resp.content.encode())
 
     def test_shows_yet_to_visit_gyms(self):
         """
@@ -48,5 +48,5 @@ class TestGymListView(TestCase):
         gym_item.save()
         self.client.login(username='test', password='password')
         resp = self.client.get(reverse_lazy('gym_list'))
-        self.assertTrue('Gyms to visit' in resp.content)
-        self.assertFalse('Visited Gyms' in resp.content)
+        self.assertTrue('Gyms to visit' in resp.content.encode())
+        self.assertFalse('Visited Gyms' in resp.content.encode())
