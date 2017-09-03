@@ -79,7 +79,7 @@ class TestGymItemView(TestCase):
                 'last_visit_date': 'bad_string'
             }
         )
-        self.assertTrue('Invalid date entered' in resp.content)
+        self.assertTrue('Invalid date entered' in str(resp.content))
 
     def test_changes_submitted_date(self):
         """

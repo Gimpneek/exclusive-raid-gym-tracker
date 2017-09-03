@@ -63,7 +63,7 @@ class TestSignUpView(TestCase):
                 'password': 'password'
             }, follow=True
         )
-        self.assertTrue('username already exists' in resp.content.encode())
+        self.assertTrue('username already exists' in str(resp.content))
 
     def test_sign_up_no_username(self):
         """
@@ -75,7 +75,7 @@ class TestSignUpView(TestCase):
                 'password': 'password'
             }, follow=True
         )
-        self.assertTrue('This field is required' in resp.content.encode())
+        self.assertTrue('This field is required' in str(resp.content))
 
     def test_sign_up_no_password(self):
         """
@@ -87,4 +87,4 @@ class TestSignUpView(TestCase):
                 'username': 'test',
             }, follow=True
         )
-        self.assertTrue('This field is required' in resp.content.encode())
+        self.assertTrue('This field is required' in str(resp.content))

@@ -52,7 +52,7 @@ class TestLogInView(TestCase):
             }, follow=True
         )
         self.assertTrue('Unable to login with '
-                        'provided credentials' in resp.content.encode())
+                        'provided credentials' in str(resp.content))
 
     def test_login_no_username(self):
         """
@@ -65,7 +65,7 @@ class TestLogInView(TestCase):
             }, follow=True
         )
         self.assertTrue('Unable to login with '
-                        'provided credentials' in resp.content.encode())
+                        'provided credentials' in str(resp.content))
 
     def test_login_no_password(self):
         """
@@ -78,4 +78,4 @@ class TestLogInView(TestCase):
             }, follow=True
         )
         self.assertTrue('Unable to login with '
-                        'provided credentials' in resp.content.encode())
+                        'provided credentials' in str(resp.content))
