@@ -14,7 +14,9 @@ class Gym(models.Model):
     )
     gym_hunter_id = models.CharField(
         max_length=32,
-        help_text="ID on Gymhuntr"
+        help_text="ID on Gymhuntr",
+        blank=True,
+        null=True
     )
     location = models.CharField(
         max_length=128,
