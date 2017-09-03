@@ -338,5 +338,15 @@
       "location": "53.791866,-1.547534",
       "image_url": "http://lh5.ggpht.com/Wzve0AA_0y0k5DbZXMRat6TtP8bPBOMUAaMKFXM2DOOccRoseATZnSws3P2yOFSiV7GManzMNQLNmh2Qs4fC"
     }
+  },
+  {
+    "model": "app.gym",
+    "pk": 35,
+    "fields": {
+      "name": "First Direct Arena",
+      "gym_hunter_id": "58657442cfb1ad32b7d819a5",
+      "location": "53.803685,-1.543394",
+      "image_url": "http://lh4.ggpht.com/3MRcgsFnWGKni_4XLn4JYmMxhYeE0C4QcyqLvsCqWOukDU-JDY1xJ7Zh0hqoCSrEDsYAWWHqLJVKP1b_fP9GLw"
+    }
   }
 ]
