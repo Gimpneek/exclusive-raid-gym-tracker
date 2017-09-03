@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from app.models.profile import Profile
 from app.models.gym import Gym
 from app.models.gym_item import GymItem
+from app.tests.common import create_gym_item
 
 GYM_NAME = 'Test Gym'
 GYM_LOCATION = 'this way, that way'
@@ -20,19 +21,11 @@ class TestGymItemObject(TestCase):
     def setUp(self):
         """ Set up the test """
         super(TestGymItemObject, self).setUp()
-        self.user = User.objects.create(username=USERNAME)
-        self.profile = Profile.objects.create(
-            user=self.user,
-            pokemon_go_username=USERNAME
-        )
-        self.gym = Gym.objects.create(
-            name=GYM_NAME,
-            location=GYM_LOCATION
-        )
-        self.gym_item = GymItem.objects.create(
-            gym=self.gym,
-            profile=self.profile,
-            last_visit_date=LAST_VISIT_DATE
+        self.gym_item = create_gym_item(
+            USERNAME,
+            GYM_NAME,
+            GYM_LOCATION,
+            LAST_VISIT_DATE
         )
 
     def test_default_hidden(self):
@@ -75,8 +68,10 @@ class TestGymItemObjectCreation(TestCase):
         """
         Test that exception is not raised if no last visit date is supplied
         """
-        user = User.objects.create(username=USERNAME)
-        profile = Profile.objects.create(user=user)
-        gym = Gym.objects.create(name=GYM_NAME, location=GYM_LOCATION)
-        gym_item = GymItem.objects.create(gym=gym, profile=profile)
+        gym_item = create_gym_item(
+            USERNAME,
+            GYM_NAME,
+            GYM_LOCATION,
+            LAST_VISIT_DATE
+        )
         gym_item.full_clean()
