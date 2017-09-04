@@ -1,10 +1,10 @@
 """ Test the gym item view """
+from datetime import datetime
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from app.tests.common import create_gym_item
 from app.models.gym_item import GymItem
-from datetime import datetime
 
 
 class TestGymItemView(TestCase):

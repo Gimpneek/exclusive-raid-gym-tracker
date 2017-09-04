@@ -65,7 +65,7 @@ class TestGymItemObjectCreation(TestCase):
             GymItem.objects.create(profile=profile)
 
     @staticmethod
-    def test_last_visit_date_not_defined():
+    def test_no_last_visit_date():
         """
         Test that exception is not raised if no last visit date is supplied
         """
