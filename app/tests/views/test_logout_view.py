@@ -20,7 +20,7 @@ class TestLogoutView(TestCase):
         """
         Test that visiting the logout page as a logged in user logs them out
         """
-        self.assertFalse(self.client.session._session)
+        self.assertIsNone(self.client.session.session_key)
 
     def test_redirects_to_homepage(self):
         """

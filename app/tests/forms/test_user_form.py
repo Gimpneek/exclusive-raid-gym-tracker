@@ -1,7 +1,7 @@
 """ user form tests """
 from django.test import TestCase
-from app.forms.user import UserForm
 from django.contrib.auth.models import User
+from app.forms.user import UserForm
 
 
 class TestUserForm(TestCase):

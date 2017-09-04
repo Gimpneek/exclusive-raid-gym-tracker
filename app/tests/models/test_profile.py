@@ -36,12 +36,13 @@ class TestProfileObjectCreation(TestCase):
     Test the creation of Profile Model objects
     """
 
-    def test_raises_if_user_not_defined(self):
+    def test_user_not_defined(self):
         """ Test that exception is raised if no user supplied """
         with self.assertRaises(IntegrityError):
             Profile.objects.create(pokemon_go_username=USERNAME)
 
-    def test_doesnt_raise_if_pogo_name_not_defined(self):
+    @staticmethod
+    def test_pogo_name_not_defined():
         """
         Test that exception is not raised if no pokemon go username supplied
         """

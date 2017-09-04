@@ -51,20 +51,21 @@ class TestGymItemObjectCreation(TestCase):
     Test the creation of Gym Item Model objects
     """
 
-    def test_raises_if_profile_not_defined(self):
+    def test_profile_not_defined(self):
         """ Test that exception is raised if no profile supplied """
         with self.assertRaises(IntegrityError):
             gym = Gym.objects.create(name=GYM_NAME, location=GYM_LOCATION)
             GymItem.objects.create(gym=gym)
 
-    def test_raises_if_gym_not_defined(self):
+    def test_gym_not_defined(self):
         """ Test that exception is raised if no gym supplied """
         with self.assertRaises(IntegrityError):
             user = User.objects.create(username=USERNAME)
             profile = Profile.objects.create(user=user)
             GymItem.objects.create(profile=profile)
 
-    def test_doesnt_raise_if_last_visit_date_not_defined(self):
+    @staticmethod
+    def test_no_last_visit_date():
         """
         Test that exception is not raised if no last visit date is supplied
         """

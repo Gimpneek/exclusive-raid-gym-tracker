@@ -11,8 +11,12 @@ env:
   - SELENIUM=1
 install:
   - pip install -r requirements.txt
+  - pip install codacy-coverage
 script:
   - if [ "$LINTING" == "1" ] ; then pylint --load-plugins pylint_django app; fi
   - if [ "$LINTING" == "1" ] ; then flake8 app; fi
-  - if [ "$UNIT_TEST" == "1" ] ; then python manage.py test app; fi
+  - if [ "$UNIT_TEST" == "1" ] ; then coverage run manage.py test app; fi
   - if [ "$SELENIUM" == "1" ] ; then python manage.py behave; fi
+after_script:
+  - if [ "$UNIT_TEST" == "1" ] ; then coverage xml; fi
+  - if [ "$UNIT_TEST" == "1" ] ; then python-codacy-coverage -r coverage.xml; fi

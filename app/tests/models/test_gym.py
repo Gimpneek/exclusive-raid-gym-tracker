@@ -51,7 +51,7 @@ class TestGymObjectCreation(TestCase):
     Test the creation of Gym Model objects
     """
 
-    def test_raises_if_name_not_defined(self):
+    def test_name_not_defined(self):
         """ Test that exception is raised if no gym name supplied """
         with self.assertRaises(ValidationError):
             gym = Gym.objects.create(
@@ -61,7 +61,7 @@ class TestGymObjectCreation(TestCase):
             )
             gym.full_clean()
 
-    def test_raises_if_location_not_defined(self):
+    def test_location_not_defined(self):
         """ Test that exception is raised if no gym location supplied """
         with self.assertRaises(ValidationError):
             gym = Gym.objects.create(
@@ -71,7 +71,8 @@ class TestGymObjectCreation(TestCase):
             )
             gym.full_clean()
 
-    def test_doesnt_raise_if_gym_hunter_id_not_defined(self):
+    @staticmethod
+    def test_gym_hunter_id_not_defined():
         """ Test that exception is not raised if no gym hunter id supplied """
         gym = Gym.objects.create(
             name=GYM_NAME,
@@ -80,7 +81,8 @@ class TestGymObjectCreation(TestCase):
         )
         gym.full_clean()
 
-    def test_doesnt_raise_if_image_not_defined(self):
+    @staticmethod
+    def test_image_not_defined():
         """ Test that exception is not raised if no image url is suppled """
         gym = Gym.objects.create(
             name=GYM_NAME,
