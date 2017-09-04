@@ -22,7 +22,7 @@ class TestGymListView(TestCase):
         resp = self.client.get(reverse_lazy('gym_list'))
         self.assertTrue(str(reverse_lazy('login')) in resp.url)
 
-    def test_shows_gym_list_when_logged_in(self):
+    def test_shows_gym_list(self):
         """
         Test that signed in user sees Gym List
         """

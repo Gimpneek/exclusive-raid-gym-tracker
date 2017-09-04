@@ -33,7 +33,7 @@ class TestResetGymItemView(TestCase):
         )
         self.assertTrue(str(reverse_lazy('login')) in resp.url)
 
-    def test_shows_gym_list_when_logged_in(self):
+    def test_resets_gym_item(self):
         """
         Test that sign in user will reset the Gym Item and be shown gym list
         """
@@ -50,7 +50,7 @@ class TestResetGymItemView(TestCase):
         gym_item = GymItem.objects.get(gym__name='Test Gym')
         self.assertIsNone(gym_item.last_visit_date)
 
-    def test_redirects_gym_item_not_users(self):
+    def test_redirects_not_users_item(self):
         """
         Test that redirects to Gym List if Gym Item doesn't belong to the user
         """

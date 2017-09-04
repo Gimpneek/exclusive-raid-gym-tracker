@@ -33,7 +33,7 @@ class TestHideGymItemView(TestCase):
         )
         self.assertTrue(str(reverse_lazy('login')) in resp.url)
 
-    def test_shows_gym_item_when_logged_in(self):
+    def test_hides_gym_item_(self):
         """
         Test that sign in user will hide the Gym Item and be shown gym list
         """
@@ -50,7 +50,7 @@ class TestHideGymItemView(TestCase):
         gym_item = GymItem.objects.get(gym__name='Test Gym')
         self.assertTrue(gym_item.hidden)
 
-    def test_redirects_gym_item_not_users(self):
+    def test_redirects_not_users_item(self):
         """
         Test that redirects to Gym List if Gym Item doesn't belong to the user
         """

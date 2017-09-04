@@ -34,7 +34,7 @@ class TestGymItemView(TestCase):
         )
         self.assertTrue(str(reverse_lazy('login')) in resp.url)
 
-    def test_shows_gym_item_when_logged_in(self):
+    def test_shows_gym_item(self):
         """
         Test that signed in user sees Gym Item
         """
@@ -49,7 +49,7 @@ class TestGymItemView(TestCase):
         )
         self.assertEqual(resp.templates[0].name, 'app/gym_item.html')
 
-    def test_redirects_gym_item_not_users(self):
+    def test_redirects_not_users_item(self):
         """
         Test that redirects to Gym List if Gym Item doesn't belong to the user
         """
@@ -103,7 +103,7 @@ class TestGymItemView(TestCase):
         self.assertEqual(
             gym_item.last_visit_date.strftime('%Y-%m-%d'), '1990-04-13')
 
-    def test_shows_empty_input_on_no_date_set(self):
+    def test_no_date_set(self):
         """
         Test that when no date is set on gym item it shows an empty input
         """
