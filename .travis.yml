@@ -2,10 +2,17 @@ language: python
 python:
   - 2.7
   - 3.5
+env:
+  global:
+    - LINTING=0 UNIT_TEST=0 SELENIUM=0
+  matrix:
+  - LINTING=1
+  - UNIT_TEST=1
+  - SELENIUM=1
 install:
   - pip install -r requirements.txt
 script:
-  - pylint --load-plugins pylint_django app
-  - flake8 app
-  - python manage.py test app
-  - python manage.py behave
+  - if [ "$LINTING" == "1" ] ; then pylint --load-plugins pylint_django app; fi
+  - if [ "$LINTING" == "1" ] ; then flake8 app; fi
+  - if [ "$UNIT_TEST" == "1" ] ; then python manage.py test app; fi
+  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave; fi
