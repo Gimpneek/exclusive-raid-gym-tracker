@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from app.tests.common import create_gym_item
 from app.models.gym_item import GymItem
+from datetime import datetime
 
 
 class TestGymItemView(TestCase):
@@ -101,3 +102,23 @@ class TestGymItemView(TestCase):
         gym_item = GymItem.objects.get(gym__name='Test Gym')
         self.assertEqual(
             gym_item.last_visit_date.strftime('%Y-%m-%d'), '1990-04-13')
+
+    def test_shows_empty_input_on_no_date_set(self):
+        """
+        Test that when no date is set on gym item it shows an empty input
+        """
+        self.gym_item.last_visit_date = None
+        self.gym_item.save()
+        self.client.login(username='test', password='password')
+        resp = self.client.get(
+            reverse_lazy(
+                'gym_item',
+                kwargs={
+                    'gym_item_id': self.gym_item.id
+                }
+            )
+        )
+        input_el = 'name="last_visit_date" type="date" value="{}"'.format(
+            datetime.now().strftime('%Y-%m-%d')
+        )
+        self.assertTrue(input_el in str(resp.content))
