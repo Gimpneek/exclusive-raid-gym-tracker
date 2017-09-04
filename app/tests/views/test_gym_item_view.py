@@ -1,8 +1,8 @@
 """ Test the gym item view """
 from datetime import datetime
-from gym_item_common import GymViewCommonCase
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym_item import GymItem
+from app.tests.views.gym_item_common import GymViewCommonCase
 
 
 class TestGymItemView(GymViewCommonCase):

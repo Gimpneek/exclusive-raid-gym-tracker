@@ -1,7 +1,7 @@
 """ Test the reset gym item view """
-from gym_item_common import GymViewCommonCase
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym_item import GymItem
+from app.tests.views.gym_item_common import GymViewCommonCase
 
 
 class TestResetGymItemView(GymViewCommonCase):
