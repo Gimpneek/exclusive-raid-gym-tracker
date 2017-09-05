@@ -102,7 +102,7 @@ def check_completed_raids_list_hidden(context):
     page = ListingPage(context.browser)
     titles = page.get_list_titles()
     cards = page.get_completed_cards()
-    assert(len(titles) == 1)
+    assert(len(titles) == 2)
     assert(len(cards) == 0)
 
 
@@ -115,7 +115,7 @@ def check_yet_to_visit_raids_list_hidden(context):
     page = ListingPage(context.browser)
     titles = page.get_list_titles()
     cards = page.get_yet_to_complete_cards()
-    assert(len(titles) == 1)
+    assert(len(titles) == 2)
     assert(len(cards) == 0)
 
 
