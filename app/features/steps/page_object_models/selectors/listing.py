@@ -18,6 +18,11 @@ CARD_FOOTER = (By.CSS_SELECTOR, '.card-footer')
 CARD_FOOTER_OPTION = (By.CSS_SELECTOR, '.card-footer-item')
 PROGRESS_BAR = (By.CSS_SELECTOR, 'progress.progress')
 PROGRESS_PERCENTAGE = (By.CSS_SELECTOR, '.hero-body h2.subtitle:last-child')
+SEARCH_BAR = (By.ID, 'gym-list-search-bar')
+SEARCH_SUGGESTIONS = (
+    By.CSS_SELECTOR,
+    '#dropdown-menu .dropdown-content .dropdown-item'
+)
 
 
 def get_link_selector(button_name):

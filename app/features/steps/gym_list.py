@@ -2,6 +2,7 @@ from behave import given, when, then
 from app.models.gym_item import GymItem
 from datetime import date, datetime
 from page_object_models.listing import ListingPage
+from page_object_models.selectors.listing import SEARCH_BAR
 import copy
 
 
@@ -101,7 +102,7 @@ def check_completed_raids_list_hidden(context):
     page = ListingPage(context.browser)
     titles = page.get_list_titles()
     cards = page.get_completed_cards()
-    assert(len(titles) == 1)
+    assert(len(titles) == 2)
     assert(len(cards) == 0)
 
 
@@ -114,7 +115,7 @@ def check_yet_to_visit_raids_list_hidden(context):
     page = ListingPage(context.browser)
     titles = page.get_list_titles()
     cards = page.get_yet_to_complete_cards()
-    assert(len(titles) == 1)
+    assert(len(titles) == 2)
     assert(len(cards) == 0)
 
 
@@ -232,7 +233,11 @@ def check_text_on_card(context, text):
     :param text: Text card should show
     """
     page = ListingPage(context.browser)
-    if text == 'the date they entered as the last visited date':
+    completed_text = [
+        'the date they entered as the last visited date',
+        'the unchanged visit date'
+    ]
+    if text in completed_text:
         cards = page.get_completed_cards()
     else:
         cards = page.get_yet_to_complete_cards()
@@ -256,3 +261,64 @@ def check_still_on_form(context):
     :param context: Behave context
     """
     assert(context.browser.current_url == context.card_url)
+
+
+@then('they should see a search bar')
+def verify_search_bar_present(context):
+    """
+    Verify that the search bar is on the page
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    assert(page.get_search_bar())
+
+
+@when('they enter a {query_type} into the search input')
+def enter_search_query(context, query_type):
+    """
+    Enter a query into the search bar
+    :param context: Behave context
+    :param query_type: partial match or no match
+    """
+    page = ListingPage(context.browser)
+    if query_type == 'partial gym name':
+        page.enter_search_term('Bri')
+    if query_type == 'substring not found in any gym name':
+        page.enter_search_term('Colin Wren Wrote This')
+
+
+@when('they press the suggested gym')
+def select_suggested_gym(context):
+    """
+    Select a gym in the suggested gyms
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    suggestions = page.get_search_suggestions()
+    option = None
+    for suggestion in suggestions:
+        if suggestion.text == 'Bridgewater Place':
+            option = suggestion
+    assert(option)
+    context.card_url = option.get_attribute('href')
+    page.click_and_verify_change(option, SEARCH_BAR, hidden=True)
+
+
+@then('they should see a list of gyms that match that substring')
+def get_suggestions(context):
+    """
+    Get the search suggestions
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    assert(page.get_search_suggestions())
+
+
+@then('they should see no gyms')
+def verify_no_gyms(context):
+    """
+    Make sure no gyms shown
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    assert(not page.get_search_suggestions())

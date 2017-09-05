@@ -1,10 +1,12 @@
 """ Page Object Model for listing """
 from .selectors.listing import GYMS_TO_VISIT_CARDS, CARD_CONTENT_TITLE, \
     COMPLETED_GYMS_CARDS, CARD_CONTENT_VISIT_DATE, TITLES, \
-    get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE
+    get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE, SEARCH_BAR, \
+    SEARCH_SUGGESTIONS
 from .common import BasePage
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
+import time
 
 
 class ListingPage(BasePage):
@@ -39,8 +41,7 @@ class ListingPage(BasePage):
         """
         return self.driver.find_elements(*TITLES)
 
-    @staticmethod
-    def get_titles_for_cards(cards):
+    def get_titles_for_cards(self, cards):
         """
         Get titles for the supplied list of cards
         :param cards: list of card webelements
@@ -48,9 +49,18 @@ class ListingPage(BasePage):
         """
         titles = []
         for card in cards:
-            title = card.find_element(*CARD_CONTENT_TITLE)
-            titles.append(title.text)
+            titles.append(self.get_title_for_card(card))
         return titles
+
+    @staticmethod
+    def get_title_for_card(card):
+        """
+        Get title for the supplied card
+        :param card: Card Webelement
+        :return: Card title
+        """
+        title = card.find_element(*CARD_CONTENT_TITLE)
+        return title.text
 
     @staticmethod
     def get_card_by_title(cards, title):
@@ -114,3 +124,26 @@ class ListingPage(BasePage):
         """
         progress_bar = self.driver.find_element(*PROGRESS_PERCENTAGE)
         return int(progress_bar.text.replace('% complete!', ''))
+
+    def get_search_bar(self):
+        """
+        Get the search bar
+        :return: webelement for search bar
+        """
+        return self.driver.find_element(*SEARCH_BAR)
+
+    def enter_search_term(self, term):
+        """
+        Enter a search term into search bar
+        :param term: Search Term
+        """
+        search_bar = self.get_search_bar()
+        search_bar.send_keys(term)
+        time.sleep(2)
+
+    def get_search_suggestions(self):
+        """
+        Get the suggestions from search
+        :return: Get the dropdown list from search
+        """
+        return self.driver.find_elements(*SEARCH_SUGGESTIONS)
