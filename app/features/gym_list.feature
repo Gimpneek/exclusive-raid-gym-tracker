@@ -62,3 +62,34 @@ Feature: Gym List
     When the user visits the gym list page
     Then the progress bar will be full
     And the completion percentage will be 100%
+
+  Scenario: Search Bar
+    Given the user is logged in
+    And the user visits the gym list page
+    Then they should see a search bar
+
+  Scenario: Search Bar - Autocomplete Suggestions
+    Given the user is logged in
+    And the user visits the gym list page
+    When they enter a partial gym name into the search input
+    Then they should see a list of gyms that match that substring
+
+  Scenario: Search Bar - Autocomplete no suggestions
+    Given the user is logged in
+    And the user visits the gym list page
+    When they enter a substring not found in any gym name into the search input
+    Then they should see no gyms
+
+  Scenario: Search Bar - Jump to Gym by clicking
+    Given the user is logged in
+    And the user visits the gym list page
+    When they enter a partial gym name into the search input
+    And they press the suggested gym
+    Then the user is taken to the gym item page
+
+#  Scenario: Search Bar - Jump to Gym by pressing return key
+#    Given the user is logged in
+#    And the user visits the gym list page
+#    When they enter a partial gym name into the search input
+#    And they press the return key
+#    Then the user is taken to the gym item page
