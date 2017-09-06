@@ -1,5 +1,5 @@
 """ Test for Gym Model """
-from datetime import datetime, tzinfo
+from datetime import datetime
 from django.test import TestCase
 from app.models.gym import Gym
 import pytz

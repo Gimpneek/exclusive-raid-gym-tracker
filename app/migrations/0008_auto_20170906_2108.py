@@ -15,16 +15,29 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='gym',
             name='raid_end_date',
-            field=models.DateTimeField(blank=True, help_text=b'End Date of Raid', null=True),
+            field=models.DateTimeField(
+                blank=True,
+                help_text=b'End Date of Raid',
+                null=True
+            ),
         ),
         migrations.AddField(
             model_name='gym',
             name='raid_level',
-            field=models.PositiveSmallIntegerField(blank=True, help_text=b'Level of Raid', null=True),
+            field=models.PositiveSmallIntegerField(
+                blank=True,
+                help_text=b'Level of Raid',
+                null=True
+            ),
         ),
         migrations.AddField(
             model_name='gym',
             name='raid_pokemon',
-            field=models.CharField(blank=True, help_text=b'Name of Raid Pokemon', max_length=128, null=True),
+            field=models.CharField(
+                blank=True,
+                help_text=b'Name of Raid Pokemon',
+                max_length=128,
+                null=True
+            ),
         ),
     ]
