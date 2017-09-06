@@ -68,6 +68,10 @@ class Gym(models.Model):
                 return {
                     'pokemon': self.raid_pokemon,
                     'level': self.raid_level,
-                    'time_left': '{} remaining'.format(time_left)
+                    'time_left': '{} remaining'.format(
+                        datetime
+                        .fromtimestamp(time_left.seconds)
+                        .strftime('%H:%M:%S')
+                    )
                 }
         return None
