@@ -40,19 +40,21 @@
                 {% endif %}
                 <div class="column is-4">
                     <div class="card">
-                        {%  with gym_item.get_raid_information as raid_info %}
-                            {%  if raid_info %}
-                                <header class="card-header">
-                                <p class="card-header-title">{{ raid_info.pokemon }} - {{ raid_info.time_left }}</p>
-                                <a class="card-header-icon">
-                                  <span class="icon">{{ raid_info.level }} </span>
-                                </a>
-                              </header>
-                            {% endif %}
-                        {% endwith %}
                       <div class="card-image">
                           <a href="/item/{{ gym_item.id }}/" class="card-image has-background-image" style="background-image: url('{{ gym_item.gym.image_url }}')">
                               <figure class="image is-4by3"></figure>
+                              {%  with gym_item.get_raid_information as raid_info %}
+                                {%  if raid_info %}
+                                    <section class="raid-header hero is-small is-primary is-bold">
+                                        <div class="hero-body">
+                                            <div class="container">
+                                             <h1 class="title">{{ raid_info.pokemon }} ({{ raid_info.level }})</h1>
+                                             <h2 class="subtitle">{{ raid_info.time_left }}</h2>
+                                            </div>
+                                        </div>
+                                  </section>
+                                {% endif %}
+                            {% endwith %}
                           </a>
                       </div>
                       <div class="card-content">
