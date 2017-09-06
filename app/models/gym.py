@@ -71,7 +71,7 @@ class Gym(models.Model):
                     'time_left': '{} remaining'.format(
                         datetime
                         .fromtimestamp(time_left.seconds)
-                        .strftime('%H:%M:%S')
+                        .strftime('%-H:%M:%S')
                     )
                 }
         return None

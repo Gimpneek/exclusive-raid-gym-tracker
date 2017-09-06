@@ -357,4 +357,4 @@ def verify_raid_data(context, field):
     if field == 'level':
         assert('5' in header)
     if field == 'time remaining':
-        assert('00:59:59 remaining' in header)
+        assert('0:59:59 remaining' in header)

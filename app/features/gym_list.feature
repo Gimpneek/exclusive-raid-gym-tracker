@@ -94,7 +94,6 @@ Feature: Gym List
 #    And they press the return key
 #    Then the user is taken to the gym item page
 
-  @dev
   Scenario: Active Raid on Gym
     Given the user is logged in
     And a raid is active on a gym
