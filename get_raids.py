@@ -34,7 +34,10 @@ if raids.status_code == 200:
         )
         time_left = raid_end - datetime.now(tz=pytz.utc)
         if time_left.total_seconds() > 0:
-            gym = Gym.objects.get(gym_hunter_id=gym_id)
+            try:
+                gym = Gym.objects.get(gym_hunter_id=gym_id)
+            except Gym.DoesNotExist:
+                gym = None
             if gym:
                 gym.raid_level = status.get('raid_level')
                 gym.raid_pokemon = status.get('raid_pokemon_name')
