@@ -15,10 +15,10 @@ params = {
     'gyms': 'true',
     'scanned': 'false',
     'spawnpoints': 'false',
-    'swLat': '53.794317',
-    'swLng': '-1.534313',
-    'neLat': '53.795159',
-    'neLng': '-1.531268',
+    'swLat': '53.791408',
+    'swLng': '-1.5766920',
+    'neLat': '53.802341',
+    'neLng': '-1.5246490',
     'alwaysperfect': 'false',
     'raids': 'false'
 }
