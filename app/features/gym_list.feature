@@ -93,3 +93,18 @@ Feature: Gym List
 #    When they enter a partial gym name into the search input
 #    And they press the return key
 #    Then the user is taken to the gym item page
+
+  Scenario: Active Raid on Gym
+    Given the user is logged in
+    And a raid is active on a gym
+    When the user visits the gym list page
+    Then the name of the raid pokemon is displayed
+    And the level of the raid pokemon is displayed
+    And the time remaining of the raid pokemon is displayed
+
+    @dev
+  Scenario: Gyms with raids are at top of yet to complete list
+    Given the user is logged in
+    And a raid is active on a gym
+    When the user visits the gym list page
+    Then the gym is at the top of the yet to complete gym list

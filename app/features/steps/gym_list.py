@@ -1,9 +1,10 @@
 from behave import given, when, then
 from app.models.gym_item import GymItem
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from page_object_models.listing import ListingPage
 from page_object_models.selectors.listing import SEARCH_BAR
 import copy
+import pytz
 
 
 @given('the user has completed no raids')
@@ -322,3 +323,51 @@ def verify_no_gyms(context):
     """
     page = ListingPage(context.browser)
     assert(not page.get_search_suggestions())
+
+
+@given('a raid is active on a gym')
+def raid_is_active(context):
+    """
+    Set up a raid to be active on the gym
+    :param context: Behave context
+    """
+    gyms = GymItem.objects.all().filter(profile=1, hidden=False)
+    gyms = [gym for gym in gyms if not gym.last_visit_date]
+    gym_item = gyms[0]
+    gym_item.gym.raid_pokemon = 'Mewtwo'
+    gym_item.gym.raid_level = 5
+    raid_date = datetime.now(tz=pytz.utc) + timedelta(hours=1)
+    gym_item.gym.raid_end_date = raid_date
+    gym_item.gym.save()
+    context.active_raid_card = gym_item.gym.name
+
+
+@then('the {field} of the raid pokemon is displayed')
+def verify_raid_data(context, field):
+    """
+    Verify that the Raid fields are displayed correctly
+    :param context: Behave context
+    :param field: field to verify is shown
+    """
+    page = ListingPage(context.browser)
+    cards = page.get_yet_to_complete_cards()
+    card = page.get_card_by_title(cards, context.active_raid_card)
+    header = page.get_header_text_for_card(card)
+    if field == 'name':
+        assert('Mewtwo' in header)
+    if field == 'level':
+        assert('5' in header)
+    if field == 'time remaining':
+        assert('0:59:59 remaining' in header)
+
+
+@then('the gym is at the top of the yet to complete gym list')
+def verify_raid_at_top(context):
+    """
+    Verify that the raid card is at the top of the list
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    card = page.get_yet_to_complete_cards()[0]
+    title = page.get_title_for_card(card)
+    assert(title == context.active_raid_card)

@@ -2,7 +2,7 @@
 from .selectors.listing import GYMS_TO_VISIT_CARDS, CARD_CONTENT_TITLE, \
     COMPLETED_GYMS_CARDS, CARD_CONTENT_VISIT_DATE, TITLES, \
     get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE, SEARCH_BAR, \
-    SEARCH_SUGGESTIONS
+    SEARCH_SUGGESTIONS, CARD_HEADER
 from .common import BasePage
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
@@ -61,6 +61,16 @@ class ListingPage(BasePage):
         """
         title = card.find_element(*CARD_CONTENT_TITLE)
         return title.text
+
+    @staticmethod
+    def get_header_text_for_card(card):
+        """
+        Get header element for the supplied card
+        :param card: Card webelement
+        :return: Card header text
+        """
+        header = card.find_element(*CARD_HEADER)
+        return header.text
 
     @staticmethod
     def get_card_by_title(cards, title):

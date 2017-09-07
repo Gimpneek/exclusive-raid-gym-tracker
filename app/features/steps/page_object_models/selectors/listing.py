@@ -23,6 +23,7 @@ SEARCH_SUGGESTIONS = (
     By.CSS_SELECTOR,
     '#dropdown-menu .dropdown-content .dropdown-item'
 )
+CARD_HEADER = (By.CSS_SELECTOR, '.columns > .column > .card .raid-header')
 
 
 def get_link_selector(button_name):
