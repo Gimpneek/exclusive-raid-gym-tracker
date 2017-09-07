@@ -23,23 +23,40 @@ params = {
     'raids': 'false'
 }
 
-raids = requests.get(os.environ.get('POGO_MAP_URL'), params=params)
-if raids.status_code == 200:
-    gym_data = raids.json().get('gyms', {})
+proxy_url = os.environ.get('QUOTAGUARDSTATIC_URL')
 
-    for gym_id, status in gym_data.items():
-        raid_end = datetime.fromtimestamp(
-            (status.get('raid_end_ms')/1000.0),
-            tz=pytz.UTC
+time_now = datetime.now(tz=pytz.timezone('Europe/London'))
+
+if time_now.hour in range(6, 21):
+    if proxy_url:
+        proxies = {
+            "http": proxy_url,
+            "https": proxy_url
+        }
+        raids = requests.get(
+            os.environ.get('POGO_MAP_URL'),
+            params=params,
+            proxies=proxies
         )
-        time_left = raid_end - datetime.now(tz=pytz.utc)
-        if time_left.total_seconds() > 0:
-            try:
-                gym = Gym.objects.get(gym_hunter_id=gym_id)
-            except Gym.DoesNotExist:
-                gym = None
-            if gym:
-                gym.raid_level = status.get('raid_level')
-                gym.raid_pokemon = status.get('raid_pokemon_name')
-                gym.raid_end_date = raid_end
-                gym.save()
+    else:
+        raids = requests.get(os.environ.get('POGO_MAP_URL'), params=params)
+
+    if raids.status_code == 200:
+        gym_data = raids.json().get('gyms', {})
+
+        for gym_id, status in gym_data.items():
+            raid_end = datetime.fromtimestamp(
+                (status.get('raid_end_ms')/1000.0),
+                tz=pytz.UTC
+            )
+            time_left = raid_end - datetime.now(tz=pytz.utc)
+            if time_left.total_seconds() > 0:
+                try:
+                    gym = Gym.objects.get(gym_hunter_id=gym_id)
+                except Gym.DoesNotExist:
+                    gym = None
+                if gym:
+                    gym.raid_level = status.get('raid_level')
+                    gym.raid_pokemon = status.get('raid_pokemon_name')
+                    gym.raid_end_date = raid_end
+                    gym.save()
