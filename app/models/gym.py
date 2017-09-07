@@ -74,4 +74,4 @@ class Gym(models.Model):
                         .strftime('%-H:%M:%S')
                     )
                 }
-        return None
+        return {}

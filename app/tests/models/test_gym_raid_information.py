@@ -50,7 +50,7 @@ class TestGymObject(TestCase):
         """
         starting_dt = datetime(1988, 1, 12, 6, 0, 1, tzinfo=pytz.utc)
         raid_data = self.gym.get_raid_information(starting_dt)
-        self.assertIsNone(raid_data)
+        self.assertFalse(raid_data)
 
     def test_no_raid_pokemon(self):
         """
@@ -66,7 +66,7 @@ class TestGymObject(TestCase):
             raid_end_date=RAID_END_DATE
         )
         gym_instance = Gym.objects.get(pk=gym.id)
-        self.assertIsNone(gym_instance.get_raid_information(starting_dt))
+        self.assertFalse(gym_instance.get_raid_information(starting_dt))
 
     def test_no_raid_level(self):
         """
@@ -82,7 +82,7 @@ class TestGymObject(TestCase):
             raid_end_date=RAID_END_DATE
         )
         gym_instance = Gym.objects.get(pk=gym.id)
-        self.assertIsNone(gym_instance.get_raid_information(starting_dt))
+        self.assertFalse(gym_instance.get_raid_information(starting_dt))
 
     def test_no_raid_end_date(self):
         """
@@ -98,7 +98,7 @@ class TestGymObject(TestCase):
             raid_pokemon=RAID_POKEMON
         )
         gym_instance = Gym.objects.get(pk=gym.id)
-        self.assertIsNone(gym_instance.get_raid_information(starting_dt))
+        self.assertFalse(gym_instance.get_raid_information(starting_dt))
 
     def test_no_starting_date(self):
         """
@@ -114,4 +114,4 @@ class TestGymObject(TestCase):
             raid_end_date=RAID_END_DATE
         )
         gym_instance = Gym.objects.get(pk=gym.id)
-        self.assertIsNone(gym_instance.get_raid_information())
+        self.assertFalse(gym_instance.get_raid_information())

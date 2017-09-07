@@ -332,6 +332,7 @@ def raid_is_active(context):
     :param context: Behave context
     """
     gyms = GymItem.objects.all().filter(profile=1, hidden=False)
+    gyms = [gym for gym in gyms if not gym.last_visit_date]
     gym_item = gyms[0]
     gym_item.gym.raid_pokemon = 'Mewtwo'
     gym_item.gym.raid_level = 5
@@ -358,3 +359,15 @@ def verify_raid_data(context, field):
         assert('5' in header)
     if field == 'time remaining':
         assert('0:59:59 remaining' in header)
+
+
+@then('the gym is at the top of the yet to complete gym list')
+def verify_raid_at_top(context):
+    """
+    Verify that the raid card is at the top of the list
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    card = page.get_yet_to_complete_cards()[0]
+    title = page.get_title_for_card(card)
+    assert(title == context.active_raid_card)

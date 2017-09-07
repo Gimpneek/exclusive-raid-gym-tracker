@@ -47,7 +47,7 @@ class TestGymItemObject(TestCase):
 
     def test_raid_information(self):
         """ Test that get_raid_information returns None """
-        self.assertIsNone(self.gym_item.get_raid_information)
+        self.assertFalse(self.gym_item.get_raid_information)
 
 
 class TestGymItemObjectCreation(TestCase):
