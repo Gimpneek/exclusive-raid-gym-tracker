@@ -25,11 +25,16 @@ def gym_list(request):
     total_gyms = len(gym_item_list)
     completed_gyms = [gym for gym in gym_item_list if gym.last_visit_date]
     gyms_to_visit = [gym for gym in gym_item_list if not gym.last_visit_date]
-    gyms_to_visit = sorted(
-        gyms_to_visit,
-        key=lambda k: k.get_raid_information.get('time_left', ''),
-        reverse=True
+    raids_active = []
+    for gym in gyms_to_visit:
+        if gym.get_raid_information.get('time_left'):
+            raids_active.append(gym)
+            gyms_to_visit.remove(gym)
+    raids_active = sorted(
+        raids_active,
+        key=lambda k: k.get_raid_information.get('time_left', '')
     )
+    gyms_to_visit = raids_active + gyms_to_visit
     gym_progress = 0
     if completed_gyms:
         gym_progress = int((float(len(completed_gyms))/float(total_gyms))*100)

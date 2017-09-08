@@ -62,11 +62,14 @@ class Gym(models.Model):
         """
         if not starting_dt:
             starting_dt = datetime.now(tz=pytz.utc)
-        if self.raid_end_date and self.raid_level and self.raid_pokemon:
+        if self.raid_end_date and self.raid_level:
             time_left = self.raid_end_date - starting_dt
             if time_left.total_seconds() > 0:
+                pokemon = 'Egg'
+                if self.raid_pokemon:
+                    pokemon = self.raid_pokemon
                 return {
-                    'pokemon': self.raid_pokemon,
+                    'pokemon': pokemon,
                     'level': self.raid_level,
                     'time_left': '{} remaining'.format(
                         datetime
