@@ -3,7 +3,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym import Gym
-from app.models.gym_item import GymItem
 from app.models.profile import Profile
 
 

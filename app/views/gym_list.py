@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """ Views for Gym List """
 import operator
+from functools import reduce
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
