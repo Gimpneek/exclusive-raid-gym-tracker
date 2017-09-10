@@ -28,7 +28,6 @@ def gym_list(request):
     gyms_to_visit = []
     raids_active = []
     for gym in yet_to_visit:
-        print gym.gym.name
         if gym.gym.get_raid_information().get('time_left'):
             raids_active.append(gym)
         else:
