@@ -3,7 +3,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym import Gym
-from app.models.gym_item import GymItem
 from app.models.profile import Profile
 
 
@@ -36,10 +35,9 @@ class TestSignUpView(TestCase):
 
     def test_sign_up_valid(self):
         """
-        Test that signing up with a new user creates a profile, gym items and
+        Test that signing up with a new user creates a profile and
         redirects to Gym List
         """
-        gym_items = GymItem.objects.count()
         profiles = Profile.objects.count()
         resp = self.client.post(
             reverse_lazy('signup'),
@@ -49,7 +47,6 @@ class TestSignUpView(TestCase):
             }
         )
         self.assertEqual(resp.url, reverse_lazy('gym_list'))
-        self.assertGreater(GymItem.objects.count(), gym_items)
         self.assertGreater(Profile.objects.count(), profiles)
 
     def test_sign_up_existing_username(self):

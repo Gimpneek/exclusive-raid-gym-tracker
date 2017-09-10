@@ -11,7 +11,7 @@ Feature: Logout
     And they cannot access the following pages
     | Page                     |
     | Gym List                 |
-    | Gym Item                 |
+    | Add Raid                 |
     | Reset Gym Data URL       |
     | Hide Gym in Gym List URL |
     But they can access the following pages

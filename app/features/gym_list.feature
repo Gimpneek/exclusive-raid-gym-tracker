@@ -21,6 +21,7 @@ Feature: Gym List
     And they see a list of gyms they have already visited
     And the list of completed gyms is ordered so the oldest visits are at the top of the list
 
+  @dev
   Scenario: Gym List - Has Completed all Raids
     Given the user is logged in
     And the user has completed all the raids being tracked
@@ -33,7 +34,7 @@ Feature: Gym List
     Given the user is logged in
     And the user visits the gym list page
     When they click on the Add Raid button on a gym card
-    Then the user is taken to the gym item page
+    Then the user is taken to the add raid page
 
   #Scenario: Hide Gym in list
   #  Given the user is logged in
@@ -85,7 +86,7 @@ Feature: Gym List
     And the user visits the gym list page
     When they enter a partial gym name into the search input
     And they press the suggested gym
-    Then the user is taken to the gym item page
+    Then the user is taken to the add raid page
 
 #  Scenario: Search Bar - Jump to Gym by pressing return key
 #    Given the user is logged in

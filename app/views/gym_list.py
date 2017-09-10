@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """ Views for Gym List """
+import operator
+from functools import reduce
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.db.models import F
+from django.db.models import Q
 from app.models.gym_item import GymItem
+from app.models.gym import Gym
 from app.models.profile import Profile
 
 
@@ -15,26 +18,38 @@ def gym_list(request):
     profile = Profile.objects.get(
         user=request.user.id
     )
-    gym_item_list = GymItem.objects.filter(
-        profile=profile.id,
-        hidden=False
-    ).order_by(
-        F('last_visit_date').asc(nulls_first=True),
-        'gym__name'
+    gyms = Gym.objects.all().order_by('name')
+    total_gyms = gyms.count()
+    completed_gyms = GymItem.objects.filter(
+        profile=profile,
+        last_visit_date__isnull=False
     )
-    total_gyms = len(gym_item_list)
-    completed_gyms = [gym for gym in gym_item_list if gym.last_visit_date]
-    yet_to_visit = [gym for gym in gym_item_list if not gym.last_visit_date]
+    completed_gym_names = set([gym.gym.name for gym in completed_gyms])
+    if completed_gym_names:
+        completed_gym_filter = reduce(
+            operator.or_,
+            (Q(name=x) for x in completed_gym_names)
+        )
+        completed_gyms = sorted(
+            Gym.objects.filter(completed_gym_filter),
+            key=lambda k: GymItem.objects.filter(
+                profile=profile, gym=k).last().last_visit_date
+        )
+        yet_to_visit = \
+            Gym.objects.exclude(completed_gym_filter).order_by('name')
+    else:
+        completed_gyms = []
+        yet_to_visit = gyms
     gyms_to_visit = []
     raids_active = []
     for gym in yet_to_visit:
-        if gym.gym.get_raid_information().get('time_left'):
+        if gym.get_raid_information().get('time_left'):
             raids_active.append(gym)
         else:
             gyms_to_visit.append(gym)
     raids_active = sorted(
         raids_active,
-        key=lambda k: k.get_raid_information.get('time_left', '')
+        key=lambda k: k.get_raid_information().get('time_left', '')
     )
     gyms_to_visit = raids_active + gyms_to_visit
     gym_progress = 0
@@ -45,5 +60,6 @@ def gym_list(request):
         'gyms_to_visit': gyms_to_visit,
         'total_gyms': total_gyms,
         'completed_gym_count': len(completed_gyms),
-        'gym_progress': gym_progress
+        'gym_progress': gym_progress,
+        'user_id': request.user.id
     })

@@ -12,10 +12,7 @@ class GymViewCommonCase(TestCase):
         """ Set up User for testing """
         super(GymViewCommonCase, self).setUp()
         create_gym_item('test', 'Test Gym', 'Test Location', '1988-01-12')
-        create_gym_item(
-            'new_user', 'Test Gym 1', 'Test Location', '1988-01-12')
         self.user = User.objects.get(username='test')
         self.gym_item = GymItem.objects.get(gym__name='Test Gym')
-        self.other_gym_item = GymItem.objects.get(gym__name='Test Gym 1')
         self.user.set_password('password')
         self.user.save()

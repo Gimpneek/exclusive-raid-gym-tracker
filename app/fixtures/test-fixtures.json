@@ -340,6 +340,16 @@
     }
   },
   {
+    "model": "app.gymitem",
+    "pk": 35,
+    "fields": {
+      "last_visit_date": null,
+      "hidden": false,
+      "gym": 35,
+      "profile": 1
+    }
+  },
+  {
     "model": "auth.user",
     "pk": 1,
     "fields": {

@@ -12,9 +12,9 @@ class TestGymItemView(GymViewCommonCase):
         """ Test that a logged out user is redirected to the Homepage """
         resp = self.client.get(
             reverse_lazy(
-                'gym_item',
+                'add_gym_raid',
                 kwargs={
-                    'gym_item_id': self.gym_item.id
+                    'gym_id': self.gym_item.id
                 }
             )
         )
@@ -27,28 +27,13 @@ class TestGymItemView(GymViewCommonCase):
         self.client.login(username='test', password='password')
         resp = self.client.get(
             reverse_lazy(
-                'gym_item',
+                'add_gym_raid',
                 kwargs={
-                    'gym_item_id': self.gym_item.id
+                    'gym_id': self.gym_item.id
                 }
             )
         )
-        self.assertEqual(resp.templates[0].name, 'app/gym_item.html')
-
-    def test_redirects_not_users_item(self):
-        """
-        Test that redirects to Gym List if Gym Item doesn't belong to the user
-        """
-        self.client.login(username='test', password='password')
-        resp = self.client.get(
-            reverse_lazy(
-                'gym_item',
-                kwargs={
-                    'gym_item_id': self.other_gym_item.id
-                }
-            )
-        )
-        self.assertEqual(resp.url, reverse_lazy('gym_list'))
+        self.assertEqual(resp.templates[0].name, 'app/add_gym_raid.html')
 
     def test_submit_invalid_date(self):
         """
@@ -57,9 +42,9 @@ class TestGymItemView(GymViewCommonCase):
         self.client.login(username='test', password='password')
         resp = self.client.post(
             reverse_lazy(
-                'gym_item',
+                'add_gym_raid',
                 kwargs={
-                    'gym_item_id': self.gym_item.id
+                    'gym_id': self.gym_item.id
                 }
             ),
             data={
@@ -75,9 +60,9 @@ class TestGymItemView(GymViewCommonCase):
         self.client.login(username='test', password='password')
         resp = self.client.post(
             reverse_lazy(
-                'gym_item',
+                'add_gym_raid',
                 kwargs={
-                    'gym_item_id': self.gym_item.id
+                    'gym_id': self.gym_item.id
                 }
             ),
             data={
@@ -85,7 +70,7 @@ class TestGymItemView(GymViewCommonCase):
             }
         )
         self.assertEqual(resp.url, reverse_lazy('gym_list'))
-        gym_item = GymItem.objects.get(gym__name='Test Gym')
+        gym_item = GymItem.objects.filter(gym__name='Test Gym').last()
         self.assertEqual(
             gym_item.last_visit_date.strftime('%Y-%m-%d'), '1990-04-13')
 
@@ -98,9 +83,9 @@ class TestGymItemView(GymViewCommonCase):
         self.client.login(username='test', password='password')
         resp = self.client.get(
             reverse_lazy(
-                'gym_item',
+                'add_gym_raid',
                 kwargs={
-                    'gym_item_id': self.gym_item.id
+                    'gym_id': self.gym_item.id
                 }
             )
         )
