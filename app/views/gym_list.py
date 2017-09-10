@@ -30,32 +30,39 @@ def gym_list(request):
             operator.or_,
             (Q(name=x) for x in completed_gym_names)
         )
-        completed_gyms = sorted(
-            Gym.objects.filter(completed_gym_filter),
-            key=lambda k: GymItem.objects.filter(
-                profile=profile, gym=k).last().last_visit_date
-        )
+        gyms_with_visits = Gym.objects.filter(completed_gym_filter)
         yet_to_visit = \
             Gym.objects.exclude(completed_gym_filter).order_by('name')
     else:
-        completed_gyms = []
+        gyms_with_visits = []
         yet_to_visit = gyms
     gyms_to_visit = []
+    completed_gyms = []
     raids_active = []
     for gym in yet_to_visit:
         if gym.get_raid_information().get('time_left'):
             raids_active.append(gym)
         else:
             gyms_to_visit.append(gym)
+    for gym in gyms_with_visits:
+        if gym.get_raid_information().get('time_left'):
+            raids_active.append(gym)
+        else:
+            completed_gyms.append(gym)
     raids_active = sorted(
         raids_active,
         key=lambda k: k.get_raid_information().get('time_left', '')
     )
-    gyms_to_visit = raids_active + gyms_to_visit
+    completed_gyms = sorted(
+        completed_gyms,
+        key=lambda k: GymItem.objects.filter(
+            profile=profile, gym=k).last().last_visit_date
+    )
     gym_progress = 0
     if completed_gyms:
         gym_progress = int((float(len(completed_gyms))/float(total_gyms))*100)
     return render(request, 'app/gym_list.html', {
+        'active_raids': raids_active,
         'completed_gym_list': completed_gyms,
         'gyms_to_visit': gyms_to_visit,
         'total_gyms': total_gyms,

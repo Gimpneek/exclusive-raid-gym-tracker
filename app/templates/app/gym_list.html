@@ -28,6 +28,23 @@
             <div class="dropdown-menu" id="dropdown-menu" role="menu"></div>
         </div>
     </div>
+    {% if active_raids %}
+        <h1>Active Raids</h1>
+        <div id="active_raids">
+            {%  for gym in active_raids %}
+                {%  if forloop.counter0|divisibleby:3 %}
+                    {%  if forloop.counter0 != 0 %}
+                        </div>
+                    {% endif %}
+                    <div class="columns">
+                {% endif %}
+                <div class="column is-4">
+                    {%  include 'app/gym_card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
     {% if gyms_to_visit %}
         <h1>Gyms to visit</h1>
         <div id="gyms_to_visit">
@@ -64,6 +81,9 @@
     <script type="text/javascript" src="https://cdn.rawgit.com/Gimpneek/JavaScript-autoComplete/1c337ba670508bbd70ad7fee18c691fbe26d8399/auto-complete.js"></script>
     <script>
     var choices = [
+        {% for gym in active_raids %}
+            ['{{ gym.name }}', '/add/{{ gym.id }}/'],
+        {%  endfor %}
         {%  for gym in gyms_to_visit %}
             ['{{ gym.name }}', '/add/{{ gym.id }}/'],
         {%  endfor %}

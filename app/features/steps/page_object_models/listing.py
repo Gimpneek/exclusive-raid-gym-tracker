@@ -2,7 +2,7 @@
 from .selectors.listing import GYMS_TO_VISIT_CARDS, CARD_CONTENT_TITLE, \
     COMPLETED_GYMS_CARDS, CARD_CONTENT_VISIT_DATE, TITLES, \
     get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE, SEARCH_BAR, \
-    SEARCH_SUGGESTIONS, CARD_HEADER
+    SEARCH_SUGGESTIONS, CARD_HEADER, ACTIVE_RAID_CARDS
 from .common import BasePage
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
@@ -30,6 +30,17 @@ class ListingPage(BasePage):
         """
         try:
             cards = self.driver.find_elements(*COMPLETED_GYMS_CARDS)
+        except NoSuchElementException:
+            cards = []
+        return cards
+
+    def get_active_raid_cards(self):
+        """
+        Get a list of cards from the active cards list
+        :return: list of cards from the active cards list
+        """
+        try:
+            cards = self.driver.find_elements(*ACTIVE_RAID_CARDS)
         except NoSuchElementException:
             cards = []
         return cards

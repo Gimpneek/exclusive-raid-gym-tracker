@@ -64,6 +64,17 @@ def get_completed_gym_list(context):
     assert(len(cards) > 0)
 
 
+@then('they see a list of gyms with raids active')
+def get_active_raid_list(context):
+    """
+    Get a list of cards from the active raids list
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    cards = page.get_active_raid_cards()
+    assert(len(cards) > 0)
+
+
 @then('the list of gyms yet to visit is ordered alphabetically')
 def check_alphabetically_order(context):
     """
@@ -116,6 +127,19 @@ def check_yet_to_visit_raids_list_hidden(context):
     page = ListingPage(context.browser)
     titles = page.get_list_titles()
     cards = page.get_yet_to_complete_cards()
+    assert(len(titles) == 2)
+    assert(len(cards) == 0)
+
+
+@then('the list and title for gyms with active raids is hidden')
+def check_no_active_raids(context):
+    """
+    Check that the active raids title and list isn't in the DOM
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    titles = page.get_list_titles()
+    cards = page.get_active_raid_cards()
     assert(len(titles) == 2)
     assert(len(cards) == 0)
 
@@ -342,6 +366,15 @@ def raid_is_active(context):
     context.active_raid_card = gym_item.gym.name
 
 
+@given('there are no active raids')
+def no_raids_active(context):
+    """
+    No raids should be active on the gym
+    :param context: Behave context
+    """
+    pass
+
+
 @then('the {field} of the raid pokemon is displayed')
 def verify_raid_data(context, field):
     """
@@ -350,7 +383,7 @@ def verify_raid_data(context, field):
     :param field: field to verify is shown
     """
     page = ListingPage(context.browser)
-    cards = page.get_yet_to_complete_cards()
+    cards = page.get_active_raid_cards()
     card = page.get_card_by_title(cards, context.active_raid_card)
     header = page.get_header_text_for_card(card)
     if field == 'name':
