@@ -102,7 +102,6 @@ Feature: Gym List
     And the level of the raid pokemon is displayed
     And the time remaining of the raid pokemon is displayed
 
-    @dev
   Scenario: Gyms with raids are at top of yet to complete list
     Given the user is logged in
     And a raid is active on a gym
