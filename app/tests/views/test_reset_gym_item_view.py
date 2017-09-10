@@ -1,11 +1,18 @@
 """ Test the reset gym item view """
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym_item import GymItem
+from app.tests.common import create_gym_item
 from app.tests.views.gym_item_common import GymViewCommonCase
 
 
 class TestResetGymItemView(GymViewCommonCase):
     """ Reset Gym Item view tests """
+
+    def setUp(self):
+        """ Set up test """
+        super(TestResetGymItemView, self).setUp()
+        create_gym_item('other', 'Test Gym 2', 'Test Location', '1988-01-12')
+        self.other_gym_item = GymItem.objects.get(gym__name='Test Gym 2')
 
     def test_redirects_logged_out_user(self):
         """ Test that a logged out user is redirected to the Homepage """
@@ -50,5 +57,5 @@ class TestResetGymItemView(GymViewCommonCase):
             )
         )
         self.assertEqual(resp.url, reverse_lazy('gym_list'))
-        gym_item = GymItem.objects.get(gym__name='Test Gym 1')
+        gym_item = GymItem.objects.get(gym__name='Test Gym 2')
         self.assertIsNotNone(gym_item.last_visit_date)

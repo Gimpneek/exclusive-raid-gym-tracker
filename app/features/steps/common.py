@@ -7,7 +7,7 @@ PAGE_MAPPING = {
     'sign up': 'signup',
     'login': 'login',
     'gym list': 'gym_list',
-    'gym item': ('gym_item', {'gym_item_id': 1}),
+    'add raid': ('add_gym_raid', {'gym_id': 1}),
     'logout': 'logout',
     'landing': 'index',
     'homepage': 'index',

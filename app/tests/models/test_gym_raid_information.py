@@ -54,9 +54,9 @@ class TestGymObject(TestCase):
 
     def test_no_raid_pokemon(self):
         """
-        Test that if there's no raid pokemon then None is returned
+        Test that if there's no raid pokemon then 'Egg' is returned
         """
-        starting_dt = datetime(1988, 1, 12, 6, 0, 1, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
         gym = Gym.objects.create(
             name=GYM_NAME,
             location=GYM_LOCATION,
@@ -66,13 +66,36 @@ class TestGymObject(TestCase):
             raid_end_date=RAID_END_DATE
         )
         gym_instance = Gym.objects.get(pk=gym.id)
-        self.assertFalse(gym_instance.get_raid_information(starting_dt))
+        self.assertEqual(
+            gym_instance.get_raid_information(starting_dt).get('pokemon'),
+            'Egg'
+        )
+
+    def test_raid_pokemon(self):
+        """
+        Test that when raid pokemon has a name that it's name is returned
+        """
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
+        gym = Gym.objects.create(
+            name=GYM_NAME,
+            location=GYM_LOCATION,
+            image_url=GYM_IMAGE,
+            gym_hunter_id=GYM_ID,
+            raid_pokemon=RAID_POKEMON,
+            raid_level=RAID_LEVEL,
+            raid_end_date=RAID_END_DATE
+        )
+        gym_instance = Gym.objects.get(pk=gym.id)
+        self.assertEqual(
+            gym_instance.get_raid_information(starting_dt).get('pokemon'),
+            RAID_POKEMON
+        )
 
     def test_no_raid_level(self):
         """
         Test that if there's no raid level then None is returned
         """
-        starting_dt = datetime(1988, 1, 12, 6, 0, 1, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
         gym = Gym.objects.create(
             name=GYM_NAME,
             location=GYM_LOCATION,
@@ -88,7 +111,7 @@ class TestGymObject(TestCase):
         """
         Test that if there's no raid end date then None is returned
         """
-        starting_dt = datetime(1988, 1, 12, 6, 0, 1, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
         gym = Gym.objects.create(
             name=GYM_NAME,
             location=GYM_LOCATION,

@@ -9,7 +9,7 @@ Feature: Add Raid Visit to Gym - Completed raid
     And the user has completed at least one raid
     And the user visits the gym list page
     And they click on the Add Raid button on a gym card
-    And the user is taken to the gym item page
+    And the user is taken to the add raid page
 
   @redirect-to-list
   Scenario: Add Raid Date to Gym
@@ -19,12 +19,12 @@ Feature: Add Raid Visit to Gym - Completed raid
     And the gym is present in the list of gyms they have already visited
     And the gym card shows the date they entered as the last visited date
 
-  @redirect-to-list
-  Scenario: Remove Raid Date from Gym
-    When the user presses the Remove Raid Data button
-    Then the user is taken to the gym list page
-    And the gym is present in the list of gyms they have yet to visit
-    And the gym card shows they have yet to visit the gym
+#  @redirect-to-list
+#  Scenario: Remove Raid Date from Gym
+#    When the user presses the Remove Raid Data button
+#    Then the user is taken to the gym list page
+#    And the gym is present in the list of gyms they have yet to visit
+#    And the gym card shows they have yet to visit the gym
 
   Scenario: Cancel adding Raid Date to Gym
     When the user presses the Cancel button

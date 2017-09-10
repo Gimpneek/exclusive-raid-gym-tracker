@@ -6,7 +6,6 @@ omit =
     app/templates/*
     app/fixtures/*
     app/static/*
-    app/templatetags/*
     app/features/*
     exclusive_raid_tracker/*
     manage.py
