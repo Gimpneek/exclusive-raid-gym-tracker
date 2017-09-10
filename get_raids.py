@@ -1,4 +1,4 @@
-import requests, pytz, os
+import pytz, os, cfscrape
 from datetime import datetime
 import django
 os.environ.setdefault(
@@ -28,18 +28,19 @@ proxy_url = os.environ.get('QUOTAGUARDSTATIC_URL')
 time_now = datetime.now(tz=pytz.timezone('Europe/London'))
 
 if time_now.hour in range(6, 21):
+    scraper = cfscrape.create_scraper()
     if proxy_url:
         proxies = {
             "http": proxy_url,
             "https": proxy_url
         }
-        raids = requests.get(
+        raids = scraper.get(
             os.environ.get('POGO_MAP_URL'),
             params=params,
             proxies=proxies
         )
     else:
-        raids = requests.get(os.environ.get('POGO_MAP_URL'), params=params)
+        raids = scraper.get(os.environ.get('POGO_MAP_URL'), params=params)
 
     if raids.status_code == 200:
         gym_data = raids.json().get('gyms', {})
