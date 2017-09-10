@@ -1,0 +1,22 @@
+{
+  "name": "exclusive_raid_tracker",
+  "version": "1.0.0",
+  "description": "Tracker for EX Raids",
+  "main": "package.json.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gimpneek/exclusive-raid-gym-tracker.git"
+  },
+  "author": "Colin Wren",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Gimpneek/exclusive-raid-gym-tracker/issues"
+  },
+  "homepage": "https://github.com/Gimpneek/exclusive-raid-gym-tracker#readme"
+}
