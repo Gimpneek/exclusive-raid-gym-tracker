@@ -10,6 +10,10 @@ COMPLETED_GYMS_CARDS = (
     By.CSS_SELECTOR,
     '#completed_gyms .columns > .column > .card'
 )
+ACTIVE_RAID_CARDS = (
+    By.CSS_SELECTOR,
+    '#active_raids .columns > .column > .card'
+)
 CARDS = (By.CSS_SELECTOR, '.columns > .column > .card')
 CARD_CONTENT = (By.CSS_SELECTOR, '.card-content')
 CARD_CONTENT_TITLE = (By.CSS_SELECTOR, '.media-content > .title')
