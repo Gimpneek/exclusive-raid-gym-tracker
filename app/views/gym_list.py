@@ -29,8 +29,11 @@ def gym_list(request):
             operator.or_,
             (Q(name=x) for x in completed_gym_names)
         )
-        completed_gyms = \
-            Gym.objects.filter(completed_gym_filter).order_by('name')
+        completed_gyms = sorted(
+            Gym.objects.filter(completed_gym_filter),
+            key=lambda k: GymItem.objects.filter(
+                profile=profile, gym=k).last().last_visit_date
+        )
         yet_to_visit = \
             Gym.objects.exclude(completed_gym_filter).order_by('name')
     else:
