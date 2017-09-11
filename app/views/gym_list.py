@@ -24,8 +24,8 @@ def gym_list(request):
         profile=profile,
         last_visit_date__isnull=False
     )
-    completed_gym_count = completed_gyms.count()
     completed_gym_names = set([gym.gym.name for gym in completed_gyms])
+    completed_gym_count = len(completed_gym_names)
     if completed_gym_names:
         completed_gym_filter = reduce(
             operator.or_,
