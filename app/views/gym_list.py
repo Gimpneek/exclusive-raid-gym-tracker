@@ -24,6 +24,7 @@ def gym_list(request):
         profile=profile,
         last_visit_date__isnull=False
     )
+    completed_gym_count = completed_gyms.count()
     completed_gym_names = set([gym.gym.name for gym in completed_gyms])
     if completed_gym_names:
         completed_gym_filter = reduce(
@@ -66,7 +67,7 @@ def gym_list(request):
         'completed_gym_list': completed_gyms,
         'gyms_to_visit': gyms_to_visit,
         'total_gyms': total_gyms,
-        'completed_gym_count': len(completed_gyms),
+        'completed_gym_count': completed_gym_count,
         'gym_progress': gym_progress,
         'user_id': request.user.id
     })
