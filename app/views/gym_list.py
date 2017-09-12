@@ -61,7 +61,7 @@ def gym_list(request):
     )
     gym_progress = 0
     if completed_gyms:
-        gym_progress = int((float(len(completed_gyms))/float(total_gyms))*100)
+        gym_progress = int((float(completed_gym_count)/float(total_gyms))*100)
     return render(request, 'app/gym_list.html', {
         'active_raids': raids_active,
         'completed_gym_list': completed_gyms,
