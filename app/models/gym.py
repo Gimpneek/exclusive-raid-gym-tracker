@@ -44,9 +44,10 @@ class Gym(models.Model):
         # Search raids that are on this gym and are set in the future
         time_now = datetime.now(tz=pytz.utc)
         raid_model = apps.get_model('app', 'RaidItem')
-        raid = raid_model.objects.filter(
+        raids = raid_model.objects.filter(
             gym=self,
-        ).last()
-        if raid:
-            return raid.get_raid(time_now)
+            end_date__gt=time_now
+        ).order_by('end_date')
+        if raids:
+            return raids.last().get_raid(time_now)
         return {}
