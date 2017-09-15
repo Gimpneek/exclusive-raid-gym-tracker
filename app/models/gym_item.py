@@ -33,8 +33,3 @@ class GymItem(models.Model):
             self.profile.user.username,
             self.gym.name
         )
-
-    @property
-    def get_raid_information(self):
-        """ Get the raid information for the Gym """
-        return self.gym.get_raid_information()
