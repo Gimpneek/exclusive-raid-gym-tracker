@@ -16,11 +16,43 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='RaidItem',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pokemon', models.CharField(blank=True, help_text='Name of Raid Pokemon', max_length=128, null=True)),
-                ('level', models.PositiveSmallIntegerField(blank=True, help_text='Level of Raid', null=True)),
-                ('end_date', models.DateTimeField(blank=True, help_text='End Date of Raid', null=True)),
-                ('gym', models.ForeignKey(help_text='Gym raid is on', on_delete=django.db.models.deletion.CASCADE, to='app.Gym')),
+                (
+                    'id', models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID'
+                    )
+                ),
+                (
+                    'pokemon', models.CharField(
+                        blank=True,
+                        help_text='Name of Raid Pokemon',
+                        max_length=128,
+                        null=True
+                    )
+                ),
+                (
+                    'level', models.PositiveSmallIntegerField(
+                        blank=True,
+                        help_text='Level of Raid',
+                        null=True
+                    )
+                ),
+                (
+                    'end_date', models.DateTimeField(
+                        blank=True,
+                        help_text='End Date of Raid',
+                        null=True
+                    )
+                ),
+                (
+                    'gym', models.ForeignKey(
+                        help_text='Gym raid is on',
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='app.Gym'
+                    )
+                ),
             ],
         ),
     ]

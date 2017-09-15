@@ -1,8 +1,6 @@
 """ Test for Raid Item Model """
 from django.test import TestCase
 from django.db import IntegrityError
-from django.contrib.auth.models import User
-from app.models.profile import Profile
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
 from app.tests.common import create_gym_item
