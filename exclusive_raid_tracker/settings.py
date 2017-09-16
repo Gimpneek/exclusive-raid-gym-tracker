@@ -189,3 +189,8 @@ if os.environ.get('PROD', '0') == '1':
             },
         },
     }
+    STATICFILES_STORAGE = \
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    MIDDLEWARE += [
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+    ]

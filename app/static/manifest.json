@@ -1,0 +1,28 @@
+{
+  "short_name": "RaidTracker",
+  "name": "Gym Raid Tracker",
+  "description": "Gym Raid Tracker for Pokemon Go in Leeds",
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "icon48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "icon96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "background_color": "#00d1b2",
+  "display": "standalone",
+  "theme_color": "#00d1b2",
+  "orientation": "portrait-primary",
+  "start_url": "/"
+}
