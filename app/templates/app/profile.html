@@ -1,0 +1,35 @@
+{%  extends 'app/base.html' %}
+{%  block hero %}
+<section class="hero is-small is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{  profile.user.username }}
+      </h1>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{%  block content %}
+    {%  if completed_raids %}
+        <div id="my-raids">
+            <h1>My Raids</h1>
+            <table class="table is-striped">
+                <thead>
+                    <th>Gym</th>
+                    <th>Visit Date</th>
+                    <th>Remove Entry</th>
+                </thead>
+                <tbody>
+                    {% for raid in completed_raids %}
+                        <tr>
+                            <td>{{ raid.gym.name }}</td>
+                            <td>{{ raid.last_visit_date|date:"d/m/Y"}}</td>
+                            <td><a href="/remove/{{ raid.id }}">Remove</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{%  endblock %}

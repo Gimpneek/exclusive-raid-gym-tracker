@@ -129,17 +129,6 @@ def user_is_logged_in(context):
     pass
 
 
-@when('the user presses the Remove Raid Data button')
-def press_remove_raid(context):
-    """
-    Press the remove raid button
-    :param context: Behave context
-    """
-    form = FormPage(context.browser)
-    form.remove_raid()
-    context.card_url = None
-
-
 @when('the user presses the Submit Raid button')
 def press_submit_raid(context):
     """

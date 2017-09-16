@@ -21,7 +21,6 @@ Feature: Gym List
     And they see a list of gyms they have already visited
     And the list of completed gyms is ordered so the oldest visits are at the top of the list
 
-  @dev
   Scenario: Gym List - Has Completed all Raids
     Given the user is logged in
     And the user has completed all the raids being tracked
@@ -95,7 +94,6 @@ Feature: Gym List
 #    And they press the return key
 #    Then the user is taken to the gym item page
 
-  @dev
   Scenario: Active Raid on Gym
     Given the user is logged in
     And a raid is active on a gym
@@ -105,7 +103,6 @@ Feature: Gym List
     And the level of the raid pokemon is displayed
     And the time remaining of the raid pokemon is displayed
 
-  @dev
   Scenario: No Active Raids on Gym
     Given the user is logged in
     And there are no active raids
