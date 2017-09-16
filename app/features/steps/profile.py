@@ -24,7 +24,7 @@ def assert_raid_list_shown(context):
 
 
 @then("the user sees a map of their completed raids")
-def assert_raid_list_shown(context):
+def assert_raid_map_shown(context):
     """ Assert that profile shows map of completed raids """
     page = ProfilePage(context.browser)
     raid_map = page.get_raid_map()
