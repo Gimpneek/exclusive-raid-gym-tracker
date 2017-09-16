@@ -29,6 +29,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+RAVEN_CONFIG = {
+    'dsn': os.environ.get('SENTRY_DSN', None),
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,6 +55,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+MIDDLEWARE += [
+    'raven.contrib.django.raven_compat.middleware'
+    '.SentryResponseErrorIdMiddleware',
+    'raven.contrib.django.raven_compat.middleware'
+    '.Sentry404CatchMiddleware',
 ]
 
 ROOT_URLCONF = 'exclusive_raid_tracker.urls'
@@ -122,6 +133,56 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 STATIC_ROOT = 'app/static'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'sentry': {
+            'level': 'ERROR',
+            'class': 'raven.contrib.django.raven_compat'
+                     '.handlers.SentryHandler',
+            'tags': {'custom-tag': 'x'},
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'app': {
+            'level': 'INFO',
+            'handlers': ['console'],
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+    },
+}
 
 
 if os.environ.get('PROD', '0') == '1':
