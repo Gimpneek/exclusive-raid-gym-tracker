@@ -18,6 +18,13 @@ Feature: User Profile
     And the raid list shows the visit date
     And the raid list shows a button remove the completed raid
 
+  @dev
+  Scenario: User Profile shows map of raids
+    Given the user is logged in
+    And the user has completed at least one raid
+    When the user visits the user profile page
+    Then the user sees a map of their completed raids
+
   @redirect-to-profile
   Scenario: Remove Completed Raid from list of completed raids
     Given the user is logged in

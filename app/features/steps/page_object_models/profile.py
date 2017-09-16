@@ -1,6 +1,6 @@
 """ Page Object Model - Profile Page """
 from .selectors.profile import PAGE_HEADER, RAID_LIST_TITLE, RAID_LIST_ITEMS, \
-    RAID_LIST_ITEM_GYM, RAID_LIST_ITEM_DATE, RAID_LIST_ITEM_REMOVE
+    RAID_LIST_ITEM_GYM, RAID_LIST_ITEM_DATE, RAID_LIST_ITEM_REMOVE, RAID_MAP
 from .common import BasePage
 from selenium.common.exceptions import NoSuchElementException
 
@@ -26,6 +26,14 @@ class ProfilePage(BasePage):
         """
         self.wait_for_element(RAID_LIST_TITLE)
         return self.driver.find_element(*RAID_LIST_TITLE)
+
+    def get_raid_map(self):
+        """
+        Get the map for the raids
+        :return: webelement for the map
+        """
+        self.wait_for_element(RAID_MAP)
+        return self.driver.find_element(*RAID_MAP)
 
     def get_raid_list_items(self):
         """

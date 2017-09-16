@@ -23,6 +23,14 @@ def assert_raid_list_shown(context):
     assert len(raid_list) == 1
 
 
+@then("the user sees a map of their completed raids")
+def assert_raid_list_shown(context):
+    """ Assert that profile shows map of completed raids """
+    page = ProfilePage(context.browser)
+    raid_map = page.get_raid_map()
+    assert raid_map is not False
+
+
 @then("the raid list shows the gym name")
 def assert_list_item_name(context):
     """
