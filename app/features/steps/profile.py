@@ -9,7 +9,7 @@ def assert_profile_header_text(context):
     """ Assert that the profile header text is the user's name """
     page = ProfilePage(context.browser)
     header_text = page.get_page_header_text()
-    assert header_text == 'test_user'
+    assert header_text == 'Profile: test_user'
 
 
 @when("the user sees a list of their completed raids")

@@ -1,5 +1,4 @@
 # Created by colinwren at 16/09/2017
-@dev
 Feature: User Profile
   As a user of the system
   In order to update data related to myself
