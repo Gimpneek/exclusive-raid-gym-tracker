@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.ExclusiveRaidAppConfig',
-    'behave_django'
+    'behave_django',
+    'raven.contrib.django.raven_compat'
 ]
 
 MIDDLEWARE = [

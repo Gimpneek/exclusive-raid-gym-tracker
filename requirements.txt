@@ -14,3 +14,4 @@ requests==2.18.4
 pyOpenSSL==17.2.0
 pytz==2017.2
 cfscrape==1.9.0
+raven==6.1.0
