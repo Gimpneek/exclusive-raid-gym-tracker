@@ -30,7 +30,7 @@ class TestProfileCreateMapImg(TestCase):
         GymItem.objects.create(
             gym=gym,
             profile=profile,
-            last_visit_date= date.today()
+            last_visit_date=date.today()
         )
         self.raids = GymItem.objects.all()
         environ['MAPS_API_KEY'] = 'test_key'
