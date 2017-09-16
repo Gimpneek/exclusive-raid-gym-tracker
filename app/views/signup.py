@@ -28,7 +28,7 @@ def signup_page(request):
             return redirect('gym_list')
         else:
             LOGGER.warning(
-                'Issues signed up with %s',  form.data.get('username'))
+                'Issues signed up with %s', form.data.get('username'))
             failed = str(form.errors)
     else:
         form = UserForm()
