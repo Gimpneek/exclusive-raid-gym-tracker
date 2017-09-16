@@ -12,8 +12,9 @@ Feature: Logout
     | Page                     |
     | Gym List                 |
     | Add Raid                 |
-    | Reset Gym Data URL       |
+    | Remove Gym Data URL      |
     | Hide Gym in Gym List URL |
+    | User Profile             |
     But they can access the following pages
     | Page     |
     | Sign Up  |

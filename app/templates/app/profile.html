@@ -1,0 +1,56 @@
+{%  extends 'app/base.html' %}
+{%  block hero %}
+<section class="hero is-small is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Profile: {{  profile.user.username }}</h1>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{%  block content %}
+    {%  if completed_raids %}
+        <div id="my-raids">
+            <h1>My Raids</h1>
+            <div id="map" class="is-4by3" style="width: 80%; height: 30em; margin: 0 10% 2em 10%;"></div>
+            <script>
+              var raids = {{ raid_markers }}
+              function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 14,
+                  center: {lat: 53.7954869, lng: -1.5460196}
+                });
+
+                for(var i = 0; i < raids.length; i++){
+                    new google.maps.Marker({
+                        position: raids[i],
+                        map: map
+                    });
+                }
+              }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ map_key }}&callback=initMap"></script>
+            <noscript>
+                <p class="has-text-centered">
+                    <img src="{{ map_url }}"/>
+                </p>
+            </noscript>
+            <table class="table is-striped">
+                <thead>
+                    <th>Gym</th>
+                    <th>Visit Date</th>
+                    <th>Remove Entry</th>
+                </thead>
+                <tbody>
+                    {% for raid in completed_raids %}
+                        <tr>
+                            <td>{{ raid.gym.name }}</td>
+                            <td>{{ raid.last_visit_date|date:"d/m/Y"}}</td>
+                            <td><a href="/remove/{{ raid.id }}">Remove</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{%  endblock %}

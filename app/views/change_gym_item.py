@@ -14,20 +14,19 @@ LOGGER = getLogger(__name__)
 
 
 @login_required
-def reset_gym_item(request, gym_item_id):
+def remove_gym_item(request, gym_item_id):
     """
     Reset the Gym's last visit date and redirect to Gym List
     """
     gym_item = GymItem.objects.get(id=gym_item_id)
     if gym_item.profile.user.id != request.user.id:
         LOGGER.info(
-            'User %s tried to reset gym '
+            'User %s tried to remove gym '
             'that didn\'t belong to them', request.user.username
         )
-        return redirect('gym_list')
-    gym_item.last_visit_date = None
-    gym_item.save()
-    return redirect('gym_list')
+        return redirect('profile')
+    gym_item.delete()
+    return redirect('profile')
 
 
 @login_required

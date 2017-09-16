@@ -18,7 +18,7 @@ class TestResetGymItemView(GymViewCommonCase):
         """ Test that a logged out user is redirected to the Homepage """
         resp = self.client.get(
             reverse_lazy(
-                'reset_gym_item',
+                'remove_gym_item',
                 kwargs={
                     'gym_item_id': self.gym_item.id
                 }
@@ -26,22 +26,22 @@ class TestResetGymItemView(GymViewCommonCase):
         )
         self.assertTrue(str(reverse_lazy('login')) in resp.url)
 
-    def test_resets_gym_item(self):
+    def test_removes_gym_item(self):
         """
         Test that sign in user will reset the Gym Item and be shown gym list
         """
         self.client.login(username='test', password='password')
         resp = self.client.get(
             reverse_lazy(
-                'reset_gym_item',
+                'remove_gym_item',
                 kwargs={
                     'gym_item_id': self.gym_item.id
                 }
             )
         )
-        self.assertEqual(resp.url, reverse_lazy('gym_list'))
-        gym_item = GymItem.objects.get(gym__name='Test Gym')
-        self.assertIsNone(gym_item.last_visit_date)
+        self.assertEqual(resp.url, reverse_lazy('profile'))
+        gym_items = GymItem.objects.filter(gym__name='Test Gym')
+        self.assertEqual(gym_items.count(), 0)
 
     def test_redirects_not_users_item(self):
         """
@@ -50,12 +50,12 @@ class TestResetGymItemView(GymViewCommonCase):
         self.client.login(username='test', password='password')
         resp = self.client.get(
             reverse_lazy(
-                'reset_gym_item',
+                'remove_gym_item',
                 kwargs={
                     'gym_item_id': self.other_gym_item.id
                 }
             )
         )
-        self.assertEqual(resp.url, reverse_lazy('gym_list'))
+        self.assertEqual(resp.url, reverse_lazy('profile'))
         gym_item = GymItem.objects.get(gym__name='Test Gym 2')
         self.assertIsNotNone(gym_item.last_visit_date)

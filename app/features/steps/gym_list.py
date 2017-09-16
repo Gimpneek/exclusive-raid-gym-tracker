@@ -1,5 +1,7 @@
 from behave import given, when, then
 from app.models.gym_item import GymItem
+from app.models.gym import Gym
+from app.models.profile import Profile
 from app.models.raid_item import RaidItem
 from datetime import date, datetime, timedelta
 from page_object_models.listing import ListingPage
@@ -24,10 +26,15 @@ def user_has_completed_raids(context):
     :param context: Behave context
     """
     context.raid_count = 'some'
-    gyms = GymItem.objects.all().filter(profile=1, hidden=False)
+    gyms = Gym.objects.all()
+    profile = Profile.objects.get(pk=1)
     gym = gyms[0]
-    gym.last_visit_date = date.today()
-    gym.save()
+    GymItem.objects.create(
+        gym=gym,
+        profile=profile,
+        last_visit_date=date.today()
+    )
+    context.raid_gym = gym.name
 
 
 @given('the user has completed all the raids being tracked')
@@ -37,10 +44,14 @@ def user_has_completed_all_raids(context):
     :param context: Behave context
     """
     context.raid_count = 'all'
-    gyms = GymItem.objects.all().filter(profile=1, hidden=False)
+    gyms = Gym.objects.all()
+    profile = Profile.objects.get(pk=1)
     for gym in gyms:
-        gym.last_visit_date = date.today()
-        gym.save()
+        GymItem.objects.create(
+            gym=gym,
+            profile=profile,
+            last_visit_date=date.today()
+        )
 
 
 @then('they see a list of gyms they have yet to visit')
@@ -356,17 +367,16 @@ def raid_is_active(context):
     Set up a raid to be active on the gym
     :param context: Behave context
     """
-    gyms = GymItem.objects.all().filter(profile=1, hidden=False)
-    gyms = [gym for gym in gyms if not gym.last_visit_date]
-    gym_item = gyms[0]
+    gyms = Gym.objects.all()
+    gym = gyms[0]
     raid = RaidItem.objects.create(
-        gym=gym_item.gym,
+        gym=gym,
         pokemon='Mewtwo',
         level=5,
         end_date=datetime.now(tz=pytz.utc) + timedelta(hours=1)
     )
     raid.save()
-    context.active_raid_card = gym_item.gym.name
+    context.active_raid_card = gym.name
 
 
 @given('there are no active raids')
