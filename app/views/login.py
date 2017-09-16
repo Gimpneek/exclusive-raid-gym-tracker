@@ -24,7 +24,7 @@ def login_page(request):
             return redirect('gym_list')
         else:
             LOGGER.warning(
-                'Incorrect login for %s' % request.POST.get('username'))
+                'Incorrect login for %s', request.POST.get('username'))
             failed = True
     return render(
         request,

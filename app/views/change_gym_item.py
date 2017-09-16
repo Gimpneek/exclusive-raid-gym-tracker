@@ -22,7 +22,7 @@ def reset_gym_item(request, gym_item_id):
     if gym_item.profile.user.id != request.user.id:
         LOGGER.info(
             'User %s tried to reset gym '
-            'that didn\'t belong to them' % request.user.username
+            'that didn\'t belong to them', request.user.username
         )
         return redirect('gym_list')
     gym_item.last_visit_date = None
@@ -39,7 +39,7 @@ def hide_gym_item(request, gym_item_id):
     if gym_item.profile.user.id != request.user.id:
         LOGGER.info(
             'User %s tried to hide gym '
-            'that didn\'t belong to them' % request.user.username
+            'that didn\'t belong to them', request.user.username
         )
         return redirect('gym_list')
     gym_item.hidden = True
