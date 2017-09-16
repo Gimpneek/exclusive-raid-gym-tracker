@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """ Views for login page """
+from logging import getLogger
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
-from logging import getLogger
 
 
 LOGGER = getLogger(__name__)
@@ -24,7 +24,7 @@ def login_page(request):
             return redirect('gym_list')
         else:
             LOGGER.warning(
-                'Incorrect login for {}'.format(request.POST.get('username')))
+                'Incorrect login for %s' % request.POST.get('username'))
             failed = True
     return render(
         request,

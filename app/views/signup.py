@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """ Views for Sign up form """
+from logging import getLogger
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from app.models.profile import Profile
 from app.forms.user import UserForm
-from logging import getLogger
 
 
 LOGGER = getLogger(__name__)
@@ -28,7 +28,7 @@ def signup_page(request):
             return redirect('gym_list')
         else:
             LOGGER.warning(
-                'Issues signed up with {}'.format(form.data.get('username')))
+                'Issues signed up with %s' % form.data.get('username'))
             failed = str(form.errors)
     else:
         form = UserForm()
