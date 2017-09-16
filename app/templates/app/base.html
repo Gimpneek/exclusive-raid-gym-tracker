@@ -92,24 +92,26 @@
             </div>
         </nav>
     </div>
-    <div class="container is-hidden-tablet is-mobile">
-        <div class="tabs is-centered is-fullwidth">
-          <ul>
-            <li {%  if request.path == '/list/' %}class="is-active"{% endif %}>
-              <a href="/list/">
-                <span class="icon is-small"><i class="fa fa-book"></i></span>
-                <span>Gym List</span>
-              </a>
-            </li>
-            <li {%  if request.path == '/profile/' %}class="is-active"{% endif %}>
-              <a href="/profile/">
-                <span class="icon is-small"><i class="fa fa-user"></i></span>
-                <span>Profile</span>
-              </a>
-            </li>
-          </ul>
+    {%  if user.is_authenticated %}
+        <div class="container is-hidden-tablet is-mobile">
+            <div class="tabs is-centered is-fullwidth">
+              <ul>
+                <li {%  if request.path == '/list/' %}class="is-active"{% endif %}>
+                  <a href="/list/">
+                    <span class="icon is-small"><i class="fa fa-book"></i></span>
+                    <span>Gym List</span>
+                  </a>
+                </li>
+                <li {%  if request.path == '/profile/' %}class="is-active"{% endif %}>
+                  <a href="/profile/">
+                    <span class="icon is-small"><i class="fa fa-user"></i></span>
+                    <span>Profile</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
         </div>
-    </div>
+    {% endif %}
     {% block hero %}
     {% endblock %}
     <section class="section">
