@@ -29,6 +29,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+RAVEN_CONFIG = {
+    'dsn': os.environ.get('SENTRY_DSN', None),
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -123,7 +127,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 STATIC_ROOT = 'app/static'
 
-
 if os.environ.get('PROD', '0') == '1':
     DEBUG = False
     ALLOWED_HOSTS.append('exclusive-raid-tracker-leeds.herokuapp.com')
@@ -131,3 +134,58 @@ if os.environ.get('PROD', '0') == '1':
     # Update database configuration with $DATABASE_URL.
     DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(DB_FROM_ENV)
+    MIDDLEWARE += [
+        'raven.contrib.django.raven_compat.middleware'
+        '.SentryResponseErrorIdMiddleware',
+        'raven.contrib.django.raven_compat.middleware'
+        '.Sentry404CatchMiddleware',
+    ]
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
+        },
+        'handlers': {
+            'sentry': {
+                'level': 'ERROR',
+                'class': 'raven.contrib.django.raven_compat'
+                         '.handlers.SentryHandler',
+                'tags': {'custom-tag': 'x'},
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'app': {
+                'level': 'INFO',
+                'handlers': ['console'],
+                'propagate': True,
+            },
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+        },
+    }
