@@ -1,12 +1,12 @@
 """ Test the profile view """
 from datetime import date
+from os import environ
 from django.test import TestCase
 from django.contrib.auth.models import User
 from app.models.profile import Profile
 from app.models.gym import Gym
 from app.models.gym_item import GymItem
 from app.views.user_profile import create_map_img
-from os import environ
 
 
 USERNAME = 'test'
