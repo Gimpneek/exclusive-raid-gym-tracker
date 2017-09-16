@@ -58,11 +58,12 @@ if time_now.hour in range(6, 21):
                 except Gym.DoesNotExist:
                     gym = None
                 if gym:
-                    raid = RaidItem.objects.filter(
+                    raids = RaidItem.objects.filter(
                         gym=gym,
                         end_date=raid_end
                     )
-                    if raid:
+                    if raids:
+                        raid = raids[0]
                         raid.pokemon = status.get('raid_pokemon_name')
                         raid.save()
                     else:
