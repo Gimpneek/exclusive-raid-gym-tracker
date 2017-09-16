@@ -189,4 +189,3 @@ if os.environ.get('PROD', '0') == '1':
             },
         },
     }
-
