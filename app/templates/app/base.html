@@ -60,7 +60,8 @@
           <!-- Right side -->
           <div class="navbar-end">
               {%  if user.is_authenticated %}
-                  <p class="navbar-item">{{ user.username }}</p>
+                  <p class="navbar-item"><a href="/list/">Gym List</a></p>
+                  <p class="navbar-item"><a href="/profile/">Profile</a></p>
                   <p class="navbar-item"><a href="/logout/">Logout</a></p>
                 {% else %}
                   <p class="navbar-item"><a href="/signup/">Sign up</a></p>
@@ -70,23 +71,42 @@
           </div>
         </nav>
         <nav class="navbar is-hidden-desktop section">
-                <div class="columns is-mobile">
-                    <div class="column">
-                        <h3 class="subtitle">Gym Raid Tracker</h3>
-                    </div>
-                    <div class="column">
-                        <div class="field is-grouped is-pulled-right">
-                            {%  if user.is_authenticated %}
-                                <p class="control">{{ user.username }}</p>
-                                <p class="control"><a href="/logout/">Logout</a></p>
-                            {% else %}
-                                <p class="control"><a href="/signup/">Sign up</a></p>
-                                <p class="control"><a href="/login/">Login</a></p>
-                            {% endif %}
-                        </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <h3 class="subtitle">Gym Raid Tracker</h3>
+                </div>
+                <div class="column">
+                    <div class="field is-grouped is-pulled-right">
+                        {%  if user.is_authenticated %}
+                            <p class="control is-hidden-mobile"><a href="/list/">Gym List</a></p>
+                            <p class="control is-hidden-mobile"><a href="/profile/">Profile</a></p>
+                            <p class="control"><a href="/logout/">Logout</a></p>
+                        {% else %}
+                            <p class="control"><a href="/signup/">Sign up</a></p>
+                            <p class="control"><a href="/login/">Login</a></p>
+                        {% endif %}
                     </div>
                 </div>
+            </div>
         </nav>
+    </div>
+    <div class="container is-hidden-tablet is-mobile">
+        <div class="tabs is-centered is-fullwidth">
+          <ul>
+            <li {%  if request.path == '/list/' %}class="is-active"{% endif %}>
+              <a href="/list/">
+                <span class="icon is-small"><i class="fa fa-book"></i></span>
+                <span>Gym List</span>
+              </a>
+            </li>
+            <li {%  if request.path == '/profile/' %}class="is-active"{% endif %}>
+              <a href="/profile/">
+                <span class="icon is-small"><i class="fa fa-user"></i></span>
+                <span>Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
     </div>
     {% block hero %}
     {% endblock %}
