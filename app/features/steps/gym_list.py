@@ -367,17 +367,16 @@ def raid_is_active(context):
     Set up a raid to be active on the gym
     :param context: Behave context
     """
-    gyms = GymItem.objects.all().filter(profile=1, hidden=False)
-    gyms = [gym for gym in gyms if not gym.last_visit_date]
-    gym_item = gyms[0]
+    gyms = Gym.objects.all()
+    gym = gyms[0]
     raid = RaidItem.objects.create(
-        gym=gym_item.gym,
+        gym=gym,
         pokemon='Mewtwo',
         level=5,
         end_date=datetime.now(tz=pytz.utc) + timedelta(hours=1)
     )
     raid.save()
-    context.active_raid_card = gym_item.gym.name
+    context.active_raid_card = gym.name
 
 
 @given('there are no active raids')
