@@ -7,6 +7,7 @@ os.environ.setdefault(
 )
 django.setup()
 from app.models.gym import Gym
+from app.models.raid_item import RaidItem
 
 params = {
     'by': 'leeds',
@@ -57,7 +58,18 @@ if time_now.hour in range(6, 21):
                 except Gym.DoesNotExist:
                     gym = None
                 if gym:
-                    gym.raid_level = status.get('raid_level')
-                    gym.raid_pokemon = status.get('raid_pokemon_name')
-                    gym.raid_end_date = raid_end
-                    gym.save()
+                    raids = RaidItem.objects.filter(
+                        gym=gym,
+                        end_date=raid_end
+                    )
+                    if raids:
+                        raid = raids[0]
+                        raid.pokemon = status.get('raid_pokemon_name')
+                        raid.save()
+                    else:
+                        RaidItem.objects.create(
+                            gym=gym,
+                            level=status.get('raid_level'),
+                            pokemon=status.get('raid_pokemon_name'),
+                            end_date=raid_end
+                        )

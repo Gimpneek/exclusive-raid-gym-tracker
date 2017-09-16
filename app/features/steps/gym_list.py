@@ -1,5 +1,6 @@
 from behave import given, when, then
 from app.models.gym_item import GymItem
+from app.models.raid_item import RaidItem
 from datetime import date, datetime, timedelta
 from page_object_models.listing import ListingPage
 from page_object_models.selectors.listing import SEARCH_BAR
@@ -358,11 +359,13 @@ def raid_is_active(context):
     gyms = GymItem.objects.all().filter(profile=1, hidden=False)
     gyms = [gym for gym in gyms if not gym.last_visit_date]
     gym_item = gyms[0]
-    gym_item.gym.raid_pokemon = 'Mewtwo'
-    gym_item.gym.raid_level = 5
-    raid_date = datetime.now(tz=pytz.utc) + timedelta(hours=1)
-    gym_item.gym.raid_end_date = raid_date
-    gym_item.gym.save()
+    raid = RaidItem.objects.create(
+        gym=gym_item.gym,
+        pokemon='Mewtwo',
+        level=5,
+        end_date=datetime.now(tz=pytz.utc) + timedelta(hours=1)
+    )
+    raid.save()
     context.active_raid_card = gym_item.gym.name
 
 

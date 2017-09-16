@@ -1,7 +1,7 @@
 {% load tracker_tags %}
 <div class="card">
   <div class="card-image">
-      <a href="/item/{{ gym.id }}/" class="card-image has-background-image" style="background-image: url('{{ gym.image_url }}')">
+      <a href="/add/{{ gym.id }}/" class="card-image has-background-image" style="background-image: url('{{ gym.image_url }}')">
           <figure class="image is-4by3"></figure>
           {%  with gym.get_raid_information as raid_info %}
             {%  if raid_info %}
