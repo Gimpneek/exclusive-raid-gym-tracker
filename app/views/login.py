@@ -2,6 +2,10 @@
 """ Views for login page """
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
+from logging import getLogger
+
+
+LOGGER = getLogger(__name__)
 
 
 def login_page(request):
@@ -19,6 +23,8 @@ def login_page(request):
             login(request, user=user)
             return redirect('gym_list')
         else:
+            LOGGER.warning(
+                'Incorrect login for {}'.format(request.POST.get('username')))
             failed = True
     return render(
         request,
