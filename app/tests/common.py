@@ -26,6 +26,6 @@ def create_gym_item(username=None, name=None, location=None, visit=None):
     gym_item = GymItem.objects.create(
         gym=gym,
         profile=profile,
-        last_visit_date=visit
+        gym_visit_date=visit
     )
     return gym_item

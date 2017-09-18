@@ -59,12 +59,12 @@ def add_gym_raid(request, gym_id):
     if request.POST:
         form = GymItemForm(request.POST)
         if form.is_valid():
-            last_visit_date = request.POST['last_visit_date']
+            gym_visit_date = request.POST['gym_visit_date']
             profile = Profile.objects.get(user=request.user.id)
             GymItem.objects.create(
                 gym=requested_gym,
                 profile=profile,
-                last_visit_date=last_visit_date
+                gym_visit_date=gym_visit_date
             )
             return redirect('gym_list')
         else:
@@ -72,9 +72,10 @@ def add_gym_raid(request, gym_id):
             failed = True
     else:
         form = GymItemForm()
+    date_to_show = datetime.now().strftime('%Y-%m-%dT%H:%M')
     return render(request, 'app/add_gym_raid.html', {
         'gym': requested_gym,
         'form': form,
-        'date_to_show': datetime.now(),
+        'date_to_show': date_to_show,
         'failed': failed
     })

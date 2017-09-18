@@ -10,7 +10,7 @@ from app.tests.common import create_gym_item
 GYM_NAME = 'Test Gym'
 GYM_LOCATION = 'this way, that way'
 USERNAME = 'test'
-LAST_VISIT_DATE = '1988-01-12'
+GYM_VISIT_DATE = '1988-01-12 06:00:00'
 
 
 class TestGymItemObject(TestCase):
@@ -25,7 +25,7 @@ class TestGymItemObject(TestCase):
             USERNAME,
             GYM_NAME,
             GYM_LOCATION,
-            LAST_VISIT_DATE
+            GYM_VISIT_DATE
         )
 
     def test_default_hidden(self):
@@ -34,9 +34,9 @@ class TestGymItemObject(TestCase):
         """
         self.assertEqual(self.gym_item.hidden, False)
 
-    def test_last_visit_date(self):
+    def test_gym_visit_date(self):
         """ Test the last visit date on the create gym item object """
-        self.assertEqual(self.gym_item.last_visit_date, LAST_VISIT_DATE)
+        self.assertEqual(self.gym_item.gym_visit_date, GYM_VISIT_DATE)
 
     def test_object_string(self):
         """ Test the string the object returns """
@@ -73,6 +73,6 @@ class TestGymItemObjectCreation(TestCase):
             USERNAME,
             GYM_NAME,
             GYM_LOCATION,
-            LAST_VISIT_DATE
+            None
         )
         gym_item.full_clean()

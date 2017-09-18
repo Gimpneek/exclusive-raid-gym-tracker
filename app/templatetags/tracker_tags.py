@@ -18,5 +18,5 @@ def get_last_raid(gym, user):
     profile = Profile.objects.get(user__id=user)
     visit = GymItem.objects.filter(gym__id=gym, profile=profile).last()
     if visit:
-        return visit.last_visit_date
+        return visit.gym_visit_date
     return None

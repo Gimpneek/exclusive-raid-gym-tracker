@@ -58,4 +58,4 @@ class TestResetGymItemView(GymViewCommonCase):
         )
         self.assertEqual(resp.url, reverse_lazy('profile'))
         gym_item = GymItem.objects.get(gym__name='Test Gym 2')
-        self.assertIsNotNone(gym_item.last_visit_date)
+        self.assertIsNotNone(gym_item.gym_visit_date)

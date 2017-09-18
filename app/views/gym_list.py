@@ -22,7 +22,7 @@ def gym_list(request):
     total_gyms = gyms.count()
     completed_gyms = GymItem.objects.filter(
         profile=profile,
-        last_visit_date__isnull=False
+        gym_visit_date__isnull=False
     )
     completed_gym_names = set([gym.gym.name for gym in completed_gyms])
     completed_gym_count = len(completed_gym_names)
@@ -57,7 +57,7 @@ def gym_list(request):
     completed_gyms = sorted(
         completed_gyms,
         key=lambda k: GymItem.objects.filter(
-            profile=profile, gym=k).last().last_visit_date
+            profile=profile, gym=k).last().gym_visit_date
     )
     gym_progress = 0
     if completed_gyms:

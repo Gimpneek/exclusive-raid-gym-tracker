@@ -5,7 +5,7 @@ from app.models.gym_item import GymItem
 from app.tests.views.gym_item_common import GymViewCommonCase
 
 
-class TestGymItemView(GymViewCommonCase):
+class TestAddRaidView(GymViewCommonCase):
     """ Gym Item view tests """
 
     def test_redirects_logged_out_user(self):
@@ -48,7 +48,7 @@ class TestGymItemView(GymViewCommonCase):
                 }
             ),
             data={
-                'last_visit_date': 'bad_string'
+                'gym_visit_date': 'bad_string'
             }
         )
         self.assertTrue('Invalid date entered' in str(resp.content))
@@ -66,13 +66,15 @@ class TestGymItemView(GymViewCommonCase):
                 }
             ),
             data={
-                'last_visit_date': '1990-04-13'
+                'gym_visit_date': '1990-04-13T12:00'
             }
         )
         self.assertEqual(resp.url, reverse_lazy('gym_list'))
         gym_item = GymItem.objects.filter(gym__name='Test Gym').last()
         self.assertEqual(
-            gym_item.last_visit_date.strftime('%Y-%m-%d'), '1990-04-13')
+            gym_item.gym_visit_date.strftime('%Y-%m-%d %H:%M:%S'),
+            '1990-04-13 12:00:00'
+        )
 
     def test_no_date_set(self):
         """
@@ -89,7 +91,8 @@ class TestGymItemView(GymViewCommonCase):
                 }
             )
         )
-        input_el = 'name="last_visit_date" type="date" value="{}"'.format(
-            datetime.now().strftime('%Y-%m-%d')
+        input_str = 'name="gym_visit_date" type="datetime-local" value="{}"'
+        input_el = input_str.format(
+            datetime.now().strftime('%Y-%m-%dT%H:%M')
         )
         self.assertTrue(input_el in str(resp.content))

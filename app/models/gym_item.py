@@ -15,6 +15,11 @@ class GymItem(models.Model):
         blank=True,
         null=True
     )
+    gym_visit_date = models.DateTimeField(
+        help_text="Date visited gym",
+        blank=True,
+        null=True
+    )
     hidden = models.BooleanField(
         help_text="Hide this gym?",
         default=False
