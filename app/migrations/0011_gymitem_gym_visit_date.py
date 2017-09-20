@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 from datetime import datetime, time
 from django.db import migrations, models
-import pytz
 
 
 def move_last_visit_date_to_gym_visit_date(apps, schema_editor):

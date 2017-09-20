@@ -348,5 +348,25 @@
       "location": "53.803685,-1.543394",
       "image_url": "http://lh4.ggpht.com/3MRcgsFnWGKni_4XLn4JYmMxhYeE0C4QcyqLvsCqWOukDU-JDY1xJ7Zh0hqoCSrEDsYAWWHqLJVKP1b_fP9GLw"
     }
+  },
+  {
+    "model": "app.gym",
+    "pk": 36,
+    "fields": {
+      "name": "Deeper Life Bible Church",
+      "gym_hunter_id": "382",
+      "location": "53.797439,-1.525085",
+      "image_url": "http://lh3.googleusercontent.com/FZOtdERSQaphLY-n9VuTOper565SfcR8EOEOH7c9rjff4kgoIlz-XdRrJgOhChedItoKRvZBmA4R4O0NyjfL"
+    }
+  },
+  {
+    "model": "app.gym",
+    "pk": 37,
+    "fields": {
+      "name": "Broadcasting Tower",
+      "gym_hunter_id": "106",
+      "location": "53.805931,-1.54847",
+      "image_url": "http://lh3.googleusercontent.com/FbDsapMkLcoXS-G5fBV4BAln2LZXTDsaZYkGx5wJjgQOnOQM93uk5CDrKiqS9o1-xV1_cB7bG-13EB6vzZL_"
+    }
   }
 ]
