@@ -67,7 +67,7 @@ class TestGymListView(GymViewCommonCase):
         """
         gym = Gym.objects.get(name='Test Gym')
         gym_item = GymItem.objects.get(gym__name='Test Gym')
-        gym_item.last_visit_date = None
+        gym_item.gym_visit_date = None
         gym_item.save()
         raid = RaidItem.objects.create(
             gym=gym,
