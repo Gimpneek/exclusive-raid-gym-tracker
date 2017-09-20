@@ -4,7 +4,6 @@ from datetime import datetime
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from app.models.gym import Gym
-import pytz
 
 
 @python_2_unicode_compatible

@@ -3,11 +3,10 @@ from app.models.gym_item import GymItem
 from app.models.gym import Gym
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from page_object_models.listing import ListingPage
 from page_object_models.selectors.listing import SEARCH_BAR
 import copy
-import pytz
 
 
 @given('the user has completed no raids')

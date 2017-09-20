@@ -1,7 +1,6 @@
 """ Page Object Model for forms """
 from .selectors.forms import USERNAME_INPUT, PASSWORD_INPUT, \
-    SUBMIT_BUTTON, ERROR_MESSAGE, GYM_VISIT_DATE_INPUT, \
-    CANCEL_BUTTON, REMOVE_RAID_BUTTON
+    SUBMIT_BUTTON, ERROR_MESSAGE, CANCEL_BUTTON, REMOVE_RAID_BUTTON
 from .common import BasePage
 
 
