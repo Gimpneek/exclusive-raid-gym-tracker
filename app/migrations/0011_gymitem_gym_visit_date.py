@@ -14,12 +14,13 @@ def move_last_visit_date_to_gym_visit_date(apps, schema_editor):
     """
     gym_item_model = apps.get_model('app', 'GymItem')
     for gym_item in gym_item_model.objects.all():
-        default_time = time(12, 0, 0, tzinfo=pytz.timezone('Europe/London'))
-        gym_item.gym_visit_date = datetime.combine(
-            gym_item.last_visit_date,
-            default_time
-        )
-        gym_item.save()
+        default_time = time(12, 0, 0)
+        if gym_item.last_visit_date:
+            gym_item.gym_visit_date = datetime.combine(
+                gym_item.last_visit_date,
+                default_time
+            )
+            gym_item.save()
 
 
 class Migration(migrations.Migration):
