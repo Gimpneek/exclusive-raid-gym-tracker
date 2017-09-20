@@ -1,7 +1,6 @@
 """ Page Object Model for forms """
 from .selectors.forms import USERNAME_INPUT, PASSWORD_INPUT, \
-    SUBMIT_BUTTON, ERROR_MESSAGE, LAST_VISIT_DATE_INPUT, \
-    CANCEL_BUTTON, REMOVE_RAID_BUTTON
+    SUBMIT_BUTTON, ERROR_MESSAGE, CANCEL_BUTTON, REMOVE_RAID_BUTTON
 from .common import BasePage
 
 
@@ -24,15 +23,15 @@ class FormPage(BasePage):
         form_input = self.driver.find_element(*PASSWORD_INPUT)
         self.enter_input_value(form_input, password)
 
-    def enter_last_visit_date(self, date):
-        """
-        Enter supplied last visit date
-        :param date: Date string to enter
-        """
-        form_input = self.driver.find_element(*LAST_VISIT_DATE_INPUT)
-        if self.driver.capabilities.get('browserName') == 'phantomjs':
-            form_input.clear()
-        form_input.send_keys(date)
+    # def enter_gym_visit_date(self, date):
+    #     """
+    #     Enter supplied gym visit date
+    #     :param date: Date string to enter
+    #     """
+    #     form_input = self.driver.find_element(*GYM_VISIT_DATE_INPUT)
+    #     if self.driver.capabilities.get('browserName') == 'phantomjs':
+    #         form_input.clear()
+    #     form_input.send_keys(date)
 
     def submit_form(self, expect_error=False):
         """

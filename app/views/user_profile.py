@@ -19,8 +19,8 @@ def user_profile(request):
     )
     raids = GymItem.objects.filter(
         profile=profile,
-        last_visit_date__isnull=False
-    ).order_by('last_visit_date')
+        gym_visit_date__isnull=False
+    ).order_by('gym_visit_date')
     return render(request, 'app/profile.html', {
         'profile': profile,
         'completed_raids': raids,

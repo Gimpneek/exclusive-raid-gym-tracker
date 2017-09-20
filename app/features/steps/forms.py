@@ -2,7 +2,7 @@ from behave import given, when, then
 from page_object_models.forms import FormPage
 from django.contrib.auth.models import User
 from app.models.profile import Profile
-from datetime import date
+from datetime import datetime
 
 
 @when('the user enters a username not currently in the system')
@@ -158,9 +158,9 @@ def enter_valid_date(context, validity):
     :param context: Behave context
     :param validity: Is date valid?
     """
-    today = date.today().strftime('%d-%m-%Y')
+    today = datetime.now().strftime('%d-%m-%Y')
     context.entered_date = today
-    if context.browser.capabilities.get('browserName') == 'phantomjs':
-        today = date.today().strftime('%Y-%m-%d')
-    form = FormPage(context.browser)
-    form.enter_last_visit_date(today)
+    # if context.browser.capabilities.get('browserName') == 'phantomjs':
+    #     today = datetime.today().strftime('%Y-%m-%dT%H:%M')
+    # form = FormPage(context.browser)
+    # form.enter_gym_visit_date(today)

@@ -3,7 +3,6 @@ from datetime import datetime
 from django.test import TestCase
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
-import pytz
 
 
 GYM_NAME = 'Test Gym'
@@ -12,7 +11,7 @@ GYM_IMAGE = 'http://www.test.com/image.png'
 GYM_ID = '0123456789'
 RAID_POKEMON = 'Mewtwo'
 RAID_LEVEL = 5
-RAID_END_DATE = '1988-01-12 06:00:00+0000'
+RAID_END_DATE = '1988-01-12 06:00:00'
 
 
 class TestRaidItemGetRaid(TestCase):
@@ -43,7 +42,7 @@ class TestRaidItemGetRaid(TestCase):
         Test get_raid returns the raid dictionary if the
         raid is in the future
         """
-        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0)
         raid_data = self.raid.get_raid(starting_dt)
         self.assertEqual(raid_data.get('pokemon'), RAID_POKEMON)
         self.assertEqual(raid_data.get('level'), RAID_LEVEL)
@@ -53,7 +52,7 @@ class TestRaidItemGetRaid(TestCase):
         """
         Test get_raid returns None if the raid is in the past
         """
-        starting_dt = datetime(1988, 1, 12, 6, 0, 1, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 6, 0, 1)
         raid_data = self.raid.get_raid(starting_dt)
         self.assertFalse(raid_data)
 
@@ -61,7 +60,7 @@ class TestRaidItemGetRaid(TestCase):
         """
         Test that if there's no raid pokemon then 'Egg' is returned
         """
-        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0)
         raid = RaidItem.objects.create(
             gym=self.gym,
             level=RAID_LEVEL,
@@ -77,7 +76,7 @@ class TestRaidItemGetRaid(TestCase):
         """
         Test that when raid pokemon has a name that it's name is returned
         """
-        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0)
         raid = RaidItem.objects.create(
             gym=self.gym,
             pokemon=RAID_POKEMON,
@@ -94,7 +93,7 @@ class TestRaidItemGetRaid(TestCase):
         """
         Test that if there's no raid level then None is returned
         """
-        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0)
         raid = RaidItem.objects.create(
             gym=self.gym,
             pokemon=RAID_POKEMON,
@@ -107,7 +106,7 @@ class TestRaidItemGetRaid(TestCase):
         """
         Test that if there's no raid end date then None is returned
         """
-        starting_dt = datetime(1988, 1, 12, 5, 0, 0, tzinfo=pytz.utc)
+        starting_dt = datetime(1988, 1, 12, 5, 0, 0)
         raid = RaidItem.objects.create(
             gym=self.gym,
             level=RAID_LEVEL,

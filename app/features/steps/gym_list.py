@@ -3,11 +3,10 @@ from app.models.gym_item import GymItem
 from app.models.gym import Gym
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from page_object_models.listing import ListingPage
 from page_object_models.selectors.listing import SEARCH_BAR
 import copy
-import pytz
 
 
 @given('the user has completed no raids')
@@ -32,7 +31,7 @@ def user_has_completed_raids(context):
     GymItem.objects.create(
         gym=gym,
         profile=profile,
-        last_visit_date=date.today()
+        gym_visit_date=datetime.now()
     )
     context.raid_gym = gym.name
 
@@ -50,7 +49,7 @@ def user_has_completed_all_raids(context):
         GymItem.objects.create(
             gym=gym,
             profile=profile,
-            last_visit_date=date.today()
+            gym_visit_date=datetime.now()
         )
 
 
@@ -373,7 +372,7 @@ def raid_is_active(context):
         gym=gym,
         pokemon='Mewtwo',
         level=5,
-        end_date=datetime.now(tz=pytz.utc) + timedelta(hours=1)
+        end_date=datetime.now() + timedelta(hours=1)
     )
     raid.save()
     context.active_raid_card = gym.name

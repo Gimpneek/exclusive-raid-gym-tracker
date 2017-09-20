@@ -37,7 +37,7 @@ class TestGymListView(GymViewCommonCase):
         Test that when visited no gyms
         """
         gym_item = GymItem.objects.get(gym__name='Test Gym')
-        gym_item.last_visit_date = None
+        gym_item.gym_visit_date = None
         gym_item.save()
         self.client.login(username='test', password='password')
         resp = self.client.get(reverse_lazy('gym_list'))
@@ -54,7 +54,7 @@ class TestGymListView(GymViewCommonCase):
             pokemon='Test Pokemon',
             level=6,
             end_date=(datetime.now() + timedelta(hours=1)).strftime(
-                '%Y-%m-%d %H:%M:%S+0000')
+                '%Y-%m-%d %H:%M:%S')
         )
         raid.save()
         self.client.login(username='test', password='password')
@@ -67,14 +67,14 @@ class TestGymListView(GymViewCommonCase):
         """
         gym = Gym.objects.get(name='Test Gym')
         gym_item = GymItem.objects.get(gym__name='Test Gym')
-        gym_item.last_visit_date = None
+        gym_item.gym_visit_date = None
         gym_item.save()
         raid = RaidItem.objects.create(
             gym=gym,
             pokemon='Test Pokemon',
             level=6,
             end_date=(datetime.now() + timedelta(hours=1)).strftime(
-                '%Y-%m-%d %H:%M:%S+0000')
+                '%Y-%m-%d %H:%M:%S')
         )
         raid.save()
         self.client.login(username='test', password='password')

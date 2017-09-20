@@ -45,7 +45,7 @@
                     {% for raid in completed_raids %}
                         <tr>
                             <td>{{ raid.gym.name }}</td>
-                            <td>{{ raid.last_visit_date|date:"d/m/Y"}}</td>
+                            <td>{{ raid.gym_visit_date|date:"d/m/Y"}}</td>
                             <td><a href="/remove/{{ raid.id }}">Remove</a></td>
                         </tr>
                     {% endfor %}

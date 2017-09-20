@@ -4,7 +4,6 @@ from datetime import datetime
 from django.db import models
 from django.apps import apps
 from django.utils.encoding import python_2_unicode_compatible
-import pytz
 
 
 @python_2_unicode_compatible
@@ -42,7 +41,7 @@ class Gym(models.Model):
         :return: dictionary of raid data or None
         """
         # Search raids that are on this gym and are set in the future
-        time_now = datetime.now(tz=pytz.utc)
+        time_now = datetime.now()
         raid_model = apps.get_model('app', 'RaidItem')
         raids = raid_model.objects.filter(
             gym=self,

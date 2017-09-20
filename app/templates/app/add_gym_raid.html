@@ -28,9 +28,9 @@
         </div>
     {% endif %}
     <div class="field">
-        <label class="label" for="last_visit_date">Date you last completed a raid on this gym</label>
+        <label class="label" for="gym_visit_date">Date you last completed a raid on this gym</label>
         <div class="control">
-            <input class="input" name="last_visit_date" type="date" value="{{ date_to_show|date:"Y-m-d"}}">
+            <input class="input" name="gym_visit_date" type="datetime-local" value="{{ date_to_show }}">
         </div>
     {% csrf_token %}
     </div>
