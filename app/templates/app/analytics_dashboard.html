@@ -1,0 +1,133 @@
+{%  extends 'app/base.html' %}
+{%  block hero %}
+<section class="hero is-small is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Analytics: {{ start_date|date:"d/m" }} - {{ end_date|date:"d/m" }}</h1>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{%  block content %}
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Total Raids</p>
+          <p class="title">{{  raids.count }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Gym With Most Raids</p>
+          <p class="title">{{  most_active_gym }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Most Active Hour</p>
+          <p class="title">{{ most_active_hour }}:00</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Most Active Day</p>
+          <p class="title">{{ most_active_day }}</p>
+        </div>
+      </div>
+    </nav>
+    {% if active_gyms %}
+        <div id="top-gyms">
+            <h1>Top {{ active_gyms|length }} Active Gyms</h1>
+            <div id="map" class="is-4by3" style="width: 80%; height: 30em; margin: 0 10% 2em 10%;"></div>
+            <script>
+              var raids = {{ active_gym_markers }}
+              function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 14,
+                  center: {lat: 53.7954869, lng: -1.5460196}
+                });
+
+                for(var i = 0; i < raids.length; i++){
+                    new google.maps.Marker({
+                        position: raids[i],
+                        map: map
+                    });
+                }
+              }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ map_key }}&callback=initMap"></script>
+            <table class="table is-striped">
+                <thead>
+                    <th>Gym</th>
+                    <th>Raid Count</th>
+                </thead>
+                <tbody>
+                    {% for gym in active_gyms %}
+                        <tr>
+                            <td>{{ gym.0 }}</td>
+                            <td>{{ gym.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    {% if active_levels %}
+        <div id="top-levels">
+            <h1>Raids per level</h1>
+            <table class="table is-striped">
+                <thead>
+                    <th>Level</th>
+                    <th>Raid Count</th>
+                </thead>
+                <tbody>
+                    {% for level in active_levels %}
+                        <tr>
+                            <td>{{ level.0 }}</td>
+                            <td>{{ level.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    {% if active_days %}
+        <div id="top-days">
+            <h1>Raids per day</h1>
+            <table class="table is-striped">
+                <thead>
+                    <th>Day</th>
+                    <th>Raid Count</th>
+                </thead>
+                <tbody>
+                    {% for day in active_days %}
+                        <tr>
+                            <td>{{ day.0 }}</td>
+                            <td>{{ day.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    {% if active_hours %}
+        <div id="top-hours">
+            <h1>Raids per hour</h1>
+            <table class="table is-striped">
+                <thead>
+                    <th>Hour</th>
+                    <th>Raid Count</th>
+                </thead>
+                <tbody>
+                    {% for hour in active_hours %}
+                        <tr>
+                            <td>{{ hour.0 }}</td>
+                            <td>{{ hour.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    </div>
+{%  endblock %}

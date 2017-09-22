@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from app.models.profile import Profile
 from app.models.gym_item import GymItem
+from app.views.common import create_js_obj_from_loc
 
 
 @login_required
@@ -56,9 +57,5 @@ def get_raids_as_js(raids):
     """
     js_objs = []
     for raid in raids:
-        raid_loc = raid.gym.location.split(',')
-        obj_str = '{'
-        obj_str += 'lat: {0},lng: {1}'.format(raid_loc[0], raid_loc[1])
-        obj_str += '}'
-        js_objs.append(obj_str)
+        js_objs.append(create_js_obj_from_loc(raid.gym.location))
     return '[{}]'.format(','.join(js_objs))

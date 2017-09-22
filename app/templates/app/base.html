@@ -69,6 +69,7 @@
               {%  if user.is_authenticated %}
                   <p class="navbar-item"><a href="/list/">Gym List</a></p>
                   <p class="navbar-item"><a href="/profile/">Profile</a></p>
+                  <p class="navbar-item"><a href="/analytics">Analytics</a></p>
                   <p class="navbar-item"><a href="/logout/">Logout</a></p>
                 {% else %}
                   <p class="navbar-item"><a href="/signup/">Sign up</a></p>
@@ -87,6 +88,7 @@
                         {%  if user.is_authenticated %}
                             <p class="control is-hidden-mobile"><a href="/list/">Gym List</a></p>
                             <p class="control is-hidden-mobile"><a href="/profile/">Profile</a></p>
+                            <p class="control is-hidden-mobile"><a href="/analytics/">Analytics</a></p>
                             <p class="control"><a href="/logout/">Logout</a></p>
                         {% else %}
                             <p class="control"><a href="/signup/">Sign up</a></p>
@@ -111,6 +113,12 @@
                   <a href="/profile/">
                     <span class="icon is-small"><i class="fa fa-user"></i></span>
                     <span>Profile</span>
+                  </a>
+                </li>
+                <li {%  if request.path == '/analytics/' %}class="is-active"{% endif %}>
+                  <a href="/profile/">
+                    <span class="icon is-small"><i class="fa fa-line-chart"></i></span>
+                    <span>Analytics</span>
                   </a>
                 </li>
               </ul>
