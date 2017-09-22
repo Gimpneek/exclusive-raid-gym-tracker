@@ -3,7 +3,6 @@ from .selectors.analytics import PAGE_HEADER, OVERVIEW_STATS, GYM_MAP, \
     GYM_LIST_TITLE, GYM_LIST_TABLE, LEVEL_LIST_TABLE, LEVEL_LIST_TITLE, \
     DAY_LIST_TABLE, DAY_LIST_TITLE, HOUR_LIST_TABLE, HOUR_LIST_TITLE
 from .common import BasePage
-from selenium.common.exceptions import NoSuchElementException
 
 
 class AnalyticsPage(BasePage):

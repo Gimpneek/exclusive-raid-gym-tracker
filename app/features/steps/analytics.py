@@ -1,7 +1,7 @@
 """ Steps for Analytics Page """
 from calendar import day_name
 from datetime import date, timedelta, datetime
-from behave import then, when, given
+from behave import then, given
 from page_object_models.analytics import AnalyticsPage
 from app.models.raid_item import RaidItem
 from app.models.gym import Gym
