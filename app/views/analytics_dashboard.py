@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """ Views for User Profile """
+from os import environ
 from calendar import day_name
 from datetime import datetime, timedelta, date
 from collections import Counter
@@ -40,7 +41,8 @@ def analytics_dashboard(request):
         'active_levels': raid_levels,
         'active_days': busiest_days,
         'active_hours': busiest_hours,
-        'active_gym_markers': get_active_gyms_as_js(busiest_gyms, raids)
+        'active_gym_markers': get_active_gyms_as_js(busiest_gyms, raids),
+        'map_key': environ.get('MAPS_API_KEY'),
     })
 
 
