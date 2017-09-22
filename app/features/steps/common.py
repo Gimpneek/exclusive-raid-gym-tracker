@@ -11,6 +11,7 @@ PAGE_MAPPING = {
     'logout': 'logout',
     'landing': 'index',
     'homepage': 'index',
+    'analytics': 'analytics',
     'remove gym data url': ('remove_gym_item', {'gym_item_id': 1}),
     'hide gym in gym list url': ('hide_gym_item', {'gym_item_id': 1}),
     'user profile': 'profile'

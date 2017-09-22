@@ -23,6 +23,7 @@ from app.views.signup import signup_page
 from app.views.change_gym_item import remove_gym_item, hide_gym_item, \
     add_gym_raid
 from app.views.user_profile import user_profile
+from app.views.analytics_dashboard import analytics_dashboard
 
 
 urlpatterns = [
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^signup/$', signup_page, name='signup'),
     url(r'^list/$', gym_list, name='gym_list'),
     url(r'^profile/$', user_profile, name='profile'),
+    url(r'^analytics/$', analytics_dashboard, name='analytics'),
     url(r'^add/(?P<gym_id>\d+)/$', add_gym_raid, name='add_gym_raid'),
     url(r'^hide/(?P<gym_item_id>\d+)/$', hide_gym_item, name='hide_gym_item'),
     url(r'^remove/(?P<gym_item_id>\d+)/$',
