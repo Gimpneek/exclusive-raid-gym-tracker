@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from page_object_models.listing import ListingPage
 from page_object_models.selectors.listing import SEARCH_BAR
 import copy
+import pytz
 
 
 @given('the user has completed no raids')
@@ -31,7 +32,7 @@ def user_has_completed_raids(context):
     GymItem.objects.create(
         gym=gym,
         profile=profile,
-        gym_visit_date=datetime.now()
+        gym_visit_date=datetime.now(tz=pytz.timezone('Europe/London'))
     )
     context.raid_gym = gym.name
 
@@ -49,7 +50,7 @@ def user_has_completed_all_raids(context):
         GymItem.objects.create(
             gym=gym,
             profile=profile,
-            gym_visit_date=datetime.now()
+            gym_visit_date=datetime.now(tz=pytz.timezone('Europe/London'))
         )
 
 
@@ -372,7 +373,7 @@ def raid_is_active(context):
         gym=gym,
         pokemon='Mewtwo',
         level=5,
-        end_date=datetime.now() + timedelta(hours=1)
+        end_date=datetime.now(tz=pytz.UTC) + timedelta(hours=1)
     )
     raid.save()
     context.active_raid_card = gym.name

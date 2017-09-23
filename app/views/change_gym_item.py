@@ -8,6 +8,7 @@ from app.models.gym_item import GymItem
 from app.models.profile import Profile
 from app.models.gym import Gym
 from app.forms.gym_item import GymItemForm
+import pytz
 
 
 LOGGER = getLogger(__name__)
@@ -59,7 +60,10 @@ def add_gym_raid(request, gym_id):
     if request.POST:
         form = GymItemForm(request.POST)
         if form.is_valid():
-            gym_visit_date = request.POST['gym_visit_date']
+            gym_visit_date = datetime.strptime(
+                request.POST['gym_visit_date'],
+                '%Y-%m-%dT%H:%M'
+            ).replace(tzinfo=pytz.timezone('Europe/London'))
             profile = Profile.objects.get(user=request.user.id)
             GymItem.objects.create(
                 gym=requested_gym,
@@ -72,7 +76,8 @@ def add_gym_raid(request, gym_id):
             failed = True
     else:
         form = GymItemForm()
-    date_to_show = datetime.now().strftime('%Y-%m-%dT%H:%M')
+    date_to_show = datetime.now(tz=pytz.timezone('Europe/London'))\
+        .strftime('%Y-%m-%dT%H:%M')
     return render(request, 'app/add_gym_raid.html', {
         'gym': requested_gym,
         'form': form,

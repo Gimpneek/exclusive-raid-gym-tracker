@@ -3,6 +3,7 @@ from datetime import datetime
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym_item import GymItem
 from app.tests.views.gym_item_common import GymViewCommonCase
+import pytz
 
 
 class TestAddRaidView(GymViewCommonCase):
@@ -73,7 +74,7 @@ class TestAddRaidView(GymViewCommonCase):
         gym_item = GymItem.objects.filter(gym__name='Test Gym').last()
         self.assertEqual(
             gym_item.gym_visit_date.strftime('%Y-%m-%d %H:%M:%S'),
-            '1990-04-13 12:00:00'
+            '1990-04-13 12:01:00'
         )
 
     def test_no_date_set(self):
@@ -93,6 +94,7 @@ class TestAddRaidView(GymViewCommonCase):
         )
         input_str = 'name="gym_visit_date" type="datetime-local" value="{}"'
         input_el = input_str.format(
-            datetime.now().strftime('%Y-%m-%dT%H:%M')
+            datetime.now(tz=pytz.timezone('Europe/London'))
+            .strftime('%Y-%m-%dT%H:%M')
         )
         self.assertTrue(input_el in str(resp.content))

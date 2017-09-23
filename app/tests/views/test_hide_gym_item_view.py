@@ -11,7 +11,10 @@ class TestHideGymItemView(GymViewCommonCase):
     def setUp(self):
         """ Set up test """
         super(TestHideGymItemView, self).setUp()
-        create_gym_item('other', 'Test Gym 1', 'Test Location', '1988-01-12')
+        create_gym_item(
+            'other', 'Test Gym 1',
+            'Test Location', '1988-01-12 00:00:00+01:00'
+        )
         self.other_gym_item = GymItem.objects.get(gym__name='Test Gym 1')
 
     def test_redirects_logged_out_user(self):

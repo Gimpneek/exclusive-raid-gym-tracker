@@ -8,10 +8,10 @@ from app.tests.common import create_gym_item
 GYM_NAME = 'Test Gym'
 GYM_LOCATION = 'this way, that way'
 USERNAME = 'test'
-LAST_VISIT_DATE = '1988-01-12'
+LAST_VISIT_DATE = '1988-01-12 00:00:00+01:00'
 RAID_POKEMON = 'Test'
 RAID_LEVEL = 5
-RAID_END_DATE = '1988-01-12 06:00:00'
+RAID_END_DATE = '1988-01-12 06:00:00+00:00'
 
 
 class TestRaidItemObject(TestCase):

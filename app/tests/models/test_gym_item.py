@@ -10,7 +10,7 @@ from app.tests.common import create_gym_item
 GYM_NAME = 'Test Gym'
 GYM_LOCATION = 'this way, that way'
 USERNAME = 'test'
-GYM_VISIT_DATE = '1988-01-12 06:00:00'
+GYM_VISIT_DATE = '1988-01-12 06:00:00+01:00'
 
 
 class TestGymItemObject(TestCase):

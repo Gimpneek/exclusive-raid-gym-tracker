@@ -13,7 +13,7 @@ class TestGetLastRaid(TestCase):
         """ Set up the tests """
         super(TestGetLastRaid, self).setUp()
         create_gym_item(
-            'test', 'Test Gym', 'Test Location', '1988-01-12 06:00:00')
+            'test', 'Test Gym', 'Test Location', '1988-01-12 06:00:00+01:00')
         self.user = User.objects.get(username='test')
         self.gym = Gym.objects.get(name='Test Gym')
 

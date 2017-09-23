@@ -1,5 +1,4 @@
 # Created by colinwren at 16/09/2017
-@dev
 Feature: Analytics
   As a person interested in raid activity in Leeds
   In order to learn more about raids in Leeds

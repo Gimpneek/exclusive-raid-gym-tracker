@@ -4,6 +4,7 @@ from django.test import TestCase
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
 from app.views.analytics_dashboard import get_active_gyms_as_js
+import pytz
 
 
 USERNAME = 'test'
@@ -23,7 +24,7 @@ class TestProfileRaidsAsJs(TestCase):
             gym=gym,
             pokemon='Test',
             level=5,
-            end_date=datetime.now()
+            end_date=datetime.now(tz=pytz.UTC)
         )
         self.raids = RaidItem.objects.all()
 
