@@ -74,7 +74,7 @@ class TestAddRaidView(GymViewCommonCase):
         gym_item = GymItem.objects.filter(gym__name='Test Gym').last()
         self.assertEqual(
             gym_item.gym_visit_date.strftime('%Y-%m-%d %H:%M:%S'),
-            '1990-04-13 12:00:00'
+            '1990-04-13 12:01:00'
         )
 
     def test_no_date_set(self):
