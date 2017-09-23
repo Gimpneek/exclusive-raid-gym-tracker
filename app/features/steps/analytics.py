@@ -33,7 +33,7 @@ def create_raid_for_period(context):
         gym=gym,
         pokemon='MewTwo',
         level=5,
-        end_date=now.astimezone(pytz.UTC)
+        end_date=now.replace(tzinfo=pytz.UTC)
     )
     context.most_active_gym = gym.name
     context.most_active_level = '5'
