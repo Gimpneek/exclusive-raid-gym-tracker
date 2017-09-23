@@ -17,7 +17,7 @@ def analytics_dashboard(request):
     :return: Webpage showing analytics
     """
     now = datetime.combine(date.today(), datetime.min.time())\
-        .astimezone(pytz.UTC)
+        .replace(tzinfo=pytz.UTC)
     one_week_ago = now + timedelta(weeks=-1)
     raids = RaidItem.objects.filter(
         end_date__gte=one_week_ago

@@ -63,7 +63,7 @@ def add_gym_raid(request, gym_id):
             gym_visit_date = datetime.strptime(
                 request.POST['gym_visit_date'],
                 '%Y-%m-%dT%H:%M'
-            ).astimezone(pytz.timezone('Europe/London'))
+            ).replace(tzinfo=pytz.timezone('Europe/London'))
             profile = Profile.objects.get(user=request.user.id)
             GymItem.objects.create(
                 gym=requested_gym,
