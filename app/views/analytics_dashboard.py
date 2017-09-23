@@ -22,13 +22,16 @@ def analytics_dashboard(request):
     raids = RaidItem.objects.filter(
         end_date__gte=one_week_ago
     )
-    gym_list = [raid.gym.name for raid in raids]
-    level_list = [raid.level for raid in raids]
-    hour_list = [
-        raid.end_date.astimezone(
-            pytz.timezone('Europe/London')
-        ).hour for raid in raids]
-    day_list = [day_name[raid.end_date.weekday()] for raid in raids]
+    gym_list = []
+    level_list = []
+    day_list = []
+    hour_list = []
+    for raid in raids:
+        gym_list.append(raid.gym.name)
+        level_list.append(raid.level)
+        day_list.append(day_name[raid.end_date.weekday()])
+        raid_end = raid.end_date.astimezone(pytz.timezone('Europe/London'))
+        hour_list.append((raid_end - timedelta(hours=1)).hour)
     busiest_gyms = Counter(gym_list).most_common()
     if len(busiest_gyms) > 10:
         busiest_gyms = busiest_gyms[:10]
