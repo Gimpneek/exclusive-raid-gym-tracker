@@ -134,6 +134,7 @@ if os.environ.get('PROD', '0') == '1':
     # Update database configuration with $DATABASE_URL.
     DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(DB_FROM_ENV)
+    SECURE_SSL_REDIRECT = True
     MIDDLEWARE += [
         'raven.contrib.django.raven_compat.middleware'
         '.SentryResponseErrorIdMiddleware',
