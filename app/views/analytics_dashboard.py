@@ -7,6 +7,7 @@ from collections import Counter
 from django.shortcuts import render
 from app.models.raid_item import RaidItem
 from app.views.common import create_js_obj_from_loc
+import pytz
 
 
 def analytics_dashboard(request):
@@ -15,14 +16,18 @@ def analytics_dashboard(request):
     :param request: Web Request
     :return: Webpage showing analytics
     """
-    now = datetime.combine(date.today(), datetime.min.time())
+    now = datetime.combine(date.today(), datetime.min.time())\
+        .astimezone(pytz.UTC)
     one_week_ago = now + timedelta(weeks=-1)
     raids = RaidItem.objects.filter(
         end_date__gte=one_week_ago
     )
     gym_list = [raid.gym.name for raid in raids]
     level_list = [raid.level for raid in raids]
-    hour_list = [raid.end_date.hour for raid in raids]
+    hour_list = [
+        raid.end_date.astimezone(
+            pytz.timezone('Europe/London')
+        ).hour for raid in raids]
     day_list = [day_name[raid.end_date.weekday()] for raid in raids]
     busiest_gyms = Counter(gym_list).most_common()
     if len(busiest_gyms) > 10:

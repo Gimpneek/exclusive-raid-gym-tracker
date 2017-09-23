@@ -11,7 +11,7 @@ class TestGymItemForm(TestCase):
         """ Set up test with Gym Item """
         super(TestGymItemForm, self).setUp()
         self.gym_item = create_gym_item(
-            'test', 'Test Gym', 'somewhere', '1988-01-12 12:00:00')
+            'test', 'Test Gym', 'somewhere', '1988-01-12 12:00:00+01:00')
 
     def test_last_visit_date_none(self):
         """ Test updating the last visit date to None """

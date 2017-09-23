@@ -5,6 +5,7 @@ from app.models.gym_item import GymItem
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
 from app.tests.views.gym_item_common import GymViewCommonCase
+import pytz
 
 
 class TestGymListView(GymViewCommonCase):
@@ -53,8 +54,7 @@ class TestGymListView(GymViewCommonCase):
             gym=gym,
             pokemon='Test Pokemon',
             level=6,
-            end_date=(datetime.now() + timedelta(hours=1)).strftime(
-                '%Y-%m-%d %H:%M:%S')
+            end_date=(datetime.now(tz=pytz.UTC) + timedelta(hours=1))
         )
         raid.save()
         self.client.login(username='test', password='password')
@@ -73,8 +73,7 @@ class TestGymListView(GymViewCommonCase):
             gym=gym,
             pokemon='Test Pokemon',
             level=6,
-            end_date=(datetime.now() + timedelta(hours=1)).strftime(
-                '%Y-%m-%d %H:%M:%S')
+            end_date=(datetime.now(tz=pytz.UTC) + timedelta(hours=1))
         )
         raid.save()
         self.client.login(username='test', password='password')

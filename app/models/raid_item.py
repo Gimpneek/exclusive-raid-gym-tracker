@@ -4,6 +4,7 @@ from datetime import datetime
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from app.models.gym import Gym
+import pytz
 
 
 @python_2_unicode_compatible
@@ -45,7 +46,7 @@ class RaidItem(models.Model):
         :return: dictionary of raid data or None
         """
         if not starting_dt:
-            starting_dt = datetime.now()
+            starting_dt = datetime.now(tz=pytz.timezone('Europe/London'))
         if self.end_date and self.level:
             time_left = self.end_date - starting_dt
             if time_left.total_seconds() > 0:

@@ -5,6 +5,7 @@ from behave import then, given
 from page_object_models.analytics import AnalyticsPage
 from app.models.raid_item import RaidItem
 from app.models.gym import Gym
+import pytz
 
 
 @then("the analysis date range is shown in the page header")
@@ -32,7 +33,7 @@ def create_raid_for_period(context):
         gym=gym,
         pokemon='MewTwo',
         level=5,
-        end_date=now
+        end_date=now.astimezone(pytz.UTC)
     )
     context.most_active_gym = gym.name
     context.most_active_level = '5'

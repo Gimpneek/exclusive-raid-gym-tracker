@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from app.models.profile import Profile
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
+import pytz
 
 
 USERNAME = 'test'
@@ -56,7 +57,7 @@ class TestAnalyticsView(TestCase):
                 gym=gym,
                 pokemon='Test',
                 level=5,
-                end_date=datetime.now()
+                end_date=datetime.now(tz=pytz.UTC)
             )
         resp = self.client.get(reverse_lazy('analytics'))
         self.assertIn('Top 10 Active Gyms', str(resp.content))
