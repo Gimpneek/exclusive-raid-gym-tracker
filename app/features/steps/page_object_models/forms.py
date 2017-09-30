@@ -1,7 +1,9 @@
 """ Page Object Model for forms """
 from .selectors.forms import USERNAME_INPUT, PASSWORD_INPUT, \
-    SUBMIT_BUTTON, ERROR_MESSAGE, CANCEL_BUTTON, REMOVE_RAID_BUTTON
+    SUBMIT_BUTTON, ERROR_MESSAGE, CANCEL_BUTTON, REMOVE_RAID_BUTTON, \
+    RECENT_RAID_TABLE
 from .common import BasePage
+from selenium.common.exceptions import NoSuchElementException
 
 
 class FormPage(BasePage):
@@ -65,3 +67,14 @@ class FormPage(BasePage):
         remove_button = self.driver.find_element(*REMOVE_RAID_BUTTON)
         self.click_and_verify_change(
             remove_button, REMOVE_RAID_BUTTON, hidden=True)
+
+    def get_recent_raid_table(self):
+        """
+        Get the recent raid table
+        :return: Webelement for table or None
+        """
+        try:
+            table = self.driver.find_element(*RECENT_RAID_TABLE)
+        except NoSuchElementException:
+            table = None
+        return table

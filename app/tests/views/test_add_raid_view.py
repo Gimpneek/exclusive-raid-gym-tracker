@@ -2,6 +2,7 @@
 from datetime import datetime
 from django.core.urlresolvers import reverse_lazy
 from app.models.gym_item import GymItem
+from app.models.raid_item import RaidItem
 from app.tests.views.gym_item_common import GymViewCommonCase
 import pytz
 
@@ -98,3 +99,41 @@ class TestAddRaidView(GymViewCommonCase):
             .strftime('%Y-%m-%dT%H:%M')
         )
         self.assertTrue(input_el in str(resp.content))
+
+    def test_recent_raids(self):
+        """
+        Test that the recent raids table is shown if raids have happened at
+        the gym
+        """
+        RaidItem.objects.create(
+            pokemon='Colin',
+            level=6,
+            end_date='1988-01-12 06:00:00+00:00',
+            gym=self.gym_item.gym
+        )
+        self.client.login(username='test', password='password')
+        resp = self.client.get(
+            reverse_lazy(
+                'add_gym_raid',
+                kwargs={
+                    'gym_id': self.gym_item.id
+                }
+            )
+        )
+        self.assertTrue('Recent Raids on this Gym' in str(resp.content))
+
+    def test_no_recent_raids(self):
+        """
+        Test that the recent raids table is not shown if no raids have happened
+        at the gym
+        """
+        self.client.login(username='test', password='password')
+        resp = self.client.get(
+            reverse_lazy(
+                'add_gym_raid',
+                kwargs={
+                    'gym_id': self.gym_item.id
+                }
+            )
+        )
+        self.assertTrue('Recent Raids on this Gym' not in str(resp.content))
