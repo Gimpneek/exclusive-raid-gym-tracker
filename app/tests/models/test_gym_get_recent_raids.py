@@ -1,9 +1,7 @@
 """ Test get_raid on RaidItem Model """
-from datetime import datetime
 from django.test import TestCase
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
-import pytz
 
 
 GYM_NAME = 'Test Gym'
