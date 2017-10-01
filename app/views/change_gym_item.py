@@ -82,5 +82,6 @@ def add_gym_raid(request, gym_id):
         'gym': requested_gym,
         'form': form,
         'date_to_show': date_to_show,
-        'failed': failed
+        'failed': failed,
+        'recent_raids': requested_gym.get_recent_raids()
     })

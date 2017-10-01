@@ -165,17 +165,24 @@ def click_gym_card_button(context, button_name):
     :param button_name: name of the button
     """
     page = ListingPage(context.browser)
-    if not hasattr(context, 'raid_count') or context.raid_count == 'none':
+    if hasattr(context, 'active_raid_card'):
+        cards = page.get_active_raid_cards()
+    elif not hasattr(context, 'raid_count') or context.raid_count == 'none':
         cards = page.get_yet_to_complete_cards()
     else:
         cards = page.get_completed_cards()
     context.progress_bar = page.get_progress_bar()
-    card = cards[0]
+    if hasattr(context, 'active_raid_card'):
+        card = page.get_card_by_title(cards, context.active_raid_card)
+    elif hasattr(context, 'past_raid_card'):
+        card = page.get_card_by_title(cards, context.past_raid_card)
+    else:
+        card = cards[0]
     context.card_title = page.get_titles_for_cards([card])[0]
     context.card_text = page.get_visit_dates_for_cards([card])[0]
     button = page.get_card_button_by_name(card, button_name)
     context.card_url = button.get_attribute('href')
-    button.click()
+    page.scroll_and_click(button)
 
 
 @then('the gym card is removed from the list')
@@ -280,13 +287,19 @@ def check_text_on_card(context, text):
         cards = page.get_yet_to_complete_cards()
     card = page.get_card_by_title(cards, context.card_title)
     card_text = page.get_visit_dates_for_cards([card])[0]
-    format = '%d-%m-%Y'
+    date_format = '%d-%m-%Y'
     if text == 'the date they entered as the last visited date':
-        date_on_card = datetime.strptime(context.entered_date, format)
-        assert(card_text.strftime(format) == date_on_card.strftime(format))
+        date_on_card = datetime.strptime(context.entered_date, date_format)
+        assert(
+            card_text.strftime(date_format) ==
+            date_on_card.strftime(date_format)
+        )
     if text == 'the unchanged visit date':
         date_on_card = context.card_text
-        assert (card_text.strftime(format) == date_on_card.strftime(format))
+        assert (
+            card_text.strftime(date_format) ==
+            date_on_card.strftime(date_format)
+        )
     if text == 'they have yet to visit the gym':
         assert(card_text == 'You still need to visit this gym')
 
@@ -379,6 +392,26 @@ def raid_is_active(context):
     context.active_raid_card = gym.name
 
 
+@given('a raid has happened on a gym')
+def raid_has_happened(context):
+    """
+    Set up a raid in the past
+
+    :param context: Behave context
+    """
+    gyms = Gym.objects.all()
+    gym = gyms[0]
+    raid = RaidItem.objects.create(
+        gym=gym,
+        pokemon='Mewtwo',
+        level=5,
+        end_date=datetime.now(tz=pytz.UTC) - timedelta(hours=3)
+    )
+    raid.save()
+    context.past_raid_card = gym.name
+
+
+@given('there has been no raids on a gym')
 @given('there are no active raids')
 def no_raids_active(context):
     """

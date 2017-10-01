@@ -21,6 +21,25 @@
 </section>
 {% endblock %}
 {%  block content %}
+{% if recent_raids %}
+    <div id="recent-raids">
+        <h1>Recent Raids on this Gym</h1>
+        <table class="table is-striped">
+            <thead>
+                <th>Raid ended</th>
+                <th>Pokemon</th>
+            </thead>
+            <tbody>
+        {% for raid in recent_raids %}
+            <tr>
+                <td>{{ raid.end_date|date:"H:i d/m/Y"}}</td>
+                <td>{{ raid.pokemon }}</td>
+            </tr>
+        {%  endfor %}
+            </tbody>
+        </table>
+    </div>
+{%  endif %}
 <form action="" method="post">
     {%  if failed %}
         <div class="notification is-danger">

@@ -168,3 +168,12 @@ class ListingPage(BasePage):
         :return: Get the dropdown list from search
         """
         return self.driver.find_elements(*SEARCH_SUGGESTIONS)
+
+    def scroll_and_click(self, element):
+        """
+        Scroll so element is in view and click it
+
+        :param element: Webelement to click
+        """
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        element.click()

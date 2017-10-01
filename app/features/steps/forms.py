@@ -164,3 +164,27 @@ def enter_valid_date(context, validity):
     #     today = datetime.today().strftime('%Y-%m-%dT%H:%M')
     # form = FormPage(context.browser)
     # form.enter_gym_visit_date(today)
+
+
+@then('they see a table of recent raids on the gym')
+def verify_recent_raid_table(context):
+    """
+    Ensure the recent raid table is on the page
+
+    :param context: Behave context
+    """
+    form = FormPage(context.browser)
+    table = form.get_recent_raid_table()
+    assert(table.text != '')
+
+
+@then('they don\'t see a table of recent raids on the gym')
+def verify_no_recent_raid_table(context):
+    """
+    Ensure there's no recent raid table
+
+    :param context: Behave context
+    """
+    form = FormPage(context.browser)
+    table = form.get_recent_raid_table()
+    assert(table is None)

@@ -51,3 +51,20 @@ class Gym(models.Model):
         if raids:
             return raids.last().get_raid(time_now)
         return {}
+
+    def get_recent_raids(self, count=5):
+        """
+        Get the last X raids on this gym where X is the count defined
+
+        :param count: Number of raids to get
+        :return: list of raid objects
+        """
+        if not isinstance(count, int):
+            raise ValueError('Count is not an integer')
+        raid_model = apps.get_model('app', 'RaidItem')
+        raids = raid_model.objects.filter(
+            gym=self,
+        ).order_by('-end_date')
+        if raids:
+            return raids[:count]
+        return []
