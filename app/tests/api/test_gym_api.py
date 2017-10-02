@@ -98,6 +98,14 @@ class TestGymApi(TestCase):
         result = resp.data.get('results')[0]
         self.assertEqual(result.get('location'), self.gym.location)
 
+    def test_gym_id(self):
+        """
+        Test that the location of the gym is returned
+        """
+        resp = self.api.get('/api/v1/gyms/')
+        result = resp.data.get('results')[0]
+        self.assertEqual(result.get('id'), self.gym.id)
+
     def test_not_logged_in(self):
         """
         Test that when user isn't authenticated that the API returns a 404

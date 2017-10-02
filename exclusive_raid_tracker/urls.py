@@ -26,9 +26,11 @@ from app.views.change_gym_item import remove_gym_item, hide_gym_item, \
 from app.views.user_profile import user_profile
 from app.views.analytics_dashboard import analytics_dashboard
 from app.views.view_sets.gym_view_set import GymViewSet
+from app.views.view_sets.gym_item_view_set import GymItemViewSet
 
 api_router = routers.DefaultRouter()
 api_router.register(r'gyms', GymViewSet)
+api_router.register(r'gym-visits', GymItemViewSet)
 
 
 urlpatterns = [

@@ -9,6 +9,7 @@ from rest_framework import serializers
 class GymSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer for Gym model """
 
+    # Replace this with a RaidItemSerializer or something
     raid = serializers.SerializerMethodField('raid_information')
     gym_visit_date = serializers.SerializerMethodField('get_visit')
 
@@ -35,4 +36,11 @@ class GymSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Gym
-        fields = ('name', 'location', 'image_url', 'raid', 'gym_visit_date')
+        fields = (
+            'id',
+            'name',
+            'location',
+            'image_url',
+            'raid',
+            'gym_visit_date'
+        )
