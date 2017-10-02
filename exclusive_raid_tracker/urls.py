@@ -13,8 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
 from app.views.homepage import index
 from app.views.login import login_page
 from app.views.logout import logout_page
@@ -24,6 +25,10 @@ from app.views.change_gym_item import remove_gym_item, hide_gym_item, \
     add_gym_raid
 from app.views.user_profile import user_profile
 from app.views.analytics_dashboard import analytics_dashboard
+from app.views.view_sets.gym_view_set import GymViewSet
+
+api_router = routers.DefaultRouter()
+api_router.register(r'gyms', GymViewSet)
 
 
 urlpatterns = [
@@ -41,4 +46,5 @@ urlpatterns = [
         remove_gym_item,
         name='remove_gym_item'
         ),
+    url(r'^api/v1/', include(api_router.urls))
 ]

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.ExclusiveRaidAppConfig',
     'behave_django',
-    'raven.contrib.django.raven_compat'
+    'raven.contrib.django.raven_compat',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 STATIC_ROOT = 'app/static'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'PAGE_SIZE': 10,
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
+}
 
 if os.environ.get('PROD', '0') == '1':
     DEBUG = False
