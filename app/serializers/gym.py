@@ -27,11 +27,13 @@ class GymSerializer(serializers.HyperlinkedModelSerializer):
         :param item: Gym Item
         :return: Date of last visit
         """
-        profile = Profile.objects.get(pk=self.context.get('request').user.id)
-        gym_visit = GymItem.objects.filter(gym=item, profile=profile)\
-            .order_by('gym_visit_date').last()
-        if gym_visit:
-            return gym_visit.gym_visit_date
+        user_id = self.context.get('request').user.id
+        if user_id:
+            profile = Profile.objects.get(pk=user_id)
+            gym_visit = GymItem.objects.filter(gym=item, profile=profile)\
+                .order_by('gym_visit_date').last()
+            if gym_visit:
+                return gym_visit.gym_visit_date
         return None
 
     class Meta:
