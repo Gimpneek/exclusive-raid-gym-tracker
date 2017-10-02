@@ -1,4 +1,4 @@
-#pylint: disable=no-self-use
+# pylint: disable=no-self-use
 """ Serializer for Gym model """
 from app.models.gym import Gym
 from app.models.gym_item import GymItem
