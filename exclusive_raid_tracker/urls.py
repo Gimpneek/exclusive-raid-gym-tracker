@@ -28,11 +28,13 @@ from app.views.analytics_dashboard import analytics_dashboard
 from app.views.view_sets.gym_view_set import GymViewSet
 from app.views.view_sets.gym_item_view_set import GymItemViewSet
 from app.views.view_sets.raid_item_view_set import RaidItemViewSet
+from app.views.view_sets.profile_view_set import ProfileViewSet
 
 api_router = routers.DefaultRouter()
 api_router.register(r'gyms', GymViewSet)
 api_router.register(r'gym-visits', GymItemViewSet)
 api_router.register(r'raids', RaidItemViewSet)
+api_router.register(r'profiles', ProfileViewSet)
 
 
 urlpatterns = [
