@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
+from rest_framework_jwt.views import obtain_jwt_token
 from app.views.homepage import index
 from app.views.login import login_page
 from app.views.logout import logout_page
@@ -52,5 +53,6 @@ urlpatterns = [
         remove_gym_item,
         name='remove_gym_item'
         ),
-    url(r'^api/v1/', include(api_router.urls))
+    url(r'^api/v1/', include(api_router.urls)),
+    url(r'^api/v1/api-token-auth/', obtain_jwt_token)
 ]

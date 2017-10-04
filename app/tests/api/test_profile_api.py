@@ -47,7 +47,7 @@ class TestProfileApi(TestCase):
         """
         self.api.logout()
         resp = self.api.get('/api/v1/profiles/{}/'.format(self.profile.id))
-        self.assertEqual(resp.status_code, 403)
+        self.assertEqual(resp.status_code, 401)
 
     def test_get_allowed(self):
         """
