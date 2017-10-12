@@ -10,5 +10,6 @@ class GymItemSerializer(serializers.HyperlinkedModelSerializer):
     gym = GymSerializer(read_only=True, many=False)
 
     class Meta:
+        """ Meta Class of the Serializer """
         model = GymItem
         fields = ['id', 'gym', 'gym_visit_date']

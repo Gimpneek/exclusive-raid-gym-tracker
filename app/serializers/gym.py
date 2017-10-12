@@ -37,6 +37,7 @@ class GymSerializer(serializers.HyperlinkedModelSerializer):
         return None
 
     class Meta:
+        """ Meta Class of the Serializer """
         model = Gym
         fields = (
             'id',

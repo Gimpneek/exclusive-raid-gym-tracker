@@ -10,5 +10,6 @@ class RaidItemSerializer(serializers.HyperlinkedModelSerializer):
     gym = GymSerializer(read_only=True, many=False)
 
     class Meta:
+        """ Meta Class of the Serializer """
         model = RaidItem
         fields = ['id', 'gym', 'pokemon', 'level', 'end_date']

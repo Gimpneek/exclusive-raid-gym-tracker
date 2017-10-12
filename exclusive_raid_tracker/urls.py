@@ -31,11 +31,11 @@ from app.views.view_sets.gym_item_view_set import GymItemViewSet
 from app.views.view_sets.raid_item_view_set import RaidItemViewSet
 from app.views.view_sets.profile_view_set import ProfileViewSet
 
-api_router = routers.DefaultRouter()
-api_router.register(r'gyms', GymViewSet)
-api_router.register(r'gym-visits', GymItemViewSet)
-api_router.register(r'raids', RaidItemViewSet)
-api_router.register(r'profiles', ProfileViewSet)
+API_ROUTER = routers.DefaultRouter()
+API_ROUTER.register(r'gyms', GymViewSet)
+API_ROUTER.register(r'gym-visits', GymItemViewSet)
+API_ROUTER.register(r'raids', RaidItemViewSet)
+API_ROUTER.register(r'profiles', ProfileViewSet)
 
 
 urlpatterns = [
@@ -53,6 +53,6 @@ urlpatterns = [
         remove_gym_item,
         name='remove_gym_item'
         ),
-    url(r'^api/v1/', include(api_router.urls)),
+    url(r'^api/v1/', include(API_ROUTER.urls)),
     url(r'^api/v1/api-token-auth/', obtain_jwt_token)
 ]

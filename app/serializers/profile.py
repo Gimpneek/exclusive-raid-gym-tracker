@@ -18,6 +18,7 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         return item.user.username
 
     class Meta:
+        """ Meta Class of the Serializer """
         model = Profile
         fields = (
             'id',
