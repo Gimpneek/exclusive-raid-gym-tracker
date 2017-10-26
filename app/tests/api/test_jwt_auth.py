@@ -40,6 +40,21 @@ class TestJwtAuth(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('token' in resp.json().keys())
 
+    def test_bad_creds(self):
+        """
+        Test trying to get a token with bad credentials returns an error
+        """
+        resp = self.client.post(
+            '/api/v1/api-token-auth/',
+            {
+                'username': 'test123',
+                'password': 'password'
+            },
+            follow=True
+        )
+        self.assertEqual(resp.status_code, 400)
+        self.assertTrue('non_field_errors' in resp.json().keys())
+
     def test_authed_access(self):
         """
         Test that hitting up token endpoint returns token
