@@ -46,7 +46,7 @@ if time_now.hour in range(6, 21):
     if raids.status_code == 200:
         gym_data = raids.json().get('gyms', {})
 
-        for gym_id, status in gym_data.items():
+        for status in gym_data:
             if status.get('raid_end_ms') and status.get('raid_level'):
                 raid_end = datetime.fromtimestamp(
                     (status.get('raid_end_ms')/1000.0),
@@ -56,7 +56,8 @@ if time_now.hour in range(6, 21):
                 time_left = raid_end - now
                 if time_left.total_seconds() > 0:
                     try:
-                        gym = Gym.objects.get(gym_hunter_id=gym_id)
+                        gym = Gym.objects.get(
+                            gym_hunter_id=status.get('gym_id'))
                     except Gym.DoesNotExist:
                         gym = None
                     if gym:
