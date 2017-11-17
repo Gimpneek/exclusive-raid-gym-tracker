@@ -9,4 +9,4 @@ def index(request):
     """
     if request.user.id:
         return redirect('gym_list')
-    return render(request, 'app/homepage.html')
+    return render(request, 'app/index.html')
