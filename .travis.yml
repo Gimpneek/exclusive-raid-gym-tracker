@@ -1,6 +1,8 @@
 language: python
 python:
   - 3.5
+notifications:
+  slack: raidtracker:7eIXA8A3tcRZ432R3qQHZQC1
 env:
   global:
     - LINTING=0 UNIT_TEST=0 SELENIUM=0
