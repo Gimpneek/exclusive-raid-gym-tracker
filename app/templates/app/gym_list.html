@@ -4,13 +4,11 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Gym Progress
+            Manage your Gyms
           </h1>
           <h2 class="subtitle">
-            Track your progress as you complete raids on each Gym in Leeds city center
+              Gyms are added as you complete raids on them but you can add and remove gyms on the <a class="button is-small is-primary is-inverted is-outlined" href="/gym-management/">Gym Management Page</a>
           </h2>
-          <progress class="progress is-large" value="{{ completed_gym_count }}" max="{{ total_gyms }}">{{ gym_progress }}%</progress>
-            <h2 class="subtitle has-text-centered">{{ gym_progress }}% complete!</h2>
         </div>
       </div>
     </section>
@@ -28,27 +26,10 @@
             <div class="dropdown-menu" id="dropdown-menu" role="menu"></div>
         </div>
     </div>
-    {% if active_raids %}
-        <h1>Active Raids</h1>
-        <div id="active_raids">
-            {%  for gym in active_raids %}
-                {%  if forloop.counter0|divisibleby:3 %}
-                    {%  if forloop.counter0 != 0 %}
-                        </div>
-                    {% endif %}
-                    <div class="columns">
-                {% endif %}
-                <div class="column is-4">
-                    {%  include 'app/gym_card.html' %}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-    {% if gyms_to_visit %}
-        <h1>Gyms to visit</h1>
+    {% if tracked_gyms %}
+        <h1>Gyms</h1>
         <div id="gyms_to_visit">
-            {%  for gym in gyms_to_visit %}
+            {%  for gym in tracked_gyms %}
                 {%  if forloop.counter0|divisibleby:3 %}
                     {%  if forloop.counter0 != 0 %}
                         </div>
@@ -62,32 +43,34 @@
         </div>
     </div>
     {% endif %}
-    {% if completed_gym_list %}
-        <h1>Visited Gyms</h1>
-        <div id="completed_gyms">
-        {%  for gym in completed_gym_list %}
-            {%  if forloop.counter0|divisibleby:3 %}
-                {%  if forloop.counter0 != 0 %}
-                    </div>
-                {% endif %}
-                <div class="columns">
-            {% endif %}
-            <div class="column is-4">
-                {%  include 'app/gym_card.html' %}
-            </div>
-        {% endfor %}
-        </div>
-    {% endif %}
+    <script>
+        setInterval(function(){
+            var elements = document.getElementsByClassName("raid-counter");
+            for(var i = 0; i < elements.length; i++){
+                var element = elements[i];
+                var current_time = element.textContent;
+                var time_elements = current_time.split(':');
+                current_time = new Date(0);
+                current_time.setHours(parseInt(time_elements[0]));
+                current_time.setMinutes(parseInt(time_elements[1]));
+                current_time.setSeconds(parseInt(time_elements[2]));
+                var time = current_time.getTime();
+                time = time - 1000;
+                var new_date = new Date(time);
+                element.innerHTML = new_date.getHours() + ":"
+                    + ("0" + new_date.getMinutes()).slice(-2) + ":"
+                    + ("0" + new_date.getSeconds()).slice(-2)
+                    + " remaining";
+                if(time < 0){
+                    element.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode);
+                }
+            }
+        }, 1000);
+    </script>
     <script type="text/javascript" src="https://cdn.rawgit.com/Gimpneek/JavaScript-autoComplete/1c337ba670508bbd70ad7fee18c691fbe26d8399/auto-complete.js"></script>
     <script>
     var choices = [
-        {% for gym in active_raids %}
-            ['{{ gym.name }}', '/add/{{ gym.id }}/'],
-        {%  endfor %}
-        {%  for gym in gyms_to_visit %}
-            ['{{ gym.name }}', '/add/{{ gym.id }}/'],
-        {%  endfor %}
-        {%  for gym in completed_gym_list %}
+        {%  for gym in gym_list %}
             ['{{ gym.name }}', '/add/{{ gym.id }}/'],
         {%  endfor %}
     ];
@@ -112,29 +95,5 @@
             window.location.href = item.getAttribute('href');
         }
     });
-    </script>
-    <script>
-        setInterval(function(){
-            var elements = document.getElementsByClassName("raid-counter");
-            for(var i = 0; i < elements.length; i++){
-                var element = elements[i];
-                var current_time = element.textContent;
-                var time_elements = current_time.split(':');
-                current_time = new Date(0);
-                current_time.setHours(parseInt(time_elements[0]));
-                current_time.setMinutes(parseInt(time_elements[1]));
-                current_time.setSeconds(parseInt(time_elements[2]));
-                var time = current_time.getTime();
-                time = time - 1000;
-                var new_date = new Date(time);
-                element.innerHTML = new_date.getHours() + ":"
-                    + ("0" + new_date.getMinutes()).slice(-2) + ":"
-                    + ("0" + new_date.getSeconds()).slice(-2)
-                    + " remaining";
-                if(time < 0){
-                    element.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode);
-                }
-            }
-        }, 1000);
     </script>
 {%  endblock %}

@@ -7,7 +7,7 @@ env:
   matrix:
   - LINTING=1
   - UNIT_TEST=1
-  - SELENIUM=1
+#  - SELENIUM=1
 install:
   - pip install -r requirements.txt
   - pip install codacy-coverage
