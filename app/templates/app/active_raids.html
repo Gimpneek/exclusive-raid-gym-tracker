@@ -1,0 +1,44 @@
+{%  extends 'app/base.html' %}
+{%  block content %}
+    {% if active_raids %}
+        <h1>Active Raids</h1>
+        <div id="active_raids">
+            {%  for gym in active_raids %}
+                {%  if forloop.counter0|divisibleby:3 %}
+                    {%  if forloop.counter0 != 0 %}
+                        </div>
+                    {% endif %}
+                    <div class="columns">
+                {% endif %}
+                <div class="column is-4">
+                    {%  include 'app/gym_card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <script>
+        setInterval(function(){
+            var elements = document.getElementsByClassName("raid-counter");
+            for(var i = 0; i < elements.length; i++){
+                var element = elements[i];
+                var current_time = element.textContent;
+                var time_elements = current_time.split(':');
+                current_time = new Date(0);
+                current_time.setHours(parseInt(time_elements[0]));
+                current_time.setMinutes(parseInt(time_elements[1]));
+                current_time.setSeconds(parseInt(time_elements[2]));
+                var time = current_time.getTime();
+                time = time - 1000;
+                var new_date = new Date(time);
+                element.innerHTML = new_date.getHours() + ":"
+                    + ("0" + new_date.getMinutes()).slice(-2) + ":"
+                    + ("0" + new_date.getSeconds()).slice(-2)
+                    + " remaining";
+                if(time < 0){
+                    element.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode);
+                }
+            }
+        }, 1000);
+    </script>
+{%  endblock %}

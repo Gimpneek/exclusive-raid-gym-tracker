@@ -1,0 +1,64 @@
+{%  extends 'app/base.html' %}
+{%  block content %}
+    <h1>Search</h1>
+    <div class="dropdown" id="search-bar-container">
+        <div class="field">
+            <div class="control has-icons-right">
+              <input class="input is-large" placeholder="Enter a gym name" id="gym-list-search-bar">
+              <span class="icon is-medium is-right">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu"></div>
+        </div>
+    </div>
+    {% if tracked_gyms %}
+        <h1>Gyms</h1>
+        <div id="gyms_to_visit">
+            <table class="table is-striped">
+                <thead>
+                    <th>Gym</th>
+                    <th>Stop Tracking</th>
+                </thead>
+                <tbody>
+                    {%  for gym in tracked_gyms %}
+                        <tr>
+                            <td>{{ gym.name }}</td>
+                            <td><a href="/gym-management/remove/{{ gym.id }}">Remove</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    <script type="text/javascript" src="https://cdn.rawgit.com/Gimpneek/JavaScript-autoComplete/1c337ba670508bbd70ad7fee18c691fbe26d8399/auto-complete.js"></script>
+    <script>
+    var choices = [
+        {%  for gym in gym_list %}
+            ['{{ gym.name }}', '/gym-management/add/{{ gym.id }}/'],
+        {%  endfor %}
+    ];
+    new autoComplete({
+        selector: '#gym-list-search-bar',
+        minChars: 1,
+        menuClass: 'dropdown-content',
+        source: function(term, suggest){
+            term = term.toLowerCase();
+            var suggestions = [];
+            for (i=0;i<choices.length;i++) {
+                if (~(choices[i][0] + ' ' + choices[i][1]).toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+            }
+            suggest(suggestions);
+        },
+        renderItem: function (item, search){
+            search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+            return '<a class="dropdown-item autocomplete-suggestion" href="'+item[1]+'" data-val="'+search+'">'+item[0]+'</a>';
+        },
+        onSelect: function(e, term, item){
+            window.location.href = item.getAttribute('href');
+        }
+    });
+    </script>
+{%  endblock %}
