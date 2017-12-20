@@ -14,6 +14,7 @@ Pull Requests, Issues and just general feedback is very much welcome.
 [![Build Status](https://travis-ci.org/Gimpneek/exclusive-raid-gym-tracker.svg?branch=master)](https://travis-ci.org/Gimpneek/exclusive-raid-gym-tracker)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/82888cd32269446181395bc5a745edb7)](https://www.codacy.com/app/colin-wren/exclusive-raid-gym-tracker?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Gimpneek/exclusive-raid-gym-tracker&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/82888cd32269446181395bc5a745edb7)](https://www.codacy.com/app/colin-wren/exclusive-raid-gym-tracker?utm_source=github.com&utm_medium=referral&utm_content=Gimpneek/exclusive-raid-gym-tracker&utm_campaign=Badge_Coverage)
+[![Hiptest Status](https://hiptest.net/badges/test_run/125013)](https://hiptest.net/app/projects/58485/test-runs/125013/overview)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Documentation Status](https://readthedocs.org/projects/exclusive-raid-gym-tracker/badge/?version=latest)](http://exclusive-raid-gym-tracker.readthedocs.io/en/latest/?badge=latest)
 
