@@ -38,6 +38,11 @@ You can run the end-to-end tests using the following command once you've
 installed the `behave-django` dependency:
 `python manage.py behave`
 
+I'm using HipTest to manage the end-to-end test scenarios while primarily
+for the benefit of the CI. While ever attempt to ensure the scenarios in this
+repo are synchronised there may be instances where the CI pulls down a newer
+set of scenarios, if this happens then just pull/merge the `master` branch.
+
 ### Code Style
 To ensure code quality and style both PyLint and Flake8 are run against the
 codebase.

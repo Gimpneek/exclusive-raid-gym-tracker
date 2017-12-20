@@ -2,7 +2,7 @@
 from .selectors.listing import GYMS_TO_VISIT_CARDS, CARD_CONTENT_TITLE, \
     COMPLETED_GYMS_CARDS, CARD_CONTENT_VISIT_DATE, TITLES, \
     get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE, SEARCH_BAR, \
-    SEARCH_SUGGESTIONS, CARD_HEADER, ACTIVE_RAID_CARDS
+    SEARCH_SUGGESTIONS, CARD_HEADER, RAID_BANNER, PARENT_CARD, CARDS
 from .common import BasePage
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
@@ -40,7 +40,20 @@ class ListingPage(BasePage):
         :return: list of cards from the active cards list
         """
         try:
-            cards = self.driver.find_elements(*ACTIVE_RAID_CARDS)
+            raid_banners = self.driver.find_elements(*CARD_HEADER)
+            cards = [card.find_element(*PARENT_CARD) for card in raid_banners]
+        except NoSuchElementException:
+            cards = []
+        return cards
+
+    def get_cards(self):
+        """
+        Get the list of cards on teh page
+
+        :return: list of cards on the page
+        """
+        try:
+            cards = self.driver.find_elements(*CARDS)
         except NoSuchElementException:
             cards = []
         return cards
@@ -72,6 +85,20 @@ class ListingPage(BasePage):
         """
         title = card.find_element(*CARD_CONTENT_TITLE)
         return title.text
+
+    @staticmethod
+    def card_has_raid_banner(card):
+        """
+        Verify that the gym card has the raid banner on it
+
+        :param card: Card WebElement
+        :return: True if raid banner present
+        """
+        try:
+            card.find_element(*RAID_BANNER)
+            return True
+        except NoSuchElementException:
+            return False
 
     @staticmethod
     def get_header_text_for_card(card):

@@ -28,7 +28,10 @@ def create_raid_for_period(context):
     :param context: Behave context
     """
     now = datetime.combine(date.today(), datetime.min.time())
-    gym = Gym.objects.all().last()
+    if hasattr(context, 'tracked_gym'):
+        gym = Gym.objects.get(name=context.tracked_gym)
+    else:
+        gym = Gym.objects.all().last()
     RaidItem.objects.create(
         gym=gym,
         pokemon='MewTwo',
@@ -106,5 +109,6 @@ def assert_table_shown(context, table_subject):
     page = AnalyticsPage(context.browser)
     header = page.get_table_header(table_subject)
     table = page.get_table(table_subject)
+    context.analytics_table = table
     assert header is not False
     assert table is not False

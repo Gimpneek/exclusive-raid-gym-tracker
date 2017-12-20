@@ -1,7 +1,8 @@
 """ Page Object Model - Analytics Page """
 from .selectors.analytics import PAGE_HEADER, OVERVIEW_STATS, GYM_MAP, \
     GYM_LIST_TITLE, GYM_LIST_TABLE, LEVEL_LIST_TABLE, LEVEL_LIST_TITLE, \
-    DAY_LIST_TABLE, DAY_LIST_TITLE, HOUR_LIST_TABLE, HOUR_LIST_TITLE
+    DAY_LIST_TABLE, DAY_LIST_TITLE, HOUR_LIST_TABLE, HOUR_LIST_TITLE, \
+    TABLE_CONTENTS
 from .common import BasePage
 
 
@@ -38,6 +39,7 @@ class AnalyticsPage(BasePage):
     def get_table_header(self, table_subject):
         """
         Get the header for the table based on the table subject
+
         :param table_subject: Name of the table
         :return: weblement for table title
         """
@@ -53,6 +55,7 @@ class AnalyticsPage(BasePage):
     def get_table(self, table_subject):
         """
         Get the table for the table based on the table subject
+
         :param table_subject: Name of the table
         :return: weblement for table title
         """
@@ -64,3 +67,13 @@ class AnalyticsPage(BasePage):
         }
         self.wait_for_element(table_selector.get(table_subject))
         return self.driver.find_element(*table_selector.get(table_subject))
+
+    @staticmethod
+    def get_table_contents(table):
+        """
+        Get the contents of the table
+
+        :param table: Table WebElement to get contents from
+        :return: WebElement for table
+        """
+        return table.find_elements(*TABLE_CONTENTS)

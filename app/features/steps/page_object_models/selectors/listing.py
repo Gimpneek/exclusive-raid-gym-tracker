@@ -10,10 +10,6 @@ COMPLETED_GYMS_CARDS = (
     By.CSS_SELECTOR,
     '#completed_gyms .columns > .column > .card'
 )
-ACTIVE_RAID_CARDS = (
-    By.CSS_SELECTOR,
-    '#active_raids .columns > .column > .card'
-)
 CARDS = (By.CSS_SELECTOR, '.columns > .column > .card')
 CARD_CONTENT = (By.CSS_SELECTOR, '.card-content')
 CARD_CONTENT_TITLE = (By.CSS_SELECTOR, '.media-content > .title')
@@ -28,6 +24,8 @@ SEARCH_SUGGESTIONS = (
     '#dropdown-menu .dropdown-content .dropdown-item'
 )
 CARD_HEADER = (By.CSS_SELECTOR, '.columns > .column > .card .raid-header')
+RAID_BANNER = (By.CSS_SELECTOR, '.raid-header')
+PARENT_CARD = (By.XPATH, '../../..')
 
 
 def get_link_selector(button_name):

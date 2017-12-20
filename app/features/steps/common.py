@@ -1,12 +1,15 @@
 from behave import given, when, then
 from django.core.urlresolvers import reverse_lazy
 from page_object_models.forms import FormPage
+from app.models.profile import Profile
+from app.models.gym import Gym
 
 
 PAGE_MAPPING = {
     'sign up': 'signup',
     'login': 'login',
     'gym list': 'gym_list',
+    'active raid list': 'raid_list',
     'add raid': ('add_gym_raid', {'gym_id': 1}),
     'logout': 'logout',
     'landing': 'index',
@@ -14,7 +17,10 @@ PAGE_MAPPING = {
     'analytics': 'analytics',
     'remove gym data url': ('remove_gym_item', {'gym_item_id': 1}),
     'hide gym in gym list url': ('hide_gym_item', {'gym_item_id': 1}),
-    'user profile': 'profile'
+    'user profile': 'profile',
+    'gym management page': 'gym_management',
+    'start tracking gym url': ('add_tracked_gym', {'gym_id': 1}),
+    'stop tracking gym url': ('remove_tracked_gym', {'gym_id': 1})
 }
 
 
@@ -49,6 +55,7 @@ def visit_page(context, page_to_visit):
 
 
 @then('the user is taken to the {page_to_check} page')
+@when('the user is taken to the {page_to_check} page')
 @given('the user is taken to the {page_to_check} page')
 def verify_user_redirected(context, page_to_check):
     """
@@ -84,3 +91,37 @@ def log_user_in(context):
     form.enter_username('test_user')
     form.enter_password('password')
     form.submit_form()
+
+
+@then('a user session is created')
+def verify_user_session(context):
+    """
+    Verify that the user has a session created for them
+
+    :param context: Behave context
+    """
+    assert(context.browser.get_cookie('sessionid') is not None)
+
+
+@then('the user session is ended')
+def verify_user_session_ended(context):
+    """
+    Verify that the user has a session created for them
+
+    :param context: Behave context
+    """
+    assert(context.browser.get_cookie('sessionid') is None)
+
+
+@given('the user is tracking at least one gym')
+def user_tracks_gym(context):
+    """
+    Set up the user to be tracking a gym
+
+    :param context: Behave context
+    """
+    profile = Profile.objects.all()[0]
+    gym = Gym.objects.all()[0]
+    profile.tracked_gyms.add(gym)
+    profile.save()
+    context.tracked_gym = gym.name
