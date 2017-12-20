@@ -415,7 +415,7 @@ def no_raids_active(context):
 
 
 @then('they see a raid active banner on the gym\'s card')
-def verify_raid_data(context,):
+def verify_raid_banner(context,):
     """
     Verify that the Raid banner is shown
 
