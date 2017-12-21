@@ -35,7 +35,7 @@ class GymManagementPage(BasePage):
         remove_button = columns[1].find_element(*REMOVE_BUTTON)
         button_selector = (
             By.CSS_SELECTOR,
-            'a[@href="{}"]'.format(remove_button.get_attribute('href'))
+            'a[href="{}"]'.format(remove_button.get_attribute('href'))
         )
         self.click_and_verify_change(
             remove_button,
