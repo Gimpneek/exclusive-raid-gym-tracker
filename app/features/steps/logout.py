@@ -3,6 +3,7 @@ from page_object_models.common import BasePage
 from common import get_url_from_name
 
 
+@when('the user presses the log out button')
 @when('the user logs out of the system')
 def log_user_out(context):
     """

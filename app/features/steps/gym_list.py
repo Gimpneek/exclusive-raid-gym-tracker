@@ -4,8 +4,11 @@ from app.models.gym import Gym
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
 from datetime import datetime, timedelta
-from page_object_models.listing import ListingPage
-from page_object_models.selectors.listing import SEARCH_BAR
+from app.features.steps.page_object_models.listing import ListingPage
+from app.features.steps.page_object_models.selectors.listing import \
+    SEARCH_BAR
+from app.features.steps.forms import enter_valid_date, press_submit_raid
+from app.features.steps.common import get_url_from_name
 import copy
 import pytz
 
@@ -77,6 +80,7 @@ def get_completed_gym_list(context):
 
 
 @then('they see a list of gyms with raids active')
+@then('the user sees a list of raids that are currently happening')
 def get_active_raid_list(context):
     """
     Get a list of cards from the active raids list
@@ -158,6 +162,8 @@ def check_no_active_raids(context):
 
 @when('they click on the {button_name} button on a gym card')
 @given('they click on the {button_name} button on a gym card')
+@given('the user presses the {button_name} button on a gym')
+@when('the user presses the {button_name} button on a gym')
 def click_gym_card_button(context, button_name):
     """
     Click on the defined button on the gym card
@@ -171,7 +177,6 @@ def click_gym_card_button(context, button_name):
         cards = page.get_yet_to_complete_cards()
     else:
         cards = page.get_completed_cards()
-    context.progress_bar = page.get_progress_bar()
     if hasattr(context, 'active_raid_card'):
         card = page.get_card_by_title(cards, context.active_raid_card)
     elif hasattr(context, 'past_raid_card'):
@@ -277,14 +282,7 @@ def check_text_on_card(context, text):
     :param text: Text card should show
     """
     page = ListingPage(context.browser)
-    completed_text = [
-        'the date they entered as the last visited date',
-        'the unchanged visit date'
-    ]
-    if text in completed_text:
-        cards = page.get_completed_cards()
-    else:
-        cards = page.get_yet_to_complete_cards()
+    cards = page.get_cards()
     card = page.get_card_by_title(cards, context.card_title)
     card_text = page.get_visit_dates_for_cards([card])[0]
     date_format = '%d-%m-%Y'
@@ -380,8 +378,7 @@ def raid_is_active(context):
     Set up a raid to be active on the gym
     :param context: Behave context
     """
-    gyms = Gym.objects.all()
-    gym = gyms[0]
+    gym = Gym.objects.get(name=context.tracked_gym)
     raid = RaidItem.objects.create(
         gym=gym,
         pokemon='Mewtwo',
@@ -389,7 +386,7 @@ def raid_is_active(context):
         end_date=datetime.now(tz=pytz.UTC) + timedelta(hours=1)
     )
     raid.save()
-    context.active_raid_card = gym.name
+    context.active_raid_card = context.tracked_gym
 
 
 @given('a raid has happened on a gym')
@@ -419,6 +416,20 @@ def no_raids_active(context):
     :param context: Behave context
     """
     pass
+
+
+@then('they see a raid active banner on the gym\'s card')
+def verify_raid_banner(context,):
+    """
+    Verify that the Raid banner is shown
+
+    :param context: Behave context
+    :param field: field to verify is shown
+    """
+    page = ListingPage(context.browser)
+    cards = page.get_active_raid_cards()
+    card = page.get_card_by_title(cards, context.active_raid_card)
+    assert(page.card_has_raid_banner(card))
 
 
 @then('the {field} of the raid pokemon is displayed')
@@ -451,3 +462,31 @@ def verify_raid_at_top(context):
     card = page.get_yet_to_complete_cards()[0]
     title = page.get_title_for_card(card)
     assert(title == context.active_raid_card)
+
+
+@then('the user sees a link to the gym management page')
+def verify_gym_management_link(context):
+    """
+    Assert that the link to the Gym Management page is present on the
+    gym list page
+
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    link = page.get_gym_management_link()
+    assert link is not None
+
+
+@when('the user completes a raid on a gym')
+def complete_a_raid_on_gym_via_url(context):
+    """
+    Complete a raid on a gym via the UI
+
+    :param context: Behave context to add gym name to
+    """
+    gyms = Gym.objects.all()
+    gym = gyms[0]
+    context.browser.get(get_url_from_name(context, 'add raid'))
+    enter_valid_date(context)
+    press_submit_raid(context)
+    context.raid_gym = gym.name

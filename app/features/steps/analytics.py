@@ -2,7 +2,7 @@
 from calendar import day_name
 from datetime import date, timedelta, datetime
 from behave import then, given
-from page_object_models.analytics import AnalyticsPage
+from app.features.steps.page_object_models.analytics import AnalyticsPage
 from app.models.raid_item import RaidItem
 from app.models.gym import Gym
 import pytz
@@ -21,21 +21,29 @@ def assert_analysis_header_text(context):
     )
 
 
-@given("at least one raid has popped up in the date period")
-def create_raid_for_period(context):
+@given("at least {quantity} raid has popped up in the date period")
+def create_raid_for_period(context, quantity):
     """
     Create a raid to appear in list for today
     :param context: Behave context
+    :param quantity: Number of raids to set up (One, Ten)
     """
     now = datetime.combine(date.today(), datetime.min.time())
-    gym = Gym.objects.all().last()
-    RaidItem.objects.create(
-        gym=gym,
-        pokemon='MewTwo',
-        level=5,
-        end_date=now.replace(tzinfo=pytz.UTC)
-    )
-    context.most_active_gym = gym.name
+    if hasattr(context, 'tracked_gym'):
+        gyms = [Gym.objects.get(name=context.tracked_gym)]
+    else:
+        if quantity == "one":
+            gyms = [Gym.objects.all().last()]
+        else:
+            gyms = Gym.objects.all()[:11]
+    for gym in gyms:
+        RaidItem.objects.create(
+            gym=gym,
+            pokemon='MewTwo',
+            level=5,
+            end_date=now.replace(tzinfo=pytz.UTC)
+        )
+        context.most_active_gym = gym.name
     context.most_active_level = '5'
     context.most_active_day = day_name[now.weekday()]
     context.most_active_hour = str(datetime.min.time().hour)
@@ -106,5 +114,19 @@ def assert_table_shown(context, table_subject):
     page = AnalyticsPage(context.browser)
     header = page.get_table_header(table_subject)
     table = page.get_table(table_subject)
+    context.analytics_table = table
     assert header is not False
     assert table is not False
+
+
+@then("only the ten most active gyms are shown in the table")
+def assert_row_count(context):
+    """
+    Assert that only ten rows are shown in the active gym table
+
+    :param context: Behave context
+    """
+    page = AnalyticsPage(context.browser)
+    table = page.get_table('active gyms')
+    contents = page.get_table_contents(table)
+    assert len(contents) == 20

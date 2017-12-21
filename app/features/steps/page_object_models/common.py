@@ -17,6 +17,7 @@ class BasePage(object):
         """
         Wrapper around WebDriverWait to wait for specified element to become
         visible
+
         :param element_selector: Element Selector tuple
         :type element_selector: tuple
         :param hidden: Check if element is hidden or not
@@ -35,6 +36,7 @@ class BasePage(object):
         """
         Wrapper around clicking an element and then waiting for a change in the
         page and verifying said change by ensuring an element is visible
+
         :param el_to_click: Element to click to induce change
         :type el_to_click: WebdriverElement
         :param el_to_verify: Element to look for to verify change
