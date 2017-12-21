@@ -19,7 +19,7 @@
   </div>
   <div class="card-content">
       <div class="media-content">
-        <p class="title is-4">{{ gym.name }}</p>
+          <p class="title is-4">{%  if 'leisure' in gym.osm_way %}<i class="fa fa-tree" aria-hidden="true"></i> {% endif %}{{ gym.name }}</p>
       </div>
       <div class="content">
         {% get_last_raid gym.id user_id as raid_date %}
@@ -32,6 +32,5 @@
   </div>
   <footer class="card-footer">
     <a class="card-footer-item" href="/add/{{ gym.id }}/">Add Raid</a>
-    <!--<a class="card-footer-item" href="/hide/{{ gym.id }}/">Hide</a>-->
   </footer>
 </div>

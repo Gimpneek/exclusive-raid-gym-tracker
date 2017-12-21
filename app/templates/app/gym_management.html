@@ -36,7 +36,7 @@
     <script>
     var choices = [
         {%  for gym in gym_list %}
-            ['{{ gym.name }}', '/gym-management/add/{{ gym.id }}/'],
+            ['{{ gym.name }}{% if 'leisure' in gym.osm_way %} (park){% endif %}', '/gym-management/add/{{ gym.id }}/'],
         {%  endfor %}
     ];
     new autoComplete({

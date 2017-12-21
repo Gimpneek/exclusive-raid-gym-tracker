@@ -32,6 +32,13 @@ class Gym(models.Model):
         null=True
     )
 
+    osm_way = models.CharField(
+        max_length=256,
+        help_text="OSM Way Type",
+        blank=True,
+        null=True
+    )
+
     def __str__(self):
         return self.name
 

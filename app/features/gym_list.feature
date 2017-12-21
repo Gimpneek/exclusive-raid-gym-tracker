@@ -33,3 +33,13 @@ Feature: Gym List
     And the name of the raid pokemon is displayed
     And the level of the raid pokemon is displayed
     And the time remaining of the raid pokemon is displayed
+
+  Scenario: Shows if gym is in a park
+    # As a user
+    # In order to know if the gym I'm doing a raid on is likely to meet the EX-Raid pass criteria of being in a park
+    # I want to see a visual cue indicating this
+    Given the user is logged in
+    And the user is tracking at least one gym
+    And that gym is in a park
+    When the user visits the gym list page
+    Then they see a tree next to the gym name

@@ -389,6 +389,18 @@ def raid_is_active(context):
     context.active_raid_card = context.tracked_gym
 
 
+@given('that gym is in a park')
+def gym_is_in_park(context):
+    """
+    Set up the gym to be in a park
+
+    :param context: Behave context
+    """
+    gym = Gym.objects.get(name=context.tracked_gym)
+    gym.osm_way = 'leisure=park'
+    gym.save()
+
+
 @given('a raid has happened on a gym')
 def raid_has_happened(context):
     """
@@ -419,17 +431,30 @@ def no_raids_active(context):
 
 
 @then('they see a raid active banner on the gym\'s card')
-def verify_raid_banner(context,):
+def verify_raid_banner(context):
     """
     Verify that the Raid banner is shown
 
     :param context: Behave context
-    :param field: field to verify is shown
     """
     page = ListingPage(context.browser)
     cards = page.get_active_raid_cards()
     card = page.get_card_by_title(cards, context.active_raid_card)
     assert(page.card_has_raid_banner(card))
+
+
+@then('they see a tree next to the gym name')
+def verify_tree_in_title(context):
+    """
+    Verify that the tree icon indicating that the gym is in a park is on the
+    card
+
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    cards = page.get_cards()
+    card = page.get_card_by_title(cards, context.tracked_gym)
+    assert(page.card_has_tree(card))
 
 
 @then('the {field} of the raid pokemon is displayed')
