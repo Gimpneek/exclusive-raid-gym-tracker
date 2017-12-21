@@ -19,6 +19,7 @@ PAGE_MAPPING = {
     'hide gym in gym list url': ('hide_gym_item', {'gym_item_id': 1}),
     'user profile': 'profile',
     'gym management page': 'gym_management',
+    'gym management': 'gym_management',
     'start tracking gym url': ('add_tracked_gym', {'gym_id': 1}),
     'stop tracking gym url': ('remove_tracked_gym', {'gym_id': 1})
 }

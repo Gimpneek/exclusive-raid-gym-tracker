@@ -2,7 +2,8 @@
 from .selectors.listing import GYMS_TO_VISIT_CARDS, CARD_CONTENT_TITLE, \
     COMPLETED_GYMS_CARDS, CARD_CONTENT_VISIT_DATE, TITLES, \
     get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE, SEARCH_BAR, \
-    SEARCH_SUGGESTIONS, CARD_HEADER, RAID_BANNER, PARENT_CARD, CARDS
+    SEARCH_SUGGESTIONS, CARD_HEADER, RAID_BANNER, PARENT_CARD, CARDS, \
+    GYM_MANAGEMENT_LINK
 from .common import BasePage
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
@@ -204,3 +205,15 @@ class ListingPage(BasePage):
         """
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
+
+    def get_gym_management_link(self):
+        """
+        Get the gym management link in the header
+
+        :return: Webelement or None
+        """
+        try:
+            link = self.driver.find_element(*GYM_MANAGEMENT_LINK)
+        except NoSuchElementException:
+            link = None
+        return link

@@ -4,8 +4,11 @@ from app.models.gym import Gym
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
 from datetime import datetime, timedelta
-from page_object_models.listing import ListingPage
-from page_object_models.selectors.listing import SEARCH_BAR
+from app.features.steps.page_object_models.listing import ListingPage
+from app.features.steps.page_object_models.selectors.listing import \
+    SEARCH_BAR
+from app.features.steps.forms import enter_valid_date, press_submit_raid
+from app.features.steps.common import get_url_from_name
 import copy
 import pytz
 
@@ -77,6 +80,7 @@ def get_completed_gym_list(context):
 
 
 @then('they see a list of gyms with raids active')
+@then('the user sees a list of raids that are currently happening')
 def get_active_raid_list(context):
     """
     Get a list of cards from the active raids list
@@ -458,3 +462,31 @@ def verify_raid_at_top(context):
     card = page.get_yet_to_complete_cards()[0]
     title = page.get_title_for_card(card)
     assert(title == context.active_raid_card)
+
+
+@then('the user sees a link to the gym management page')
+def verify_gym_management_link(context):
+    """
+    Assert that the link to the Gym Management page is present on the
+    gym list page
+
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    link = page.get_gym_management_link()
+    assert link is not None
+
+
+@when('the user completes a raid on a gym')
+def complete_a_raid_on_gym_via_url(context):
+    """
+    Complete a raid on a gym via the UI
+
+    :param context: Behave context to add gym name to
+    """
+    gyms = Gym.objects.all()
+    gym = gyms[0]
+    context.browser.get(get_url_from_name(context, 'add raid'))
+    enter_valid_date(context)
+    press_submit_raid(context)
+    context.raid_gym = gym.name

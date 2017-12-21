@@ -14,9 +14,10 @@ Feature: Analytics
     # As a user
     # In order to get a better idea of which gyms have the most raids
     # I want to see a list of gyms that have had the most raids at them during the reporting period
-    Given at least one raid has popped up in the date period
+    Given at least ten raid has popped up in the date period
     When the user visits the analytics page
     Then the user sees a table of active gyms
+    But only the ten most active gyms are shown in the table
 
   Scenario: Shows list of most common raid levels
     # As a user
