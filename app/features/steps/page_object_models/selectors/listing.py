@@ -13,6 +13,7 @@ COMPLETED_GYMS_CARDS = (
 CARDS = (By.CSS_SELECTOR, '.columns > .column > .card')
 CARD_CONTENT = (By.CSS_SELECTOR, '.card-content')
 CARD_CONTENT_TITLE = (By.CSS_SELECTOR, '.media-content > .title')
+CARD_CONTENT_OSM_WAY = (By.CSS_SELECTOR, '.media-content > .title > i.fa')
 CARD_CONTENT_VISIT_DATE = (By.CSS_SELECTOR, '.content > p')
 CARD_FOOTER = (By.CSS_SELECTOR, '.card-footer')
 CARD_FOOTER_OPTION = (By.CSS_SELECTOR, '.card-footer-item')
