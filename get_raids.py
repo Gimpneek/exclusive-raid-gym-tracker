@@ -40,16 +40,26 @@ if time_now.hour in range(6, 21):
             "http": proxy_url,
             "https": proxy_url
         }
+        page = scraper.get(
+            os.environ.get('POGO_INITIAL_URL'),
+            proxies=proxies
+        )
+    else:
+        page = scraper.get(os.environ.get('POGO_INITIAL_URL'))
+    token_regex = re.compile(r'.*var token = \"([a-z0-9]+)\";')
+    token = token_regex.match(str(page.content)).groups()[0]
+    params['token'] = token
+    if proxy_url:
+        proxies = {
+            "http": proxy_url,
+            "https": proxy_url
+        }
         raids = scraper.get(
             os.environ.get('POGO_MAP_URL'),
             params=params,
             proxies=proxies
         )
     else:
-        page = scraper.get(os.environ.get('POGO_INITIAL_URL'))
-        token_regex = re.compile(r'.*var token = \"([a-z0-9]+)\";')
-        token = token_regex.match(str(page.content)).groups()[0]
-        params['token'] = token
         raids = scraper.get(os.environ.get('POGO_MAP_URL'), params=params)
 
     if raids.status_code == 200:
