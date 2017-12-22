@@ -8,9 +8,11 @@ os.environ.setdefault(
 django.setup()
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
+import time, re
 
 params = {
     'by': 'leeds',
+    'excluded': '',
     'pokemon': 'false',
     'pokestops': 'false',
     'gyms': 'true',
@@ -20,9 +22,12 @@ params = {
     'swLng': '-1.5766920',
     'neLat': '53.802341',
     'neLng': '-1.5246490',
-    'alwaysperfect': 'false',
-    'raids': 'false'
+    'alwaysperfect': '1',
+    'raids': 'false',
+    'token': '',
+    'time': int(time.time())
 }
+
 
 proxy_url = os.environ.get('QUOTAGUARDSTATIC_URL')
 
@@ -41,6 +46,10 @@ if time_now.hour in range(6, 21):
             proxies=proxies
         )
     else:
+        page = scraper.get(os.environ.get('POGO_INITIAL_URL'))
+        token_regex = re.compile(r'.*var token = \"([a-z0-9]+)\";')
+        token = token_regex.match(str(page.content)).groups()[0]
+        params['token'] = token
         raids = scraper.get(os.environ.get('POGO_MAP_URL'), params=params)
 
     if raids.status_code == 200:
