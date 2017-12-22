@@ -1,4 +1,4 @@
-import pytz, os, cfscrape, time, re
+import pytz, os, cfscrape, time, re, logging
 from datetime import datetime
 import django
 os.environ.setdefault(
@@ -9,6 +9,8 @@ django.setup()
 
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
+
+_LOGGER = logging.getLogger(__name__)
 
 params = {
     'by': 'leeds',
@@ -46,6 +48,9 @@ if time_now.hour in range(6, 21):
         )
     else:
         page = scraper.get(os.environ.get('POGO_INITIAL_URL'))
+    if page.status_code != 200:
+        _LOGGER.error(page.status_code)
+        _LOGGER.error(page.content)
     token_regex = re.compile(r'.*var token = \"([a-z0-9]+)\";')
     token = token_regex.match(str(page.content)).groups()[0]
     params['token'] = token
@@ -61,7 +66,6 @@ if time_now.hour in range(6, 21):
         )
     else:
         raids = scraper.get(os.environ.get('POGO_MAP_URL'), params=params)
-
     if raids.status_code == 200:
         gym_data = raids.json().get('gyms', {})
 
@@ -94,3 +98,6 @@ if time_now.hour in range(6, 21):
                                 pokemon=status.get('raid_pokemon_name'),
                                 end_date=raid_end
                             )
+    else:
+        _LOGGER.error(raids.status_code)
+        _LOGGER.error(raids.content)
