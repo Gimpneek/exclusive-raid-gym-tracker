@@ -1,4 +1,4 @@
-import pytz, os, cfscrape
+import pytz, os, cfscrape, time, re
 from datetime import datetime
 import django
 os.environ.setdefault(
@@ -6,9 +6,9 @@ os.environ.setdefault(
     "exclusive_raid_tracker.settings"
 )
 django.setup()
+
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
-import time, re
 
 params = {
     'by': 'leeds',
@@ -18,10 +18,10 @@ params = {
     'gyms': 'true',
     'scanned': 'false',
     'spawnpoints': 'false',
-    'swLat': '53.791408',
-    'swLng': '-1.5766920',
-    'neLat': '53.802341',
-    'neLng': '-1.5246490',
+    'swLat': '53.64565540685835',
+    'swLng': '-2.061996459960938',
+    'neLat': '53.877226052392416',
+    'neLng': '-0.9084320068359376',
     'alwaysperfect': '1',
     'raids': 'false',
     'token': '',
