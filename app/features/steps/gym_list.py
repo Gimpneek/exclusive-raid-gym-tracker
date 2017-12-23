@@ -3,6 +3,7 @@ from app.models.gym_item import GymItem
 from app.models.gym import Gym
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
+from app.models.ex_raid_pokemon import ExRaidPokemon
 from datetime import datetime, timedelta
 from app.features.steps.page_object_models.listing import ListingPage
 from app.features.steps.page_object_models.selectors.listing import \
@@ -401,6 +402,25 @@ def gym_is_in_park(context):
     gym.save()
 
 
+@given("that gym has had an EX-Raid happen at it before")
+def gym_has_had_ex_raid(context):
+    """
+    Set up the gym to have had an EX-Raid before
+
+    :param context: Behave context
+    """
+    ex_pokemon = ExRaidPokemon.objects.create(name="Super Legendary Pokemon")
+    ex_pokemon.save()
+    gym = Gym.objects.get(name=context.tracked_gym)
+    raid = RaidItem.objects.create(
+        gym=gym,
+        pokemon="Super Legendary Pokemon",
+        level=5,
+        end_date=datetime.now(tz=pytz.UTC) + timedelta(hours=1)
+    )
+    raid.save()
+
+
 @given('a raid has happened on a gym')
 def raid_has_happened(context):
     """
@@ -455,6 +475,20 @@ def verify_tree_in_title(context):
     cards = page.get_cards()
     card = page.get_card_by_title(cards, context.tracked_gym)
     assert(page.card_has_tree(card))
+
+
+@then('they see a ticket next to the gym name')
+def verify_tree_in_title(context):
+    """
+    Verify that the ticket icon indicating that the gym is in a park is on the
+    card
+
+    :param context: Behave context
+    """
+    page = ListingPage(context.browser)
+    cards = page.get_cards()
+    card = page.get_card_by_title(cards, context.tracked_gym)
+    assert(page.card_has_ticket(card))
 
 
 @then('the {field} of the raid pokemon is displayed')
