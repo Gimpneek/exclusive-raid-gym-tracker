@@ -3,7 +3,7 @@ from .selectors.listing import GYMS_TO_VISIT_CARDS, CARD_CONTENT_TITLE, \
     COMPLETED_GYMS_CARDS, CARD_CONTENT_VISIT_DATE, TITLES, \
     get_link_selector, PROGRESS_BAR, PROGRESS_PERCENTAGE, SEARCH_BAR, \
     SEARCH_SUGGESTIONS, CARD_HEADER, RAID_BANNER, PARENT_CARD, CARDS, \
-    GYM_MANAGEMENT_LINK, CARD_CONTENT_OSM_WAY
+    GYM_MANAGEMENT_LINK, CARD_CONTENT_OSM_WAY, CARD_CONTENT_EX_RAID
 from .common import BasePage
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
@@ -111,6 +111,20 @@ class ListingPage(BasePage):
         """
         try:
             card.find_element(*CARD_CONTENT_OSM_WAY)
+            return True
+        except NoSuchElementException:
+            return False
+
+    @staticmethod
+    def card_has_ticket(card):
+        """
+        Verify that the gym card title has the ticket icon on it
+
+        :param card: Card WebElement
+        :return: True if ticket icon present
+        """
+        try:
+            card.find_element(*CARD_CONTENT_EX_RAID)
             return True
         except NoSuchElementException:
             return False

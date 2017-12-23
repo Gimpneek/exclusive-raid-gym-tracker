@@ -75,3 +75,20 @@ class Gym(models.Model):
         if raids:
             return raids[:count]
         return []
+
+    @property
+    def had_ex_raid(self):
+        """
+        Check to see an EX-Raid has previously taken place on the
+        the Gym
+
+        :return: True if Ex-Raid has taken place
+        """
+        ex_raid_pokemon_model = apps.get_model('app', 'ExRaidPokemon')
+        ex_raid_pokemon = \
+            [ex.name for ex in ex_raid_pokemon_model.objects.all()]
+        raid_model = apps.get_model('app', 'RaidItem')
+        raids = raid_model.objects.filter(pokemon__in=ex_raid_pokemon)
+        if raids:
+            return True
+        return False

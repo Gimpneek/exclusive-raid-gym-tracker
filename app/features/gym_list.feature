@@ -43,3 +43,13 @@ Feature: Gym List
     And that gym is in a park
     When the user visits the gym list page
     Then they see a tree next to the gym name
+
+  Scenario: Shows if gym has had an ex raid on it
+    # As a user
+    # In order to know if the gym I'm doing a raid on is likely to meet the EX-Raid pass criteria as it's already had an EX-Raid on it
+    # I want to see a visual cue indicating this
+    Given the user is logged in
+    And the user is tracking at least one gym
+    And that gym has had an EX-Raid happen at it before
+    When the user visits the gym list page
+    Then they see a ticket next to the gym name
