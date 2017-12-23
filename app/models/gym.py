@@ -88,7 +88,10 @@ class Gym(models.Model):
         ex_raid_pokemon = \
             [ex.name for ex in ex_raid_pokemon_model.objects.all()]
         raid_model = apps.get_model('app', 'RaidItem')
-        raids = raid_model.objects.filter(pokemon__in=ex_raid_pokemon)
+        raids = raid_model.objects.filter(
+            gym=self,
+            pokemon__in=ex_raid_pokemon
+        )
         if raids:
             return True
         return False
