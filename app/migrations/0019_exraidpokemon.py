@@ -15,8 +15,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ExRaidPokemon',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text='Name of EX-Raid Pokemon', max_length=256)),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID'
+                    )
+                ),
+                (
+                    'name', models.CharField(
+                        help_text='Name of EX-Raid Pokemon',
+                        max_length=256
+                    )
+                ),
             ],
         ),
     ]
