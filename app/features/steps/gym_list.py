@@ -478,7 +478,7 @@ def verify_tree_in_title(context):
 
 
 @then('they see a ticket next to the gym name')
-def verify_tree_in_title(context):
+def verify_ticket_in_title(context):
     """
     Verify that the ticket icon indicating that the gym is in a park is on the
     card
