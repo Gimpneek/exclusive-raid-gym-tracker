@@ -1,8 +1,10 @@
 """ Test the gym item view """
 from datetime import datetime
 from django.core.urlresolvers import reverse_lazy
+from app.models.gym import Gym
 from app.models.gym_item import GymItem
 from app.models.raid_item import RaidItem
+from app.models.profile import Profile
 from app.tests.views.gym_item_common import GymViewCommonCase
 import pytz
 
@@ -77,6 +79,28 @@ class TestAddRaidView(GymViewCommonCase):
             gym_item.gym_visit_date.strftime('%Y-%m-%d %H:%M:%S'),
             '1990-04-13 12:01:00'
         )
+
+    def test_starts_tracking_gym(self):
+        """
+        Test that if gym adding raid to isn't currently in the user's gym list
+        that the gym is added to that list
+        """
+        new_gym = Gym.objects.create(name='Untracked Gym', location='te,st')
+        self.client.login(username='test', password='password')
+        resp = self.client.post(
+            reverse_lazy(
+                'add_gym_raid',
+                kwargs={
+                    'gym_id': new_gym.id
+                }
+            ),
+            data={
+                'gym_visit_date': '1990-04-13T12:00'
+            }
+        )
+        self.assertEqual(resp.url, reverse_lazy('gym_list'))
+        profile = Profile.objects.get(user=self.user)
+        self.assertTrue(new_gym in profile.tracked_gyms.all())
 
     def test_no_date_set(self):
         """

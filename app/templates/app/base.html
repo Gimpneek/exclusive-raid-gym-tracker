@@ -67,13 +67,28 @@
           <!-- Right side -->
           <div class="navbar-end">
               {%  if user.is_authenticated %}
-                  <p class="navbar-item"><a href="/list/">Gym List</a></p>
-                  <p class="navbar-item"><a href="/profile/">Profile</a></p>
-                  <p class="navbar-item"><a href="/analytics">Analytics</a></p>
-                  <p class="navbar-item"><a href="/logout/">Logout</a></p>
+                  <p class="navbar-item">
+                      <a href="/raids/">Active Raids</a>
+                  </p>
+                  <p class="navbar-item">
+                      <a href="/gyms/">Gym List</a>
+                  </p>
+                  <p class="navbar-item">
+                      <a href="/profile/">Profile</a>
+                  </p>
+                  <p class="navbar-item">
+                      <a href="/analytics">Analytics</a>
+                  </p>
+                  <p class="navbar-item">
+                      <a href="/logout/">Logout</a>
+                  </p>
                 {% else %}
-                  <p class="navbar-item"><a href="/signup/">Sign up</a></p>
-                  <p class="navbar-item"><a href="/login/">Login</a></p>
+                  <p class="navbar-item">
+                      <a href="/signup/">Sign up</a>
+                  </p>
+                  <p class="navbar-item">
+                      <a href="/login/">Login</a>
+                  </p>
                 {% endif %}
             </p>
           </div>
@@ -86,13 +101,28 @@
                 <div class="column">
                     <div class="field is-grouped is-pulled-right">
                         {%  if user.is_authenticated %}
-                            <p class="control is-hidden-mobile"><a href="/list/">Gym List</a></p>
-                            <p class="control is-hidden-mobile"><a href="/profile/">Profile</a></p>
-                            <p class="control is-hidden-mobile"><a href="/analytics/">Analytics</a></p>
-                            <p class="control"><a href="/logout/">Logout</a></p>
+                            <p class="control is-hidden-mobile">
+                                <a href="/raids/">Active Raids</a>
+                            </p>
+                            <p class="control is-hidden-mobile">
+                                <a href="/gyms/">Gym List</a>
+                            </p>
+                            <p class="control is-hidden-mobile">
+                                <a href="/profile/">Profile</a>
+                            </p>
+                            <p class="control is-hidden-mobile">
+                                <a href="/analytics/">Analytics</a>
+                            </p>
+                            <p class="control">
+                                <a href="/logout/">Logout</a>
+                            </p>
                         {% else %}
-                            <p class="control"><a href="/signup/">Sign up</a></p>
-                            <p class="control"><a href="/login/">Login</a></p>
+                            <p class="control">
+                                <a href="/signup/">Sign up</a>
+                            </p>
+                            <p class="control">
+                                <a href="/login/">Login</a>
+                            </p>
                         {% endif %}
                     </div>
                 </div>
@@ -103,8 +133,14 @@
         <div class="container is-hidden-tablet is-mobile">
             <div class="tabs is-centered is-fullwidth">
               <ul>
-                <li {%  if request.path == '/list/' %}class="is-active"{% endif %}>
-                  <a href="/list/">
+                <li {%  if request.path == '/raids/' %}class="is-active"{% endif %}>
+                  <a href="/raids/">
+                    <span class="icon is-small"><i class="fa fa-book"></i></span>
+                    <span>Active Raids</span>
+                  </a>
+                </li>
+                <li {%  if request.path == '/gyms/' %}class="is-active"{% endif %}>
+                  <a href="/gyms/">
                     <span class="icon is-small"><i class="fa fa-book"></i></span>
                     <span>Gym List</span>
                   </a>

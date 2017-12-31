@@ -1,3 +1,4 @@
+astroid==1.5.3
 Django==1.11.4
 pytz==2017.2
 gunicorn==19.7.1
@@ -13,8 +14,10 @@ sphinx==1.6.3
 requests==2.18.4
 pyOpenSSL==17.2.0
 pytz==2017.2
-cfscrape==1.9.0
+cfscrape==1.9.1
 raven==6.1.0
 whitenoise==3.3.0
 djangorestframework==3.6.4
 djangorestframework-jwt==1.11.0
+overpy==0.4
+progressbar2==3.34.3

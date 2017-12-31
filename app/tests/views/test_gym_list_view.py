@@ -24,16 +24,7 @@ class TestGymListView(GymViewCommonCase):
         resp = self.client.get(reverse_lazy('gym_list'))
         self.assertEqual(resp.templates[0].name, 'app/gym_list.html')
 
-    def test_shows_visited_gyms(self):
-        """
-        Test that visited gyms are visible when have visited all gyms
-        """
-        self.client.login(username='test', password='password')
-        resp = self.client.get(reverse_lazy('gym_list'))
-        self.assertTrue('Visited Gyms' in str(resp.content))
-        self.assertFalse('Gyms to visit' in str(resp.content))
-
-    def test_shows_yet_to_visit_gyms(self):
+    def test_shows_gyms(self):
         """
         Test that when visited no gyms
         """
@@ -42,8 +33,7 @@ class TestGymListView(GymViewCommonCase):
         gym_item.save()
         self.client.login(username='test', password='password')
         resp = self.client.get(reverse_lazy('gym_list'))
-        self.assertTrue('Gyms to visit' in str(resp.content))
-        self.assertFalse('Visited Gyms' in str(resp.content))
+        self.assertTrue('Gyms' in str(resp.content))
 
     def test_completed_gym_with_raid(self):
         """
@@ -58,24 +48,5 @@ class TestGymListView(GymViewCommonCase):
         )
         raid.save()
         self.client.login(username='test', password='password')
-        resp = self.client.get(reverse_lazy('gym_list'))
-        self.assertTrue('Test Pokemon (6)' in str(resp.content))
-
-    def test_yet_to_visit_gym_with_raid(self):
-        """
-        Test that when a raid is active on gym it shows it
-        """
-        gym = Gym.objects.get(name='Test Gym')
-        gym_item = GymItem.objects.get(gym__name='Test Gym')
-        gym_item.gym_visit_date = None
-        gym_item.save()
-        raid = RaidItem.objects.create(
-            gym=gym,
-            pokemon='Test Pokemon',
-            level=6,
-            end_date=(datetime.now(tz=pytz.UTC) + timedelta(hours=1))
-        )
-        raid.save()
-        self.client.login(username='test', password='password')
-        resp = self.client.get(reverse_lazy('gym_list'))
+        resp = self.client.get(reverse_lazy('raid_list'))
         self.assertTrue('Test Pokemon (6)' in str(resp.content))
