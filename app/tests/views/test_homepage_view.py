@@ -25,4 +25,4 @@ class TestHomepageView(TestCase):
         Test that non-signed in user sees login form
         """
         resp = self.client.get(reverse_lazy('index'))
-        self.assertEqual(resp.templates[0].name, 'app/homepage.html')
+        self.assertEqual(resp.templates[0].name, 'app/index.html')
