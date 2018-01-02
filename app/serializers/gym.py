@@ -27,9 +27,9 @@ class GymSerializer(serializers.HyperlinkedModelSerializer):
         :param item: Gym Item
         :return: Date of last visit
         """
-        user_id = self.context.get('request').user.id
-        if user_id:
-            profile = Profile.objects.get(pk=user_id)
+        user = self.context.get('request').user
+        if user.id:
+            profile = Profile.objects.get(user=user)
             gym_visit = GymItem.objects.filter(gym=item, profile=profile)\
                 .order_by('gym_visit_date').last()
             if gym_visit:

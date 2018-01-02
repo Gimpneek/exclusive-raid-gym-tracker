@@ -13,6 +13,3 @@ class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
-    def get_queryset(self):
-        """ Get the queryset """
-        return Profile.objects.filter(user__id=self.request.user.id)
