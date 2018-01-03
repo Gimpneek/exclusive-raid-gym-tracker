@@ -1,4 +1,7 @@
-import pytz, os, cfscrape, json
+import pytz
+import os
+import cfscrape
+import json
 from datetime import datetime
 import django
 os.environ.setdefault(
@@ -14,21 +17,6 @@ new_params = {
     'area': 'leeds',
     'fields': 'all',
     'api-key': os.environ.get('GO_MAPS_KEY')
-}
-
-params = {
-    'by': 'leeds',
-    'pokemon': 'false',
-    'pokestops': 'false',
-    'gyms': 'true',
-    'scanned': 'false',
-    'spawnpoints': 'false',
-    'swLat': '53.791408',
-    'swLng': '-1.5766920',
-    'neLat': '53.802341',
-    'neLng': '-1.5246490',
-    'alwaysperfect': 'false',
-    'raids': 'false'
 }
 
 
@@ -53,46 +41,46 @@ if time_now.hour in range(6, 21):
             "http": proxy_url,
             "https": proxy_url
         }
-        raids = scraper.get(
+        raids = scraper.post(
             os.environ.get('POGO_MAP_URL'),
-            params=params,
+            data=new_params,
             proxies=proxies
         )
     else:
         raids = scraper.post(os.environ.get('POGO_MAP_URL'), data=new_params)
 
-if raids.status_code == 200:
-    try:
-        gym_data = raids.json().get('raids', {})
-    except json.JSONDecodeError:
-        gym_data = resolve_dodgy_json(raids.content)
+    if raids.status_code == 200:
+        try:
+            gym_data = raids.json().get('raids', {})
+        except json.JSONDecodeError:
+            gym_data = resolve_dodgy_json(raids.content)
 
-    for status in gym_data:
-        if status.get('raid_end_ms') and status.get('raid_level'):
-            raid_end = datetime.fromtimestamp(
-                (status.get('raid_end_ms')/1000.0),
-                tz=pytz.UTC
-            )
-            now = datetime.now(tz=pytz.utc)
-            time_left = raid_end - now
-            if time_left.total_seconds() > 0:
-                try:
-                    gym = Gym.objects.get(name=status.get('gym_name'))
-                except Gym.DoesNotExist:
-                    gym = None
-                if gym:
-                    raids = RaidItem.objects.filter(
-                        gym=gym,
-                        end_date=raid_end
-                    )
-                    if raids:
-                        raid = raids[0]
-                        raid.pokemon = status.get('raid_pokemon_name')
-                        raid.save()
-                    else:
-                        RaidItem.objects.create(
+        for status in gym_data:
+            if status.get('raid_end_ms') and status.get('raid_level'):
+                raid_end = datetime.fromtimestamp(
+                    (status.get('raid_end_ms')/1000.0),
+                    tz=pytz.UTC
+                )
+                now = datetime.now(tz=pytz.utc)
+                time_left = raid_end - now
+                if time_left.total_seconds() > 0:
+                    try:
+                        gym = Gym.objects.get(name=status.get('gym_name'))
+                    except Gym.DoesNotExist:
+                        gym = None
+                    if gym:
+                        raids = RaidItem.objects.filter(
                             gym=gym,
-                            level=status.get('raid_level'),
-                            pokemon=status.get('raid_pokemon_name'),
                             end_date=raid_end
                         )
+                        if raids:
+                            raid = raids[0]
+                            raid.pokemon = status.get('raid_pokemon_name')
+                            raid.save()
+                        else:
+                            RaidItem.objects.create(
+                                gym=gym,
+                                level=status.get('raid_level'),
+                                pokemon=status.get('raid_pokemon_name'),
+                                end_date=raid_end
+                            )
