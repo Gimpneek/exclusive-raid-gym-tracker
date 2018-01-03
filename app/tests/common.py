@@ -23,6 +23,8 @@ def create_gym_item(username=None, name=None, location=None, visit=None):
         name=name,
         location=location
     )
+    profile.tracked_gyms.add(gym)
+    profile.save()
     gym_item = GymItem.objects.create(
         gym=gym,
         profile=profile,

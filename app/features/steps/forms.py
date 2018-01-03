@@ -15,6 +15,7 @@ def enter_new_username(context):
     form.enter_username('new_user')
 
 
+@given('the user enters a username currently in the system')
 @when('the user enters a username currently in the system')
 def enter_existing_username(context):
     """
@@ -93,6 +94,7 @@ def user_has_account(context):
     pass
 
 
+@given('the user enters the password for the username')
 @when('the user enters the password for the username')
 def enter_password_for_account(context):
     """
@@ -151,21 +153,17 @@ def press_cancel_button(context):
     context.card_url = None
 
 
-@when('they enter {validity} date into the last raid visit entry box')
-def enter_valid_date(context, validity):
+@given('they enter a valid date into the last raid visit entry box')
+def enter_valid_date(context):
     """
     Enter valid date into the last visit date input
     :param context: Behave context
-    :param validity: Is date valid?
     """
     today = datetime.now().strftime('%d-%m-%Y')
     context.entered_date = today
-    # if context.browser.capabilities.get('browserName') == 'phantomjs':
-    #     today = datetime.today().strftime('%Y-%m-%dT%H:%M')
-    # form = FormPage(context.browser)
-    # form.enter_gym_visit_date(today)
 
 
+@then('the user sees a list of the last 5 raids on the gym')
 @then('they see a table of recent raids on the gym')
 def verify_recent_raid_table(context):
     """

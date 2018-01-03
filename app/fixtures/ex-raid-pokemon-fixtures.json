@@ -1,0 +1,9 @@
+[
+  {
+    "model": "app.exraidpokemon",
+    "pk": 1,
+    "fields": {
+      "name": "Mewtwo"
+    }
+  }
+]

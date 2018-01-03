@@ -8,6 +8,7 @@ GYM_NAME = 'Test Gym'
 GYM_LOCATION = 'this way, that way'
 GYM_IMAGE = 'http://www.test.com/image.png'
 GYM_ID = '0123456789'
+OSM_WAY = 'leisure=park'
 
 
 class TestGymObject(TestCase):
@@ -22,7 +23,8 @@ class TestGymObject(TestCase):
             name=GYM_NAME,
             location=GYM_LOCATION,
             image_url=GYM_IMAGE,
-            gym_hunter_id=GYM_ID
+            gym_hunter_id=GYM_ID,
+            osm_way=OSM_WAY
         )
 
     def test_gym_name(self):
@@ -41,6 +43,12 @@ class TestGymObject(TestCase):
         """ Test the Gym Hunter ID on the created gym object """
         self.assertEqual(self.gym.gym_hunter_id, GYM_ID)
 
+    def test_gym_osm_way(self):
+        """
+        Test that the OSM Way on tthe created gym object
+        """
+        self.assertEqual(self.gym.osm_way, OSM_WAY)
+
     def test_object_string(self):
         """ Test the string the object returns """
         self.assertEqual(self.gym.__str__(), GYM_NAME)
@@ -57,7 +65,8 @@ class TestGymObjectCreation(TestCase):
             gym = Gym.objects.create(
                 location=GYM_LOCATION,
                 image_url=GYM_IMAGE,
-                gym_hunter_id=GYM_ID
+                gym_hunter_id=GYM_ID,
+                osm_way=OSM_WAY
             )
             gym.full_clean()
 
@@ -67,7 +76,8 @@ class TestGymObjectCreation(TestCase):
             gym = Gym.objects.create(
                 name=GYM_NAME,
                 image_url=GYM_IMAGE,
-                gym_hunter_id=GYM_ID
+                gym_hunter_id=GYM_ID,
+                osm_way=OSM_WAY
             )
             gym.full_clean()
 
@@ -77,16 +87,31 @@ class TestGymObjectCreation(TestCase):
         gym = Gym.objects.create(
             name=GYM_NAME,
             location=GYM_LOCATION,
-            image_url=GYM_IMAGE
+            image_url=GYM_IMAGE,
+            osm_way=OSM_WAY
         )
         gym.full_clean()
 
     @staticmethod
     def test_image_not_defined():
-        """ Test that exception is not raised if no image url is suppled """
+        """ Test that exception is not raised if no image url is supplied """
         gym = Gym.objects.create(
             name=GYM_NAME,
             location=GYM_LOCATION,
-            gym_hunter_id=GYM_ID
+            gym_hunter_id=GYM_ID,
+            osm_way=OSM_WAY
+        )
+        gym.full_clean()
+
+    @staticmethod
+    def test_osm_way_not_defined():
+        """
+        Test that an exception is not raised if no osm_way is supplied
+        """
+        gym = Gym.objects.create(
+            name=GYM_NAME,
+            location=GYM_LOCATION,
+            gym_hunter_id=GYM_ID,
+            image_url=GYM_IMAGE
         )
         gym.full_clean()

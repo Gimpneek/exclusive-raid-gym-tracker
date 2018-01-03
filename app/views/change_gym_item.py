@@ -70,6 +70,9 @@ def add_gym_raid(request, gym_id):
                 profile=profile,
                 gym_visit_date=gym_visit_date
             )
+            if requested_gym not in profile.tracked_gyms.all():
+                profile.tracked_gyms.add(requested_gym)
+                profile.save()
             return redirect('gym_list')
         else:
             LOGGER.warning('Invalid date added to gym update')
