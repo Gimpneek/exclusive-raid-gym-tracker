@@ -1,4 +1,4 @@
-import pytz, os, cfscrape
+import pytz, os, cfscrape, json
 from datetime import datetime
 import django
 os.environ.setdefault(
@@ -31,27 +31,41 @@ params = {
     'raids': 'false'
 }
 
-# proxy_url = os.environ.get('QUOTAGUARDSTATIC_URL')
-#
-# time_now = datetime.now(tz=pytz.timezone('Europe/London'))
-#
-# if time_now.hour in range(6, 21):
-scraper = cfscrape.create_scraper()
-#     if proxy_url:
-#         proxies = {
-#             "http": proxy_url,
-#             "https": proxy_url
-#         }
-#         raids = scraper.get(
-#             os.environ.get('POGO_MAP_URL'),
-#             params=params,
-#             proxies=proxies
-#         )
-#     else:
-raids = scraper.post(os.environ.get('POGO_MAP_URL'), data=new_params)
+
+def resolve_dodgy_json(raw_resp):
+    """
+    Clean up the response from the server if it's not returning valid JSON
+
+    :param raw_resp: Raw byte content from server response
+    :return: JSON object
+    """
+    json_objects = raw_resp.decode('utf-8').split('{"success":')
+    proper_json = '{"success":' + json_objects[2]
+    return json.loads(proper_json).get('raids', {})
+
+
+proxy_url = os.environ.get('QUOTAGUARDSTATIC_URL')
+time_now = datetime.now(tz=pytz.timezone('Europe/London'))
+if time_now.hour in range(6, 21):
+    scraper = cfscrape.create_scraper()
+    if proxy_url:
+        proxies = {
+            "http": proxy_url,
+            "https": proxy_url
+        }
+        raids = scraper.get(
+            os.environ.get('POGO_MAP_URL'),
+            params=params,
+            proxies=proxies
+        )
+    else:
+        raids = scraper.post(os.environ.get('POGO_MAP_URL'), data=new_params)
 
 if raids.status_code == 200:
-    gym_data = raids.json().get('raids', {})
+    try:
+        gym_data = raids.json().get('raids', {})
+    except json.JSONDecodeError:
+        gym_data = resolve_dodgy_json(raids.content)
 
     for status in gym_data:
         if status.get('raid_end_ms') and status.get('raid_level'):
