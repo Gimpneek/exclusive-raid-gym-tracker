@@ -62,7 +62,7 @@ class GymManagementPage(BasePage):
         suggestions = page.get_search_suggestions()
         option = None
         for suggestion in suggestions:
-            if suggestion.text == gym:
+            if gym in suggestion.text:
                 option = suggestion
         assert option
         page.click_and_verify_change(option, SEARCH_BAR)
