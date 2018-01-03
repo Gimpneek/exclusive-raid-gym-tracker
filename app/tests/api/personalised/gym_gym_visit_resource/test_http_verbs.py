@@ -1,10 +1,10 @@
 """ Test the API for Gyms """
 
-from app.tests.api.personalised.gym_visit_collection.gym_visit_common import \
+from app.tests.api.personalised.gym_gym_visit_resource.gym_visit_common import \
     GymVisitAPICommonCase
 
 
-class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
+class TestGymVisitResourceHttpVerbs(GymVisitAPICommonCase):
     """ Test the API methods for the Gym """
 
     def test_not_logged_in(self):
@@ -35,12 +35,14 @@ class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
             format='json')
         self.assertEqual(resp.status_code, 405)
 
-    def test_delete_blocked(self):
+    def test_delete_allowed(self):
         """
-        Test that the DELETE verb is not allowed
+        Test that can delete a gym visit
         """
         resp = self.api.delete(self.url)
-        self.assertEqual(resp.status_code, 405)
+        self.assertEqual(resp.status_code, 301)
+        resp = self.api.get(self.url)
+        self.assertEqual(resp.status_code, 404)
 
     def test_put_blocked(self):
         """
@@ -49,9 +51,8 @@ class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
         resp = self.api.put(
             self.url,
             {
-                'name': 'PUT',
-                'location': 'test',
-                'image_url': 'test.jpg'
+                'gym': 1,
+                'gym_visit_date': '1990-04-13T06:00'
             },
             format='json'
         )

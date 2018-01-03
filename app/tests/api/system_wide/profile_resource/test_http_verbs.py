@@ -1,11 +1,10 @@
 """ Test the API for Gyms """
+from app.tests.api.personalised.profile_resource.profile_common import \
+    ProfileCommonCase
 
-from app.tests.api.personalised.gym_visit_collection.gym_visit_common import \
-    GymVisitAPICommonCase
 
-
-class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
-    """ Test the API methods for the Gym """
+class TestProfileHTTPVerbs(ProfileCommonCase):
+    """ Test the API methods for the Profile """
 
     def test_not_logged_in(self):
         """
@@ -28,10 +27,7 @@ class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
         """
         resp = self.api.post(
             self.url,
-            {
-                'gym': 1,
-                'gym_visit_date': '1990-04-13T06:00'
-            },
+            {},
             format='json')
         self.assertEqual(resp.status_code, 405)
 

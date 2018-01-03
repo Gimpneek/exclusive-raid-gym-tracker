@@ -1,6 +1,6 @@
 """ Test the API for Gyms """
 
-from app.tests.api.personalised.gym_visit_resource.gym_visit_common import \
+from app.tests.api.personalised.gym_gym_visit_resource.gym_visit_common import \
     GymVisitAPICommonCase
 
 

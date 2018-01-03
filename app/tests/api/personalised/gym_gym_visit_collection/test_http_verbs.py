@@ -22,10 +22,11 @@ class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
         resp = self.api.get(self.url)
         self.assertEqual(resp.status_code, 200)
 
-    def test_post_blocked(self):
+    def test_post_allowed(self):
         """
         Test that post requests are not allowed
         """
+        visit_count = self.get_gym_visit_count()
         resp = self.api.post(
             self.url,
             {
@@ -33,7 +34,21 @@ class TestGymVisitCollectionHttpVerbs(GymVisitAPICommonCase):
                 'gym_visit_date': '1990-04-13T06:00'
             },
             format='json')
-        self.assertEqual(resp.status_code, 405)
+        self.assertEqual(resp.status_code, 201)
+        self.assertGreater(self.get_gym_visit_count(), visit_count)
+
+    def test_post_bad_data(self):
+        """
+        Test that when posting bad data that returns 400
+        """
+        resp = self.api.post(
+            self.url,
+            {
+                'gym': 1,
+                'gym_visit_date': 'Colin\'s Birthday'
+            },
+            format='json')
+        self.assertEqual(resp.status_code, 400)
 
     def test_delete_blocked(self):
         """
