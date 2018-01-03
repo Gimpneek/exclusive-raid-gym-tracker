@@ -1,4 +1,7 @@
-import pytz, os, cfscrape, time, re, logging
+import pytz
+import os
+import cfscrape
+import json
 from datetime import datetime
 import django
 os.environ.setdefault(
@@ -6,35 +9,31 @@ os.environ.setdefault(
     "exclusive_raid_tracker.settings"
 )
 django.setup()
-
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem
 
-_LOGGER = logging.getLogger(__name__)
-
-params = {
-    'by': 'leeds',
-    'excluded': '',
-    'pokemon': 'false',
-    'pokestops': 'false',
-    'gyms': 'true',
-    'scanned': 'false',
-    'spawnpoints': 'false',
-    'swLat': '53.64565540685835',
-    'swLng': '-2.061996459960938',
-    'neLat': '53.877226052392416',
-    'neLng': '-0.9084320068359376',
-    'alwaysperfect': '1',
-    'raids': 'false',
-    'token': '',
-    'time': int(time.time())
+new_params = {
+    'type': 'raids',
+    'area': 'leeds',
+    'fields': 'all',
+    'api-key': os.environ.get('GO_MAPS_KEY')
 }
 
 
+def resolve_dodgy_json(raw_resp):
+    """
+    Clean up the response from the server if it's not returning valid JSON
+
+    :param raw_resp: Raw byte content from server response
+    :return: JSON object
+    """
+    json_objects = raw_resp.decode('utf-8').split('{"success":')
+    proper_json = '{"success":' + json_objects[2]
+    return json.loads(proper_json).get('raids', {})
+
+
 proxy_url = os.environ.get('QUOTAGUARDSTATIC_URL')
-
 time_now = datetime.now(tz=pytz.timezone('Europe/London'))
-
 if time_now.hour in range(6, 21):
     scraper = cfscrape.create_scraper()
     if proxy_url:
@@ -42,32 +41,19 @@ if time_now.hour in range(6, 21):
             "http": proxy_url,
             "https": proxy_url
         }
-        page = scraper.get(
-            os.environ.get('POGO_INITIAL_URL'),
-            proxies=proxies
-        )
-    else:
-        page = scraper.get(os.environ.get('POGO_INITIAL_URL'))
-    if page.status_code != 200:
-        _LOGGER.error(page.status_code)
-        _LOGGER.error(page.content)
-    token_regex = re.compile(r'.*var token = \"([a-z0-9]+)\";')
-    token = token_regex.match(str(page.content)).groups()[0]
-    params['token'] = token
-    if proxy_url:
-        proxies = {
-            "http": proxy_url,
-            "https": proxy_url
-        }
-        raids = scraper.get(
+        raids = scraper.post(
             os.environ.get('POGO_MAP_URL'),
-            params=params,
+            data=new_params,
             proxies=proxies
         )
     else:
-        raids = scraper.get(os.environ.get('POGO_MAP_URL'), params=params)
+        raids = scraper.post(os.environ.get('POGO_MAP_URL'), data=new_params)
+
     if raids.status_code == 200:
-        gym_data = raids.json().get('gyms', {})
+        try:
+            gym_data = raids.json().get('raids', {})
+        except json.JSONDecodeError:
+            gym_data = resolve_dodgy_json(raids.content)
 
         for status in gym_data:
             if status.get('raid_end_ms') and status.get('raid_level'):
@@ -98,6 +84,3 @@ if time_now.hour in range(6, 21):
                                 pokemon=status.get('raid_pokemon_name'),
                                 end_date=raid_end
                             )
-    else:
-        _LOGGER.error(raids.status_code)
-        _LOGGER.error(raids.content)
