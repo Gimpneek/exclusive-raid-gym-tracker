@@ -4,6 +4,8 @@ import cfscrape
 import json
 from datetime import datetime
 import django
+from .pokedex import POKEMON
+
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE",
     "exclusive_raid_tracker.settings"
@@ -66,7 +68,9 @@ if time_now.hour in range(6, 21):
                 print("time_left: {}".format(time_left.total_seconds()))
                 if time_left.total_seconds() > 0:
                     try:
-                        gym = Gym.objects.get(gym_hunter_id=status.get('gym_id'))
+                        gym = Gym.objects.get(
+                            gym_hunter_id=status.get('gym_id')
+                        )
                     except Gym.DoesNotExist:
                         gym = None
                     if gym:
@@ -74,14 +78,16 @@ if time_now.hour in range(6, 21):
                             gym=gym,
                             end_date=raid_end
                         )
+
+                        pokemon = POKEMON[int(status.get('pokemon_id'))]
                         if raids:
                             raid = raids[0]
-                            raid.pokemon = status.get('pokemon_id')
+                            raid.pokemon = pokemon
                             raid.save()
                         else:
                             RaidItem.objects.create(
                                 gym=gym,
                                 level=status.get('level'),
-                                pokemon=status.get('pokemon_id'),
+                                pokemon=pokemon,
                                 end_date=raid_end
                             )
