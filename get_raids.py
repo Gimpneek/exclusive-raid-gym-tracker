@@ -63,6 +63,7 @@ if time_now.hour in range(6, 21):
                 )
                 now = datetime.now(tz=pytz.utc)
                 time_left = raid_end - now
+                print("time_left: {}".format(time_left.total_seconds())
                 if time_left.total_seconds() > 0:
                     try:
                         gym = Gym.objects.get(gym_hunter_id=status.get('gym_id'))
