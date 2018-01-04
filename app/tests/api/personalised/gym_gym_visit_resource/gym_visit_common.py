@@ -18,5 +18,3 @@ class GymVisitAPICommonCase(APICommonCase):
             gym_id=self.gym.id,
             visit_id=self.gym_visit.id
         )
-
-

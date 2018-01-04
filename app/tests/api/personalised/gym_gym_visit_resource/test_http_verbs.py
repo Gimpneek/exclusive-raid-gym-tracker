@@ -1,7 +1,7 @@
 """ Test the API for Gyms """
 
-from app.tests.api.personalised.gym_gym_visit_resource.gym_visit_common import \
-    GymVisitAPICommonCase
+from app.tests.api.personalised.gym_gym_visit_resource.gym_visit_common \
+    import GymVisitAPICommonCase
 
 
 class TestGymVisitResourceHttpVerbs(GymVisitAPICommonCase):

@@ -1,7 +1,7 @@
-# pylint: disable=too-many-ancestors
+# pylint: disable=too-many-ancestors, invalid-name, no-self-use
 """ View Set for personalised GymItem api """
-from django.shortcuts import get_object_or_404
 from datetime import datetime
+from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from app.models.profile import Profile

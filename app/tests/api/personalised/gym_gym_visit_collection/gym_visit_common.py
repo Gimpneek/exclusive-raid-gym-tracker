@@ -15,5 +15,3 @@ class GymVisitAPICommonCase(APICommonCase):
         self.profile.tracked_gyms.add(self.gym)
         self.create_gym_visit()
         self.url = '/api/v1/me/gyms/{}/visits/'.format(self.gym.id)
-
-

@@ -1,11 +1,7 @@
 """ Test the API for Gyms """
-from datetime import datetime, timedelta
-from app.models.gym import Gym
-from app.models.gym_item import GymItem
 from app.models.raid_item import RaidItem
 from app.tests.api.system_wide.gym_raids_collection\
     .gym_raids_collection_common import GymRaidsCollectionCommonCase
-import pytz
 
 
 class TestGymCollectionModelData(GymRaidsCollectionCommonCase):

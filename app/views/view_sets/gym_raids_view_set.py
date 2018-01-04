@@ -1,4 +1,4 @@
-# pylint: disable=too-many-ancestors
+# pylint: disable=too-many-ancestors, no-self-use
 """ View Set for personalised Gym api """
 from rest_framework.response import Response
 from rest_framework import viewsets
