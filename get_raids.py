@@ -58,7 +58,7 @@ if time_now.hour in range(6, 21):
         for status in gym_data:
             if status.get('time_end') and status.get('level'):
                 raid_end = datetime.fromtimestamp(
-                    (status.get('time_end')/1000.0),
+                    (float(status.get('time_end'))/1000.0),
                     tz=pytz.UTC
                 )
                 now = datetime.now(tz=pytz.utc)
@@ -69,7 +69,6 @@ if time_now.hour in range(6, 21):
                     except Gym.DoesNotExist:
                         gym = None
                     if gym:
-                        print("Gym found: {}".format(gym.name))
                         raids = RaidItem.objects.filter(
                             gym=gym,
                             end_date=raid_end
