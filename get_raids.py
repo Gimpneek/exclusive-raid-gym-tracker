@@ -65,7 +65,7 @@ if time_now.hour in range(6, 21):
                 time_left = raid_end - now
                 if time_left.total_seconds() > 0:
                     try:
-                        gym = Gym.objects.get(name=status.get('gym_name'))
+                        gym = Gym.objects.get(gym_hunter_id=status.get('gym_id'))
                     except Gym.DoesNotExist:
                         gym = None
                     if gym:
