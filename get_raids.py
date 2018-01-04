@@ -49,26 +49,21 @@ if time_now.hour in range(6, 21):
     else:
         raids = scraper.post(os.environ.get('POGO_MAP_URL'), data=new_params)
 
-    print("Status Code: {}".format(raids.status_code))
     if raids.status_code == 200:
         try:
             gym_data = raids.json().get('raids', {})
         except json.JSONDecodeError:
-            print("Had to sort out JSON")
-            print(raids.content.decode('utf-8'))
             gym_data = resolve_dodgy_json(raids.content)
 
         for status in gym_data:
-            if status.get('raid_end_ms') and status.get('raid_level'):
-                print("Found a raid")
+            if status.get('time_end') and status.get('level'):
                 raid_end = datetime.fromtimestamp(
-                    (status.get('raid_end_ms')/1000.0),
+                    (status.get('time_end')/1000.0),
                     tz=pytz.UTC
                 )
                 now = datetime.now(tz=pytz.utc)
                 time_left = raid_end - now
                 if time_left.total_seconds() > 0:
-                    print("The raid had some time left")
                     try:
                         gym = Gym.objects.get(gym_hunter_id=status.get('gym_id'))
                     except Gym.DoesNotExist:
@@ -81,12 +76,12 @@ if time_now.hour in range(6, 21):
                         )
                         if raids:
                             raid = raids[0]
-                            raid.pokemon = status.get('raid_pokemon_name')
+                            raid.pokemon = status.get('pokemon_id')
                             raid.save()
                         else:
                             RaidItem.objects.create(
                                 gym=gym,
-                                level=status.get('raid_level'),
-                                pokemon=status.get('raid_pokemon_name'),
+                                level=status.get('level'),
+                                pokemon=status.get('pokemon_id'),
                                 end_date=raid_end
                             )
