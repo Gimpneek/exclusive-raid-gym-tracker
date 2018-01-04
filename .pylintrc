@@ -1,5 +1,5 @@
 [MASTER]
-ignore=migrations,tests,views/view_sets
+ignore=views/view_sets
 
 [MESSAGES CONTROL]
 disable=too-few-public-methods, no-member, unused-argument
