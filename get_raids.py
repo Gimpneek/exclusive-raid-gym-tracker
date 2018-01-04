@@ -58,7 +58,7 @@ if time_now.hour in range(6, 21):
         for status in gym_data:
             if status.get('time_end') and status.get('level'):
                 raid_end = datetime.fromtimestamp(
-                    (float(status.get('time_end'))/1000.0),
+                    int(status.get('time_end')),
                     tz=pytz.UTC
                 )
                 now = datetime.now(tz=pytz.utc)
