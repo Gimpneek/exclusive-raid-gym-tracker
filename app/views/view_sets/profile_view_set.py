@@ -12,4 +12,3 @@ class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-

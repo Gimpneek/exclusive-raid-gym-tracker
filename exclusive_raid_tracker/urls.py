@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework import routers
+from rest_framework_nested import routers
 from rest_framework_jwt.views import obtain_jwt_token
 from app.views.homepage import index
 from app.views.login import login_page
@@ -31,12 +31,34 @@ from app.views.view_sets.gym_view_set import GymViewSet
 from app.views.view_sets.gym_item_view_set import GymItemViewSet
 from app.views.view_sets.raid_item_view_set import RaidItemViewSet
 from app.views.view_sets.profile_view_set import ProfileViewSet
+from app.views.view_sets.personalised_view_set import UserGymViewSet, \
+    UserGymGymItemViewSet
 
-API_ROUTER = routers.DefaultRouter()
-API_ROUTER.register(r'gyms', GymViewSet)
-API_ROUTER.register(r'gym-visits', GymItemViewSet)
-API_ROUTER.register(r'raids', RaidItemViewSet)
-API_ROUTER.register(r'profiles', ProfileViewSet)
+system_wide_router = routers.DefaultRouter()
+system_wide_router.register(r'gyms', GymViewSet, base_name='system-gyms')
+system_wide_router.register(r'gym-visits', GymItemViewSet)
+system_wide_router.register(r'raids', RaidItemViewSet)
+system_wide_router.register(r'profiles', ProfileViewSet, base_name='profiles')
+# system_wide_router.register(r'me', UserProfileViewSet, base_name='me')
+
+personalised_gyms_router = routers.DefaultRouter()
+personalised_gyms_router.register(
+    r'gyms',
+    UserGymViewSet,
+    base_name='personalised_gyms'
+)
+
+personalised_visits_router = routers.NestedSimpleRouter(
+    personalised_gyms_router,
+    r'gyms',
+    lookup='personalised_gyms'
+)
+
+personalised_visits_router.register(
+    r'visits',
+    UserGymGymItemViewSet,
+    base_name='personalised_gym_visits'
+)
 
 
 urlpatterns = [
@@ -66,6 +88,8 @@ urlpatterns = [
         remove_gym_item,
         name='remove_gym_item'
         ),
-    url(r'^api/v1/', include(API_ROUTER.urls)),
+    url(r'^api/v1/', include(system_wide_router.urls)),
+    url(r'^api/v1/me/', include(personalised_gyms_router.urls)),
+    url(r'^api/v1/me/', include(personalised_visits_router.urls)),
     url(r'^api/v1/api-token-auth/', obtain_jwt_token)
 ]
