@@ -31,25 +31,54 @@ from app.views.view_sets.gym_view_set import GymViewSet
 from app.views.view_sets.gym_item_view_set import GymItemViewSet
 from app.views.view_sets.raid_item_view_set import RaidItemViewSet
 from app.views.view_sets.profile_view_set import ProfileViewSet
-from app.views.view_sets.personalised_view_set import UserGymViewSet, \
-    UserGymGymItemViewSet
+from app.views.view_sets.personalised_gym_view_set import UserGymViewSet
+from app.views.view_sets.personalised_gym_item_view_set import \
+    UserGymGymItemViewSet, UserGymItemViewSet
+from app.views.view_sets.personalised_raids_view_set import UserRaidsViewSet
+from app.views.view_sets.gym_raids_view_set import GymRaidsViewSet
+from app.views.view_sets.personalised_profile_view_set import \
+    UserProfileViewSet
 
 system_wide_router = routers.DefaultRouter()
-system_wide_router.register(r'gyms', GymViewSet, base_name='system-gyms')
+system_wide_router.register(r'gyms', GymViewSet, base_name='system_gyms')
 system_wide_router.register(r'gym-visits', GymItemViewSet)
 system_wide_router.register(r'raids', RaidItemViewSet)
 system_wide_router.register(r'profiles', ProfileViewSet, base_name='profiles')
-# system_wide_router.register(r'me', UserProfileViewSet, base_name='me')
+system_wide_router.register(r'me', UserProfileViewSet, base_name='me')
 
-personalised_gyms_router = routers.DefaultRouter()
-personalised_gyms_router.register(
+gym_raids_router = routers.NestedSimpleRouter(
+    system_wide_router,
+    r'gyms',
+    lookup='system_gyms'
+)
+
+gym_raids_router.register(
+    r'raids',
+    GymRaidsViewSet,
+    base_name='system_raids'
+)
+
+personalised_router = routers.DefaultRouter()
+personalised_router.register(
     r'gyms',
     UserGymViewSet,
     base_name='personalised_gyms'
 )
 
+personalised_router.register(
+    r'visits',
+    UserGymItemViewSet,
+    base_name='personalised_visits'
+)
+
+personalised_router.register(
+    r'raids',
+    UserRaidsViewSet,
+    base_name='personalised_raids'
+)
+
 personalised_visits_router = routers.NestedSimpleRouter(
-    personalised_gyms_router,
+    personalised_router,
     r'gyms',
     lookup='personalised_gyms'
 )
@@ -59,7 +88,6 @@ personalised_visits_router.register(
     UserGymGymItemViewSet,
     base_name='personalised_gym_visits'
 )
-
 
 urlpatterns = [
     url(r'^$', index, name='index'),
@@ -89,7 +117,8 @@ urlpatterns = [
         name='remove_gym_item'
         ),
     url(r'^api/v1/', include(system_wide_router.urls)),
-    url(r'^api/v1/me/', include(personalised_gyms_router.urls)),
+    url(r'^api/v1/', include(gym_raids_router.urls)),
+    url(r'^api/v1/me/', include(personalised_router.urls)),
     url(r'^api/v1/me/', include(personalised_visits_router.urls)),
     url(r'^api/v1/api-token-auth/', obtain_jwt_token)
 ]

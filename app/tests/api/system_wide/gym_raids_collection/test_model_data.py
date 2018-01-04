@@ -11,26 +11,42 @@ import pytz
 class TestGymCollectionModelData(GymRaidsCollectionCommonCase):
     """ Test the API methods for the Gym """
 
-    def test_raid_list(self):
+    def test_gym_list(self):
         """
         Test that a list of Gyms is returned
         """
-        self.assertTrue(False)
+        RaidItem.objects.create(
+            gym=self.gym,
+            pokemon='Old Pokemon',
+            level=5,
+            end_date='1988-01-12 06:00:00+00:00'
+        )
+        resp = self.api.get(self.url)
+        results = resp.data
+        self.assertEqual(len(results), 2)
 
-    def test_raid_pokemon(self):
+    def test_pokemon(self):
         """
-        Test that the name of the pokemon the raid was for is returned
+        Test that the pokemon for the raid is returned
         """
-        self.assertTrue(False)
+        resp = self.api.get(self.url)
+        results = resp.data[0]
+        self.assertEqual(results.get('pokemon'), 'Test Pokemon')
 
-    def test_raid_level(self):
+    def test_level(self):
         """
-        Test that the level of the raid is returned
+        Test that the level for the raid is returned
         """
-        self.assertTrue(False)
+        resp = self.api.get(self.url)
+        results = resp.data[0]
+        self.assertEqual(results.get('level'), 5)
 
-    def test_raid_end_date(self):
+    def test_end_date(self):
         """
-        Test that the end date of the raid is returned`
+        Test that the end date for the raid is returned
         """
-        self.assertTrue(False)
+        resp = self.api.get(self.url)
+        results = resp.data[0]
+        self.assertTrue(
+            self.raid_time.strftime('%Y-%m-%dT%H:%M') in results['end_date']
+        )

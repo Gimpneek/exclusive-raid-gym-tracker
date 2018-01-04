@@ -1,5 +1,5 @@
 """ Test the API for Gyms """
-from app.tests.api.personalised.profile_resource.profile_common import \
+from app.tests.api.system_wide.profile_resource.profile_common import \
     ProfileCommonCase
 
 

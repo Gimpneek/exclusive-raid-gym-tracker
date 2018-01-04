@@ -21,19 +21,33 @@ class TestGymCollectionHTTPVerbs(GymAPICommonCase):
         resp = self.api.get(self.url)
         self.assertEqual(resp.status_code, 200)
 
-    def test_post_blocked(self):
+    def test_post_allowed(self):
         """
-        Test that post requests are not allowed
+        Test that post requests are allowed so it can be used to track gyms
         """
+        self.profile.tracked_gyms.remove(self.gym)
         resp = self.api.post(
             self.url,
             {
-                'name': 'Post',
-                'location': 'test',
-                'image_url': 'test.jpg'
+                'gym_id': self.gym.id
             },
             format='json')
-        self.assertEqual(resp.status_code, 405)
+        self.assertEqual(resp.status_code, 201)
+        self.assertIn(self.gym, self.profile.tracked_gyms.all())
+
+    def test_post_bad_data(self):
+        """
+        Test that when a bad POST request it returns a 400
+        """
+        self.profile.tracked_gyms.remove(self.gym)
+        resp = self.api.post(
+            self.url,
+            {
+                'bad_id': self.gym.id
+            },
+            format='json')
+        self.assertEqual(resp.status_code, 400)
+        self.assertNotIn(self.gym, self.profile.tracked_gyms.all())
 
     def test_delete_blocked(self):
         """

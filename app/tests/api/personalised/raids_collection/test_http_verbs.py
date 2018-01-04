@@ -8,11 +8,11 @@ class TestRaidApi(RaidsCollectionCommonCase):
 
     def test_not_logged_in(self):
         """
-        Test that when user isn't authenticated that the API returns a 404
+        Test that when user isn't authenticated that the API returns a 401
         """
         self.api.logout()
         resp = self.api.get(self.url)
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 401)
 
     def test_get_allowed(self):
         """

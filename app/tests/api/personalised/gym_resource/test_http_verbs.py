@@ -1,5 +1,5 @@
 """ Test the API for Gyms """
-from app.tests.api.system_wide.gym_resource.gym_resource_common import \
+from app.tests.api.personalised.gym_resource.gym_resource_common import \
     GymResourceCommonCase
 
 
@@ -35,12 +35,15 @@ class TestGymResourceHttpVerbs(GymResourceCommonCase):
             format='json')
         self.assertEqual(resp.status_code, 405)
 
-    def test_delete_blocked(self):
+    def test_delete_allowed(self):
         """
-        Test that the DELETE verb is not allowed
+        Test that the DELETE verb is allowed so it can be used to stop tracking
+        Gyms
         """
+        self.profile.tracked_gyms.add(self.gym)
         resp = self.api.delete(self.url)
-        self.assertEqual(resp.status_code, 405)
+        self.assertEqual(resp.status_code, 301)
+        self.assertNotIn(self.gym, self.profile.tracked_gyms.all())
 
     def test_put_blocked(self):
         """

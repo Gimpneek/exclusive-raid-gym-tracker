@@ -13,6 +13,7 @@ class GymVisitAPICommonCase(APICommonCase):
         super(GymVisitAPICommonCase, self).setUp()
         self.visit_date = datetime(1988, 1, 12, 6, 0, 0, tzinfo=pytz.UTC)
         self.profile.tracked_gyms.add(self.gym)
+        self.create_gym_visit()
         self.url = '/api/v1/me/visits/'
 
 

@@ -71,4 +71,4 @@ class APICommonCase(TestCase):
         :return: count of GymItems
         :rtype: int
         """
-        GymItem.objects.all().count()
+        return GymItem.objects.all().count()
