@@ -64,7 +64,8 @@ class APICommonCase(TestCase):
             gym_visit_date=self.visit_date
         )
 
-    def get_gym_visit_count(self):
+    @staticmethod
+    def get_gym_visit_count():
         """
         Get the count of the GymItems in the system
 
