@@ -15,6 +15,7 @@ before_install:
   - rvm use 2.2
 install:
   - pip install -r requirements.txt
+  - pip install -r requirements.dev.txt
   - pip install codacy-coverage
   - if [ "$SELENIUM" == "1" ] ; then gem install hiptest-publisher; fi
 before_script:
