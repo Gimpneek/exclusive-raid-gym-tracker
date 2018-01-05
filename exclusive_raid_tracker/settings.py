@@ -145,11 +145,16 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
 }
+prod = os.environ.get('PROD', '0') == '1'
+staging = os.environ.get('STAGING', '0') == '1'
 
-if os.environ.get('PROD', '0') == '1':
+if prod:
     DEBUG = False
     ALLOWED_HOSTS.append('exclusive-raid-tracker-leeds.herokuapp.com')
     ALLOWED_HOSTS.append('raids.pokemongoleeds.com')
+elif staging:
+    ALLOWED_HOSTS.append('raid-tracker-staging.herokuapp.com')
+elif prod or staging:
     # Update database configuration with $DATABASE_URL.
     DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(DB_FROM_ENV)
