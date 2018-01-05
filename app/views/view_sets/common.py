@@ -2,6 +2,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from app.serializers.raid_item import RaidItemSerializer
+from app.serializers.gym_item import GymItemSerializer
 from app.models.gym_item import GymItem
 from app.models.gym import Gym
 from app.models.profile import Profile
@@ -68,3 +69,19 @@ def paginate_raids(instance, request, queryset):
         serializer = instance.get_serializer(page, many=True)
         return instance.get_paginated_response(serializer.data)
     return get_raid_response(request, queryset)
+
+
+def paginate_gym_items(instance, queryset):
+    """
+    Paginate the results of the gym visit lists
+
+    :param instance: Class instance
+    :param queryset: queryset to paginate
+    :return: paginated list of results or normal one
+    """
+    page = instance.paginate_queryset(queryset)
+    if page is not None:
+        serializer = instance.get_serializer(page, many=True)
+        return instance.get_paginated_response(serializer.data)
+    serializer = GymItemSerializer(queryset, many=True)
+    return Response(serializer.data)

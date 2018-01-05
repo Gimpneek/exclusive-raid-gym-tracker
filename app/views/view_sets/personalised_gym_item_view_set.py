@@ -6,7 +6,7 @@ from rest_framework import viewsets, status
 from app.models.profile import Profile
 from app.models.gym_item import GymItem
 from app.serializers.gym_item import GymItemSerializer
-from app.views.view_sets.common import create_gym_visit
+from app.views.view_sets.common import create_gym_visit, paginate_gym_items
 
 
 class UserGymGymItemViewSet(viewsets.GenericViewSet):
@@ -37,12 +37,7 @@ class UserGymGymItemViewSet(viewsets.GenericViewSet):
             gym__id=personalised_gyms_pk,
             hidden=False
         ).order_by('id')
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-        serializer = GymItemSerializer(queryset, many=True)
-        return Response(serializer.data)
+        return paginate_gym_items(self, queryset)
 
     def retrieve(self, request, personalised_gyms_pk=None, pk=None):
         """
@@ -83,11 +78,19 @@ class UserGymGymItemViewSet(viewsets.GenericViewSet):
         return create_gym_visit(request, gym_id=personalised_gyms_pk)
 
 
-class UserGymItemViewSet(viewsets.ViewSet):
+class UserGymItemViewSet(viewsets.GenericViewSet):
     """
     View set for the Gyms visits
     """
     serializer_class = GymItemSerializer
+
+    def get_queryset(self):
+        """ Override queryset """
+        profile = Profile.objects.get(user=self.request.user)
+        return GymItem.objects.filter(
+            profile=profile,
+            hidden=False
+        ).order_by('id')
 
     def list(self, request):
         """
@@ -96,10 +99,5 @@ class UserGymItemViewSet(viewsets.ViewSet):
         :param request: Django Request
         :return: Django Rest Framework Response
         """
-        profile = Profile.objects.get(user=self.request.user)
-        queryset = GymItem.objects.filter(
-            profile=profile,
-            hidden=False
-        )
-        serializer = GymItemSerializer(queryset, many=True)
-        return Response(serializer.data)
+        queryset = self.get_queryset()
+        return paginate_gym_items(self, queryset)

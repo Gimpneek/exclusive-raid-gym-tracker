@@ -13,7 +13,7 @@ class TestGymVisitCollectionModelData(GymVisitAPICommonCase):
         """
         self.create_gym_visit()
         resp = self.api.get(self.url)
-        results = resp.data
+        results = resp.data.get('results')
         self.assertEqual(len(results), 2)
 
     def test_visit_date(self):
@@ -21,7 +21,7 @@ class TestGymVisitCollectionModelData(GymVisitAPICommonCase):
         Test that the visit date for the gym item is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertEqual(
             results.get('gym_visit_date'),
             self.visit_date.strftime('%Y-%m-%dT%H:%M:%SZ')
@@ -32,5 +32,5 @@ class TestGymVisitCollectionModelData(GymVisitAPICommonCase):
         Test that gym name is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data[0]
+        result = resp.data.get('results')[0]
         self.assertEqual(result.get('gym').get('name'), self.gym.name)
