@@ -1,6 +1,8 @@
 language: python
 python:
   - 3.5
+addons:
+  chrome: stable
 notifications:
   slack: raidtracker:7eIXA8A3tcRZ432R3qQHZQC1
 env:
