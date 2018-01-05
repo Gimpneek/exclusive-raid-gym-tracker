@@ -24,11 +24,8 @@ class UserGymViewSet(viewsets.ViewSet):
         """
         profile = Profile.objects.get(user=self.request.user)
         queryset = profile.tracked_gyms.all()
-        serializer = GymSerializer(
-            queryset,
-            many=True,
-            context={'request': request}
-        )
+        serializer = GymSerializer(queryset, many=True,
+                                   context={'request': request})
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):

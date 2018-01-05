@@ -1,10 +1,10 @@
 # pylint: disable=too-many-ancestors
 """ View Set for personalised Gym api """
-from rest_framework.response import Response
 from rest_framework import viewsets
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
 from app.serializers.raid_item import RaidItemSerializer
+from app.views.view_sets.common import get_raid_response
 
 
 class UserRaidsViewSet(viewsets.ViewSet):
@@ -24,9 +24,4 @@ class UserRaidsViewSet(viewsets.ViewSet):
         profile = Profile.objects.get(user=self.request.user)
         gyms = profile.tracked_gyms.all()
         queryset = RaidItem.objects.filter(gym__in=gyms)
-        serializer = RaidItemSerializer(
-            queryset,
-            many=True,
-            context={'request': request}
-        )
-        return Response(serializer.data)
+        return get_raid_response(request, queryset)

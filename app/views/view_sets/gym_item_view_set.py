@@ -1,12 +1,9 @@
 # pylint: disable=too-many-ancestors
 """ View Set for Gym Item Serializer """
-from rest_framework import viewsets, response
+from rest_framework import viewsets
 from app.models.gym_item import GymItem
-from app.models.gym import Gym
-from app.models.profile import Profile
 from app.serializers.gym_item import GymItemSerializer
-from app.forms.gym_item import GymItemForm
-import pytz
+from app.views.view_sets.common import create_gym_visit
 
 
 class GymItemViewSet(viewsets.ModelViewSet):
@@ -30,16 +27,4 @@ class GymItemViewSet(viewsets.ModelViewSet):
         :param request: Request sent to endpoint
         :return: Success code
         """
-        form = GymItemForm(request.data)
-        if form.is_valid():
-            gym_visit_date = form.cleaned_data.get('gym_visit_date')\
-                .replace(tzinfo=pytz.timezone('Europe/London'))
-            profile = Profile.objects.get(user=request.user.id)
-            gym = Gym.objects.get(pk=form.data.get('gym'))
-            GymItem.objects.create(
-                gym=gym,
-                profile=profile,
-                gym_visit_date=gym_visit_date
-            )
-            return response.Response(status=201)
-        return response.Response(status=400)
+        return create_gym_visit(request)

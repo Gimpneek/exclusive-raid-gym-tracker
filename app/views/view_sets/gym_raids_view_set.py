@@ -1,9 +1,9 @@
 # pylint: disable=too-many-ancestors, no-self-use
 """ View Set for personalised Gym api """
-from rest_framework.response import Response
 from rest_framework import viewsets
 from app.models.raid_item import RaidItem
 from app.serializers.raid_item import RaidItemSerializer
+from app.views.view_sets.common import get_raid_response
 
 
 class GymRaidsViewSet(viewsets.ViewSet):
@@ -22,9 +22,4 @@ class GymRaidsViewSet(viewsets.ViewSet):
         :return: Django Rest Framework Response
         """
         queryset = RaidItem.objects.filter(gym__id=system_gyms_pk)
-        serializer = RaidItemSerializer(
-            queryset,
-            many=True,
-            context={'request': request}
-        )
-        return Response(serializer.data)
+        return get_raid_response(request, queryset)

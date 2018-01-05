@@ -1,14 +1,12 @@
 # pylint: disable=too-many-ancestors, invalid-name, no-self-use
 """ View Set for personalised GymItem api """
-from datetime import datetime
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from app.models.profile import Profile
-from app.models.gym import Gym
 from app.models.gym_item import GymItem
 from app.serializers.gym_item import GymItemSerializer
-import pytz
+from app.views.view_sets.common import create_gym_visit
 
 
 class UserGymGymItemViewSet(viewsets.ViewSet):
@@ -22,7 +20,7 @@ class UserGymGymItemViewSet(viewsets.ViewSet):
         Define response for the listing of the gym's visits
 
         :param request: Django Request
-        :param pk: ID of the Gym getting the visits for
+        :param personalised_gyms_pk: ID of the Gym getting the visits for
         :return: Django Rest Framework Response
         """
         profile = Profile.objects.get(user=self.request.user)
@@ -70,24 +68,7 @@ class UserGymGymItemViewSet(viewsets.ViewSet):
         :param personalised_gyms_pk: ID for the Gym
         :return: Django Rest Framework Response
         """
-        profile = Profile.objects.get(user=self.request.user)
-        gym = Gym.objects.get(id=personalised_gyms_pk)
-        try:
-            gym_visit_date = datetime.strptime(
-                request.data.get('gym_visit_date'),
-                '%Y-%m-%dT%H:%M'
-            ).replace(tzinfo=pytz.timezone('Europe/London'))
-            GymItem.objects.create(
-                gym=gym,
-                profile=profile,
-                gym_visit_date=gym_visit_date
-            )
-            if gym not in profile.tracked_gyms.all():
-                profile.tracked_gyms.add(gym)
-                profile.save()
-            return Response(status=status.HTTP_201_CREATED)
-        except ValueError:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        return create_gym_visit(request, gym_id=personalised_gyms_pk)
 
 
 class UserGymItemViewSet(viewsets.ViewSet):
