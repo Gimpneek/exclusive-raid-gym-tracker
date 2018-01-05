@@ -154,6 +154,8 @@ if prod:
     ALLOWED_HOSTS.append('raids.pokemongoleeds.com')
 elif staging:
     ALLOWED_HOSTS.append('raid-tracker-staging.herokuapp.com')
+else:
+    INSTALLED_APPS.append('behave_django')
 
 if prod or staging:
     # Update database configuration with $DATABASE_URL.
@@ -221,5 +223,4 @@ if prod or staging:
     MIDDLEWARE += [
         'whitenoise.middleware.WhiteNoiseMiddleware',
     ]
-else:
-    INSTALLED_APPS.append('behave_django')
+
