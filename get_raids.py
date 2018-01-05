@@ -4,7 +4,7 @@ import cfscrape
 import json
 from datetime import datetime
 import django
-from .pokedex import POKEMON
+from pokedex import POKEMON
 
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE",
