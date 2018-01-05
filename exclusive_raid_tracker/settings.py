@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.ExclusiveRaidAppConfig',
-    'behave_django',
     'raven.contrib.django.raven_compat',
     'rest_framework'
 ]
@@ -216,3 +215,5 @@ if os.environ.get('PROD', '0') == '1':
     MIDDLEWARE += [
         'whitenoise.middleware.WhiteNoiseMiddleware',
     ]
+else:
+    INSTALLED_APPS.append('behave_django')
