@@ -4,6 +4,8 @@ import cfscrape
 import json
 from datetime import datetime
 import django
+from .pokedex import POKEMON
+
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE",
     "exclusive_raid_tracker.settings"
@@ -56,16 +58,19 @@ if time_now.hour in range(6, 21):
             gym_data = resolve_dodgy_json(raids.content)
 
         for status in gym_data:
-            if status.get('raid_end_ms') and status.get('raid_level'):
+            if status.get('time_end') and status.get('level'):
                 raid_end = datetime.fromtimestamp(
-                    (status.get('raid_end_ms')/1000.0),
+                    int(status.get('time_end')),
                     tz=pytz.UTC
                 )
                 now = datetime.now(tz=pytz.utc)
                 time_left = raid_end - now
+                print("time_left: {}".format(time_left.total_seconds()))
                 if time_left.total_seconds() > 0:
                     try:
-                        gym = Gym.objects.get(name=status.get('gym_name'))
+                        gym = Gym.objects.get(
+                            gym_hunter_id=status.get('gym_id')
+                        )
                     except Gym.DoesNotExist:
                         gym = None
                     if gym:
@@ -73,14 +78,16 @@ if time_now.hour in range(6, 21):
                             gym=gym,
                             end_date=raid_end
                         )
+
+                        pokemon = POKEMON[int(status.get('pokemon_id'))]
                         if raids:
                             raid = raids[0]
-                            raid.pokemon = status.get('raid_pokemon_name')
+                            raid.pokemon = pokemon
                             raid.save()
                         else:
                             RaidItem.objects.create(
                                 gym=gym,
-                                level=status.get('raid_level'),
-                                pokemon=status.get('raid_pokemon_name'),
+                                level=status.get('level'),
+                                pokemon=pokemon,
                                 end_date=raid_end
                             )
