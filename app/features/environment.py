@@ -11,8 +11,8 @@ def before_feature(context, feature):
 
 
 def before_scenario(context, scenario):
+    options = webdriver.ChromeOptions()
     if os.environ.get('TRAVIS'):
-        context.browser = webdriver.PhantomJS()
-    else:
-        context.browser = webdriver.Chrome()
+        options.add_argument('headless')
+    context.browser = webdriver.Chrome(chrome_options=options)
     context.browser.get(context.base_url)
