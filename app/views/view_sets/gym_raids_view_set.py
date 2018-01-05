@@ -3,10 +3,10 @@
 from rest_framework import viewsets
 from app.models.raid_item import RaidItem
 from app.serializers.raid_item import RaidItemSerializer
-from app.views.view_sets.common import get_raid_response
+from app.views.view_sets.common import paginate_raids
 
 
-class GymRaidsViewSet(viewsets.ViewSet):
+class GymRaidsViewSet(viewsets.GenericViewSet):
     """
     View Set for active raids on Gyms the logged in user is following
     """
@@ -21,5 +21,7 @@ class GymRaidsViewSet(viewsets.ViewSet):
         :param system_gyms_pk: ID of the Gym to get raids of
         :return: Django Rest Framework Response
         """
-        queryset = RaidItem.objects.filter(gym__id=system_gyms_pk)
-        return get_raid_response(request, queryset)
+        queryset = RaidItem.objects\
+            .filter(gym__id=system_gyms_pk)\
+            .order_by('id')
+        return paginate_raids(self, request, queryset)

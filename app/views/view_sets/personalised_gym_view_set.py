@@ -8,12 +8,11 @@ from app.models.gym import Gym
 from app.serializers.gym import GymSerializer
 
 
-class UserGymViewSet(viewsets.ViewSet):
+class UserGymViewSet(viewsets.GenericViewSet):
     """
     View Set for Gyms the logged in user is following
     """
     serializer_class = GymSerializer
-    http_method_names = ('get', 'post', 'delete')
 
     def list(self, request):
         """
@@ -23,7 +22,11 @@ class UserGymViewSet(viewsets.ViewSet):
         :return: Django Rest Framework Response
         """
         profile = Profile.objects.get(user=self.request.user)
-        queryset = profile.tracked_gyms.all()
+        queryset = profile.tracked_gyms.all().order_by('id')
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = GymSerializer(queryset, many=True,
                                    context={'request': request})
         return Response(serializer.data)

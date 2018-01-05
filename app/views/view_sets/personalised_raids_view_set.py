@@ -4,10 +4,10 @@ from rest_framework import viewsets
 from app.models.profile import Profile
 from app.models.raid_item import RaidItem
 from app.serializers.raid_item import RaidItemSerializer
-from app.views.view_sets.common import get_raid_response
+from app.views.view_sets.common import paginate_raids
 
 
-class UserRaidsViewSet(viewsets.ViewSet):
+class UserRaidsViewSet(viewsets.GenericViewSet):
     """
     View Set for active raids on Gyms the logged in user is following
     """
@@ -23,5 +23,5 @@ class UserRaidsViewSet(viewsets.ViewSet):
         """
         profile = Profile.objects.get(user=self.request.user)
         gyms = profile.tracked_gyms.all()
-        queryset = RaidItem.objects.filter(gym__in=gyms)
-        return get_raid_response(request, queryset)
+        queryset = RaidItem.objects.filter(gym__in=gyms).order_by('id')
+        return paginate_raids(self, request, queryset)

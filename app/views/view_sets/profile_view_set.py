@@ -10,5 +10,5 @@ class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
     View Set for Profile Serializer
     """
 
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.all().order_by('id')
     serializer_class = ProfileSerializer

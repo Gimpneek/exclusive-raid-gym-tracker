@@ -52,3 +52,19 @@ def create_gym_visit(request, gym_id=None):
             profile.save()
         return Response(status=status.HTTP_201_CREATED)
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+def paginate_raids(instance, request, queryset):
+    """
+    Paginate the results for the raid list
+
+    :param instance: Class instance
+    :param request: Django request
+    :param queryset: queryset to paginate
+    :return: paginated list of results or normal one
+    """
+    page = instance.paginate_queryset(queryset)
+    if page is not None:
+        serializer = instance.get_serializer(page, many=True)
+        return instance.get_paginated_response(serializer.data)
+    return get_raid_response(request, queryset)

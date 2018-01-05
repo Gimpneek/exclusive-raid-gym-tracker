@@ -11,7 +11,7 @@ class TestProfileModelData(ProfileCommonCase):
         Test that profile's username is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data
+        result = resp.data.get('results')[0]
         self.assertEqual(result.get('username'), self.user.username)
 
     def test_profile_pogo_name(self):
@@ -19,7 +19,7 @@ class TestProfileModelData(ProfileCommonCase):
         Test that the Pokemon GO username is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data
+        result = resp.data.get('results')[0]
         self.assertEqual(
             result.get('pokemon_go_username'),
             self.profile.pokemon_go_username

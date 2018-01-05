@@ -18,7 +18,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
             end_date='1988-01-12 06:00:00+00:00'
         )
         resp = self.api.get(self.url)
-        results = resp.data
+        results = resp.data.get('results')
         self.assertEqual(len(results), 2)
 
     def test_pokemon(self):
@@ -26,7 +26,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that the pokemon for the raid is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertEqual(results.get('pokemon'), 'Test Pokemon')
 
     def test_level(self):
@@ -34,7 +34,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that the level for the raid is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertEqual(results.get('level'), 5)
 
     def test_end_date(self):
@@ -42,7 +42,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that the end date for the raid is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertTrue(
             self.raid_time.strftime('%Y-%m-%dT%H:%M') in results['end_date']
         )
@@ -52,7 +52,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that gym name is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data[0]
+        result = resp.data.get('results')[0]
         self.assertEqual(result.get('gym').get('name'), self.gym.name)
 
     def test_gym_image(self):
@@ -60,7 +60,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that gym image is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data[0]
+        result = resp.data.get('results')[0]
         self.assertEqual(
             result.get('gym').get('image_url'), self.gym.image_url)
 
@@ -69,7 +69,7 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that the location of the gym is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data[0]
+        result = resp.data.get('results')[0]
         self.assertEqual(result.get('gym').get('location'), self.gym.location)
 
     def test_gym_id(self):
@@ -77,5 +77,5 @@ class TestRaidApi(RaidsCollectionCommonCase):
         Test that the id of the gym is returned
         """
         resp = self.api.get(self.url)
-        result = resp.data[0]
+        result = resp.data.get('results')[0]
         self.assertEqual(result.get('gym').get('id'), self.gym.id)

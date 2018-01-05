@@ -18,7 +18,7 @@ class TestGymCollectionModelData(GymRaidsCollectionCommonCase):
             end_date='1988-01-12 06:00:00+00:00'
         )
         resp = self.api.get(self.url)
-        results = resp.data
+        results = resp.data.get('results')
         self.assertEqual(len(results), 2)
 
     def test_pokemon(self):
@@ -26,7 +26,7 @@ class TestGymCollectionModelData(GymRaidsCollectionCommonCase):
         Test that the pokemon for the raid is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertEqual(results.get('pokemon'), 'Test Pokemon')
 
     def test_level(self):
@@ -34,7 +34,7 @@ class TestGymCollectionModelData(GymRaidsCollectionCommonCase):
         Test that the level for the raid is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertEqual(results.get('level'), 5)
 
     def test_end_date(self):
@@ -42,7 +42,7 @@ class TestGymCollectionModelData(GymRaidsCollectionCommonCase):
         Test that the end date for the raid is returned
         """
         resp = self.api.get(self.url)
-        results = resp.data[0]
+        results = resp.data.get('results')[0]
         self.assertTrue(
             self.raid_time.strftime('%Y-%m-%dT%H:%M') in results['end_date']
         )

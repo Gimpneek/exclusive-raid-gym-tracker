@@ -6,7 +6,7 @@ from app.models.profile import Profile
 from app.serializers.profile import ProfileSerializer
 
 
-class UserProfileViewSet(viewsets.ViewSet):
+class UserProfileViewSet(viewsets.GenericViewSet):
     """
     View set for the logged in user
     """
@@ -19,6 +19,11 @@ class UserProfileViewSet(viewsets.ViewSet):
         :param request: Django Request
         :return: Django Rest Framework Response
         """
-        queryset = Profile.objects.get(user=self.request.user)
+        queryset = Profile.objects\
+            .filter(user=self.request.user).order_by('id')
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = ProfileSerializer(queryset)
         return Response(serializer.data)

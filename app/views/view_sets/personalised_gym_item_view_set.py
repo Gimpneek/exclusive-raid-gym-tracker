@@ -9,7 +9,7 @@ from app.serializers.gym_item import GymItemSerializer
 from app.views.view_sets.common import create_gym_visit
 
 
-class UserGymGymItemViewSet(viewsets.ViewSet):
+class UserGymGymItemViewSet(viewsets.GenericViewSet):
     """
     View set for the Gyms visits
     """
@@ -28,7 +28,11 @@ class UserGymGymItemViewSet(viewsets.ViewSet):
             profile=profile,
             gym__id=personalised_gyms_pk,
             hidden=False
-        )
+        ).order_by('id')
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = GymItemSerializer(queryset, many=True)
         return Response(serializer.data)
 
