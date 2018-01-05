@@ -154,7 +154,8 @@ if prod:
     ALLOWED_HOSTS.append('raids.pokemongoleeds.com')
 elif staging:
     ALLOWED_HOSTS.append('raid-tracker-staging.herokuapp.com')
-elif prod or staging:
+
+if prod or staging:
     # Update database configuration with $DATABASE_URL.
     DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(DB_FROM_ENV)
