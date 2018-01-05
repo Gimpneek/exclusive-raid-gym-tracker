@@ -7,6 +7,9 @@ The user has a list of gyms for which they can add an entry when they complete
 a raid. Their progress is calculated based on the completed raids against the
 total raids they are tracking.
 
+This is the backend code for the tracker. You can find the frontend code at
+[https://github.com/Gimpneek/raid-tracker-frontend](https://github.com/Gimpneek/raid-tracker-frontend).
+
 # Contributing to this repo
 Pull Requests, Issues and just general feedback is very much welcome.
 

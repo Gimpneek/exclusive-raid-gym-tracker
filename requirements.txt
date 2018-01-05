@@ -17,5 +17,8 @@ pytz==2017.2
 cfscrape==1.9.1
 raven==6.1.0
 whitenoise==3.3.0
+djangorestframework==3.6.4
+djangorestframework-jwt==1.11.0
 overpy==0.4
 progressbar2==3.34.3
+drf-nested-routers==0.90.0

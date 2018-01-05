@@ -1343,17 +1343,6 @@
   },
   {
     "model": "app.gym",
-    "pk": 123,
-    "fields": {
-      "name": "Living Hope Church ",
-      "gym_hunter_id": null,
-      "location": "53.796336,-1.530838",
-      "image_url": "https://lh3.googleusercontent.com/qOcUXT4eKhzfWbfrBTB1nZ5l66-qIMbtdXpqbNk-bqU0lwLPByWRZcod7Slx8kJ1aWazhblHwvoJCvNuV4Uz",
-      "osm_way": null
-    }
-  },
-  {
-    "model": "app.gym",
     "pk": 124,
     "fields": {
       "name": "Horsforth Lister Hill Baptist Church",
