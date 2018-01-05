@@ -14,6 +14,13 @@ class UserGymViewSet(viewsets.GenericViewSet):
     """
     serializer_class = GymSerializer
 
+    def get_queryset(self):
+        """
+        Override the queryset to return
+        """
+        profile = Profile.objects.get(user=self.request.user)
+        return profile.tracked_gyms.all().order_by('id')
+
     def list(self, request):
         """
         Define response for the listing of the user's tracked gyms

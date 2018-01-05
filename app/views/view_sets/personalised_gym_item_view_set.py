@@ -15,6 +15,14 @@ class UserGymGymItemViewSet(viewsets.GenericViewSet):
     """
     serializer_class = GymItemSerializer
 
+    def get_queryset(self):
+        """ Override the queryset """
+        profile = Profile.objects.get(user=self.request.user)
+        return GymItem.objects.filter(
+            profile=profile,
+            hidden=False
+        ).order_by('id')
+
     def list(self, request, personalised_gyms_pk=None):
         """
         Define response for the listing of the gym's visits

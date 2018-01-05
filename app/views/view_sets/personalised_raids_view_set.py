@@ -13,6 +13,12 @@ class UserRaidsViewSet(viewsets.GenericViewSet):
     """
     serializer_class = RaidItemSerializer
 
+    def get_queryset(self):
+        """ Override the queryset """
+        profile = Profile.objects.get(user=self.request.user)
+        gyms = profile.tracked_gyms.all()
+        return RaidItem.objects.filter(gym__in=gyms).order_by('id')
+
     def list(self, request):
         """
         Define response for the listing of active raids on the user's
@@ -21,7 +27,5 @@ class UserRaidsViewSet(viewsets.GenericViewSet):
         :param request: Django Request
         :return: Django Rest Framework Response
         """
-        profile = Profile.objects.get(user=self.request.user)
-        gyms = profile.tracked_gyms.all()
-        queryset = RaidItem.objects.filter(gym__in=gyms).order_by('id')
+        queryset = self.get_queryset()
         return paginate_raids(self, request, queryset)

@@ -12,6 +12,10 @@ class UserProfileViewSet(viewsets.GenericViewSet):
     """
     serializer_class = ProfileSerializer
 
+    def get_queryset(self):
+        """ Get the queryset for the API call """
+        return Profile.objects.filter(user=self.request.user).order_by('id')
+
     def list(self, request):
         """
         Instead of returning list return single record
@@ -19,8 +23,7 @@ class UserProfileViewSet(viewsets.GenericViewSet):
         :param request: Django Request
         :return: Django Rest Framework Response
         """
-        queryset = Profile.objects\
-            .filter(user=self.request.user).order_by('id')
+        queryset = self.get_queryset()
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)

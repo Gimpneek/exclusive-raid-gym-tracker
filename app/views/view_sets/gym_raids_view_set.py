@@ -12,6 +12,10 @@ class GymRaidsViewSet(viewsets.GenericViewSet):
     """
     serializer_class = RaidItemSerializer
 
+    def get_queryset(self):
+        """ Override the queryset """
+        return RaidItem.objects.all().order_by('id')
+
     def list(self, request, system_gyms_pk=None):
         """
         Define response for the listing of active raids on the user's
