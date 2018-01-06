@@ -70,6 +70,6 @@ class TestJwtAuth(TestCase):
         self.assertEqual(resp.status_code, 200)
         authed_resp = self.client.get(
             '/api/v1/gyms/',
-            HTTP_AUTHORIZATION='JWT {}'.format(token)
+            HTTP_AUTHORIZATION='Bearer {}'.format(token)
         )
         self.assertEqual(authed_resp.status_code, 200)
