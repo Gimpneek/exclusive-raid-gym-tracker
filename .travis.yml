@@ -1,8 +1,8 @@
 language: python
 python:
   - 3.5
-addons:
-  chrome: stable
+#addons:
+#  chrome: stable
 cache: false
 sudo: required
 notifications:
@@ -15,27 +15,27 @@ env:
   - UNIT_TEST=1
   - SELENIUM=1
 before_install:
-#  - rvm install 2.2
-#  - rvm use 2.2
-  - if [ "$SELENIUM" == "1" ] ; then wget http://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip; fi
-  - if [ "$SELENIUM" == "1" ] ; then unzip chromedriver_linux64.zip; fi
-  - if [ "$SELENIUM" == "1" ] ; then rm chromedriver_linux64.zip; fi
-  - if [ "$SELENIUM" == "1" ] ; then sudo mv -f chromedriver /usr/local/bin/; fi
-  - if [ "$SELENIUM" == "1" ] ; then sudo chmod +x /usr/local/bin/chromedriver; fi
+  - rvm install 2.2
+  - rvm use 2.2
+#  - if [ "$SELENIUM" == "1" ] ; then wget http://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip; fi
+#  - if [ "$SELENIUM" == "1" ] ; then unzip chromedriver_linux64.zip; fi
+#  - if [ "$SELENIUM" == "1" ] ; then rm chromedriver_linux64.zip; fi
+#  - if [ "$SELENIUM" == "1" ] ; then sudo mv -f chromedriver /usr/local/bin/; fi
+#  - if [ "$SELENIUM" == "1" ] ; then sudo chmod +x /usr/local/bin/chromedriver; fi
 install:
   - pip install -r requirements.txt
   - pip install -r requirements.dev.txt
   - pip install codacy-coverage
-#  - if [ "$SELENIUM" == "1" ] ; then gem install hiptest-publisher; fi
+  - if [ "$SELENIUM" == "1" ] ; then gem install hiptest-publisher; fi
 before_script:
-#  - if [ "$SELENIUM" == "1" ] ; then hiptest-publisher -c hiptest.conf --only=features --token=$HIPTEST_KEY --test-run-name=ex-raid-icon; fi
+  - if [ "$SELENIUM" == "1" ] ; then hiptest-publisher -c hiptest.conf --only=features --token=$HIPTEST_KEY --test-run-name=ex-raid-icon; fi
 script:
   - if [ "$LINTING" == "1" ] ; then pylint --load-plugins pylint_django app; fi
   - if [ "$LINTING" == "1" ] ; then flake8 app; fi
   - if [ "$UNIT_TEST" == "1" ] ; then coverage run manage.py test app; fi
-#  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave --junit --junit-directory behave_results; fi
-  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave; fi
+  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave --junit --junit-directory behave_results; fi
+#  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave; fi
 after_script:
   - if [ "$UNIT_TEST" == "1" ] ; then coverage xml; fi
   - if [ "$UNIT_TEST" == "1" ] ; then python-codacy-coverage -r coverage.xml; fi
-#  - if [ "$SELENIUM" == "1" ] ; then hiptest-publisher -c hiptest.conf --token=$HIPTEST_KEY --push=behave_results/*.xml --push-format=junit --test-run-name=ex-raid-icon; fi
+  - if [ "$SELENIUM" == "1" ] ; then hiptest-publisher -c hiptest.conf --token=$HIPTEST_KEY --push=behave_results/*.xml --push-format=junit --test-run-name=ex-raid-icon; fi
