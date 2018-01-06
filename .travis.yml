@@ -15,6 +15,11 @@ env:
 before_install:
   - rvm install 2.2
   - rvm use 2.2
+  - if [ "$SELENIUM" == "1" ] ; thenwget http://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip; fi
+  - if [ "$SELENIUM" == "1" ] ; thenunzip chromedriver_linux64.zip; fi
+  - if [ "$SELENIUM" == "1" ] ; thenrm chromedriver_linux64.zip; fi
+  - if [ "$SELENIUM" == "1" ] ; thensudo mv -f chromedriver /usr/local/bin/; fi
+  - if [ "$SELENIUM" == "1" ] ; thensudo chmod +x /usr/local/bin/chromedriver; fi
 install:
   - pip install -r requirements.txt
   - pip install -r requirements.dev.txt
