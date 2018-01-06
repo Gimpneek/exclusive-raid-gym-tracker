@@ -3,6 +3,7 @@ python:
   - 3.5
 addons:
   chrome: stable
+cache: false
 sudo: required
 notifications:
   slack: raidtracker:7eIXA8A3tcRZ432R3qQHZQC1
