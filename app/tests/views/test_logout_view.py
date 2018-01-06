@@ -1,7 +1,7 @@
 """ Test the logout view """
 from django.test import TestCase
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 
 class TestLogoutView(TestCase):

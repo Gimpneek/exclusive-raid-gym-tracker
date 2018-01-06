@@ -1,5 +1,5 @@
 from behave import given, when, then
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from page_object_models.forms import FormPage
 from app.models.profile import Profile
 from app.models.gym import Gym

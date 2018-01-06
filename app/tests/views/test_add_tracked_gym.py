@@ -1,5 +1,5 @@
 """ Test the /gym-management/add/ view """
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from app.models.profile import Profile
 from app.tests.views.gym_item_common import GymViewCommonCase
 
