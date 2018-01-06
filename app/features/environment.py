@@ -15,4 +15,3 @@ def before_scenario(context, scenario):
     if os.environ.get('TRAVIS'):
         options.add_argument('headless')
     context.browser = webdriver.Chrome(chrome_options=options)
-    context.browser.get(context.base_url)

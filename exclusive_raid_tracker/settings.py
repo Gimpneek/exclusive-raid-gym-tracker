@@ -147,7 +147,6 @@ REST_FRAMEWORK = {
 }
 prod = os.environ.get('PROD', '0') == '1'
 staging = os.environ.get('STAGING', '0') == '1'
-ci = os.environ.get('TRAVIS')
 
 if prod:
     DEBUG = False
@@ -156,9 +155,6 @@ if prod:
 elif staging:
     ALLOWED_HOSTS.append('raid-tracker-staging.herokuapp.com')
 else:
-    INSTALLED_APPS.append('behave_django')
-
-if ci:
     INSTALLED_APPS.append('behave_django')
 
 if prod or staging:
