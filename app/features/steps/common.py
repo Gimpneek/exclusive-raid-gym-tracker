@@ -40,8 +40,8 @@ def get_url_from_name(context, name):
     name = name.lower()
     page = PAGE_MAPPING.get(name)
     if isinstance(page, tuple):
-        return context.get_url() + str(reverse_lazy(page[0], kwargs=page[1]))
-    return context.get_url() + str(reverse_lazy(page))
+        return context.base_url + str(reverse_lazy(page[0], kwargs=page[1]))
+    return context.base_url + str(reverse_lazy(page))
 
 
 @given("the user visits the {page_to_visit} page")
