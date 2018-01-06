@@ -9,7 +9,7 @@ from app.models.gym import Gym
 @python_2_unicode_compatible
 class Profile(models.Model):
     """ Profile for user """
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     pokemon_go_username = models.CharField(
         max_length=128,
         help_text="Your name in Pokemon Go",

@@ -26,11 +26,13 @@ class GymItem(models.Model):
     )
     gym = models.ForeignKey(
         Gym,
-        help_text="Gym item is for"
+        help_text="Gym item is for",
+        on_delete=models.DO_NOTHING
     )
     profile = models.ForeignKey(
         Profile,
-        help_text="Profile gym item is associated with"
+        help_text="Profile gym item is associated with",
+        on_delete=models.DO_NOTHING
     )
 
     def __str__(self):

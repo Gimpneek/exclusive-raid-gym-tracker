@@ -1,6 +1,6 @@
 """ Test the gym list view """
 from datetime import datetime, timedelta
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from app.models.gym_item import GymItem
 from app.models.gym import Gym
 from app.models.raid_item import RaidItem

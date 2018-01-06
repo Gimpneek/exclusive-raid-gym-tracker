@@ -32,7 +32,8 @@ class RaidItem(models.Model):
 
     gym = models.ForeignKey(
         Gym,
-        help_text="Gym raid is on"
+        help_text="Gym raid is on",
+        on_delete=models.DO_NOTHING
     )
 
     def __str__(self):
