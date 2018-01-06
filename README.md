@@ -21,6 +21,7 @@ Pull Requests, Issues and just general feedback is very much welcome.
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Documentation Status](https://readthedocs.org/projects/exclusive-raid-gym-tracker/badge/?version=latest)](http://exclusive-raid-gym-tracker.readthedocs.io/en/latest/?badge=latest)
 [![Python 3](https://pyup.io/repos/github/Gimpneek/exclusive-raid-gym-tracker/python-3-shield.svg)](https://pyup.io/repos/github/Gimpneek/exclusive-raid-gym-tracker/)
+[![Updates](https://pyup.io/repos/github/Gimpneek/exclusive-raid-gym-tracker/shield.svg)](https://pyup.io/repos/github/Gimpneek/exclusive-raid-gym-tracker/)
 
 
 To ensure the quality of the code in this repository the master branch requires
