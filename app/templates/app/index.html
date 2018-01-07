@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/icon152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icon180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/static/icon167.png">
+    <meta name="apple-mobile-web-app-title" content="GymTracker">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Gym Raid Tracker</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" rel="stylesheet"/>
+    <style>
+        .has-background-image{
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .raid-header {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 0.8em;
+        }
+
+        .raid-header .container{
+            width: 100%;
+        }
+
+        .hero.is-small .hero-body {
+          padding-bottom: 1rem;
+          padding-top: 1rem;
+        }
+
+        @media screen and (min-width: 769px), print {
+          .hero.is-small .hero-body {
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+          }
+        }
+
+        .logo{
+            max-width: 300px;
+        }
+        @media (max-width: 480px) {
+            .logo{
+                width: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="tracker"></div>
+<script src="http://localhost:8001/dist/tracker.js"></script>
+</body>
+</html>
