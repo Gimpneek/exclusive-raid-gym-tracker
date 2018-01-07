@@ -18,6 +18,7 @@ from django.contrib import admin
 from rest_framework_nested import routers
 from rest_framework_jwt.views import obtain_jwt_token
 from app.views.homepage import index
+from app.views.signup import signup_page
 from app.views.view_sets.gym_view_set import GymViewSet
 from app.views.view_sets.gym_item_view_set import GymItemViewSet
 from app.views.view_sets.raid_item_view_set import RaidItemViewSet
@@ -87,5 +88,6 @@ urlpatterns = [
     url(r'^api/v1/me/', include(personalised_router.urls)),
     url(r'^api/v1/me/', include(personalised_visits_router.urls)),
     url(r'^api/v1/api-token-auth/', obtain_jwt_token),
+    url(r'^api/v1/create-account/', signup_page),
     url(r'', index, name='index'),
 ]
