@@ -32,4 +32,3 @@ def signup_page(request):
             LOGGER.warning(
                 'Issues signed up with %s', form.data.get('username'))
             return JsonResponse(form.errors, status=400)
-
