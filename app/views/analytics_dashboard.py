@@ -34,7 +34,11 @@ def analytics_dashboard(request):
         .values("level")\
         .annotate(Count("id"))\
         .order_by("-id__count")
-    day_list = RaidItem.objects.annotate(weekday=ExtractWeekDay("end_date")).values("weekday").annotate(Count("weekday")).order_by("-weekday__count")
+    day_list = RaidItem.objects.filter(id__in=raids)\
+        .annotate(weekday=ExtractWeekDay("end_date"))\
+        .values("weekday")\
+        .annotate(Count("weekday"))\
+        .order_by("-weekday__count")
     hour_list = RaidItem.objects\
         .filter(id__in=raids)\
         .annotate(hour=ExtractHour("end_date"))\
