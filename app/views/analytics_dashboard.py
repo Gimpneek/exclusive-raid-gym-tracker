@@ -34,12 +34,7 @@ def analytics_dashboard(request):
         .values("level")\
         .annotate(Count("id"))\
         .order_by("-id__count")
-    day_list = RaidItem.objects\
-        .filter(id__in=raids)\
-        .annotate(weekday=ExtractWeekDay("end_date"))\
-        .values("weekday")\
-        .annotate(Count("weekday"))\
-        .order_by("-weekday__count")
+    day_list = RaidItem.objects.annotate(weekday=ExtractWeekDay("end_date")).values("weekday").annotate(Count("weekday")).order_by("-weekday__count")
     hour_list = RaidItem.objects\
         .filter(id__in=raids)\
         .annotate(hour=ExtractHour("end_date"))\
@@ -53,13 +48,13 @@ def analytics_dashboard(request):
         'most_active_gym': gym_list[0].get("gym__name") if gym_list else 'N/A',
         'most_active_hour': hour_list[0].get("hour") if hour_list else 'N/A',
         'most_active_day':
-            day_name[day_list[0].get("weekday")] if day_list else 'N/A',
+            day_name[day_list[0].get("weekday")-1] if day_list else 'N/A',
         'active_gyms': [
             [gym.get("gym__name"), gym.get("id__count")] for gym in gym_list],
         'active_levels': [
             [lvl.get("level"), lvl.get("id__count")] for lvl in level_list],
         'active_days': [
-            [day_name[day.get("weekday")], day.get("weekday__count")]
+            [day_name[day.get("weekday")-1], day.get("weekday__count")]
             for day in day_list],
         'active_hours': [
             [hour.get("hour"), hour.get("hour__count")] for hour in hour_list],
