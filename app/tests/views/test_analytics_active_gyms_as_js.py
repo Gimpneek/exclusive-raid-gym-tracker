@@ -32,6 +32,6 @@ class TestProfileRaidsAsJs(TestCase):
         """
         Test that get_raids_as_js returns the marker in the string
         """
-        gyms = [('Test Gym', 1)]
-        map_js = get_active_gyms_as_js(gyms, self.raids)
+        gyms = [{'gym__id': 1}]
+        map_js = get_active_gyms_as_js(gyms)
         self.assertEqual(map_js, '[{lat: 1337,lng: 666}]')
