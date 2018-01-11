@@ -11,10 +11,8 @@ def before_feature(context, feature):
 
 
 def before_scenario(context, scenario):
-    # options = webdriver.ChromeOptions()
+    options = webdriver.ChromeOptions()
     if os.environ.get('TRAVIS'):
-        context.browser = webdriver.PhantomJS()
-        # options.add_argument('headless')
-        # context.browser = webdriver.Chrome(chrome_options=options)
-    else:
-        context.browser = webdriver.Chrome()
+        options.add_argument('--headless')
+        options.add_argument('--disable-gpu')
+    context.browser = webdriver.Chrome(chrome_options=options)
