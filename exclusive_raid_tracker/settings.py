@@ -145,6 +145,9 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
 }
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+}
 prod = os.environ.get('PROD', '0') == '1'
 staging = os.environ.get('STAGING', '0') == '1'
 
