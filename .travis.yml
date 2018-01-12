@@ -5,15 +5,17 @@ addons:
   chrome: stable
 cache: false
 sudo: required
+group: deprecated-2017Q4
 notifications:
   slack: raidtracker:7eIXA8A3tcRZ432R3qQHZQC1
 env:
   global:
-    - LINTING=0 UNIT_TEST=0 SELENIUM=0
+    - LINTING=0 UNIT_TEST=0 SELENIUM=0 DRY_RUN=0
   matrix:
   - LINTING=1
   - UNIT_TEST=1
   - SELENIUM=1
+  - DRY_RUN=1
 before_install:
   - rvm install 2.2
   - rvm use 2.2
@@ -33,7 +35,8 @@ script:
   - if [ "$LINTING" == "1" ] ; then pylint --load-plugins pylint_django app; fi
   - if [ "$LINTING" == "1" ] ; then flake8 app; fi
   - if [ "$UNIT_TEST" == "1" ] ; then coverage run manage.py test app; fi
-  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave --junit --junit-directory behave_results; fi
+  - if [ "$SELENIUM" == "1" ] ; then python manage.py behave --exclude gym_list.feature --junit --junit-directory behave_results; fi
+  - if [ "$DRY_RUN" == "1" ] ; then python manage.py behave --dry-run; fi
 after_script:
   - if [ "$UNIT_TEST" == "1" ] ; then coverage xml; fi
   - if [ "$UNIT_TEST" == "1" ] ; then python-codacy-coverage -r coverage.xml; fi
