@@ -7,7 +7,11 @@ def after_scenario(context, scenario):
     context.browser.close()
 
 
-def before_all(context, feature):
+# def before_feature(context, feature):
+#     context.fixtures = ['gym-fixtures.json', 'test-fixtures.json']
+
+
+def before_all(context):
     context.fixtures = ['gym-fixtures.json', 'test-fixtures.json']
 
 
