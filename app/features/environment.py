@@ -21,12 +21,6 @@ def after_feature(context, feature):
 
 def before_scenario(context, scenario):
     options = webdriver.ChromeOptions()
-    if os.environ.get('TRAVIS'):
-        options.add_argument('--headless')
-        options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
     context.browser = webdriver.Chrome(chrome_options=options)
-
-
-def before_step(context, step):
-    print("About to do step")
-    print("{}".format(context))
