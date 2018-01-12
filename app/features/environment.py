@@ -7,7 +7,7 @@ def after_scenario(context, scenario):
     context.browser.close()
 
 
-def before_feature(context, feature):
+def before_all(context, feature):
     context.fixtures = ['gym-fixtures.json', 'test-fixtures.json']
 
 
@@ -21,3 +21,8 @@ def before_scenario(context, scenario):
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
     context.browser = webdriver.Chrome(chrome_options=options)
+
+
+def before_step(context, step):
+    print("About to do step")
+    print("{}".format(context))
