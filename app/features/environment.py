@@ -3,11 +3,16 @@ import os
 
 
 def after_scenario(context, scenario):
+    print("Closing the browser now")
     context.browser.close()
 
 
 def before_feature(context, feature):
     context.fixtures = ['gym-fixtures.json', 'test-fixtures.json']
+
+
+def after_feature(context, feature):
+    print("After the feature")
 
 
 def before_scenario(context, scenario):

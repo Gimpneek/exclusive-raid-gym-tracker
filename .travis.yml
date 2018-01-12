@@ -17,7 +17,7 @@ env:
 before_install:
   - rvm install 2.2
   - rvm use 2.2
-  - if [ "$SELENIUM" == "1" ] ; then wget http://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip; fi
+  - if [ "$SELENIUM" == "1" ] ; then wget http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip; fi
   - if [ "$SELENIUM" == "1" ] ; then unzip chromedriver_linux64.zip; fi
   - if [ "$SELENIUM" == "1" ] ; then rm chromedriver_linux64.zip; fi
   - if [ "$SELENIUM" == "1" ] ; then sudo mv -f chromedriver /usr/local/bin/; fi
