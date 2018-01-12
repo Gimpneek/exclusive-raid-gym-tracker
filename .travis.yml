@@ -1,11 +1,11 @@
 language: python
 python:
   - 3.5
-addons:
-  chrome: stable
-cache: false
-sudo: required
-group: deprecated-2017Q4
+#addons:
+#  chrome: stable
+#cache: false
+#sudo: required
+#group: deprecated-2017Q4
 notifications:
   slack: raidtracker:7eIXA8A3tcRZ432R3qQHZQC1
 env:
@@ -19,11 +19,11 @@ env:
 before_install:
   - rvm install 2.2
   - rvm use 2.2
-  - if [ "$SELENIUM" == "1" ] ; then wget http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip; fi
-  - if [ "$SELENIUM" == "1" ] ; then unzip chromedriver_linux64.zip; fi
-  - if [ "$SELENIUM" == "1" ] ; then rm chromedriver_linux64.zip; fi
-  - if [ "$SELENIUM" == "1" ] ; then sudo mv -f chromedriver /usr/local/bin/; fi
-  - if [ "$SELENIUM" == "1" ] ; then sudo chmod +x /usr/local/bin/chromedriver; fi
+#  - if [ "$SELENIUM" == "1" ] ; then wget http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip; fi
+#  - if [ "$SELENIUM" == "1" ] ; then unzip chromedriver_linux64.zip; fi
+#  - if [ "$SELENIUM" == "1" ] ; then rm chromedriver_linux64.zip; fi
+#  - if [ "$SELENIUM" == "1" ] ; then sudo mv -f chromedriver /usr/local/bin/; fi
+#  - if [ "$SELENIUM" == "1" ] ; then sudo chmod +x /usr/local/bin/chromedriver; fi
 install:
   - pip install -r requirements.txt
   - pip install -r requirements.dev.txt

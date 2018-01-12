@@ -10,7 +10,8 @@ def before_all(context):
 
 
 def before_scenario(context, scenario):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    context.browser = webdriver.Chrome(chrome_options=options)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # options.add_argument('--disable-gpu')
+    # context.browser = webdriver.Chrome(chrome_options=options)
+    context.browser = webdriver.PhantomJS()
