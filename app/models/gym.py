@@ -39,6 +39,13 @@ class Gym(models.Model):
         null=True
     )
 
+    level_12_s2_cell = models.CharField(
+        max_length=256,
+        help_text="S2 Cell at level 12",
+        blank=True,
+        null=True
+    )
+
     def __str__(self):
         return self.name
 
