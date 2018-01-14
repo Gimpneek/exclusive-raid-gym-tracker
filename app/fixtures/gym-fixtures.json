@@ -7,7 +7,7 @@
       "gym_hunter_id": "380",
       "location": "53.794799,-1.532943",
       "image_url": "https://lh3.ggpht.com/c_02poGALpLwo-kvcTY8gnSEv-e-fJ6IzARZQE7bdWe5r9BqNCR8_U5YiV5g_Cp0A7-R31aa_1Fg5O9Oc-7Ni0XvAKWdp-LsGoStdGiIGxMT1wlH",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -95,7 +95,7 @@
       "gym_hunter_id": "375",
       "location": "53.790115,-1.532609",
       "image_url": "https://lh6.ggpht.com/mquPvrEiQ_NFlVyuXMpZCHyUJroxeu6U5oTQnRgTH8BAi1mmtGUDy9G6SM4oe_v_d4n4bVaZZhjYhvl9uPb3tw",
-      "osm_way": "leisure=marina"
+      "osm_way": null
     }
   },
   {
@@ -161,7 +161,7 @@
       "gym_hunter_id": "378",
       "location": "53.79334,-1.528322",
       "image_url": "https://lh3.googleusercontent.com/KnBrEx5sU7_j-49VGtC3lgEhhiSf51S-nINltEh6S8slEa41oV30OaEVUSNIHOnIS8W9gmcZaLx-4yz0kc1nfQ",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -194,7 +194,7 @@
       "gym_hunter_id": "213",
       "location": "53.795759,-1.55655",
       "image_url": "https://lh3.ggpht.com/1vhcds__-g0EVvzc-R6u38ngoQE1TBfsftHh50U2kIFq1sZe9GPGAA0ICyHCh9G2F-NXKDiUG-3NKDPN7ZjJBg",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -348,7 +348,7 @@
       "gym_hunter_id": "699",
       "location": "53.798773,-1.551948",
       "image_url": "https://lh3.ggpht.com/dSn2wuwid1bvl1he_zWD_Tclmg6emaBWbD5WxVNe4G2UMQvv8fCq_X9pjl1QHLut7bK5-1o1IACyAObbCC4jccDKJgLXGYEU6C2G2Ob0u17mdTe1",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -359,7 +359,7 @@
       "gym_hunter_id": "697",
       "location": "53.799339,-1.552743",
       "image_url": "https://lh6.ggpht.com/j-WxG4lOy8VYbIcvaZG-y4k5GO01BDU-bsvpvfZuRRLp_udZlKx4HRI6y4B39VeMlurT_Sf8pKRWobyCJv0",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -425,7 +425,7 @@
       "gym_hunter_id": null,
       "location": "53.738049,-1.67811",
       "image_url": "https://lh3.ggpht.com/T1TOX2jjTPqG_ZqetzUXm9MXhYWavQ53atZzyuaZDj79Yjnb3V3jLf3lUZsvZ0l2OmVhByNyb_RMFWDTdL-B8QAs94Lz_1CebwdxQaafn2zmHmo",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -447,7 +447,7 @@
       "gym_hunter_id": null,
       "location": "53.737335,-1.681437",
       "image_url": "https://lh5.ggpht.com/LJGCv3tjNlNz3zBQKBDZSGBPmBcAZscprfjQApcXHHdf2FTGfpuDPuXTys9CAG6u9sjpWyUFcF6oUQy-Cf9y",
-      "osm_way": "leisure=common"
+      "osm_way": null
     }
   },
   {
@@ -524,7 +524,7 @@
       "gym_hunter_id": null,
       "location": "53.789096,-1.753776",
       "image_url": "https://lh4.ggpht.com/jl9mwpmEkDxu6vcvNFTVpaM6prTgmHIow1nOU-s_gwWVBp_R7Qp2VIOjXa5AccwEJROtEyonWvQvKaOFN0d4eQ",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -623,7 +623,7 @@
       "gym_hunter_id": null,
       "location": "53.793166,-1.747948",
       "image_url": "https://lh5.ggpht.com/s6ZuxXJirKG20r4WVnmmzVWQ0sNppTE1KzX-3-BRpPJFy_1ACSkICEupAvb4P1Ef4h3aXvYu1jsUO996ArVojA",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -700,7 +700,7 @@
       "gym_hunter_id": null,
       "location": "53.808728,-1.556715",
       "image_url": "https://lh5.ggpht.com/N5GJz47dQvaVcEQa-rSiwYL-ARPAXsyRvJAyJ3j87nQxiPL0u_LWRr5PTgxB2JyfX5Cp2VJ5Stk1fA4jcBA",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -733,7 +733,7 @@
       "gym_hunter_id": null,
       "location": "53.808865,-1.560056",
       "image_url": "https://lh3.googleusercontent.com/3rRGE2s55JFqdj0zjWB0ZGDK8QFTbQ2AeelIF1cMc9pvTvCrCdq-jPEOzqeYQijwK-FeGWCnf99CGrdCD44",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -744,7 +744,7 @@
       "gym_hunter_id": null,
       "location": "53.811974,-1.561564",
       "image_url": "https://lh6.ggpht.com/UpK48VQ0w1yXuyVVCr8rK4Qn0FE5hAY1ST--IIjO2Xi_4SRuFKfcIMSpmH7zMJSBK-nST222aY9I3iAUD9Ur",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -788,7 +788,7 @@
       "gym_hunter_id": null,
       "location": "53.754143,-1.449789",
       "image_url": "https://lh3.googleusercontent.com/Ixnv4gP4HTN10EMPuxayXbMCfv4fow216W4SRyvpjmwTnipBP2nt4ERJL2AvP1dZtYh9-sE_Eqw7nWCBUnc",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -832,7 +832,7 @@
       "gym_hunter_id": null,
       "location": "53.804275,-1.566231",
       "image_url": "https://lh5.ggpht.com/7aruH7AsBTi0DR_mB3vBVGkv8ecL6A_i4l7OfDqdP3uNRlMyW8IoSKH9vZBYj7dkBbKvfXDnk9Cv5zGbpnV-",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -887,7 +887,7 @@
       "gym_hunter_id": null,
       "location": "53.748897,-1.747019",
       "image_url": "https://lh3.ggpht.com/Xw8VBw23V-xMqzCdZY-6Ef1I8D39MhhhTLOZWQ3A_tFrZlqeI5ylqXjiJZFxz0t-zGHQXM9HJwNJNugKxAU",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -975,7 +975,7 @@
       "gym_hunter_id": null,
       "location": "53.804421,-1.482057",
       "image_url": "https://lh3.googleusercontent.com/YSI3bD7piM_247nHonxDjoCRy9rn4u5DO2uuR90HbLYrF6ds54vM86FKS4M55GB3SHx4KwhrF68-4jzd_WN4",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1008,7 +1008,7 @@
       "gym_hunter_id": null,
       "location": "53.784247,-1.771701",
       "image_url": "https://lh6.ggpht.com/yKWt6kqaU6VpAVNOfqX9dorRjbG9rbXLES8GnyIBK-W3Sm3bjlpfzv1cV0XhY73SXu218B3HKjif8FyyVzth",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1019,7 +1019,7 @@
       "gym_hunter_id": null,
       "location": "53.799529,-1.472256",
       "image_url": "https://lh3.googleusercontent.com/W_NtMdLhUZ8OpyaxKuWBXQDkkIdUOM8Vdtq-0Ae_4-K1lb-zHoyDFBVPGb9PdoK2bCvabZoQnMhGzp_LPlsm",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1063,7 +1063,7 @@
       "gym_hunter_id": null,
       "location": "53.801286,-1.473253",
       "image_url": "https://lh3.googleusercontent.com/qJYCo4E1xZXdNvIfIzSmei7gygFwzreND1wYM9sh1PeLNlmHIly0V76jDSbutImfnCYGVT3WG2f2LNWfU9_LoQ",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1074,7 +1074,7 @@
       "gym_hunter_id": null,
       "location": "53.801579,-1.475275",
       "image_url": "https://lh3.googleusercontent.com/-8yDvcLJaXEQqiIP0WEc0Nnh8TRDx1ns8kbTAyrDlm_jqXhsV1LwhT6hbfhJrfw01M84K_PbM4rSfJXo5Ye0",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1129,7 +1129,7 @@
       "gym_hunter_id": null,
       "location": "53.808728,-1.577136",
       "image_url": "https://lh6.ggpht.com/atBH0XP4-wometCWaludBfF7Uyy6WO-WooKRobDH27O3NlRlSnujHinXyvNUQNA5MxGwQicbeboed-4Rxysi",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1140,7 +1140,7 @@
       "gym_hunter_id": null,
       "location": "53.805589,-1.577486",
       "image_url": "https://lh6.ggpht.com/Wq-ToBwAzSJgVPeH2J2dwHAI79Rs8qxjz3NLprxzknSBgv6Zow9eC6PEM1uOSPvbdWaxYSvBG_oNY1L5-GSAFg",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1184,7 +1184,7 @@
       "gym_hunter_id": null,
       "location": "53.810164,-1.579673",
       "image_url": "https://lh5.ggpht.com/ZRUAwmupQBvmLzfV6iqOtBERlHvTOTdUugFR-2Zmtov9lj4TuYy8vl6sfYnXwFo5AoGKV6PI9fOI1xFjTkYLcg",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1217,7 +1217,7 @@
       "gym_hunter_id": null,
       "location": "53.79334,-1.528322",
       "image_url": "https://lh3.googleusercontent.com/KnBrEx5sU7_j-49VGtC3lgEhhiSf51S-nINltEh6S8slEa41oV30OaEVUSNIHOnIS8W9gmcZaLx-4yz0kc1nfQ",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1250,7 +1250,7 @@
       "gym_hunter_id": null,
       "location": "53.783233,-1.771513",
       "image_url": "https://lh4.ggpht.com/NVy5Sh1o_l192L4IOkpjdeTS8-iTCMvoLn3zPnI6EGtXnx6RJB638SpCOk7EfA0ewJ9t_6CcuZSbvYnk574",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1261,7 +1261,7 @@
       "gym_hunter_id": null,
       "location": "53.782253,-1.775508",
       "image_url": "https://lh4.ggpht.com/rLTtJm7PrNbfP_-yzk-evPUXfP_0Z27auOHMCmPXEzqd7H0OZ_Q-Q68T743yJ9ruVoVzgvTUE2gLr209x1DKXQ",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1272,7 +1272,7 @@
       "gym_hunter_id": null,
       "location": "53.742656,-1.452937",
       "image_url": "https://lh3.googleusercontent.com/XGybp03eLJwpulKszc2bv9rX8TIIY8XpHbWMzEeKEELbHfx2FULNYzQGlAJ_QwXP61QI1SPbFPdUB4BbwbE",
-      "osm_way": "leisure=golf_course"
+      "osm_way": null
     }
   },
   {
@@ -1343,6 +1343,17 @@
   },
   {
     "model": "app.gym",
+    "pk": 123,
+    "fields": {
+      "name": "Living Hope Church ",
+      "gym_hunter_id": null,
+      "location": "53.796336,-1.530838",
+      "image_url": "https://lh3.googleusercontent.com/qOcUXT4eKhzfWbfrBTB1nZ5l66-qIMbtdXpqbNk-bqU0lwLPByWRZcod7Slx8kJ1aWazhblHwvoJCvNuV4Uz",
+      "osm_way": null
+    }
+  },
+  {
+    "model": "app.gym",
     "pk": 124,
     "fields": {
       "name": "Horsforth Lister Hill Baptist Church",
@@ -1371,7 +1382,7 @@
       "gym_hunter_id": null,
       "location": "53.750989,-1.548171",
       "image_url": "https://lh3.ggpht.com/lnH-Yz_SymWzCwLn6jQteJubLQ6glRw7OTGqWGIVpYBwoSEc5ASD_Xoc502aHpLmjZaqfhONKjLvQt9mOUaR",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -1470,7 +1481,7 @@
       "gym_hunter_id": null,
       "location": "53.807792,-1.668613",
       "image_url": "https://lh3.googleusercontent.com/wA3c_nVCFa0G1I68yCTxnpf2G6gOvEYaG8S69YzWomQnKnJkPRKKPTZG0r6F1xcxHqhDNBj2oe9Ovl3ssZbo",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1547,7 +1558,7 @@
       "gym_hunter_id": null,
       "location": "53.784249,-1.45904",
       "image_url": "https://lh3.googleusercontent.com/3oArptR7sN_4bpe30MYjjkM_kk8DICpV0wZKFpGk24GUMU62qYMYahpD9jpAbvc0d2qCaa0i6kp5TEeASEY",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -1591,7 +1602,7 @@
       "gym_hunter_id": null,
       "location": "53.837732,-1.726053",
       "image_url": "https://lh4.ggpht.com/QF3dUYKtnBXD0BtrzSqaLDuRQU-peXBQ2MCPXkGaqtx3RBJ0XPVJ9FCgX9rp2CJLgxkCbg27xMkQAJ8VwHY",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1613,7 +1624,7 @@
       "gym_hunter_id": null,
       "location": "53.750479,-1.667415",
       "image_url": "https://lh4.ggpht.com/FS9RxaYVF0CXLGhWWDmKSfi8Cw1BgKRFZe1Qfb4YF7nTMSIKxj08T53oUqYV-Ze6rGTAu64UMVBsuGli1frW",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1624,7 +1635,7 @@
       "gym_hunter_id": null,
       "location": "53.799899,-1.593003",
       "image_url": "https://lh3.ggpht.com/CMk4fxazmMWiRoE0GPFLbUWX_vLO2Kmb72QsURGX6Ln-uSdRK-FpiS3RQ8RjHTwztlGNHFw166LsVT3MsfdY",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1635,7 +1646,7 @@
       "gym_hunter_id": null,
       "location": "53.805895,-1.593926",
       "image_url": "https://lh5.ggpht.com/KbPP5VYlYKcQDt2_ts8cXlB9wBVH9xPsrvR86dUS0CAc7B-EwJys_839Ja7gyMGZm0NKkcWE19qGyNYT8mxH",
-      "osm_way": "leisure=nature_reserve"
+      "osm_way": null
     }
   },
   {
@@ -1668,7 +1679,7 @@
       "gym_hunter_id": null,
       "location": "53.753903,-1.560193",
       "image_url": "https://lh5.ggpht.com/FrhULajgke51hSsPaVxbJxY1w-ybx_JvtrDmF9cC6tIwHrf9a3Z31Dd98x-2xzzvOKoyf7ShEhn-ZTephW-K",
-      "osm_way": "leisure=golf_course"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1679,7 +1690,7 @@
       "gym_hunter_id": null,
       "location": "53.749914,-1.553226",
       "image_url": "https://lh6.ggpht.com/zvqGzjpzdjzEnQkB1eLK7hHNsPaLyxwoQMSUEvx20XHikxNbkAWTpJH9aBwy-dz9cGKHfYUkkZTdd6wo1Vbm",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -1701,7 +1712,7 @@
       "gym_hunter_id": null,
       "location": "53.790046,-1.513927",
       "image_url": "https://lh3.googleusercontent.com/C3laf6IOgYyCVVI3vdHZl-lDd-bH_dqzkrA6w18PogljGued21bMp1oqmzksGeUxig8N9CHFZflI-a0F6AY",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1712,7 +1723,7 @@
       "gym_hunter_id": null,
       "location": "53.793725,-1.510183",
       "image_url": "https://lh3.googleusercontent.com/Q-4vZhaClv-X7PBNWuDRsupxXEFKgAGmykHDLGvKP0LwqJX9-jBAzY6Plt5BE3vA85Osejj3psC2AdCFFnepXw",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1778,7 +1789,7 @@
       "gym_hunter_id": null,
       "location": "53.819554,-1.458745",
       "image_url": "https://lh3.googleusercontent.com/TtsUMeSUKb5p-VR0m34eYQxhwZaruzJHYZEUC8a8TzOZIAxc0scXdGSGTGwNbw7sN-V1sn9cr1W4IKCrbaI",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -1811,7 +1822,7 @@
       "gym_hunter_id": null,
       "location": "53.866659,-1.699752",
       "image_url": "https://lh4.ggpht.com/MQYEYp_YuKmVPvnBIyp1ZSgV8V1BFWccJ6NojIBbTZqMY-Nhji_Tixj-S79a0gSdU764xjTidOD4TKOQ7Dz-",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1954,7 +1965,7 @@
       "gym_hunter_id": null,
       "location": "53.752765,-1.663613",
       "image_url": "https://lh5.ggpht.com/wwb_xdpNCrIGqzqqSNp4HIBmUiaXT43JZCHQvJCIoY1JIExsZnEv2knKgFZTbI1-UHlSUODZzyklods665Zvhw",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -1976,7 +1987,7 @@
       "gym_hunter_id": null,
       "location": "53.821064,-1.607049",
       "image_url": "https://lh3.googleusercontent.com/OwJQ1JH8VTS41kzZuorMRqWQl3ElapKR7UdzScQ-VFNlrA2l2Gz_tF2ybWWfFMPVBgMJdjpIltvaaCEKCSdC",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -1998,7 +2009,7 @@
       "gym_hunter_id": null,
       "location": "53.81227,-1.615177",
       "image_url": "https://lh3.ggpht.com/_ghsnQepPnLe3vc9PgSBNKIieawhgtPWeKKOQyuNpMiNxB24353gGDp-LVuhxq41HFtqWHvu37RNw3JVLfke",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2009,7 +2020,7 @@
       "gym_hunter_id": null,
       "location": "53.807289,-1.501831",
       "image_url": "https://lh3.googleusercontent.com/5a28o46eMrzyv-_yxS8ZEAjXFpI1KGX18y78jcv0bGn1rnFCCIzs3y4U9PpclsYAmFzpY2hGeauEjRfEpKpjCg",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2031,7 +2042,7 @@
       "gym_hunter_id": null,
       "location": "53.804248,-1.486891",
       "image_url": "https://lh3.googleusercontent.com/EDverfmhhCxTsoerSh4ciKsRZ1ovePwUOAVVZ1N6MuZQpqc7AHFKZ4BAH4UD8k0oERG4scv2YlTXWliUvzk",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2042,7 +2053,7 @@
       "gym_hunter_id": null,
       "location": "53.797559,-1.517428",
       "image_url": "https://lh3.googleusercontent.com/phCCZQ20a9Dv6efWAI_3f_t7XGrMVWjj29qfZZmADUzR2Jqk2cqOUrOZkP0CVUCkaaj_UHPLEx299u2VEw4",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2086,7 +2097,7 @@
       "gym_hunter_id": null,
       "location": "53.770893,-1.719412",
       "image_url": "https://lh4.ggpht.com/cbISzYmSoMfhGKRfo2v2huAMte9XYt-Xgc3QyML3t3LnNZm1mByNWXkiSz2sRqhYo-I1LSXEyltfxJCAMebuJQ",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -2185,7 +2196,7 @@
       "gym_hunter_id": null,
       "location": "53.790793,-1.763983",
       "image_url": "https://lh4.ggpht.com/hHurLN6KywofJcblybFFn8cEe6rKLIJetvpMsk0vQ0CZDzJa6RDta2AdQ7-Z2o9I9icLLUa1vwFF8KybteAL",
-      "osm_way": "leisure=garden"
+      "osm_way": null
     }
   },
   {
@@ -2218,7 +2229,7 @@
       "gym_hunter_id": null,
       "location": "53.732609,-1.528873",
       "image_url": "https://lh3.googleusercontent.com/sAJtOjikmkTCG6LxvqDT_Kx0GSjLOWImGUBQ-q6WzGhWTa8SN4MgkTum5zwUM_naPzmUPYnuPv15faSTZAqmVg",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2295,7 +2306,7 @@
       "gym_hunter_id": null,
       "location": "53.836706,-1.642964",
       "image_url": "https://lh3.ggpht.com/d7cNxI9oaR8fj0t6aXxp3lHlkPyDDYNAmlIuzsfA1q05MViaJqBIlf9IaOROAybj0mQZWM5gx3JFveBY3qGRXcUDyUv-f6Mnrqj03PJnvFibsbMJ",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -2339,7 +2350,7 @@
       "gym_hunter_id": null,
       "location": "53.744797,-1.592633",
       "image_url": "https://lh4.ggpht.com/Tvvms7xmR9cb2gmgdqGs6D6H1ErppPs_bqXsFRh5P1b8bBLFqT1_rYHJIifupNNS6mnOaOTrAmq_3aXphFJNbQ",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2383,7 +2394,7 @@
       "gym_hunter_id": null,
       "location": "53.792632,-1.754906",
       "image_url": "https://lh5.ggpht.com/r-ouu3YwDXN1CTFrPR9bcwTiQmqw395cH1rfu-6m6aErpLCbsmajWK6XAZrLYEPapqBeKI6gDCxUkhu7vSlLHQ",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -2394,7 +2405,7 @@
       "gym_hunter_id": null,
       "location": "53.791516,-1.756378",
       "image_url": "https://lh6.ggpht.com/SObwQwZSJ-6t6RSWR4FYoNlOsO2pk-1yPkDYR8qdPzrToPUh6s9h10oS9OyYHso2vShdUeBqFqQHdd120bn-pCtX0A32LVPHcAZ76HU5mKsRATKB",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2471,7 +2482,7 @@
       "gym_hunter_id": null,
       "location": "53.777704,-1.529577",
       "image_url": "https://lh4.ggpht.com/rfp_4xPrEKVgJZ0UIIDQYw9FL8K9IBb3N1S1Lf75uQ_qdoI28FAD1YQdCFQWuk3CZi15IidVWwi0S1hB2n2R",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2482,7 +2493,7 @@
       "gym_hunter_id": null,
       "location": "53.775026,-1.522069",
       "image_url": "https://lh5.ggpht.com/ZyN6dRv9ZYg-Y4Ni9mA1E1uykS3xWZFXYEWfRts8KV4_HzYfl9AmHpJqpM0q4IMjlltJGlwh9f_fl5kYw1Pv",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2515,7 +2526,7 @@
       "gym_hunter_id": null,
       "location": "53.782874,-1.603514",
       "image_url": "https://lh5.ggpht.com/hAKeQD4aMIEC-I1guaY4cwC_09s22zNZqhMK045-zqCKqe1u3DAFmnG-yhlPDV1x-eSQhdzDc4MgeXG3n1KE4A",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2592,7 +2603,7 @@
       "gym_hunter_id": null,
       "location": "53.780058,-1.76212",
       "image_url": "https://lh5.ggpht.com/kiV3HpnIXslEIm0DrN2gaOQjAiWyopFC35iwWLjtHqkd-nRib1ynz4pTQgIJTEJXnBYALihuCunh-wOf-VgW",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2647,7 +2658,7 @@
       "gym_hunter_id": null,
       "location": "53.853058,-1.687516",
       "image_url": "https://lh6.ggpht.com/WOs6Q2Moce9B5F9IjeYhPYtuU2g_oXbf13AJ6GtfApNOPpEaDF7akY3zcqLvCRiAJuNIs61yEf52_nU3VRo",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2713,7 +2724,7 @@
       "gym_hunter_id": null,
       "location": "53.774103,-1.744488",
       "image_url": "https://lh3.ggpht.com/AFFvVOSnntpg2NHWKzqAOD4IHloN7sbzOKfN8a6v6hyIvzhQyTm1VlUHVV4DROTQhXu2dK91TfKcB2ddedoO",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2790,7 +2801,7 @@
       "gym_hunter_id": null,
       "location": "53.815753,-1.487019",
       "image_url": "https://lh3.googleusercontent.com/d3BF18mKGGJmRBR7Pa_4kdMJsp6Po-C6xKWNzLr3rbt4hxWNZ6rjv5Acw3pUEXH92iO6bS6OUMm2Aslne-s",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -2845,7 +2856,7 @@
       "gym_hunter_id": null,
       "location": "53.740407,-1.671382",
       "image_url": "https://lh6.ggpht.com/0f3TWJebP9Gch9UYZMSjbb45EzLgkPPsgDnK7SNlEkFK_fTohzMhpCKiZuE3CaEWt7subapaTtQ871e6ZZLtVA",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2856,7 +2867,7 @@
       "gym_hunter_id": null,
       "location": "53.739553,-1.672283",
       "image_url": "https://lh4.ggpht.com/uSP7tZmdRHBnLXTIntlXLKvVPMgYni8m7JncZ65MCBEconrQKg2ON43d3CrXpNvbllrk0BNMjab5EkLx-B4",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2889,7 +2900,7 @@
       "gym_hunter_id": null,
       "location": "53.792487,-1.668532",
       "image_url": "https://lh3.ggpht.com/UckDsCD0zdQ0JU1bFMbMhacQY_MjdYPsInDuO_EXG0EgCmn3u2_FWn_7moKf15uJBprIpFkdKgQwqpqk9Iq-Kg",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -2900,7 +2911,7 @@
       "gym_hunter_id": null,
       "location": "53.793876,-1.665662",
       "image_url": "https://lh4.ggpht.com/rjJ8K0nxe3gouzCoRY_d-fkmKneG7_gq1gcGmCEMVVNsyrjGRmwya5N1rUI04A_dW4Xdxmk8zzINYr1EOqMbrg",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -2911,7 +2922,7 @@
       "gym_hunter_id": null,
       "location": "53.80744,-1.445491",
       "image_url": "https://lh4.ggpht.com/Qhm7szPQCWYKN04hwZFaHQfAs41Di_nzguAOFpbnO8_tEYPqQAneMmYOTwwtUQz_vTnraEwaZYwauPLgcayN",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3021,7 +3032,7 @@
       "gym_hunter_id": null,
       "location": "53.817827,-1.524511",
       "image_url": "https://lh5.ggpht.com/c2M2yr2GHLznnX6-1OeKSfE-z7GbY1uiIekZidpuNJnz5Tf1qj7By8MfovfhNREtGFK4tzZah7RZ8n-C4vM",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3065,7 +3076,7 @@
       "gym_hunter_id": null,
       "location": "53.773543,-1.736019",
       "image_url": "https://lh3.ggpht.com/gq2iMfd1cuULLvdnx3C9MdxukZdlCNT7xKPyCF16aWw1kb9ObY5fy8YUOn-vP2s4ChM6dluql1Iz7a5mOOo",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3087,7 +3098,7 @@
       "gym_hunter_id": null,
       "location": "53.771991,-1.721862",
       "image_url": "https://lh5.ggpht.com/nQU-J_YGKNBlJLELuiC1dekwERrNR342vJj9_qRMsk_O8aiAWfDVlmXNCUPMhywJHj9G92xessqP1Hw62W0LsQ",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3120,7 +3131,7 @@
       "gym_hunter_id": null,
       "location": "53.865568,-1.677443",
       "image_url": "https://lh4.ggpht.com/J9TWbAfo3In5xgH971C6QW1l6WuTzTeCQ6a6nXj8BlU4veS_QLcaB-Wzmtbyx0vEL3qOhhSOybrYl5SdhV1v",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3131,7 +3142,7 @@
       "gym_hunter_id": null,
       "location": "53.727258,-1.496031",
       "image_url": "https://lh5.ggpht.com/6MtSWcZOtWSlOPsRZ81XPb2KW7x7z0aeN3m1yYoouBKZ9tI1JbWMv-tdv2EpDcRi6plVt2NnhiOJBN0nnJiJ",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -3263,7 +3274,7 @@
       "gym_hunter_id": null,
       "location": "53.756305,-1.500791",
       "image_url": "https://lh6.ggpht.com/I_oY5olC6RxG9QejnB128d6x9iuzwkHkEhe-kMNA2Z-CnIIQnMouJ7iVsxWSdc6dJMap2RPj-h4ipmLjf-Y",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3274,7 +3285,7 @@
       "gym_hunter_id": null,
       "location": "53.763453,-1.474689",
       "image_url": "https://lh4.ggpht.com/84MaJ-jsnJZB-zphGSsyZmtoVuhLIocA3LQMg5uNaUpKmmARUdF0MRV8iSwMVSaKonb-Dp09GJ2DpJJ-SNdy",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3285,7 +3296,7 @@
       "gym_hunter_id": null,
       "location": "53.762979,-1.472738",
       "image_url": "https://lh3.ggpht.com/EcpVC5lSukeMuj591wLOdmVcPYWcYk4MtrCdcDbgqOyfnrOiehT2kwqNymynznDwKSTFoymMVnHyJonve4Qtuw",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3373,7 +3384,7 @@
       "gym_hunter_id": null,
       "location": "53.817242,-1.531612",
       "image_url": "https://lh6.ggpht.com/GN55ZLbdGC4LMvL4va_o6g-1aKnHYSvqVlmPojG4AzikdJHV9TZ-V5er31bTjkft859Llo_Zg681NHPJD-Gz",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3439,7 +3450,7 @@
       "gym_hunter_id": null,
       "location": "53.840252,-1.505885",
       "image_url": "https://lh6.ggpht.com/UnVbNH9aPRSCtCLUPpZFuihkRGUVE3LClyxWic45H_PlLvYNmoedfFs8uTU1ao2znParF2hSIv-ycbNJbDV_dQ",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3450,7 +3461,7 @@
       "gym_hunter_id": null,
       "location": "53.837987,-1.504615",
       "image_url": "https://lh4.ggpht.com/u2mnf7rDuCk8K7XDMb2sBQ_IHkxGPxAFeNuZ57QtbAtSYoRiTulnFt0Fgbn4KKyznEBd1TSVvJZVuqWsIMY",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3461,7 +3472,7 @@
       "gym_hunter_id": null,
       "location": "53.743311,-1.610827",
       "image_url": "https://lh3.ggpht.com/NKe4klUGYTWohWQ5or7f8qGN_d1EIb2Wy7MVbYZJldfX5fZRPx168HzE1_jM9YMh_Lv6Fr1E-nIAh2z1JRA",
-      "osm_way": "leisure=stadium"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3472,7 +3483,7 @@
       "gym_hunter_id": null,
       "location": "53.741464,-1.613374",
       "image_url": "https://lh5.ggpht.com/cT8ermdxnaKNDONkug_Ht9N_UjVAgI7Ky-6LLOO8PJM1TPqrmmpdcJ19gNyR2NYta0wTHfI5Xxi8Yt1Y07gB",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3494,7 +3505,7 @@
       "gym_hunter_id": null,
       "location": "53.741753,-1.614767",
       "image_url": "https://lh3.ggpht.com/Sq0JzkJqKPESc4PFN5JiMQWWckRtMdrBAh0D10ir8MzlJiD6-zA-2Rw6fRXJ71T5Vz9-fk5QRZlaGQN6eVklbQ",
-      "osm_way": "leisure=bandstand"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3516,7 +3527,7 @@
       "gym_hunter_id": null,
       "location": "53.743007,-1.662682",
       "image_url": "https://lh6.ggpht.com/AqLEux1d_9yf1Wix4GcD99a9zh0oN2hWX-3sD5mFp_HCPJJyU44OH0dgS4oY0QjKEnQmO_4KVZ3VNd9bc7YG",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3527,7 +3538,7 @@
       "gym_hunter_id": null,
       "location": "53.81424,-1.486357",
       "image_url": "https://lh3.googleusercontent.com/dLpom2mptUoz4ANak16I_u1HPqASgwxVUGYySlsvOL0csZnhyExVFwXY3YxwDvUCsCDIvPQUVzZK_9M02j4",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3538,7 +3549,7 @@
       "gym_hunter_id": null,
       "location": "53.815757,-1.481078",
       "image_url": "https://lh3.googleusercontent.com/qs0VKmisB_oMpUB1Zdow36NuKxYjCHbMnKIo8l9fE7fRM8CY1A5qoZQqMFT0D_IKi8omdOxtJIZjITf-jDraVg",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3571,7 +3582,7 @@
       "gym_hunter_id": null,
       "location": "53.773756,-1.751126",
       "image_url": "https://lh3.ggpht.com/h5-o3t0oqLIeTKYuCjiPGJjdwr9F9ePReoPlE01rm0WDkXCeWj0rwpK6pwN9F01iGCu-E7j39_a6rNCwnAtM",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3637,7 +3648,7 @@
       "gym_hunter_id": null,
       "location": "53.809818,-1.640203",
       "image_url": "https://lh5.ggpht.com/_3XvlqKA_HHH0XnQ3_l0B1CqHHYoywm8rLG0qZlF7wyrQ086ixaCunp1pSGXnW2YShRBtFV7eCbRHfGylb9a",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3681,7 +3692,7 @@
       "gym_hunter_id": null,
       "location": "53.778512,-1.739269",
       "image_url": "https://lh4.ggpht.com/WtNdbgO1jD6pzOCknQFeB9R7fv2hvtrtY2WcIkTyDzbhJfn-ZJdg8nYafr-jaTCm3Nb7l9LvQMihgxWOCyti",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -3703,7 +3714,7 @@
       "gym_hunter_id": null,
       "location": "53.774918,-1.535559",
       "image_url": "https://lh5.ggpht.com/noZTjGcc6lCZGeDPLyCJU33cLJhftEpEinrXv48VQHLVBQKl4BCBqH7oNxXm8Em_wR_GZvZiFFlzVvTH9Eg",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3714,7 +3725,7 @@
       "gym_hunter_id": null,
       "location": "53.732583,-1.534319",
       "image_url": "https://lh4.ggpht.com/OLROREEqVr_x45OnxAyeHDiaeCAY_k3l6_OXAfTkFU2pZPZalvkNDhfmss60dJi8XHrd3HEANMoXCzGC0Ajo",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3835,7 +3846,7 @@
       "gym_hunter_id": null,
       "location": "53.752759,-1.768983",
       "image_url": "https://lh5.ggpht.com/cNk_unPtgtw5PTpOvgJ1Ok7uANJ-XHu3kFgnXpArXseR9PfK0_IHQoIjR8N9jHnMFPq8mJBOgWCY8UjrcKI",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -3868,7 +3879,7 @@
       "gym_hunter_id": null,
       "location": "53.758307,-1.701785",
       "image_url": "https://lh4.ggpht.com/1WwittazumNwB13_0kBPtiURznvxdpdMGCmtkSMGhzgwAlJ-1KK2BahPcycSngDJfOJdQXhwcGGjnaDil6e9FA",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -3912,7 +3923,7 @@
       "gym_hunter_id": null,
       "location": "53.77692,-1.572589",
       "image_url": "https://lh3.googleusercontent.com/O2jPZ5lhdswGPXGiuzB-jxcp2YfRa4lEIDPDDMtQHfzNa7VajDlocVknrUUb4SZvra6pyhnWNw3Xej5gmwac",
-      "osm_way": "leisure=stadium"
+      "osm_way": null
     }
   },
   {
@@ -3934,7 +3945,7 @@
       "gym_hunter_id": null,
       "location": "53.81862,-1.582792",
       "image_url": "https://lh3.ggpht.com/wqAuCwHEcB5qrNFLO_nFIHGpRPAArAteRmRmEWI7ke40rqOGq1PoYGhhLn2F866km6ZY_W7KCNx_JYOPYa8I",
-      "osm_way": "leisure=stadium"
+      "osm_way": null
     }
   },
   {
@@ -3945,7 +3956,7 @@
       "gym_hunter_id": null,
       "location": "53.818123,-1.583634",
       "image_url": "https://lh3.googleusercontent.com/Krc3dC_-j90htsxgGWg0veQ1rBr2BFarMLYwkM13ST8tnrZcyunWV5jcnXHCzhSdGNQ7VALX3IxLilDNsZk",
-      "osm_way": "leisure=stadium"
+      "osm_way": null
     }
   },
   {
@@ -3989,7 +4000,7 @@
       "gym_hunter_id": null,
       "location": "53.747715,-1.603369",
       "image_url": "https://lh6.ggpht.com/NxU2UkGBAB15Jb-63FOfQbuWgyVQMZlqHfeA9-hAGFM1ntwCkyMyWM1eBYSYKpQ-CDJD9VaF9jTJOjqyZ_0X",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4000,7 +4011,7 @@
       "gym_hunter_id": null,
       "location": "53.813451,-1.633594",
       "image_url": "https://lh5.ggpht.com/nOfp5JAGVW_ZjQQSmbJmsetSRjYXLr-g3J1g5E6x8-zyajlQm9ox4wOTGkh6P0GKMp5Zm6USju7KGo382xOl",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4033,7 +4044,7 @@
       "gym_hunter_id": null,
       "location": "53.806009,-1.742912",
       "image_url": "https://lh5.ggpht.com/HsY0i8HFp3CsTSVI-6SYDDyl6sN8VgpGq4GLpb__Vzmzo__lz9AZ2iY68uVhh0Wl9fF2kuNhxfBw_mucNMZ5KwESYz4gwS74zwlRLTRi8ombRLdz",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4044,7 +4055,7 @@
       "gym_hunter_id": null,
       "location": "53.806301,-1.743434",
       "image_url": "https://lh3.ggpht.com/iTR0Pu5Idtp5DVu2wzicm2oLLFw96R9S16IrDrT6-vsX2O9TFwK7n8rCW5wwG68Xib_eMVdDYTPtkx4yrXQ",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4055,7 +4066,7 @@
       "gym_hunter_id": null,
       "location": "53.803932,-1.526933",
       "image_url": "https://lh3.googleusercontent.com/lDt-rua_i_bzzCT_UcsMGXixQ_Y2aXffqJjx80cS6LmZANxVbqo1VYEYWw4HhxeS8UuqzI-N50oX6Tkpu1qM",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4066,7 +4077,7 @@
       "gym_hunter_id": null,
       "location": "53.808468,-1.74213",
       "image_url": "https://lh3.ggpht.com/HJdEFfBLyPgm43MX4l8cW6PKWWwGYvR_y5oaGRyl8kM3AeXwF4KrIRiTdwaNDpgBxNZ7k58QCkEGzOQ1LJllKb9Cl9tKWnlu96Tl06pa00IU_bXk",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4231,7 +4242,7 @@
       "gym_hunter_id": null,
       "location": "53.755758,-1.523483",
       "image_url": "https://lh3.googleusercontent.com/LS9lqgKREYGHvfq_HoFANVe2zGaQNwCpU2313Y5uSz6yURknzNu1nWCGWvrIqX56_ESkn4IsmCblm3k5kYSOPw",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -4253,7 +4264,7 @@
       "gym_hunter_id": null,
       "location": "53.794408,-1.470746",
       "image_url": "https://lh3.googleusercontent.com/_RTtbZ7QrvBl1WkqkxT13C-bVqjLvycWiwKThC7bZUXWsRUqfRDzUbMRg8DgwXEc08IT9LqVcIfMGWWTjbgjwA",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4275,7 +4286,7 @@
       "gym_hunter_id": null,
       "location": "53.744753,-1.488242",
       "image_url": "https://lh3.ggpht.com/Fw9bN6SIYGnRjFM5qvT7gxnsDQuSewpQYfO5gcnlg_8Vq3EI15rsBQ4lHg9yj6ADPb92bCubVozT-CWcO3Sv",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4330,7 +4341,7 @@
       "gym_hunter_id": null,
       "location": "53.757703,-1.773139",
       "image_url": "https://lh6.ggpht.com/OYcBlG_JDxBIFS_FyFHRaDDBEAkIEP3RyYSb5vf9ouMfOJAa3XaOxDnESeo6mPfaDeEIqv_pQ30zFcrGn80I",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4341,7 +4352,7 @@
       "gym_hunter_id": null,
       "location": "53.757275,-1.77389",
       "image_url": "https://lh6.ggpht.com/IGuBTwChK2Xm0B2LmAH6_brVa5z9i-c_w6Yv533OTImcYElJdo9BCCz7EUAhHonSzj5zkufWJYW5ZbZqNik",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4385,7 +4396,7 @@
       "gym_hunter_id": null,
       "location": "53.813219,-1.635039",
       "image_url": "https://lh4.ggpht.com/xBXDIbXj8mS0rEk6fLGF8tpodzPVv7E2uM738xt94JN5r1c386yyiqQm5T73OwM45EY5Uxh8jN_JNBzTYcs",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4418,7 +4429,7 @@
       "gym_hunter_id": null,
       "location": "53.777736,-1.569984",
       "image_url": "https://lh3.googleusercontent.com/VxXZVTGXeFEBo9TXA5qa3m8A1KFXAxZI1ugffaPCIClomvbHVuyGN9IHMAKyMIqNDs4VtPCgOGLdgUIR6fdR",
-      "osm_way": "leisure=stadium"
+      "osm_way": null
     }
   },
   {
@@ -4440,7 +4451,7 @@
       "gym_hunter_id": null,
       "location": "53.829045,-1.691459",
       "image_url": "https://lh6.ggpht.com/_qRuDSX7zPpOPc5Ibe74xnC6Qk15Gd32QManLMIUi-YrusJ3lRoED-yQK9I55O-rVJMatecr6WEL0YOL9LfwZw",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4495,7 +4506,7 @@
       "gym_hunter_id": null,
       "location": "53.720962,-1.365226",
       "image_url": "https://lh6.ggpht.com/rHHBrra627bxWid9fdEX3qc1RTpKzchtdCtM4YmwF9l6H1b18pO7WsfuTMeqk51-1BwJ01QtE99hMYMMUNo",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4550,7 +4561,7 @@
       "gym_hunter_id": null,
       "location": "53.776275,-1.624845",
       "image_url": "https://lh4.ggpht.com/tAVMK0uSqdHQLjgi7qw3ef9YhoqASfOoIpPEmOIQT7yuRvMVrMnlngG8UhRhV83oa1QUEjpK4iUqYdNaDWPNgA",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4605,7 +4616,7 @@
       "gym_hunter_id": null,
       "location": "53.871521,-1.594347",
       "image_url": "https://lh3.ggpht.com/RS3vZnr3Gf5CZqRtJfaNc43mgFZtCfS8SY5wOR-x4-ssPGDbxCOD0XUELP6X5hFLKEAiYZbs9zyfNXvVcgulZA",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4616,7 +4627,7 @@
       "gym_hunter_id": null,
       "location": "53.87211,-1.594443",
       "image_url": "https://lh4.ggpht.com/2zdetZ7YPezdRpWOAEkDzGpuFGSG8Rwol48qCv2IZ7SQWFNgmGkgWNiU4qmzoU9KkixskJqEQNLzrDJbTQhV",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4627,7 +4638,7 @@
       "gym_hunter_id": null,
       "location": "53.870689,-1.595674",
       "image_url": "https://lh3.ggpht.com/4aFs33g8OreS7uIVPigiRIXqL94Jaq5dGpjMc6rQmgtf80TKH-D4eyYAFXftlV4s9fpAS_Am13N_eIk79GewHQ",
-      "osm_way": "leisure=nature_reserve"
+      "osm_way": null
     }
   },
   {
@@ -4682,7 +4693,7 @@
       "gym_hunter_id": null,
       "location": "53.813555,-1.520072",
       "image_url": "https://lh5.ggpht.com/e9KVBCpxxTiK7wIZrGJEh9RgxrULS9DkYWnqO-wbQr6X2tS0ykB3rfhobfUofo4ZW8pfBN5fbMvYjp40hjA",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -4693,7 +4704,7 @@
       "gym_hunter_id": null,
       "location": "53.812743,-1.521105",
       "image_url": "https://lh4.ggpht.com/lmTHM1QJxG2-Umvk8x7ohf573ChCw7Hn7tEc3e2kP12yRtNlXVrW28bygSPbo4kAkfxj3skIP0F9i1zsBL6N0Q",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -4704,7 +4715,7 @@
       "gym_hunter_id": null,
       "location": "53.827153,-1.592933",
       "image_url": "https://lh5.ggpht.com/UKQ_qlyEEte5jPzek00eFD9tWIR50xZQsgjciKo9JfjJP-kTdWESpgG2vooRDUxeZrJV_2dnYxcYgFySfLhaFQ",
-      "osm_way": "leisure=garden"
+      "osm_way": null
     }
   },
   {
@@ -4726,7 +4737,7 @@
       "gym_hunter_id": null,
       "location": "53.77271,-1.554396",
       "image_url": "https://lh6.ggpht.com/o_MnC5Pjrfetk8_KY4BMKeRVR3ZPjPZSJi2wiezGLHP5ff39fJYIjQ3LsImuENo46PuCL034KXDK_n2kPUuY",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4737,7 +4748,7 @@
       "gym_hunter_id": null,
       "location": "53.77903,-1.561993",
       "image_url": "https://lh6.ggpht.com/93OdvlBnNYU0f6tyrHGx8hIqxMtVjtoMM_l1hjIUpspR-WIQhcZUd94iQpxPxGai_NrTPNjmOlz9bcSmmwph",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4748,7 +4759,7 @@
       "gym_hunter_id": null,
       "location": "53.764395,-1.779864",
       "image_url": "https://lh3.ggpht.com/NI2OcscwhWh1i2YVt1oiH4VyCVzbV9oWctYNahRyeRYQSi4y81hyttq-pRxgYcA0oRSzZtwSQ-1uCUXxbQc",
-      "osm_way": "leisure=pitch"
+      "osm_way": null
     }
   },
   {
@@ -4770,7 +4781,7 @@
       "gym_hunter_id": null,
       "location": "53.721683,-1.590196",
       "image_url": "https://lh3.googleusercontent.com/zEkwaaAihiy-P2MswfajwOBDAuTIW4Ka4PsbXHrfaILllLlUsWdKfaZWCnSBORTHlpaI5HRUY1V6pAw5aZL1",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4792,7 +4803,7 @@
       "gym_hunter_id": null,
       "location": "53.807497,-1.561953",
       "image_url": "https://lh3.googleusercontent.com/BYTUP86f6pXwD0ITcLtHRKbtFlhupQySe5C8uIHbmvkQ_HYqdKEduY_BFwgkEhIXKHLxXpV11dFzkbPemkXn",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4836,7 +4847,7 @@
       "gym_hunter_id": null,
       "location": "53.831333,-1.576288",
       "image_url": "https://lh6.ggpht.com/kKCHDe7PuSepoAsXE7lUWsz1f_wj6YR7KPMOdrJ0R44B8wdDbw_9PMQGAaoRbKRPMzgsnEkdaw83Phwyxn0",
-      "osm_way": "leisure=recreation_ground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4858,7 +4869,7 @@
       "gym_hunter_id": null,
       "location": "53.831156,-1.572226",
       "image_url": "https://lh3.ggpht.com/KzwKkz3r6kokN5O0Mz8S90uiu7QIJQ4bCVQkNHY9tEgVbcb2gjnqroitIQVKXf-2ySktwUmUwPa3ZaqYhbA_KQ",
-      "osm_way": "leisure=recreation_ground"
+      "osm_way": null
     }
   },
   {
@@ -4869,7 +4880,7 @@
       "gym_hunter_id": null,
       "location": "53.828226,-1.566891",
       "image_url": "https://lh5.ggpht.com/alud_s99ydWcaY5TDGi1B8uGRfRKFMTM3-K8jOmI21qnv7aMaKznvI8hYqI4VVWsnY3oE_scRfKpkwAZeIrqFw",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4891,7 +4902,7 @@
       "gym_hunter_id": null,
       "location": "53.767908,-1.784407",
       "image_url": "https://lh3.ggpht.com/11VkM8w13DddYm4eAldlR27z7uglumMOfL_wXFjuN-0Ih3wrWsvlGEcm12hTUtKjPJTNkmQs-7462fOc9b_b",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -4924,7 +4935,7 @@
       "gym_hunter_id": null,
       "location": "53.745931,-1.471331",
       "image_url": "https://lh3.googleusercontent.com/_9dWi6_-uPOGFQNQbum7Xue7IMhfrWUsjTYuVhy0I8UNn-1zKXIaTqA4IhWk19FCCGuXmJlMWRGlwYIDk05Q",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -4946,7 +4957,7 @@
       "gym_hunter_id": null,
       "location": "53.795556,-1.485169",
       "image_url": "https://lh3.googleusercontent.com/ylfC8YIKfnCZppQrlGlElbVQ0k2r8Vi5-IOp9DJqHbA7quCRzT3gtSp0XqJxidjmPe6alPh3b_MjC6ood44",
-      "osm_way": "leisure=recreation_ground"
+      "osm_way": null
     }
   },
   {
@@ -5023,7 +5034,7 @@
       "gym_hunter_id": null,
       "location": "53.761451,-1.536514",
       "image_url": "https://lh3.googleusercontent.com/cPv70NeMu1ntpmVgX83vJAyWg1g6Q2fw1eEmuWB1c8aGevS9pIHt8DTb2ZebNm5403SkYBMAlCE4y_ynFgnO",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5034,7 +5045,7 @@
       "gym_hunter_id": null,
       "location": "53.762085,-1.534125",
       "image_url": "https://lh3.ggpht.com/DqTmGkaRq1j0OaMSnVdZok0CrMQkXtml621gKqX1ZenW-w4egoaSBjdyL_1wh2mKgmKuCrfVs_9A786T0A8d7w",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5045,7 +5056,7 @@
       "gym_hunter_id": null,
       "location": "53.758768,-1.532255",
       "image_url": "https://lh4.ggpht.com/B_6khxDWqTSeAWkHWD8FVvRqOqE8bP6Cp2NuNbXVlVmvRLkoq-s9__8z6QwSS0MILlWFjU8MmoUvyJwxRg",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5100,7 +5111,7 @@
       "gym_hunter_id": null,
       "location": "53.764335,-1.542333",
       "image_url": "https://lh5.ggpht.com/N1DWgAOoSbV1KmJWVjWr2dEyui93z8vRybsxVP9Xj_a4KrYOulF7VGu3v0cSNIP_HkpMj3iBjluZF9CzbNIxWA",
-      "osm_way": "leisure=sports_centre"
+      "osm_way": null
     }
   },
   {
@@ -5122,7 +5133,7 @@
       "gym_hunter_id": null,
       "location": "53.821646,-1.607258",
       "image_url": "https://lh3.googleusercontent.com/v8ulw2gc_AM65C9pOUl26LpjvuL4dPzHoDQX76dI-JSrkCCUkBD3af5-kTqyzgNZ4TSqs-GpVn0_l241ZjQ",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5144,7 +5155,7 @@
       "gym_hunter_id": null,
       "location": "53.765223,-1.540505",
       "image_url": "https://lh4.ggpht.com/FNOw3AiE044Q6LqGG1_tQz8na6Szv2kYvzLZJWUsSSwMGv0n5i1KeexHqWmjvcjLDZSLj2NJPo2DNYJjvDI",
-      "osm_way": "leisure=track"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5155,7 +5166,7 @@
       "gym_hunter_id": null,
       "location": "53.743271,-1.508571",
       "image_url": "https://lh3.ggpht.com/4EiLMYGsWiPlB-7eJj7rFdy7ZmZaXN0yglybRVUZHsvgCrYWR9L2jWnqHtNg8Zbl_-tr7dTNushJ9UMp830e",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5320,7 +5331,7 @@
       "gym_hunter_id": null,
       "location": "53.834895,-1.49667",
       "image_url": "https://lh3.ggpht.com/OrmyW3T72mHgCN_fSOsuXpM5XajYAB3WALX8W39KcTBBnhEoZVVRAHvoitMQjBlXdLbFsyzTgHKENJBWCXgGhw",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5419,7 +5430,7 @@
       "gym_hunter_id": null,
       "location": "53.776344,-1.547074",
       "image_url": "https://lh3.ggpht.com/L0QYgGo0V0b1BvWDGex-Rz4Xt2UMywG4gqQAGyrBSiyWQL3F3uGqBGfhSTj6tcw0fKq912sGG8Oce20aXGho",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5430,7 +5441,7 @@
       "gym_hunter_id": null,
       "location": "53.773882,-1.550462",
       "image_url": "https://lh6.ggpht.com/1eu6mzoe_5kKjaBoyeqRxde-ufga--dtDAiF5RrFlWUixgT4q430V9L9DTtiIyvVXicSvAUvr80NeUSc1Qy6",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5485,7 +5496,7 @@
       "gym_hunter_id": null,
       "location": "53.725054,-1.712245",
       "image_url": "https://lh6.ggpht.com/vSLeuN0S2JL21BTs75lyXhHetOM72_GVgs5hSchbOYU4jGqK7geTAYN780rac756zBYivalw6iHPvSn_tJxuNw",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5496,7 +5507,7 @@
       "gym_hunter_id": null,
       "location": "53.724797,-1.335059",
       "image_url": "https://lh4.ggpht.com/IeW4MUCcjQ7ajfSX30TFgTqM9ChrsvaCj4PHYfq7g0K_xR5yGXuj1vvk0iz0uZhFdypPD_E8cPn8NXmh0Cr-",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5573,7 +5584,7 @@
       "gym_hunter_id": null,
       "location": "53.866547,-1.603231",
       "image_url": "https://lh5.ggpht.com/29SRCFczf70tJX7kuO5TVKpbkZQUa8i4QUGCj7oZKGolvhkv1frZTsZMIe_W7yRIlkbiSQUqcQD1vuaKfpvD",
-      "osm_way": "leisure=nature_reserve"
+      "osm_way": null
     }
   },
   {
@@ -5595,7 +5606,7 @@
       "gym_hunter_id": null,
       "location": "53.819668,-1.557686",
       "image_url": "https://lh5.ggpht.com/hgQoriLca3gSp0bV0gu9Z3PeCmjOiNC9VvgS29kFpOhxYMufU7EFzG_o0vrKUmZPvVQZ8IvpdyO8NYBD6ylJZg",
-      "osm_way": "leisure=bandstand"
+      "osm_way": null
     }
   },
   {
@@ -5639,7 +5650,7 @@
       "gym_hunter_id": null,
       "location": "53.724599,-1.354989",
       "image_url": "https://lh4.ggpht.com/qGT7TmmInA38hUh7APYOgbDytv46tmZfzf5y2nITWr466QTbVB3WsC0mE5B3vd8bvdBCHodklDF_B95fj2k",
-      "osm_way": "leisure=social_club"
+      "osm_way": null
     }
   },
   {
@@ -5650,7 +5661,7 @@
       "gym_hunter_id": null,
       "location": "53.716137,-1.344014",
       "image_url": "https://lh3.googleusercontent.com/QpTVgtq-JtMy_T37Mjx7vvy05G2LpzvswOTEwWHOL3BBVR3CPduLa_Hmk1G6kqeCI8DapBTyb9wyNBkGTiYl",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -5727,7 +5738,7 @@
       "gym_hunter_id": null,
       "location": "53.8283,-1.689074",
       "image_url": "https://lh6.ggpht.com/v7GVt7nfY7LbbgdfsNvyRMRVfWuS7Ra4qHiYV7iGZ6U24as9MXh1DLwnBq2OotQJCkmACUPz8Su4ql4xkDoAVQ",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5815,7 +5826,7 @@
       "gym_hunter_id": null,
       "location": "53.839729,-1.495131",
       "image_url": "https://lh5.ggpht.com/c80EhqXGVE12oupkp7IGFrrpEg9Wm_GNfkk2_UbnHEd41VXVHCa1P9erSiDh71DiiJ4huqvdvSpCet1_PV0",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5826,7 +5837,7 @@
       "gym_hunter_id": null,
       "location": "53.841196,-1.492482",
       "image_url": "https://lh3.googleusercontent.com/mVxomFgci7rN2wrQNqcosVLdGoaga8jcmqKJfrMvw63aRnYZrOfMCsg1J-finEc8LTjvcXsBS1aXRUd2d3Mi",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -5848,7 +5859,7 @@
       "gym_hunter_id": null,
       "location": "53.852946,-1.685051",
       "image_url": "https://lh3.ggpht.com/BoxhWyAgcvgEBt6nf5N8yCScBul118WE-2mVqsys-uTf0IYLle1dUszo2zpwWMFLq2zHOq8H8wr3g1bdI98f",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -5859,7 +5870,7 @@
       "gym_hunter_id": null,
       "location": "53.81414,-1.638708",
       "image_url": "https://lh4.ggpht.com/dHJwGS3QrkhlfKlNYMk5r708y8rGAMTcWcrghv3yufkAFgiKtb9iZ7zPCKtkirCozU5mhbipL-13wKdvWmK6vg",
-      "osm_way": "leisure=sports_centre"
+      "osm_way": null
     }
   },
   {
@@ -5936,7 +5947,7 @@
       "gym_hunter_id": null,
       "location": "53.711994,-1.712097",
       "image_url": "https://lh6.ggpht.com/gxRIBHJAM3VjMrqWBcb-fj_Fz39WaUUDVuh6xC9UT6cEeYV4vviXl0VrxgXeS93ZBw4EV0_i_MQVoiUzERr7",
-      "osm_way": "leisure=pitch"
+      "osm_way": null
     }
   },
   {
@@ -5980,7 +5991,7 @@
       "gym_hunter_id": null,
       "location": "53.856884,-1.563945",
       "image_url": "https://lh3.googleusercontent.com/yDth0VfGMggN3SBvF7VZI1hyAGZuTzvIAKKJUZb22wInhvzq2pr5x0WhloM9cjhPN0mnAgxXlz96ct_Q_Wc",
-      "osm_way": "leisure=playground"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6046,7 +6057,7 @@
       "gym_hunter_id": null,
       "location": "53.750929,-1.693919",
       "image_url": "https://lh4.ggpht.com/MuvPwWqj54gtAy6UNNLY9lBKjNeghSX0d5XK6N513AIhDm8a4YoAIUoDwKhz222iBQIpDCL2LvFxNA04D5s",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6178,7 +6189,7 @@
       "gym_hunter_id": null,
       "location": "53.867134,-1.675514",
       "image_url": "https://lh5.ggpht.com/cfGAz-1GxmArf9B8YnUaK0RvL0Ld_ieCo4Mzdp2olPutpd3H9_I6vV-FGKq9frBb-g7SBwsBl5tquKLNieXxMg",
-      "osm_way": "leisure=slipway"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6189,7 +6200,7 @@
       "gym_hunter_id": null,
       "location": "53.766575,-1.790753",
       "image_url": "https://lh3.ggpht.com/PjODWdM-RjFQnmtpOG7ZE5q7AwjO6A6GgXGmRFIZFUvLyApR8YDA3qRgir9wzCgDq6ZyEwEPbZQ4bt2Dlqw",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6244,7 +6255,7 @@
       "gym_hunter_id": null,
       "location": "53.730219,-1.341283",
       "image_url": "https://lh6.ggpht.com/GC-HKzIhLR1vFn9nba4D851meSLGt__gO5oUV1LYyQBg2U8fYBYEBTT5RlwJz9iK1s93iV5U8X-onDHxycrWaA",
-      "osm_way": "leisure=stadium"
+      "osm_way": null
     }
   },
   {
@@ -6266,7 +6277,7 @@
       "gym_hunter_id": null,
       "location": "53.85614,-1.587302",
       "image_url": "https://lh4.ggpht.com/EV30WJpKk4FYgwr6cL9hZN03xvZYiCT7n_yvDobus6_cA7JfR7GyL1wnFyv4EH2zvrGvr5N8hXHId3443Nb1",
-      "osm_way": "leisure=sports_centre"
+      "osm_way": null
     }
   },
   {
@@ -6310,7 +6321,7 @@
       "gym_hunter_id": null,
       "location": "53.776075,-1.621624",
       "image_url": "https://lh3.ggpht.com/YsA4MPpqGwzgCFRqv_qQt03J8K4VsClYgjhyay-9VYZYWHj2fEcR4gDGe9ixwAI9QwlFLT3ms4aIMvHpmhBU",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6321,7 +6332,7 @@
       "gym_hunter_id": null,
       "location": "53.817678,-1.671765",
       "image_url": "https://lh5.ggpht.com/viwj2t0NrFmg3iW8q_WiEKMrMrb4hcwYZLtTUBNSDF2e9BPZxbOxGN7koDi8wAhojS_dPh3rVaFjA4tfJJ6Z6w",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6332,7 +6343,7 @@
       "gym_hunter_id": null,
       "location": "53.717808,-1.700022",
       "image_url": "https://lh6.ggpht.com/iyA1kq0vYn462u9ygl72XaM24q8EKGmI3cxe5j1NBQwExjpQu9VyA4X6_H5seAQ1j7VK3zqUrUcpPVzW8dM",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -6343,7 +6354,7 @@
       "gym_hunter_id": null,
       "location": "53.897213,-1.526899",
       "image_url": "https://lh5.ggpht.com/u5tlqs-zep8zwXWY1vTovS2EWMi5RDDal0O0bAWvAQeaXkB_I16qZ77i-7Nz2XQ-eYI-qNSsXXmBcV0EpsQu",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6365,7 +6376,7 @@
       "gym_hunter_id": null,
       "location": "53.811989,-1.771816",
       "image_url": "https://lh3.googleusercontent.com/I04b-0a4GY1RXWj2lH8mobZAycgHD4WLPhAsZfCD_LSXvMzrbOKr3dfHAEl6WBjBqvJbXDe-l_smz05RKcImVA",
-      "osm_way": "leisure=garden"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6376,7 +6387,7 @@
       "gym_hunter_id": null,
       "location": "53.813104,-1.773004",
       "image_url": "https://lh3.googleusercontent.com/qLZbVRJpFm_CF1uok-t6htBx8FeKbQQzpbiL0IS-j0eP9TNmGEIzXOLrNsGalXwY2QeGeHg9RyfOfgpp29Y",
-      "osm_way": "leisure=bandstand"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6387,7 +6398,7 @@
       "gym_hunter_id": null,
       "location": "53.8218,-1.344395",
       "image_url": "https://lh3.ggpht.com/WyiK5iuS0lqkXbh1oT5ZJIMkcyob2a0t61sl66rf8R-NyomtaojIygPNvN3Lx-g5M_wDiPj97t6SbwGchIQ",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -6398,7 +6409,7 @@
       "gym_hunter_id": null,
       "location": "53.719472,-1.506375",
       "image_url": "https://lh6.ggpht.com/QUqHIgUoPtmvw8jQIKWWqtQmWb1L8gqIrvdBzcDxuLOfGwdyUhDcyk-xZ8QndQklyGIchhc-JE0aXnb2ntih",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6442,7 +6453,7 @@
       "gym_hunter_id": null,
       "location": "53.894464,-1.6511",
       "image_url": "https://lh3.ggpht.com/WWde1CxKtncIYg7BnqMM-qIfKpYFOXLwt6qeGDIc4WUAZL8Vi6QcTPNnTlVjUpmmHGPvJ2f39NE0O9Mmm5J0",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -6453,7 +6464,7 @@
       "gym_hunter_id": null,
       "location": "53.893333,-1.660555",
       "image_url": "https://lh3.ggpht.com/k90O4EJZOKAHWYZizNhtAcJKHgsxfpWPBnGAgYcH1ihJoa6Z2iw5VRmbz2KUlDrxGWG0UC1HszcHfEZNzNWd_rPfGh1vUindJFQCg_6B5pe5u07y",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -6464,7 +6475,7 @@
       "gym_hunter_id": null,
       "location": "53.717983,-1.50827",
       "image_url": "https://lh3.ggpht.com/DCHEq4IhjYm2vl7NsVjqOhU8B1dfxpeqg77eAkt_lgzJ_Pb5DAMcxVdwQLdxZF_bGak_M6EwboIRMItYA87jvw",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6563,7 +6574,7 @@
       "gym_hunter_id": null,
       "location": "53.797186,-1.597383",
       "image_url": "https://lh3.ggpht.com/tUhZ6xRjDQIr8FbNEsCS34D-2GJs-PVCpUEa5xSX9lEuQHP8qwIifrmuRpxQtJRurOAb3vyJ0BPU24wbr2i6",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -6574,7 +6585,7 @@
       "gym_hunter_id": null,
       "location": "53.80566,-1.56639",
       "image_url": "https://lh4.ggpht.com/wv21hlxKXRdtRGlTiDBrWPxZC7MguBEDkowp09E0ZRbj3xtbrTdAbyNygV2tuO-gvDiW2tHZQDtATki_HwZdoQ",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -6651,7 +6662,7 @@
       "gym_hunter_id": null,
       "location": "53.732494,-1.666264",
       "image_url": "https://lh4.ggpht.com/O8jsvf79vBJc1V-FBs-18DndMAtIpu5jiWAYFj73VYBlo7z2n9GILif8GLO2QJH_UNv_BLAK8lLKFmJb-C2t",
-      "osm_way": "leisure=park"
+      "osm_way": null
     }
   },
   {
@@ -6695,7 +6706,7 @@
       "gym_hunter_id": null,
       "location": "53.835848,-1.589632",
       "image_url": "https://lh6.ggpht.com/_yE_jM42H-lbU4aps78P8M9tQxUr7_zn0XNXq2oPRoxj0RpTqTsC9YnZJqD5AGSlwpBjLot3ZZujSK9YmDUB",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6717,7 +6728,7 @@
       "gym_hunter_id": null,
       "location": "53.763518,-1.561675",
       "image_url": "https://lh3.ggpht.com/cZFsBINbstAQleHMITW82MJ6ld69r3lif_A1GYcfKuXo-Euw-1vQs5egBmyV7QFNxPAdINln_fctLtpYHaM",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -6750,7 +6761,7 @@
       "gym_hunter_id": null,
       "location": "53.825125,-1.589387",
       "image_url": "https://lh3.googleusercontent.com/pXlSvuH6h0tU8dEg3thSstVx2nj7y76YFOZtLSwxojUmZ4bzYSxv6Vude30qQq0tTpdH8WxrOtFhX__TnI410w",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6783,7 +6794,7 @@
       "gym_hunter_id": null,
       "location": "53.803843,-1.4407",
       "image_url": "https://lh3.googleusercontent.com/lwb4twLn1Rj8mvGfXGlm03yU_YK89-vYXvMW0bFBSFSK7tbD0JDLPCjpuOWfonjwFQh3D6YdqyGlxe9-gbTN",
-      "osm_way": "leisure=pitch"
+      "osm_way": null
     }
   },
   {
@@ -6805,7 +6816,7 @@
       "gym_hunter_id": null,
       "location": "53.804364,-1.604418",
       "image_url": "https://lh3.ggpht.com/JsNk6dTfdVVJ0L8hWoxB276cCyPzm8Nm1e5EPZ5W77Eaz--_7MID-kBM7RppQsim_sWMGXUHgjnRa7Lhl4Q",
-      "osm_way": "leisure=golf_course"
+      "osm_way": null
     }
   },
   {
@@ -6827,7 +6838,7 @@
       "gym_hunter_id": null,
       "location": "53.829833,-1.393924",
       "image_url": "https://lh3.googleusercontent.com/BD-jVSVY9wjGmPc64h_M6ILe_LI1aI7jnmJ_A2ohhqOd-QRSWeUHxEv0aDaoLQuj-WwyaG3ECB1NhPmd6o3t8w",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6871,7 +6882,7 @@
       "gym_hunter_id": null,
       "location": "53.793553,-1.672432",
       "image_url": "https://lh3.googleusercontent.com/ESKwahjXvVE4e6po9nJl8uQSxI_HAfVWIgWWfpTyFOy2fV4HoNP43Hrb1VLiN4bdedrmrnQWGSxzYPaGUrsC",
-      "osm_way": "leisure=pitch"
+      "osm_way": "leisure"
     }
   },
   {
@@ -6915,7 +6926,7 @@
       "gym_hunter_id": null,
       "location": "53.760944,-1.678722",
       "image_url": "https://lh3.ggpht.com/dTu01V25S9x4Nfutjb-XLIu48mdS1dXxQGH-Gmlv9kMVE3hBUHrcMnusZzuNrb87CGvuzHFuVsiYiD42vzXDOg",
-      "osm_way": "leisure=horse_riding"
+      "osm_way": null
     }
   },
   {
@@ -6926,7 +6937,7 @@
       "gym_hunter_id": null,
       "location": "53.723864,-1.538608",
       "image_url": "https://lh3.googleusercontent.com/CyOzaYyaR79WBdpL_GmGH2b3wMtC5oWgH62LcEb5eu_LSuEkgufoMaEjcmY-rcZooz0T6eGdzq3g-iEhrOhgDg",
-      "osm_way": null
+      "osm_way": "leisure"
     }
   },
   {
@@ -6948,7 +6959,7 @@
       "gym_hunter_id": null,
       "location": "53.751459,-1.470532",
       "image_url": "https://lh3.googleusercontent.com/dxEGK2TCKCepeoLJ486EAogEF3RcV6mYD49kWaWjmKnbtqQ-QV7A5EUsJMfA8sVVWOR1M2LQGI8tZMqjjTHQ",
-      "osm_way": "leisure=park"
+      "osm_way": "leisure"
     }
   },
   {
