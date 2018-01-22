@@ -6,7 +6,7 @@ psycopg2==2.7.3.2
 requests==2.18.4
 pyOpenSSL==17.5.0
 cfscrape==1.9.1
-raven==6.4.0
+raven==6.5.0
 whitenoise==3.3.1
 djangorestframework==3.7.7
 djangorestframework-jwt==1.11.0
