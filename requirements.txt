@@ -5,7 +5,7 @@ dj-database-url==0.4.2
 psycopg2==2.7.4
 requests==2.18.4
 pyOpenSSL==17.5.0
-cfscrape==1.9.3
+cfscrape==1.9.4
 raven==6.5.0
 whitenoise==3.3.1
 djangorestframework==3.7.7
