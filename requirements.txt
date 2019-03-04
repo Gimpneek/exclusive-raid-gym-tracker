@@ -8,7 +8,7 @@ pyOpenSSL==19.0.0
 cfscrape==1.9.5
 raven==6.10.0
 whitenoise==4.1.2
-djangorestframework==3.9.1
+djangorestframework==3.9.2
 djangorestframework-jwt==1.11.0
 overpy==0.4
 progressbar2==3.39.2
